@@ -7,6 +7,21 @@
  */
 'use strict';
 
+/* Phase 4A: silent usage counts via the existing GoatCounter script.
+   Fixed event names ONLY — never draft text, claim text, paper titles,
+   or any user input. Guarded: a no-op when GoatCounter is blocked or
+   absent, and it never throws. The full event dictionary lives in
+   docs/analytics.md; this list is the single enforcement point for
+   the papers app. */
+const VP_EVENTS = ["papers-check", "papers-references-export"];
+function vpCount(name) {
+  try {
+    if (!VP_EVENTS.includes(name)) return;
+    const gc = (typeof window !== "undefined") ? window.goatcounter : null;
+    if (gc && typeof gc.count === "function") gc.count({ path: name, event: true });
+  } catch (e) { /* analytics must never break the tool */ }
+}
+
 /* Faithful port of veripaper/verify/extract.py */
 const ABBREV = ['et al.', 'e.g.', 'i.e.', 'Fig.', 'fig.', 'Eq.', 'vs.', 'U.S.', 'U.K.'];
 const DOI_RE = /(?:https?:\/\/(?:dx\.)?doi\.org\/)?(10\.\d{4,}\/[^\s\]\"'<>]+)/gi;
@@ -1886,6 +1901,7 @@ function initGround() {
       const rep = document.createElement('div');
       rep.innerHTML = renderReport(evidence, { unit });
       out.appendChild(rep);
+      vpCount("papers-check");
       if (window.VP) { try { VP.recordGround(evidence); } catch {} }
       try {
         document.getElementById('exp-bib').addEventListener('click', () => {
@@ -1896,6 +1912,7 @@ function initGround() {
           a.href = URL.createObjectURL(blob);
           a.download = 'veripaper-references.bib';
           document.body.appendChild(a); a.click();
+          vpCount("papers-references-export");
           setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
         });
         document.getElementById('exp-doi').addEventListener('click', () => {
