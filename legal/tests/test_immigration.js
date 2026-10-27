@@ -2,10 +2,13 @@
 // Run: node tests/test_immigration.js
 // Guarantees: every extracted row is routed to at most one source line
 // by pattern, and NO immigration row is ever rendered as checked or
-// verified — BIA, INA, and 8 CFR rows always say "not yet connected"
-// with manual links, because no live lookup for them exists in this
-// page. Unclassifiable rows stay "unknown" and are never forced into
-// a category. No live lookup is performed by any of these tests.
+// verified — BIA and INA rows always say "not yet connected" with
+// manual links, because no live lookup for them exists in this
+// page. 8 CFR rows say "not yet connected" UNLESS they exactly match
+// the static eCFR Title 8 index (see test_imm8cfr.js for the matched
+// case); an unmatched 8 CFR row keeps the old wording. Unclassifiable
+// rows stay "unknown" and are never forced into a category. No live
+// lookup is performed by any of these tests.
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
