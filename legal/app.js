@@ -60,7 +60,18 @@ function reportStrings() {
     flagDuplicate: t.reportFlagDuplicate, flagMissingYear: t.reportFlagMissingYear,
     flagNoCaseName: t.reportFlagNoCaseName, flagInvalidReporter: t.reportFlagInvalidReporter,
     noFlags: t.reportNoFlags, citation: t.thCitation, caseName: t.thCaseName,
-    year: t.reportThYear, pin: t.reportThPin, label: t.thLabel, links: t.thLinks
+    year: t.reportThYear, pin: t.reportThPin, label: t.thLabel, links: t.thLinks,
+    byCategory: t.reportByCategory,
+    thCategory: t.reportThCategory, thAnomaly: t.reportThAnomaly,
+    thEvidence: t.reportThEvidence, thScope: t.reportThScope, thAction: t.reportThAction,
+    noAnomaly: t.reportNoAnomaly, noEvidence: t.reportNoEvidence,
+    scopeDisplay: t.reportScopeDisplay, scopeUnknown: t.reportScopeUnknown,
+    reportCatMatched: t.reportCatMatched, reportCatFieldMismatch: t.reportCatFieldMismatch,
+    reportCatNotFound: t.reportCatNotFound, reportCatCannotDetermine: t.reportCatCannotDetermine,
+    reportCatRetrievalFailed: t.reportCatRetrievalFailed,
+    reportActionMatched: t.reportActionMatched, reportActionFieldMismatch: t.reportActionFieldMismatch,
+    reportActionNotFound: t.reportActionNotFound, reportActionCannotDetermine: t.reportActionCannotDetermine,
+    reportActionRetrievalFailed: t.reportActionRetrievalFailed
   };
 }
 
@@ -80,8 +91,15 @@ function renderReport(results) {
         noCaseName: t.reportFlagNoCaseName, invalidReporter: t.reportFlagInvalidReporter }[f];
       return label + ": " + report.flagCounts[f];
     });
+  var catLabels = { matched: t.reportCatMatched, fieldMismatch: t.reportCatFieldMismatch,
+    notFound: t.reportCatNotFound, cannotDetermine: t.reportCatCannotDetermine,
+    retrievalFailed: t.reportCatRetrievalFailed };
+  var catParts = Object.keys(report.byCategory || {}).map(function (c) {
+    return catLabels[c] + ": " + report.byCategory[c];
+  });
   document.getElementById("reportSummary").textContent =
     t.reportTotal + ": " + report.total + " · " + t.reportByLabel + ": " + byLabel
+    + (catParts.length ? " · " + t.reportByCategory + ": " + catParts.join("; ") : "")
     + (flagParts.length ? " · " + t.reportStructureHeading + ": " + flagParts.join("; ") : "");
   var tbody = document.getElementById("reportRows");
   tbody.innerHTML = "";
@@ -90,10 +108,25 @@ function renderReport(results) {
       return { duplicate: t.reportFlagDuplicate, missingYear: t.reportFlagMissingYear,
         noCaseName: t.reportFlagNoCaseName, invalidReporter: t.reportFlagInvalidReporter }[fl];
     }).join("; ") : t.reportNoFlags;
+    var cat = (typeof reportDisplayCategory === "function")
+      ? reportDisplayCategory(row.label, row.caseName) : "cannotDetermine";
+    var catActions = { matched: t.reportActionMatched, fieldMismatch: t.reportActionFieldMismatch,
+      notFound: t.reportActionNotFound, cannotDetermine: t.reportActionCannotDetermine,
+      retrievalFailed: t.reportActionRetrievalFailed };
+    var anomaly = row.flags.length ? flagText : t.reportNoAnomaly;
+    var evParts = [];
+    if (row.caseName) evParts.push(t.thCaseName + ": " + row.caseName);
+    if (row.year) evParts.push(t.reportThYear + ": " + row.year);
+    if (row.pinCite) evParts.push(t.reportThPin + ": " + row.pinCite);
+    var evidence = evParts.length ? evParts.join("; ") : t.reportNoEvidence;
+    var scope = row.label === "NOT_CHECKED" ? t.reportScopeDisplay : t.reportScopeUnknown;
     var tr = document.createElement("tr");
     tr.innerHTML = "<td>" + row.index + "</td><td>" + esc(row.text) + "</td>"
       + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.year) + "</td>"
       + "<td>" + esc(row.pinCite) + "</td><td>" + esc(flagText) + "</td>"
+      + "<td>" + esc(catLabels[cat]) + "</td><td>" + esc(anomaly) + "</td>"
+      + "<td>" + esc(evidence) + "</td><td>" + esc(scope) + "</td>"
+      + "<td>" + esc(catActions[cat]) + "</td>"
       + "<td><a href=\"" + esc(row.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(t.openCourtListener) + "</a>"
       + " | <a href=\"" + esc(row.scholarUrl) + "\" target=\"_blank\" rel=\"noopener\">"
