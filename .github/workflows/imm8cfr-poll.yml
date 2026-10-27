@@ -1,0 +1,42 @@
+# 8 CFR static index poller (eCFR Title 8).
+#
+# Weekly on Sundays (plus manual dispatch), polls ONLY the eCFR
+# developer API versioner endpoints (titles + structure) and commits
+# data/imm-8cfr-index.json ONLY when it changed. No secrets, no keys,
+# no tokens: the eCFR versioner API is keyless, and the script
+# verifies TLS certificates (the --insecure flag is never passed
+# here).
+#
+# Weekly, not 6-hourly, on purpose: the owner has established that
+# core INA/8 CFR text changes rarely, so a weekly refresh of this
+# metadata-only index is proportionate; the browser UI always labels
+# the index time as an index time, never as a registry timestamp.
+#
+# The published JSON is a static, same-origin file that the legal
+# page reads; the browser page itself makes no third-party calls.
+
+name: imm8cfr-poll
+
+on:
+  schedule:
+    - cron: "0 15 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+      - name: Poll eCFR Title 8
+        run: python3 scripts/imm8cfr_poll.py
+      - name: Commit index if changed
+        run: |
+          git config user.name "imm8cfr-poller"
+          git config user.email "imm8cfr-poller@users.noreply.github.com"
+          git add data/imm-8cfr-index.json
+          git diff --cached --quiet || git commit -m "Update 8 CFR static index (eCFR Title 8)"
+          git push
