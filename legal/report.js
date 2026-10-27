@@ -68,6 +68,74 @@ function tier1FirstSeenText(item, t) {
   return tpl.replace("{source}", item.source).replace("{date}", String(item.first_seen).slice(0, 10));
 }
 
+/* ---- Immigration source routing (display-only) ----
+   A real immigration brief mixes federal court cases, BIA precedent
+   (Matter of), INA provisions, and 8 CFR provisions. This block only
+   CLASSIFIES an already-extracted row and names its source line; it
+   performs no lookup of any kind. NONE of the immigration sources is
+   connected to a live lookup in this page: BIA, INA, 8 CFR, and
+   8 U.S.C. rows
+   are always labelled "not yet connected" with manual links, and must
+   never be rendered as checked or verified. Classification is
+   pattern-based on the row text and case name; anything that does
+   not clearly match stays "unknown" and is never forced into a
+   category. The browser extractor now also emits BIA ("<vol> I&N Dec. <page>"),
+   INA ("INA \u00a7 <section>"), 8 CFR ("8 CFR \u00a7 <section>"), and
+   8 U.S.C. ("8 U.S.C. \u00a7 <section>") rows,
+   so those cites appear as rows and route here. Extraction only
+   makes them visible and routed; it never verifies them. */
+var IMM_MANUAL_URLS = {
+  biaDecisions: "https://www.justice.gov/eoir/ag-bia-decisions",
+  biaLibrary: "https://www.justice.gov/eoir/virtual-law-library",
+  aaoSearch: "https://www.uscis.gov/about-us/directorates-and-program-offices/administrative-appeals-office-aao/aao-non-precedent-decisions",
+  policyManual: "https://www.uscis.gov/policy-manual",
+  ecfrTitle8: "https://www.ecfr.gov/current/title-8",
+  olrcTitle8: "https://uscode.house.gov/download.html"
+};
+function immClassifyRow(row) {
+  var text = String((row && row.text) || "");
+  var name = String((row && row.caseName) || "");
+  var hay = text + " " + name;
+  if (/\(AAO\b/i.test(hay) || /\bAAO non-?precedent/i.test(hay)) return "aao";
+  if (/^\s*matter of\b/i.test(name) || /\bmatter of\b/i.test(name)
+    || /\bI&N Dec\./i.test(text)) return "bia";
+  if (/\bINA\s*§?\s*\d/i.test(text) || /\b8\s+U\.?S\.?C\.?\s*§?\s*\d/i.test(text)) return "statute";
+  if (/\b8\s*C\.?F\.?R\.?\s*§?\s*\d/i.test(text)) return "regulation";
+  if (row && row.reporter) return "court";
+  return "unknown";
+}
+function immSourceLine(type, t, row) {
+  // A U.S.C. row is a statute row, but labelling it "INA provision"
+  // would misidentify it, so it gets its own line (same honesty
+  // wording, correct source name). Callers may omit row; then the
+  // shared statute line is used, as before.
+  if (type === "statute" && row && row.reporter === "8 U.S.C.") {
+    return (t && t.immSourceUsc)
+      || "Source line: U.S. Code provision (8 U.S.C.) \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.";
+  }
+  var fallback = {
+    court: "Source line: Federal court case \u2014 CourtListener line (browser mode: no live lookup; check by hand with the links).",
+    bia: "Source line: BIA precedent \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.",
+    statute: "Source line: INA provision \u2014 not yet connected in this page; check by hand below. Note: lawyers cite INA \u00a7 numbers, the U.S. Code stores 8 U.S.C. \u00a7 numbers; this page does not yet map one numbering to the other, so it cannot confirm a section exists.",
+    regulation: "Source line: 8 CFR provision (eCFR) \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.",
+    aao: "Source line: AAO non-precedent decision \u2014 manual check only. Non-precedent decisions bind only the parties and may not be cited as authority.",
+    unknown: "Source line: Not identified \u2014 this row could not be routed to a source line; check by hand with the links."
+  };
+  var key = { court: "immSourceCourt", bia: "immSourceBia", statute: "immSourceStatute",
+    regulation: "immSourceRegulation", aao: "immSourceAao", unknown: "immSourceUnknown" }[type] || "immSourceUnknown";
+  return (t && t[key]) || fallback[type] || fallback.unknown;
+}
+function immLinkKeysFor(type) {
+  if (type === "bia") return [{ key: "immLinkBiaDecisions", url: IMM_MANUAL_URLS.biaDecisions },
+    { key: "immLinkBiaLibrary", url: IMM_MANUAL_URLS.biaLibrary }];
+  if (type === "statute") return [{ key: "immLinkOlrcTitle8", url: IMM_MANUAL_URLS.olrcTitle8 },
+    { key: "immLinkPolicyManual", url: IMM_MANUAL_URLS.policyManual }];
+  if (type === "regulation") return [{ key: "immLinkEcfrTitle8", url: IMM_MANUAL_URLS.ecfrTitle8 }];
+  if (type === "aao") return [{ key: "immLinkAaoSearch", url: IMM_MANUAL_URLS.aaoSearch },
+    { key: "immLinkBiaDecisions", url: IMM_MANUAL_URLS.biaDecisions }];
+  return [];
+}
+
 function buildHealthReport(results) {
   var counts = {};
   var catCounts = {};
@@ -82,21 +150,32 @@ function buildHealthReport(results) {
     var key = [r.volume || "", (r.reporter || "").toLowerCase(), r.page || ""].join(" ");
     var isDup = !!seen[key];
     seen[key] = true;
+    var immType = immClassifyRow(r);
+    // I&N Dec., INA, 8 CFR, and 8 U.S.C. are valid reporters for their own
+    // citation forms even though they are not in the court REPORTERS
+    // table; flagging them "invalid reporter" would be noise.
     var knownReporter = true;
     if (typeof REPORTERS !== "undefined" && r.reporter) {
-      knownReporter = REPORTERS.some(function (rep) { return rep.abbreviation === r.reporter; });
+      knownReporter = REPORTERS.some(function (rep) { return rep.abbreviation === r.reporter; })
+        || ["I&N Dec.", "INA", "8 CFR", "8 U.S.C."].indexOf(r.reporter) !== -1;
     }
+    // A statute / regulation cite has no case name and no year by
+    // nature: firing missing-year / no-case-name on every INA or CFR
+    // row would be noise, not a real defect. BIA rows keep both
+    // flags (a BIA cite normally carries a Matter of name and a year).
+    var isStatuteOrReg = immType === "statute" || immType === "regulation";
     var flags = [];
     if (isDup) flags.push("duplicate");
-    if (!r.year) flags.push("missingYear");
-    if (!r.caseName) flags.push("noCaseName");
+    if (!r.year && !isStatuteOrReg) flags.push("missingYear");
+    if (!r.caseName && !isStatuteOrReg) flags.push("noCaseName");
     if (!knownReporter) flags.push("invalidReporter");
     flags.forEach(function (f) { flagCounts[f] += 1; });
     rows.push({
       index: i + 1, text: r.text, volume: r.volume, reporter: r.reporter,
       page: r.page, pinCite: r.pinCite || null, caseName: r.caseName || null,
       year: r.year || null, label: label, category: category, flags: flags,
-      manualUrl: r.manualUrl, scholarUrl: r.scholarUrl
+      manualUrl: r.manualUrl, scholarUrl: r.scholarUrl,
+      immType: immType
     });
   });
   return { total: rows.length, byLabel: counts, byCategory: catCounts,
@@ -290,6 +369,11 @@ function healthReportMarkdown(report, t, human, runTime, tier1Find) {
       var _hit = tier1Find(row);
       if (_hit) firstSeen = " \u2014 " + tier1FirstSeenText(_hit, t);
     }
+    var _immType = row.immType || immClassifyRow(row);
+    var _immLine = immSourceLine(_immType, t, row);
+    var _immLinks = immLinkKeysFor(_immType).map(function (l) {
+      return "[" + f(l.key, l.key) + "](" + l.url + ")";
+    }).join(", ");
     lines.push("- [ ] **" + row.label + "** \u2014 " + row.text
       + (row.caseName ? " (" + row.caseName + ")" : "")
       + (row.year ? " (" + row.year + ")" : "")
@@ -298,6 +382,7 @@ function healthReportMarkdown(report, t, human, runTime, tier1Find) {
       + " \u2014 " + f("thCategory", "Category") + ": " + d.categoryLabel
       + " \u2014 " + f("thAnomaly", "Anomaly reason") + ": " + d.anomaly
       + " \u2014 " + f("thEvidence", "Matching evidence") + ": " + d.evidence + firstSeen
+      + " \u2014 " + _immLine + (_immLinks ? " (" + _immLinks + ")" : "")
       + " \u2014 " + f("thScope", "Check scope") + ": " + d.scope
       + " \u2014 " + f("thAction", "Suggested action") + ": " + d.action
       + " \u2014 " + f("reportThHumanStatus", "Human review") + ": " + humanText
@@ -334,7 +419,11 @@ function healthReportHtml(report, t, human, runTime, tier1Find) {
       + "<td>" + _escHtml(d.categoryLabel) + "</td>"
       + "<td>" + _escHtml(d.anomaly) + "</td>"
       + "<td>" + _escHtml(d.evidence)
-      + (function () { if (typeof tier1Find !== "function") return ""; var _h = tier1Find(row); return _h ? "<br>" + _escHtml(tier1FirstSeenText(_h, t)) : ""; })() + "</td>"
+      + (function () { if (typeof tier1Find !== "function") return ""; var _h = tier1Find(row); return _h ? "<br>" + _escHtml(tier1FirstSeenText(_h, t)) : ""; })()
+      + "<br>" + _escHtml(immSourceLine(row.immType || immClassifyRow(row), t, row))
+      + immLinkKeysFor(row.immType || immClassifyRow(row)).map(function (l) {
+          return " <a href=\"" + _escHtml(l.url) + "\">" + _escHtml(f(l.key, l.key)) + "</a>";
+        }).join(" | ") + "</td>"
       + "<td>" + _escHtml(d.scope) + "</td>"
       + "<td>" + _escHtml(d.action) + "</td>"
       + "<td>" + humanText + "</td>"
@@ -378,6 +467,7 @@ function healthReportHtml(report, t, human, runTime, tier1Find) {
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { buildHealthReport, healthReportMarkdown, healthReportHtml,
     tier1NormalizeCaseName, tier1FindLegal, tier1FirstSeenText,
+    immClassifyRow, immSourceLine, immLinkKeysFor, IMM_MANUAL_URLS,
     REPORT_FLAG_KEYS, reportDisplayCategory, reportCheckBasis,
     HUMAN_STATUSES, humanFor, humanStatusLabel, humanStatusCounts,
     humanSummaryText, reverifyRow };

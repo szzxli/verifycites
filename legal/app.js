@@ -48,13 +48,16 @@ function render(results) {
   tbody.innerHTML = "";
   results.forEach(function (r, i) {
     var tr = document.createElement("tr");
+    var immT = (typeof immClassifyRow === "function") ? immClassifyRow(r) : "unknown";
+    var manualLabel = (immT === "bia" || immT === "statute" || immT === "regulation" || immT === "aao")
+      ? T().openSourcePage : T().openCourtListener;
     tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + esc(r.text) + "</td>"
       + "<td>" + esc(r.caseName) + "</td><td>NOT_CHECKED</td>"
       + "<td>" + esc(standardCitation(r))
       + "<br><button type=\"button\" onclick=\"copyStandardFormat(" + i + ")\">"
       + esc(T().copyFormat) + "</button></td>"
       + "<td><a href=\"" + esc(r.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
-      + esc(T().openCourtListener) + "</a>"
+      + esc(manualLabel) + "</a>"
       + " | <a href=\"" + esc(r.scholarUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(T().searchScholar) + "</a></td>";
     tbody.appendChild(tr);
@@ -263,6 +266,14 @@ function renderReport(results) {
     if (row.year) evParts.push(t.reportThYear + ": " + row.year);
     if (row.pinCite) evParts.push(t.reportThPin + ": " + row.pinCite);
     var evidence = evParts.length ? evParts.join("; ") : t.reportNoEvidence;
+    /* Immigration source line (display-only, never a check result):
+       appended to the Matching evidence cell so every row names the
+       system it belongs to — or says it could not be routed. */
+    var immType = row.immType || (typeof immClassifyRow === "function" ? immClassifyRow(row) : "unknown");
+    var immHtml = "<br>" + esc(typeof immSourceLine === "function" ? immSourceLine(immType, t, row) : "")
+      + (typeof immLinkKeysFor === "function" ? immLinkKeysFor(immType).map(function (l) {
+          return " <a href=\"" + esc(l.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(t[l.key] || l.key) + "</a>";
+        }).join(" | ") : "");
     var scope = row.label === "NOT_CHECKED" ? t.reportScopeDisplay : t.reportScopeUnknown;
     var human = humanReviewFor(humanMap, row.text);
     var humanOptions = [["", t.reportHumanNotSet], ["confirmed", t.reportHumanConfirmed],
@@ -274,14 +285,14 @@ function renderReport(results) {
       + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.year) + "</td>"
       + "<td>" + esc(row.pinCite) + "</td><td>" + esc(flagText) + "</td>"
       + "<td>" + esc(catLabels[cat]) + "</td><td>" + esc(anomaly) + "</td>"
-      + "<td data-tier1-row=\"" + ri + "\">" + esc(evidence) + "</td><td>" + esc(scope) + "</td>"
+      + "<td data-tier1-row=\"" + ri + "\">" + esc(evidence) + immHtml + "</td><td>" + esc(scope) + "</td>"
       + "<td>" + esc(catActions[cat]) + "</td>"
       + "<td><select data-review=\"" + ri + "\" aria-label=\"" + esc(t.reportThHumanStatus) + "\">" + humanOptions + "</select>"
       + "<br><input data-note=\"" + ri + "\" value=\"" + esc(human.note) + "\" placeholder=\"" + esc(t.reportNotePlaceholder) + "\" aria-label=\"" + esc(t.reportHumanNote) + "\"></td>"
       + "<td><input data-edit=\"" + ri + "\" value=\"" + esc(row.text) + "\" placeholder=\"" + esc(t.reportEditPlaceholder) + "\" aria-label=\"" + esc(t.reportThReverify) + "\">"
       + "<br><button type=\"button\" data-reverify=\"" + ri + "\">" + esc(t.reportThReverify) + "</button></td>"
       + "<td><a href=\"" + esc(row.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
-      + esc(t.openCourtListener) + "</a>"
+      + esc((immType === "bia" || immType === "statute" || immType === "regulation" || immType === "aao") ? t.openSourcePage : t.openCourtListener) + "</a>"
       + " | <a href=\"" + esc(row.scholarUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(t.searchScholar) + "</a></td>";
     tbody.appendChild(tr);

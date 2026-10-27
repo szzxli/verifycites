@@ -125,6 +125,7 @@ function extractCitations(text) {
   const pattern = new RegExp(
     "\\b(\\d{1,4})\\s+(" + reporters.join("|") + ")\\s+(\\d{1,5})\\b", "g");
   const out = [];
+  const starts = [];
   let m;
   while ((m = pattern.exec(text)) !== null) {
     const start = m.index;
@@ -161,8 +162,96 @@ function extractCitations(text) {
       manualUrl: manualUrl,
       scholarUrl: "https://scholar.google.com/scholar?q=" + encodeURIComponent('"' + m[0] + '"'),
     });
+    starts.push(start);
   }
-  return out;
+
+  // Immigration citations. These are NOT volume+reporter+page court
+  // cites, so they are matched by their own patterns and merged with
+  // the court rows in text order. They are extraction only: the rows
+  // are still browser-mode NOT_CHECKED, and the immigration source
+  // lines in report.js label them "not yet connected" — extraction
+  // makes them visible and routable, never verified.
+  const scholar = (cite) =>
+    "https://scholar.google.com/scholar?q=" + encodeURIComponent('"' + cite + '"');
+
+  // BIA precedent: "30 I&N Dec. 185", with a preceding
+  // "Matter of <name>," (anonymised forms like "Matter of M-K-" work;
+  // the name runs to the comma). Year from a following "(BIA YYYY)"
+  // parenthetical via the same rule as court cites; absent, the row
+  // carries no year and the missing-year flag fires (a real defect
+  // for a BIA cite, which normally carries a year).
+  const biaPattern = /\b(\d{1,3})\s+I&N Dec\.\s+(\d{1,5})\b/g;
+  while ((m = biaPattern.exec(text)) !== null) {
+    const start = m.index;
+    const before = text.slice(Math.max(0, start - 160), start);
+    const matter = [...before.matchAll(/Matter of\s+([A-Za-z0-9][^,;\n]{0,60}?)\s*,/g)].pop()
+      || [...before.matchAll(/Matter of\s+([A-Za-z0-9][^,;\n]{0,60}?)\s*$/g)].pop();
+    const name = matter ? "Matter of " + matter[1].trim().replace(/\s+/g, " ") : null;
+    out.push({
+      text: m[0], volume: m[1], reporter: "I&N Dec.", page: m[2],
+      pinCite: null, caseName: name,
+      year: yearBelongingToCitation(text, m.index + m[0].length),
+      manualUrl: "https://www.justice.gov/eoir/ag-bia-decisions",
+      scholarUrl: scholar(m[0]),
+    });
+    starts.push(start);
+  }
+
+  // INA provisions: "INA § 208", "INA § 101(a)(15)(L)". No case name
+  // and no year apply to a statute cite, so volume is null and the
+  // section string is carried in page (reporter "INA"); report.js
+  // suppresses the missing-year / no-case-name flags for these rows.
+  const inaPattern = /\bINA\s*§?\s*(\d{1,4}(?:\([^)]{1,20}\))*)/g;
+  while ((m = inaPattern.exec(text)) !== null) {
+    out.push({
+      text: m[0], volume: null, reporter: "INA", page: m[1],
+      pinCite: null, caseName: null, year: null,
+      manualUrl: "https://uscode.house.gov/download.html",
+      scholarUrl: scholar(m[0]),
+    });
+    starts.push(m.index);
+  }
+
+  // 8 CFR provisions: "8 CFR 208.18", "8 CFR § 103.3(c)",
+  // "8 C.F.R. § 103.3(c)". The reporter is normalised to "8 CFR"
+  // for both spellings so duplicates are recognised; the text field
+  // keeps the citation exactly as written. Same row shape and
+  // flag rules as INA rows.
+  const cfrPattern = /\b8\s*C\.?F\.?R\.?\s*§?\s*(\d{1,4}\.\d{1,4}(?:\([^)]{1,20}\))*)/g;
+  while ((m = cfrPattern.exec(text)) !== null) {
+    out.push({
+      text: m[0], volume: null, reporter: "8 CFR", page: m[1],
+      pinCite: null, caseName: null, year: null,
+      manualUrl: "https://www.ecfr.gov/current/title-8",
+      scholarUrl: scholar(m[0]),
+    });
+    starts.push(m.index);
+  }
+
+  // 8 U.S.C. provisions: "8 U.S.C. § 1158", "8 U.S.C. § 1101(a)(15)(L)",
+  // "8 USC 1158". Same row shape and flag rules as INA rows
+  // (reporter "8 U.S.C.", section string in page; manual link is the
+  // OLRC Title 8 download page). Overlap note: the court pattern
+  // cannot match a substring of this span, because it requires digits
+  // immediately after the reporter — "8 U.S. 100" is a court cite, but
+  // this pattern requires the C of U.S.C. — so no suppression step is
+  // needed; the single-row guard test proves it.
+  const uscPattern = /\b8\s*U\.?S\.?C\.?\s*§?\s*(\d{1,4}(?:\([^)]{1,20}\))*)/g;
+  while ((m = uscPattern.exec(text)) !== null) {
+    out.push({
+      text: m[0], volume: null, reporter: "8 U.S.C.", page: m[1],
+      pinCite: null, caseName: null, year: null,
+      manualUrl: "https://uscode.house.gov/download.html",
+      scholarUrl: scholar(m[0]),
+    });
+    starts.push(m.index);
+  }
+
+  // Merge in text order. Row objects carry no start field: the sort
+  // index is computed here and discarded, so reports and downloads
+  // see exactly the same row shape as before.
+  const order = out.map((_, i) => i).sort((a, b) => starts[a] - starts[b]);
+  return order.map((i) => out[i]);
 }
 
 /* Standard format for one extracted row, assembled ONLY from fields the
@@ -172,6 +261,14 @@ function extractCitations(text) {
    follow the California Style Manual, not Bluebook) and NOT a
    verification result — the case may still not exist. */
 function standardCitation(r) {
+  // Statute / regulation rows have no volume: the section string is
+  // the citation, so the standard format is the section cite with a
+  // normalised section sign (pure spacing/punctuation normalisation,
+  // the same job this function does for court cites). It is NOT a
+  // certified Bluebook citation and NOT a verification result.
+  if (r.reporter === "INA") return "INA \u00a7 " + (r.page || "");
+  if (r.reporter === "8 CFR") return "8 CFR \u00a7 " + (r.page || "");
+  if (r.reporter === "8 U.S.C.") return "8 U.S.C. \u00a7 " + (r.page || "");
   var cite = [r.volume, r.reporter, r.page].filter(Boolean).join(" ");
   if (r.pinCite) cite += ", " + r.pinCite;
   var out = "";

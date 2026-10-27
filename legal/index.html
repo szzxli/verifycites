@@ -94,6 +94,7 @@
         <button class="text-button" type="button" onclick="clearInput()" data-copy="clearInput">Clear text</button>
       </div>
       <p class="browser-mode-prenote" data-i18n="extractPreNote">Browser mode only extracts citation formats — it does not check cases online. Click a result link to confirm manually, or use the CLI below for a full check.</p>
+      <p class="results-guide"><a href="#immigration" data-i18n="immCheckerLink">Immigration brief? See how each citation type is routed →</a></p>
       <p id="file-status" class="file-status" aria-live="polite"></p>
       <div id="check-feedback" class="feedback-line" role="status" aria-live="polite" hidden></div>
 
@@ -237,6 +238,25 @@ python -m legalcite check brief.md --md report.md
           <p><a class="source-link" href="https://github.com/szzxli/legal-cite-check#full-check-with-courtlistener-cli" target="_blank" rel="noopener noreferrer" data-copy="readFullGuide">Read the full CLI guide on GitHub ↗</a></p>
         </div>
       </details>
+    </section>
+
+    <section class="utility-card" id="immigration" aria-labelledby="immigration-title">
+      <div class="section-heading">
+        <span class="section-number section-number-small" aria-hidden="true">06</span>
+        <span class="summary-copy"><span class="section-kicker" data-i18n="immSectionKicker">Optional guide</span><span class="summary-title" id="immigration-title" data-i18n="immSectionTitle">Immigration citations</span></span>
+      </div>
+      <p data-i18n="immSectionIntro">An immigration brief mixes federal court cases, BIA precedent (Matter of), INA provisions, and 8 CFR provisions. This page classifies each extracted row and names its source line; immigration rows are not yet looked up live.</p>
+      <p data-i18n="immSectionNotCovered">Not yet covered: no live BIA, INA, or 8 CFR lookup in this page; no judgment on whether a case supports your argument or is still good law. A BIA precedent can be overruled, and circuit precedent controls; some Title 8 provisions may be enjoined, so eCFR text alone never proves a provision is currently in effect. The core statute and regulation text (INA, 8 CFR) changes rarely; what changes more often is policy guidance and new BIA precedent.</p>
+      <p data-i18n="immSectionMemo">Memo-currency rule: a memo's currency is shown only when the official source itself states supersession, rescission, or replacement — never inferred from list presence or absence.</p>
+      <p data-i18n="immSectionLinksIntro">Check by hand at the official sources:</p>
+      <ul>
+        <li><a href="https://www.justice.gov/eoir/ag-bia-decisions" target="_blank" rel="noopener" data-i18n="immLinkBiaDecisions">EOIR Agency Decisions (BIA precedent volumes)</a></li>
+        <li><a href="https://www.justice.gov/eoir/virtual-law-library" target="_blank" rel="noopener" data-i18n="immLinkBiaLibrary">EOIR Virtual Law Library (recent decisions)</a></li>
+        <li><a href="https://www.uscis.gov/about-us/directorates-and-program-offices/administrative-appeals-office-aao/aao-non-precedent-decisions" target="_blank" rel="noopener" data-i18n="immLinkAaoSearch">USCIS AAO non-precedent decisions search</a></li>
+        <li><a href="https://www.uscis.gov/policy-manual" target="_blank" rel="noopener" data-i18n="immLinkPolicyManual">USCIS Policy Manual</a></li>
+        <li><a href="https://www.ecfr.gov/current/title-8" target="_blank" rel="noopener" data-i18n="immLinkEcfrTitle8">eCFR Title 8 (Aliens and Nationality)</a></li>
+        <li><a href="https://uscode.house.gov/download.html" target="_blank" rel="noopener" data-i18n="immLinkOlrcTitle8">OLRC Title 8 download (U.S. Code bulk XML)</a></li>
+      </ul>
     </section>
 
     <footer class="site-footer">
