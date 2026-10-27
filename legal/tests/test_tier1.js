@@ -35,7 +35,10 @@ const INDEX = {
 assert.strictEqual(tier1NormalizeCaseName("FCC v. Brown"), "fcc v brown");
 assert.strictEqual(
   tier1NormalizeCaseName("BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL."),
-  "berkeley homeless union et al v city of berkeley et al");
+  "berkeley homeless union v city of berkeley");
+assert.strictEqual(
+  tier1NormalizeCaseName("Berkeley Homeless Union v. City of Berkeley"),
+  "berkeley homeless union v city of berkeley");
 
 // (b) Exact match, case-insensitive, with year agreement.
 let hit = tier1FindLegal(INDEX, { caseName: "FCC v. Brown", year: "2026" });
@@ -45,6 +48,11 @@ hit = tier1FindLegal(INDEX, { caseName: "fcc v. brown", year: null });
 assert.ok(hit, "name match without a row year must still match");
 hit = tier1FindLegal(INDEX, { caseName: "Berkeley Homeless Union, et al. v. City of Berkeley, et al.", year: "2026" });
 assert.ok(hit && hit.source === "Ninth Circuit", "all-caps index title must match");
+// Live-site probe case (2026-10-27): extracted name carries no "et al."
+// while the seed index title carries it twice — must still match.
+hit = tier1FindLegal(INDEX, { caseName: "Berkeley Homeless Union v. City of Berkeley", year: "2026" });
+assert.ok(hit && hit.source === "Ninth Circuit" && hit.identifier === "26-842",
+  "extracted name without et al. must match the seed index title");
 
 // (c) No match: wrong year, wrong name, no case name, paper items ignored.
 assert.strictEqual(tier1FindLegal(INDEX, { caseName: "FCC v. Brown", year: "2025" }), null,
