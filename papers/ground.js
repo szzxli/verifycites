@@ -22,6 +22,47 @@ function vpCount(name) {
   } catch (e) { /* analytics must never break the tool */ }
 }
 
+/* ---- Tier-1 first-seen matching (display-only) ----
+   Matches an evidence item against the static Tier-1 first-seen
+   index (../data/tier1-index.json, published by scripts/tier1_poll.py)
+   on an EXACT identifier basis only: DOI (case-insensitive, prefix
+   stripped) or arXiv ID (prefix stripped, version suffix stripped).
+   A match means only that the poller first observed an item with
+   this identifier at the named direct source on the stated date; it
+   is NOT a verification result and NOT an existence proof. No match
+   produces no text at all: absence from the index is never worded
+   as "not found". */
+function vpTier1NormDoi(d) {
+  return String(d || "").trim().toLowerCase()
+    .replace(/^doi:\s*/i, "").replace(/^https?:\/\/(dx\.)?doi\.org\//i, "")
+    .replace(/[.,;\)]+$/, "");
+}
+function vpTier1NormArxiv(a) {
+  return String(a || "").trim().toLowerCase()
+    .replace(/^arxiv:/i, "").replace(/v\d+$/, "");
+}
+function vpTier1FindPaper(index, e) {
+  if (!index || !index.items || !e) return null;
+  const doi = vpTier1NormDoi(e.doi);
+  const ax = vpTier1NormArxiv(e.arxiv_id);
+  if (!doi && !ax) return null;
+  for (const it of index.items) {
+    if (it.kind !== "paper") continue;
+    if (doi) {
+      if (it.doi && vpTier1NormDoi(it.doi) === doi) return it;
+      if (vpTier1NormDoi(it.identifier) === doi) return it;
+    }
+    if (ax && vpTier1NormArxiv(it.identifier) === ax) return it;
+  }
+  return null;
+}
+function vpTier1NoteHtml(tier1) {
+  if (!tier1 || !tier1.meta) return `<div style="margin-bottom:18px;font-size:13px;color:var(--ink-soft)">Tier-1 first-seen index unavailable.</div>`;
+  const names = (tier1.meta.sources || []).map(x => x.name).join(", ");
+  const time = tier1.meta.last_poll || "";
+  return `<div style="margin-bottom:18px;font-size:13px;color:var(--ink-soft)">Tier-1 first-seen index: direct sources in this index: ${names}. Index last polled ${time} (index time, not a registry timestamp). First-seen dates below are when this index first observed the item, not publication dates.</div>`;
+}
+
 /* Faithful port of veripaper/verify/extract.py */
 const ABBREV = ['et al.', 'e.g.', 'i.e.', 'Fig.', 'fig.', 'Eq.', 'vs.', 'U.S.', 'U.K.'];
 const DOI_RE = /(?:https?:\/\/(?:dx\.)?doi\.org\/)?(10\.\d{4,}\/[^\s\]\"'<>]+)/gi;
@@ -1768,7 +1809,8 @@ function renderReport(evidence, ropts) {
     `<div style="margin-bottom:18px;font-size:13px;color:var(--ink-soft)">Check basis: each claim was looked up in the registries above and, where a record was found, its abstract was screened for support. ` +
     `Sources: Crossref, DataCite, arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar (last resort). ` +
     `This check ran in your browser at ${new Date().toLocaleString()} (your browser's local run time, not a registry timestamp). ` +
-    `Per-item check time: not recorded in this report.</div>`;
+    `Per-item check time: not recorded in this report.</div>`
+    + vpTier1NoteHtml(ropts && ropts.tier1);
   evidence.forEach((e, i) => {
     const tags = (e.label || '').split(' ').slice(1).map(t =>
       `<span class="label ${/CHIMERIC|RETRACTED/.test(t) ? 'l-unverified' : /KEYLESS-NLI/.test(t) ? 'l-cited' : 'l-stale'}">${gesc(t)}</span>`).join(' ');
@@ -1824,6 +1866,11 @@ function renderReport(evidence, ropts) {
       (doiLink ? `<div style="color:var(--ink-soft);font-size:13px">${doiLink}</div>` : '') +
       (arxivLink ? `<div style="color:var(--ink-soft);font-size:13px">${arxivLink}</div>` : '') +
       vpFieldDiff(e) +
+      (function () {
+        const hit = (ropts && ropts.tier1) ? vpTier1FindPaper(ropts.tier1, e) : null;
+        if (!hit) return "";
+        return `<div style="margin-top:4px;color:var(--ink-soft)">First seen at ${gesc(hit.source)} on ${gesc(String(hit.first_seen).slice(0, 10))}</div>`;
+      })() +
       `<div style="margin-top:6px;color:var(--ink-soft)">Anomaly reason: ${gesc(anomaly)}</div>` +
       `<div style="margin-top:4px;color:var(--ink-soft)">Check scope: registry lookup; support judgments are abstract-level only — the full text was not checked. Item check time: not recorded.</div>` +
       `<div style="margin-top:4px">Suggested action: ${gesc(action)}</div>` +
@@ -1899,7 +1946,12 @@ function initGround() {
       out.innerHTML = '';
       out.appendChild(bar);
       const rep = document.createElement('div');
-      rep.innerHTML = renderReport(evidence, { unit });
+      let tier1 = null;
+      try {
+        const _r = await fetch('../data/tier1-index.json', { cache: 'no-store' });
+        if (_r.ok) tier1 = await _r.json();
+      } catch (_) { /* Tier-1 note renders as unavailable */ }
+      rep.innerHTML = renderReport(evidence, { unit, tier1 });
       out.appendChild(rep);
       vpCount("papers-check");
       if (window.VP) { try { VP.recordGround(evidence); } catch {} }
