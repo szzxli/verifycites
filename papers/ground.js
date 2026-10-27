@@ -1629,15 +1629,39 @@ function labelClass(base) {
     RATE_LIMITED: 'l-stale', INVALID_DOI: 'l-unverified', FABRICATED: 'l-unverified' }[base] || 'l-cited';
 }
 
+/* Display-only category derivation for renderReport. It reads only the
+   already-computed base label and tags; it never recomputes a verdict.
+   UNVERIFIED cannot be split from the evidence object (it carries no
+   searched-vs-unresolvable flag), so it always maps to "Cannot be
+   determined". RETRACTED and STALE are warnings on a matched record, not
+   separate categories. */
+function vpDisplayCategory(e) {
+  const tags = (e.label || '').split(' ').slice(1);
+  const has = (re) => tags.some(t => re.test(t));
+  if (e.base === 'RATE_LIMITED') return 'retrievalFailed';
+  if (e.base === 'FABRICATED') return 'notFound';
+  if (e.base === 'INVALID_DOI') return 'fieldMismatch';
+  if (has(/CHIMERIC/)) return 'fieldMismatch';
+  if (e.base === 'UNVERIFIED') return 'cannotDetermine';
+  if (e.base === 'ABSTRACT-SUPPORTED' || e.base === 'CITED') return 'matched';
+  return 'cannotDetermine';
+}
+const VP_CATEGORY_LABEL = {
+  matched: 'Matched', fieldMismatch: 'Field mismatch', notFound: 'Not found',
+  cannotDetermine: 'Cannot be determined', retrievalFailed: 'Retrieval failed'
+};
+
 function renderReport(evidence, ropts) {
   const unit = (ropts && ropts.unit) || 'claims';
   const counts = { 'ABSTRACT-SUPPORTED': 0, CITED: 0, UNVERIFIED: 0, RATE_LIMITED: 0, INVALID_DOI: 0, FABRICATED: 0 };
+  const catCounts = { matched: 0, fieldMismatch: 0, notFound: 0, cannotDetermine: 0, retrievalFailed: 0 };
   let staleN = 0, chimericN = 0, retractedN = 0;
   for (const e of evidence) {
     counts[e.base] = (counts[e.base] || 0) + 1;
-    if (/\[STALE:/.test(e.label)) staleN++;
-    if (/\[CHIMERIC/.test(e.label)) chimericN++;
-    if (/\[RETRACTED\]/.test(e.label)) retractedN++;
+    catCounts[vpDisplayCategory(e)]++;
+    if (/\[STALE:/.test(e.label || '')) staleN++;
+    if (/\[CHIMERIC/.test(e.label || '')) chimericN++;
+    if (/\[RETRACTED\]/.test(e.label || '')) retractedN++;
   }
   let html = `<div style="margin-bottom:18px;font-size:14.5px">` +
     `<b>${evidence.length}</b> ${unit} checked &nbsp;·&nbsp; ` +
@@ -1651,26 +1675,78 @@ function renderReport(evidence, ropts) {
     (chimericN ? ` <span class="label l-unverified">CHIMERIC ×${chimericN}</span>` : '') +
     (retractedN ? ` <span class="label l-unverified">RETRACTED ×${retractedN}</span>` : '') +
     (_vpCacheHits ? ` <span style="font-size:12px;color:var(--ink-soft)">· ${_vpCacheHits} served from local cache</span>` : '') +
-    `</div>`;
+    `</div>` +
+    `<div style="margin-bottom:18px;font-size:14.5px">Category: ` +
+    `Matched ${catCounts.matched} · Field mismatch ${catCounts.fieldMismatch} · ` +
+    `Not found ${catCounts.notFound} · Cannot be determined ${catCounts.cannotDetermine} · ` +
+    `Retrieval failed ${catCounts.retrievalFailed}</div>` +
+    `<div style="margin-bottom:18px;font-size:13px;color:var(--ink-soft)">Check scope: registry lookup ` +
+    `(Crossref, DataCite, arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar as a last resort); ` +
+    `any support judgment is abstract-level only — the full text was not checked.</div>`;
   evidence.forEach((e, i) => {
-    const tags = e.label.split(' ').slice(1).map(t =>
+    const tags = (e.label || '').split(' ').slice(1).map(t =>
       `<span class="label ${/CHIMERIC|RETRACTED/.test(t) ? 'l-unverified' : /KEYLESS-NLI/.test(t) ? 'l-cited' : 'l-stale'}">${gesc(t)}</span>`).join(' ');
+    const cat = vpDisplayCategory(e);
+    const isChimeric = /\[CHIMERIC/.test(e.label || '');
+    const isRetracted = /\[RETRACTED\]/.test(e.label || '');
+    const isStale = /\[STALE:/.test(e.label || '');
+    const existence = e.base === 'FABRICATED' ? 'Identifier not found in its registry'
+      : e.base === 'INVALID_DOI' ? 'Not checked — invalid identifier'
+      : e.base === 'UNVERIFIED' ? 'Not confirmed'
+      : e.base === 'RATE_LIMITED' ? 'Not checked'
+      : 'Found';
+    const support = e.base === 'ABSTRACT-SUPPORTED' ? 'Abstract-level support (full text not checked)'
+      : e.base === 'CITED' ? 'Support not determined' : '—';
+    /* FABRICATED rows do not repeat the engine note verbatim: it says
+       "fabricated or mistyped". The display wording is the registry fact
+       only — the identifier was checked and was not found there. */
+    const anomaly = e.base === 'FABRICATED'
+      ? 'The identifier for this citation was checked against its registry and was not found there.'
+      : (e.note || '—');
+    const evParts = [];
+    if (e.authors && e.authors.length) {
+      const authorsHtml = e.authors.map(a => gesc(a)).join(', ');
+      evParts.push(isChimeric ? `Authors: <b>${authorsHtml}</b> (listed authors do not match the record)` : `Authors: ${authorsHtml}`);
+    }
+    if (e.venue) evParts.push(`Venue: ${gesc(e.venue)}`);
+    if (e.year) evParts.push(`Year: ${gesc(e.year)}`);
+    const doiLink = e.doi
+      ? `<a href="https://doi.org/${encodeURIComponent(e.doi)}" target="_blank" rel="noopener">DOI: ${gesc(e.doi)}</a>` : '';
+    const arxivId = (e.arxiv_id || '').replace(/^arXiv:/i, '');
+    const arxivLink = arxivId
+      ? `<a href="https://arxiv.org/abs/${encodeURIComponent(arxivId)}" target="_blank" rel="noopener">arXiv: ${gesc(arxivId)}</a>` : '';
+    let action = cat === 'matched' && e.base === 'ABSTRACT-SUPPORTED'
+      ? 'Read the original before relying on it; for key claims, check the full text.'
+      : cat === 'matched' ? 'Support is not determined — check the full text; author decides.'
+      : cat === 'fieldMismatch' ? 'Compare the fields above with the record, correct the entry, then re-check.'
+      : cat === 'notFound' ? 'Recheck the identifier in its registry, correct it, or remove the citation.'
+      : cat === 'retrievalFailed' ? 'Try again later.'
+      : 'Check spelling, add a DOI or arXiv ID, or search the registries by hand.';
+    if (isRetracted) action += ' Do not cite a retracted paper as support.';
     html += `<div class="claim open" style="cursor:default">` +
       `<p><b>${i + 1}.</b> ${gesc(e.claim)}</p>` +
       `<div class="verdict" style="display:block">` +
       `<span class="label ${labelClass(e.base)}">${gesc(e.base)}</span>` +
       (tags ? ' ' + tags : '') +
+      `<div style="margin-top:6px">Category: <b>${VP_CATEGORY_LABEL[cat]}</b>` +
+      ` · Existence: ${gesc(existence)} · Support: ${gesc(support)}</div>` +
+      (isRetracted ? `<div style="margin-top:4px"><b>Retracted warning:</b> this paper has been retracted — do not cite it as support.</div>` : '') +
+      (isStale ? `<div style="margin-top:4px">Freshness reminder: the data for this record may be out of date — re-confirm against the original source.</div>` : '') +
       (e.title ? `<div style="margin:8px 0 4px"><b>${gesc(e.title)}</b></div>` : '') +
-      (e.doi ? `<div style="color:var(--ink-soft);font-size:13px">DOI: ${gesc(e.doi)}</div>` : '') +
-      `<div style="margin-top:6px;color:var(--ink-soft)">${gesc(e.note)}</div>` +
+      (evParts.length ? `<div style="color:var(--ink-soft);font-size:13px">${evParts.join(' · ')}</div>` : '') +
+      (doiLink ? `<div style="color:var(--ink-soft);font-size:13px">${doiLink}</div>` : '') +
+      (arxivLink ? `<div style="color:var(--ink-soft);font-size:13px">${arxivLink}</div>` : '') +
+      `<div style="margin-top:6px;color:var(--ink-soft)">Anomaly reason: ${gesc(anomaly)}</div>` +
+      `<div style="margin-top:4px;color:var(--ink-soft)">Check scope: registry lookup; support judgments are abstract-level only — the full text was not checked.</div>` +
+      `<div style="margin-top:4px">Suggested action: ${gesc(action)}</div>` +
       `</div></div>`;
   });
   html += `<p style="font-size:12.5px;color:var(--ink-soft);margin-top:14px">` +
     `Labels: ABSTRACT-SUPPORTED = the abstract substantively supports the claim's key assertion (full text NOT checked — supporting evidence may live in the paper body); CITED = source exists but support is uncertain/unchecked (author decides); ` +
     `UNVERIFIED = no record found or marker not resolvable (absence of evidence, not evidence of fabrication); ` +
-    `FABRICATED = identifier checked against its registry and found not to exist — fabricated or mistyped; ` +
+    `FABRICATED = identifier checked against its registry and found not to exist (identifier not found in its registry); recheck the identifier, correct it, or remove the citation; ` +
     `RATE_LIMITED = sources were rate-limited or could not be reached (offline, blocked, server error) while checking — not checked, NOT proven fake; ` +
-    `INVALID_DOI = DOI format invalid (not a well-formed DOI; likely mistyped or fabricated); ` +
+    `INVALID_DOI = DOI format invalid (not a well-formed DOI; likely mistyped); ` +
     `[STALE:YYYY] = data older than the freshness window; ` +
     `[CHIMERIC:author-mismatch] = title matches a real paper but the listed authors do not; ` +
     `[RETRACTED] = the paper has been retracted — do not cite it as support; ` +
