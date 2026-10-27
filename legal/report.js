@@ -72,18 +72,27 @@ function tier1FirstSeenText(item, t) {
    A real immigration brief mixes federal court cases, BIA precedent
    (Matter of), INA provisions, and 8 CFR provisions. This block only
    CLASSIFIES an already-extracted row and names its source line; it
-   performs no lookup of any kind. NONE of the immigration sources is
-   connected to a live lookup in this page: BIA, INA, 8 CFR, and
-   8 U.S.C. rows
-   are always labelled "not yet connected" with manual links, and must
-   never be rendered as checked or verified. Classification is
-   pattern-based on the row text and case name; anything that does
-   not clearly match stays "unknown" and is never forced into a
-   category. The browser extractor now also emits BIA ("<vol> I&N Dec. <page>"),
-   INA ("INA \u00a7 <section>"), 8 CFR ("8 CFR \u00a7 <section>"), and
-   8 U.S.C. ("8 U.S.C. \u00a7 <section>") rows,
-   so those cites appear as rows and route here. Extraction only
-   makes them visible and routed; it never verifies them. */
+   performs no lookup of any kind. BIA, INA, and 8 U.S.C. rows are
+   always labelled "not yet connected" with manual links, and must
+   never be rendered as checked or verified. 8 CFR rows are the one
+   exception: a row whose section EXACTLY matches an entry in the
+   static eCFR Title 8 index (data/imm-8cfr-index.json, published by
+   scripts/imm8cfr_poll.py) shows a "Found in eCFR Title 8" line with
+   the section title and the index-level currency signals — and ONLY
+   then stops saying "not yet connected". An 8 CFR row with no exact
+   match keeps the old wording; absence from the index is never
+   worded as "not found" or "does not exist", because the index may
+   have coverage gaps. A match is NOT a good-law verdict: the
+   enjoined-provision warning still applies (see the #immigration
+   subsection), and eCFR text alone never proves a provision is
+   currently in effect. Classification is pattern-based on the row
+   text and case name; anything that does not clearly match stays
+   "unknown" and is never forced into a category. The browser
+   extractor emits BIA ("<vol> I&N Dec. <page>"), INA ("INA §
+   <section>"), 8 CFR ("8 CFR § <section>"), and 8 U.S.C. ("8 U.S.C. §
+   <section>") rows, so those cites appear as rows and route here.
+   Extraction only makes them visible and routed; it never verifies
+   them. */
 var IMM_MANUAL_URLS = {
   biaDecisions: "https://www.justice.gov/eoir/ag-bia-decisions",
   biaLibrary: "https://www.justice.gov/eoir/virtual-law-library",
@@ -104,7 +113,13 @@ function immClassifyRow(row) {
   if (row && row.reporter) return "court";
   return "unknown";
 }
-function immSourceLine(type, t, row) {
+function immSourceLine(type, t, row, imm8cfr) {
+  // A matched 8 CFR row stops saying "not yet connected": the static
+  // eCFR index match replaces the regulation line, and only the
+  // regulation line. Every other type keeps its honesty wording.
+  if (type === "regulation" && imm8cfr && imm8cfr.entry) {
+    return imm8cfrFoundText(imm8cfr, t);
+  }
   // A U.S.C. row is a statute row, but labelling it "INA provision"
   // would misidentify it, so it gets its own line (same honesty
   // wording, correct source name). Callers may omit row; then the
@@ -134,6 +149,49 @@ function immLinkKeysFor(type) {
   if (type === "aao") return [{ key: "immLinkAaoSearch", url: IMM_MANUAL_URLS.aaoSearch },
     { key: "immLinkBiaDecisions", url: IMM_MANUAL_URLS.biaDecisions }];
   return [];
+}
+
+/* ---- 8 CFR static-index matching (display-only) ----
+   Matches a regulation row against data/imm-8cfr-index.json on an
+   EXACT section basis only: the row's section (subsection letters
+   stripped, e.g. "103.3(c)" -> "103.3") must equal an index entry's
+   section string. Section titles are source data and are never
+   translated. A match means only that the poller observed this
+   section in eCFR Title 8 with this title; it is NOT an existence
+   proof for any other purpose, NOT a good-law verdict, and NOT a
+   claim about the cited subsection's content. No match produces
+   no found text at all: the row keeps its "not yet connected"
+   wording, because absence from the index may be a coverage gap.
+   Non-regulation rows never match, even if their text happens to
+   contain a section-like number. */
+function imm8cfrNormalizeSection(row) {
+  var page = String((row && row.page) || "");
+  var stripped = page.replace(/\([^)]*\)/g, "").trim();
+  if (/^\d+\.\d+$/.test(stripped)) return stripped;
+  var m = String((row && row.text) || "").match(/\b8\s*C\.?F\.?R\.?\s*§?\s*(\d+\.\d+)/i);
+  return m ? m[1] : null;
+}
+function imm8cfrFind(index, row) {
+  if (!index || !index.sections || !row) return null;
+  if (immClassifyRow(row) !== "regulation") return null;
+  if (row.reporter && row.reporter !== "8 CFR") return null;
+  var section = imm8cfrNormalizeSection(row);
+  if (!section) return null;
+  for (var i = 0; i < index.sections.length; i++) {
+    if (index.sections[i].section === section) {
+      return { entry: index.sections[i], meta: index.meta || {} };
+    }
+  }
+  return null;
+}
+function imm8cfrFoundText(found, t) {
+  if (!found || !found.entry) return null;
+  var meta = found.meta || {};
+  var tpl = (t && t.imm8cfrFound)
+    || "Found in eCFR Title 8 \u2014 {title} (index up to date as of {upToDate}; index time {lastPoll}, not a registry timestamp)";
+  return tpl.replace("{title}", String(found.entry.title || ""))
+    .replace("{upToDate}", String(meta.up_to_date_as_of || "not recorded"))
+    .replace("{lastPoll}", String(meta.last_poll || "not recorded"));
 }
 
 function buildHealthReport(results) {
@@ -326,7 +384,7 @@ function _flagLabel(flag, t) {
    for any key the caller does not supply. `human` (optional) is the
    human-review lookup described above; its column is separate from the
    machine Category and never merged into it. */
-function healthReportMarkdown(report, t, human, runTime, tier1Find) {
+function healthReportMarkdown(report, t, human, runTime, tier1Find, imm8cfrFindFn) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   // Fixed English notice, in English in every language version: the report
@@ -370,7 +428,8 @@ function healthReportMarkdown(report, t, human, runTime, tier1Find) {
       if (_hit) firstSeen = " \u2014 " + tier1FirstSeenText(_hit, t);
     }
     var _immType = row.immType || immClassifyRow(row);
-    var _immLine = immSourceLine(_immType, t, row);
+    var _imm8cfr = (typeof imm8cfrFindFn === "function") ? imm8cfrFindFn(row) : null;
+    var _immLine = immSourceLine(_immType, t, row, _imm8cfr);
     var _immLinks = immLinkKeysFor(_immType).map(function (l) {
       return "[" + f(l.key, l.key) + "](" + l.url + ")";
     }).join(", ");
@@ -391,7 +450,7 @@ function healthReportMarkdown(report, t, human, runTime, tier1Find) {
   return lines.join("\n") + "\n";
 }
 
-function healthReportHtml(report, t, human, runTime, tier1Find) {
+function healthReportHtml(report, t, human, runTime, tier1Find, imm8cfrFindFn) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   var labelRows = Object.keys(report.byLabel).map(function (label) {
@@ -420,7 +479,8 @@ function healthReportHtml(report, t, human, runTime, tier1Find) {
       + "<td>" + _escHtml(d.anomaly) + "</td>"
       + "<td>" + _escHtml(d.evidence)
       + (function () { if (typeof tier1Find !== "function") return ""; var _h = tier1Find(row); return _h ? "<br>" + _escHtml(tier1FirstSeenText(_h, t)) : ""; })()
-      + "<br>" + _escHtml(immSourceLine(row.immType || immClassifyRow(row), t, row))
+      + "<br>" + _escHtml(immSourceLine(row.immType || immClassifyRow(row), t, row,
+          (typeof imm8cfrFindFn === "function") ? imm8cfrFindFn(row) : null))
       + immLinkKeysFor(row.immType || immClassifyRow(row)).map(function (l) {
           return " <a href=\"" + _escHtml(l.url) + "\">" + _escHtml(f(l.key, l.key)) + "</a>";
         }).join(" | ") + "</td>"
@@ -468,6 +528,7 @@ if (typeof module !== "undefined" && module.exports) {
   module.exports = { buildHealthReport, healthReportMarkdown, healthReportHtml,
     tier1NormalizeCaseName, tier1FindLegal, tier1FirstSeenText,
     immClassifyRow, immSourceLine, immLinkKeysFor, IMM_MANUAL_URLS,
+    imm8cfrNormalizeSection, imm8cfrFind, imm8cfrFoundText,
     REPORT_FLAG_KEYS, reportDisplayCategory, reportCheckBasis,
     HUMAN_STATUSES, humanFor, humanStatusLabel, humanStatusCounts,
     humanSummaryText, reverifyRow };

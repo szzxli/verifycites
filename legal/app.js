@@ -186,6 +186,44 @@ function tier1FindForRow(row) {
   if (!__tier1Index) return null;
   return (typeof tier1FindLegal === "function") ? tier1FindLegal(__tier1Index, row) : null;
 }
+
+/* ---- 8 CFR static index (same-origin static file only) ----
+   Mirrors the Tier-1 pattern: the page reads only
+   ../data/imm-8cfr-index.json, published by scripts/imm8cfr_poll.py.
+   A regulation row with an exact section match shows the "Found in
+   eCFR Title 8" line; unmatched rows keep their "not yet connected"
+   wording. If the fetch fails, every row simply keeps the old
+   wording — a missing index is never presented as a negative
+   result. */
+var __imm8cfrIndex = null;
+var __imm8cfrLoaded = false;
+function imm8cfrLoad() {
+  if (__imm8cfrLoaded) return Promise.resolve(__imm8cfrIndex);
+  __imm8cfrLoaded = true;
+  return fetch("../data/imm-8cfr-index.json", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error("index fetch " + r.status); return r.json(); })
+    .then(function (j) { __imm8cfrIndex = j; return j; })
+    .catch(function () { __imm8cfrIndex = null; return null; });
+}
+function imm8cfrFindForRow(row) {
+  if (!__imm8cfrIndex) return null;
+  return (typeof imm8cfrFind === "function") ? imm8cfrFind(__imm8cfrIndex, row) : null;
+}
+function imm8cfrApplyFound() {
+  if (!__imm8cfrIndex) return;
+  var t = T();
+  document.querySelectorAll("[data-imm8cfr-row]").forEach(function (cell) {
+    var ri = parseInt(cell.getAttribute("data-imm8cfr-row"), 10);
+    var report = window.__lastReport;
+    if (!report || !report.rows || !report.rows[ri]) return;
+    var hit = imm8cfrFindForRow(report.rows[ri]);
+    if (!hit) return;
+    var span = cell.querySelector(".imm-source-line");
+    if (!span || span.classList.contains("imm8cfr-applied")) return;
+    span.textContent = imm8cfrFoundText(hit, t);
+    span.classList.add("imm8cfr-applied");
+  });
+}
 function tier1ApplyFirstSeen() {
   if (!__tier1Index) return;
   var t = T();
@@ -242,6 +280,7 @@ function renderReport(results) {
      registry timestamp. Per-item times are not recorded (see
      reportCheckBasis). */
   tier1Load().then(function () { tier1RenderNote(); tier1ApplyFirstSeen(); });
+  imm8cfrLoad().then(function () { imm8cfrApplyFound(); });
   var basisEl = document.getElementById("reportBasis");
   if (basisEl && typeof reportCheckBasis === "function") {
     var basis = reportCheckBasis(report, reportStrings(), new Date().toLocaleString());
@@ -270,7 +309,9 @@ function renderReport(results) {
        appended to the Matching evidence cell so every row names the
        system it belongs to — or says it could not be routed. */
     var immType = row.immType || (typeof immClassifyRow === "function" ? immClassifyRow(row) : "unknown");
-    var immHtml = "<br>" + esc(typeof immSourceLine === "function" ? immSourceLine(immType, t, row) : "")
+    var immHtml = "<br><span class=\"imm-source-line\">"
+      + esc(typeof immSourceLine === "function" ? immSourceLine(immType, t, row, imm8cfrFindForRow(row)) : "")
+      + "</span>"
       + (typeof immLinkKeysFor === "function" ? immLinkKeysFor(immType).map(function (l) {
           return " <a href=\"" + esc(l.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(t[l.key] || l.key) + "</a>";
         }).join(" | ") : "");
@@ -285,7 +326,7 @@ function renderReport(results) {
       + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.year) + "</td>"
       + "<td>" + esc(row.pinCite) + "</td><td>" + esc(flagText) + "</td>"
       + "<td>" + esc(catLabels[cat]) + "</td><td>" + esc(anomaly) + "</td>"
-      + "<td data-tier1-row=\"" + ri + "\">" + esc(evidence) + immHtml + "</td><td>" + esc(scope) + "</td>"
+      + "<td data-tier1-row=\"" + ri + "\" data-imm8cfr-row=\"" + ri + "\">" + esc(evidence) + immHtml + "</td><td>" + esc(scope) + "</td>"
       + "<td>" + esc(catActions[cat]) + "</td>"
       + "<td><select data-review=\"" + ri + "\" aria-label=\"" + esc(t.reportThHumanStatus) + "\">" + humanOptions + "</select>"
       + "<br><input data-note=\"" + ri + "\" value=\"" + esc(human.note) + "\" placeholder=\"" + esc(t.reportNotePlaceholder) + "\" aria-label=\"" + esc(t.reportHumanNote) + "\"></td>"
@@ -323,7 +364,7 @@ function downloadReportMd() {
   if (!window.__lastReport) return;
   vcCount("legal-report-download");
   downloadBlob(healthReportMarkdown(window.__lastReport, reportStrings(), humanReviewLoad(),
-    new Date().toLocaleString(), tier1FindForRow),
+    new Date().toLocaleString(), tier1FindForRow, imm8cfrFindForRow),
     "citation-health-report.md", "text/markdown");
 }
 
@@ -331,7 +372,7 @@ function downloadReportHtml() {
   if (!window.__lastReport) return;
   vcCount("legal-report-download");
   downloadBlob(healthReportHtml(window.__lastReport, reportStrings(), humanReviewLoad(),
-    new Date().toLocaleString(), tier1FindForRow),
+    new Date().toLocaleString(), tier1FindForRow, imm8cfrFindForRow),
     "citation-health-report.html", "text/html");
 }
 
