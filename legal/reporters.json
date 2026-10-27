@@ -1,0 +1,76 @@
+{
+  "reporters": [
+    {
+      "abbreviation": "U.S.",
+      "slug": "us"
+    },
+    {
+      "abbreviation": "S. Ct.",
+      "slug": null
+    },
+    {
+      "abbreviation": "F.2d",
+      "slug": null
+    },
+    {
+      "abbreviation": "F.3d",
+      "slug": null
+    },
+    {
+      "abbreviation": "F.4th",
+      "slug": null
+    },
+    {
+      "abbreviation": "F. Supp. 2d",
+      "slug": null
+    },
+    {
+      "abbreviation": "F. Supp. 3d",
+      "slug": null
+    },
+    {
+      "abbreviation": "F. App'x",
+      "slug": "f-appx"
+    },
+    {
+      "abbreviation": "S.W.3d",
+      "slug": "sw3d"
+    },
+    {
+      "abbreviation": "S.W.2d",
+      "slug": null
+    },
+    {
+      "abbreviation": "N.E.3d",
+      "slug": null
+    },
+    {
+      "abbreviation": "N.E.2d",
+      "slug": null
+    },
+    {
+      "abbreviation": "P.3d",
+      "slug": null
+    },
+    {
+      "abbreviation": "P.2d",
+      "slug": null
+    },
+    {
+      "abbreviation": "So. 3d",
+      "slug": null
+    },
+    {
+      "abbreviation": "So. 2d",
+      "slug": null
+    },
+    {
+      "abbreviation": "Cal. Rptr. 3d",
+      "slug": null
+    },
+    {
+      "abbreviation": "Cal. Rptr. 2d",
+      "slug": null
+    }
+  ]
+}

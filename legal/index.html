@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18324b">
+  <meta name="description" content="Extract case citations from legal text in your browser, then review source links. This tool does not provide legal advice or verify legal validity.">
+  <title>legal-cite-check — does the case you cited exist?</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../site-nav.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-copy="skipToContent">Skip to content</a>
+  <header class="vc-nav"><div class="vc-nav-inner"><a class="vc-nav-brand" href="/">verifycites</a><nav class="vc-nav-links" aria-label="Site"><a href="/">Home</a><a href="/legal/" aria-current="page">Legal</a><a href="/papers/">Papers</a></nav></div></header>
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="legal-cite-check home" data-aria-copy="brandHome">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M8 4.75h10l6 6v16.5H8a2 2 0 0 1-2-2v-18a2.5 2.5 0 0 1 2-2.5Z" stroke="currentColor" stroke-width="1.7"/><path d="M18 5v6h6M11 17.2l3.1 3.1 6.8-7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="brand-word">legal-cite-check</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation" data-aria-copy="navLabel">
+        <a href="#checker" data-copy="navCheck">Citation checker</a>
+        <a href="#briefing" data-copy="navBriefing">Briefing</a>
+        <a href="#translation" data-copy="navTranslation">Translate</a>
+        <a href="#cli" data-copy="navCli">CLI guide</a>
+      </nav>
+      <label class="language-picker">
+        <span class="sr-only" data-copy="languageLabel">Language</span>
+        <span class="language-icon" aria-hidden="true">文</span>
+        <select id="lang" onchange="setLang(this.value)" aria-label="Language" data-aria-copy="languageLabel">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="zh">中文</option>
+        </select>
+      </label>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-copy="heroKicker">A focused workspace for cited cases</span></p>
+        <h1 id="page-title" data-i18n="heading">Does every case in your brief actually exist?</h1>
+        <p class="hero-lede" data-i18n="subtitle">Paste your motion or brief. The tool pulls out every citation and shows you a link to check it yourself — nothing leaves your browser.</p>
+      </div>
+      <div class="hero-facts" aria-label="How the browser tool works">
+        <div class="fact-row"><span class="fact-icon fact-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-copy="factLocal">Citation extraction runs in this browser</span></div>
+        <div class="fact-row"><span class="fact-icon fact-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5v5l3.2 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factNoLookup">Browser mode does not look up cases</span></div>
+        <div class="fact-row"><span class="fact-icon fact-icon-amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 20 7v5.2c0 4.1-3.2 6.9-8 8.3-4.8-1.4-8-4.2-8-8.3V7l8-3.5Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12.1h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factNoAdvice">Not legal advice</span></div>
+      </div>
+    </section>
+
+    <div class="trust-panel" id="disclaimer">
+      <div class="trust-heading"><span class="trust-symbol" aria-hidden="true">i</span><span data-copy="trustSummary">Important limits — please read</span></div>
+      <div class="trust-content">
+        <p data-i18n="disclaimer">Not legal advice. This tool only checks whether a cited case exists in CourtListener and whether the case name matches. It does not check whether the case supports your argument, whether quotes or pin cites are accurate, or whether the case is still good law. A case marked NOT FOUND may still exist (CourtListener's coverage is incomplete); a case marked VERIFIED may still be wrong for your purpose. Read every case you cite.</p>
+        <p class="trust-note" data-i18n="disclaimerNote">The English disclaimer above is authoritative.</p>
+      </div>
+    </div>
+
+    <section class="workspace-card" id="checker" aria-labelledby="checker-title">
+      <div class="section-heading">
+        <div class="section-number" aria-hidden="true">01</div>
+        <div>
+          <p class="section-kicker" data-copy="primaryTask">Primary task</p>
+          <h2 id="checker-title" data-copy="checkerTitle">Extract citations from a document</h2>
+          <p class="section-description" data-copy="checkerDescription">Paste legal text or upload a plain-text file. Review the extracted citations and open each source to check it yourself.</p>
+        </div>
+      </div>
+
+      <div class="input-block">
+        <div class="label-line">
+          <label for="input" class="field-label" data-copy="inputLabel">Document text</label>
+          <span class="field-meta" data-copy="inputMeta">Text is processed in this browser</span>
+        </div>
+        <textarea id="input" data-i18n-placeholder="inputPlaceholder" placeholder="Paste your brief, motion, or letter text here..." rows="9" aria-describedby="input-help validation-error"></textarea>
+        <div class="input-footer">
+          <p id="input-help" class="field-hint" data-copy="inputHint">The browser tool extracts citation patterns only. It does not send this text to CourtListener.</p>
+          <span id="char-count" class="char-count" aria-live="polite">0 characters</span>
+        </div>
+        <p id="validation-error" class="validation-message" role="alert" hidden></p>
+      </div>
+
+      <div class="action-row">
+        <div class="primary-actions">
+          <button class="button button-primary" id="checkBtn" onclick="check()" data-i18n="check">Extract citations</button>
+          <label class="button button-secondary upload-button" for="briefFile"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15V4m0 0L8 8m4-4 4 4M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-copy="uploadFile">Upload .txt file</span></label>
+          <input class="visually-hidden" id="briefFile" type="file" accept=".txt,text/plain" onchange="openFile(this)">
+          <button class="button button-quiet" type="button" onclick="loadSample()" data-copy="trySample">Try a sample</button>
+        </div>
+        <button class="text-button" type="button" onclick="clearInput()" data-copy="clearInput">Clear text</button>
+      </div>
+      <p class="browser-mode-prenote" data-i18n="extractPreNote">Browser mode only extracts citation formats — it does not check cases online. Click a result link to confirm manually, or use the CLI below for a full check.</p>
+      <p id="file-status" class="file-status" aria-live="polite"></p>
+      <div id="check-feedback" class="feedback-line" role="status" aria-live="polite" hidden></div>
+
+      <div class="results-section" aria-labelledby="results-heading">
+        <div class="results-heading-row">
+          <h3 id="results-heading" data-copy="resultsHeading">Extracted citations</h3>
+          <div class="export-actions">
+            <button class="button button-small button-secondary" id="copyMarkdownBtn" onclick="exportMarkdown()" data-i18n="copyMarkdown" disabled>Copy Markdown checklist</button>
+            <button class="button button-small button-secondary" id="downloadJsonBtn" onclick="exportJson()" data-i18n="downloadJson" disabled>Download JSON</button>
+          </div>
+        </div>
+        <p id="count" class="result-count" role="status" aria-live="polite"></p>
+        <div id="resultsEmpty" class="empty-state">
+          <span class="empty-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M9 5h9l6 6v16H9a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/><path d="M18 5v6h6M11 16h10M11 20h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          <div><strong data-copy="resultsPlaceholder">Your extracted citations will appear here.</strong><p data-copy="resultsPlaceholderHint">Start by pasting text above or loading the sample.</p></div>
+        </div>
+        <p class="label-legend" data-i18n="labelLegend">VERIFIED = the case exists and the case name matches. MISMATCH = the case name at that citation differs from the one you wrote. NOT_FOUND = no case at that citation in CourtListener's database.</p>
+        <div class="table-wrap" id="resultsWrap" hidden>
+          <table class="data-table results-table">
+            <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="thLabel">Label</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
+            <tbody id="results"></tbody>
+          </table>
+        </div>
+        <div class="not-checked-note"><span class="note-dot" aria-hidden="true"></span><p data-copy="browserModeNote">Every result in browser mode is marked NOT_CHECKED. Use the links to verify manually, or see the CLI guide for the full CourtListener check.</p></div>
+        <p class="results-guide"><a href="#cli" data-i18n="resultsCliGuide">All NOT_CHECKED? Use the CLI for a full check →</a></p>
+        <div class="report-section" id="reportSection" hidden>
+          <h3 data-i18n="reportHeading">Citation health report</h3>
+          <p id="reportSummary" class="report-summary" role="status" aria-live="polite"></p>
+          <p class="report-note" data-i18n="reportNotCheckedNote">Browser mode: every citation below is NOT_CHECKED. This report summarizes what was extracted; it does not verify any case. Check each case by hand using the links.</p>
+          <p class="report-note" data-i18n="reportScopeNote">This report does not check whether cases support your argument, whether quotes are accurate, or whether a case is still good law.</p>
+          <p class="report-note" data-i18n="reportFlagNote">In browser mode, only recognized reporters are extracted, so an unknown reporter usually means the citation was not extracted at all. These flags describe the extracted text only; they are not a judgment about quality.</p>
+          <div class="export-actions">
+            <button class="button button-small button-secondary" type="button" onclick="downloadReportMd()" data-i18n="reportDownloadMd">Download report (Markdown)</button>
+            <button class="button button-small button-secondary" type="button" onclick="downloadReportHtml()" data-i18n="reportDownloadHtml">Download report (printable HTML)</button>
+          </div>
+          <p class="report-note" data-i18n="reportShareNote">Shareable means the downloaded file: send that file onward. There is no hosted link for your brief, and nothing is stored on a server.</p>
+          <div class="table-wrap">
+            <table class="data-table results-table">
+              <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="reportThYear">Year</th><th scope="col" data-i18n="reportThPin">Pin cite</th><th scope="col" data-i18n="reportThFlags">Structure flags</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
+              <tbody id="reportRows"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="utility-card" id="query-translation" aria-labelledby="query-title">
+      <details class="tool-disclosure">
+        <summary class="tool-summary">
+          <span class="section-number section-number-small" aria-hidden="true">02</span>
+          <span class="summary-copy"><span class="section-kicker" data-copy="utilityTool">Optional tool</span><span class="summary-title" id="query-title" data-i18n="queryTransHeading">Search query translation</span><span class="summary-subtitle" data-copy="querySummary">Translate a query to English before extracting citation patterns.</span></span>
+          <span class="summary-chevron" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="disclosure-body">
+          <div class="query-steps">
+            <div class="query-box"><strong data-i18n="origQueryLabel">Original query</strong><p id="origQuery" class="query-original" data-copy="queryPlaceholder">Your original text will appear here after extraction.</p></div>
+            <div class="query-box"><label for="enQuery" class="field-label" data-i18n="enQueryLabel">English query (auto-translated — edit it and search again if the translation is wrong)</label><textarea id="enQuery" rows="3" aria-describedby="query-help"></textarea></div>
+          </div>
+          <p id="query-help" class="field-hint" data-copy="queryHelp">Automatic translation requires a translation endpoint you provide in the opinion translator below. Without it, no English query is generated.</p>
+          <div class="action-row"><button class="button button-primary" onclick="searchEnQuery()" data-i18n="searchEnQuery">Search with this English query</button><p id="queryStatus" class="inline-status" role="status" aria-live="polite"></p></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="utility-card" id="translation" aria-labelledby="translation-title">
+      <details class="tool-disclosure">
+        <summary class="tool-summary">
+          <span class="section-number section-number-small" aria-hidden="true">03</span>
+          <span class="summary-copy"><span class="section-kicker" data-copy="utilityTool">Optional tool</span><span class="summary-title" id="translation-title" data-i18n="transHeading">Opinion translation viewer</span><span class="summary-subtitle" data-copy="translationIntro">Compare pasted opinion paragraphs with a machine translation from an endpoint you choose.</span></span>
+          <span class="summary-chevron" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="disclosure-body">
+      <div class="warning-card"><span class="warning-icon" aria-hidden="true">!</span><div><strong data-i18n="transWarning">Machine-translation warning: this is a machine translation, not legal advice. The original text prevails. Always read the original before relying on any translated passage. Case names, citations, reporter abbreviations, and numbers are kept verbatim and are not translated.</strong></div></div>
+      <div class="translation-notes"><p data-i18n="transPreservedNote">Protected text (case names, citations, reporter abbreviations, numbers) is shown verbatim in both columns.</p><p data-i18n="transPrivacyNote">If you enter an endpoint, the pasted opinion text is sent to that endpoint for translation. It is not sent anywhere when no endpoint is configured.</p><p data-i18n="transSourceNote">v2 assumes the pasted opinion is in English.</p></div>
+      <div class="field-block"><label for="opinion" class="field-label" data-copy="opinionLabel">Opinion text</label><textarea id="opinion" data-i18n-placeholder="transPastePlaceholder" placeholder="Paste opinion text here (blank lines separate paragraphs)..." rows="7"></textarea></div>
+      <div class="translation-controls">
+        <label class="endpoint-field" for="mtEndpoint"><span class="field-label" data-i18n="transEndpointLabel">Translation endpoint</span><input type="url" id="mtEndpoint" data-i18n-placeholder="transEndpointPlaceholder" placeholder="https://your-own-server.example/translate — no endpoint is configured by default"></label>
+        <div class="translation-target"><label for="mtTarget" class="field-label" data-i18n="transTargetLabel">Translate to</label><select id="mtTarget"><option value="es">Español</option><option value="zh">中文</option></select></div>
+        <button class="button button-primary translate-action" id="translateBtn" onclick="doTranslate()" data-i18n="transTranslate">Translate paragraphs</button>
+      </div>
+      <p id="transStatus" class="inline-status" role="status" aria-live="polite"></p>
+      <div class="table-wrap translation-results-wrap"><table class="data-table translation-table"><thead><tr><th scope="col" data-i18n="transOriginal">Original</th><th scope="col" data-i18n="transTranslation">Translation</th></tr></thead><tbody id="transResults"></tbody></table></div>
+        </div>
+      </details>
+    </section>
+
+    <section class="utility-card briefing-card" id="briefing">
+      <details class="tool-disclosure">
+        <summary class="tool-summary">
+          <span class="section-number section-number-small" aria-hidden="true">04</span>
+          <span class="summary-copy"><span class="section-kicker" data-copy="optionalDaily">Optional · saved in this browser</span><span class="summary-title" data-i18n="briefingHeading">Daily Legal Briefing — 每日法律简报</span><span class="summary-subtitle" data-i18n="briefingIntro">Your morning briefing, open-and-see: no account, no email push. Preferences stay in this browser only.</span></span>
+          <span class="summary-chevron" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="disclosure-body briefing-body">
+          <div class="briefing-warning"><span class="warning-icon" aria-hidden="true">!</span><strong data-i18n="briefingNotLegal">Not legal advice. Read every original before relying on it.</strong></div>
+          <p class="briefing-audience" data-i18n="briefingAudience">For Chinese-speaking users in the US, or Chinese-friendly legal-aid settings. This tool covers US CourtListener cases only — it does not cover Chinese law.</p>
+          <div class="briefing-form-grid">
+            <label class="field-block"><span class="field-label" data-i18n="briefingStateLabel">State (first version: CA, TX, FL, NY)</span><select id="briefState"><option value="CA">California (CA)</option><option value="TX">Texas (TX)</option><option value="FL">Florida (FL)</option><option value="NY">New York (NY)</option></select></label>
+            <label class="field-block"><span class="field-label" data-i18n="briefingTopicsLabel">Topics / issues (comma-separated)</span><input type="text" id="briefTopics" placeholder="e.g. employment, housing"></label>
+            <label class="field-block field-block-wide"><span class="field-label" data-i18n="briefingCasesLabel">Cases you follow (one citation or case name per line)</span><textarea id="briefCases" rows="3" placeholder="347 U.S. 483"></textarea></label>
+            <label class="field-block field-block-wide"><span class="field-label" data-i18n="briefingRulesLabel">State rules you track (one per line: YYYY-MM-DD | rule | https://source)</span><textarea id="briefRules" rows="3"></textarea></label>
+            <label class="field-block field-block-wide"><span class="field-label" data-i18n="briefingDeadlinesLabel">Deadlines you track (one per line: YYYY-MM-DD | deadline | https://source)</span><textarea id="briefDeadlines" rows="3"></textarea></label>
+          </div>
+          <p class="local-storage-note"><span class="note-dot" aria-hidden="true"></span><span data-copy="briefingLocalNote">Preferences are stored in this browser only. When you request today's briefing, saved state, topic and citation query strings are sent to CourtListener.</span></p>
+          <div class="briefing-actions">
+            <button class="button button-primary" onclick="saveBriefingPrefs()" data-i18n="briefingSaveShow">Save preferences &amp; show briefing</button>
+            <button class="button button-secondary" onclick="getBriefing()" data-i18n="briefingGet">Get today's briefing</button>
+            <button class="button button-quiet" onclick="showSampleBriefing()" data-i18n="briefingSampleBtn">Show sample briefing</button>
+            <button class="text-button text-button-danger" onclick="clearBriefingPrefs()" data-i18n="briefingClear">Clear all my briefing data</button>
+          </div>
+          <p id="briefingSaved" class="inline-status" role="status" aria-live="polite"></p>
+          <div class="briefing-results" aria-live="polite">
+            <h3 data-i18n="briefingOverview">30-second overview</h3><p id="briefingOverview" class="briefing-overview"></p><p id="briefingStatus" class="inline-status"></p><div id="briefingResults"></div>
+          </div>
+          <details class="manual-mode"><summary data-i18n="briefingManualLabel">Manual items</summary><p class="field-hint" data-i18n="briefingManualHint">Manual mode: paste CourtListener links or opinion text below.</p><textarea id="briefManual" rows="4" placeholder="Title | Court | YYYY-MM-DD | https://link | snippet"></textarea><button class="button button-secondary" onclick="rankManualBriefing()" data-i18n="briefingManualGet">Rank manual items</button></details>
+        </div>
+      </details>
+    </section>
+
+    <section class="utility-card cli-card" id="cli">
+      <details class="tool-disclosure">
+        <summary class="tool-summary">
+          <span class="section-number section-number-small" aria-hidden="true">05</span>
+          <span class="summary-copy"><span class="section-kicker" data-copy="advancedOption">Advanced option</span><span class="summary-title" data-i18n="howTo">How to run the full check</span><span class="summary-subtitle" data-i18n="howToText">The full check needs the Python CLI and your own free CourtListener token.</span></span>
+          <span class="summary-chevron" aria-hidden="true">⌄</span>
+        </summary>
+        <div class="disclosure-body cli-body">
+          <p class="cli-explainer" data-copy="cliExplanation">The browser page only extracts citation strings. The CLI can send those extracted strings to CourtListener when you provide your own token; by default it does not send the brief text.</p>
+          <p data-i18n="cliSingle">Only checking one brief? The manual links above are enough — no CLI needed.</p>
+          <p data-i18n="cliBatch">Batch checks or workflow use? Follow the CLI steps below. First-time setup takes longer than a single check, so allow extra time on your first setup.</p>
+          <p><a class="source-link" href="https://wiki.free.law/c/courtlistener/help/api/rest/v3/overview" target="_blank" rel="noopener noreferrer" data-i18n="cliTokenLink">CourtListener API documentation — sign in to see your token ↗</a></p>
+          <p class="cli-terms" data-i18n="cliTerms">Who may use the CourtListener API: membership-based access is for personal, educational, research, journalistic, and exploratory use. Solo practitioners and firms with five or fewer attorneys are welcome, as are small government bodies and small pre-revenue unfunded organizations. It may not power a revenue-positive commercial product, and it may not be used to build tools for an organization — even internal tools count as commercial use. Larger firms and commercial uses need a separate Free Law Project agreement.</p>
+          <p><a class="source-link" href="https://free.law/membership/allowed-api-usage/" target="_blank" rel="noopener noreferrer" data-i18n="cliTermsLink">Free Law Project API usage details ↗</a></p>
+          <div class="code-panel"><div class="code-panel-header"><span data-copy="cliCommandLabel">Run in a terminal</span><button class="copy-code-button" type="button" onclick="copyCli()" data-copy="copyCommand">Copy command</button></div><pre><code id="cli-command">pip install .
+python -m legalcite check brief.md --md report.md
+# with: COURTLISTENER_TOKEN set in your environment</code></pre></div>
+          <p><a class="source-link" href="https://github.com/szzxli/legal-cite-check#full-check-with-courtlistener-cli" target="_blank" rel="noopener noreferrer" data-copy="readFullGuide">Read the full CLI guide on GitHub ↗</a></p>
+        </div>
+      </details>
+    </section>
+
+    <footer class="site-footer">
+      <p data-i18n="privacy">Privacy: text never leaves your browser on this page; the only third-party script is GoatCounter (page views only). Credits: CourtListener / Free Law Project, eyecite (BSD-2). License: MIT.</p>
+      <div class="footer-links"><a href="https://www.courtlistener.com/" target="_blank" rel="noopener noreferrer">CourtListener</a><a href="https://free.law/" target="_blank" rel="noopener noreferrer">Free Law Project</a><a href="https://github.com/szzxli/legal-cite-check" target="_blank" rel="noopener noreferrer">MIT License &amp; source</a></div>
+    </footer>
+  </main>
+
+  <script src="labels.js"></script>
+  <script src="extract.js"></script>
+  <script src="report.js"></script>
+  <script src="i18n.js"></script>
+  <script src="translate.js"></script>
+  <script src="briefing.js"></script>
+  <script src="app.js"></script>
+  <script src="ui-enhancements.js"></script>
+  <!-- Privacy-friendly GoatCounter page-view counter; no personal data. -->
+  <script data-goatcounter="https://szzxli.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
