@@ -1732,6 +1732,7 @@ function renderReport(evidence, ropts) {
       ` · Existence: ${gesc(existence)} · Support: ${gesc(support)}</div>` +
       (isRetracted ? `<div style="margin-top:4px"><b>Retracted warning:</b> this paper has been retracted — do not cite it as support.</div>` : '') +
       (isStale ? `<div style="margin-top:4px">Freshness reminder: the data for this record may be out of date — re-confirm against the original source.</div>` : '') +
+      `<div style="margin-top:6px">Matching evidence: ${(e.title || evParts.length || doiLink || arxivLink) ? '' : '—'}</div>` +
       (e.title ? `<div style="margin:8px 0 4px"><b>${gesc(e.title)}</b></div>` : '') +
       (evParts.length ? `<div style="color:var(--ink-soft);font-size:13px">${evParts.join(' · ')}</div>` : '') +
       (doiLink ? `<div style="color:var(--ink-soft);font-size:13px">${doiLink}</div>` : '') +
