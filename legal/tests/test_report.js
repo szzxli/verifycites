@@ -72,7 +72,20 @@ const t = { disclaimer: I18N.en.disclaimer, scope: I18N.en.reportScopeNote,
   flagDuplicate: "Duplicate citation", flagMissingYear: "Missing year",
   flagNoCaseName: "No case name in text", flagInvalidReporter: "Unknown reporter",
   noFlags: "—", citation: "Citation", caseName: "Case name in text",
-  year: "Year", pin: "Pin cite", label: "Label", links: "Manual-check links" };
+  year: "Year", pin: "Pin cite", label: "Label", links: "Manual-check links",
+  byCategory: "By category", thCategory: "Category", thAnomaly: "Anomaly reason",
+  thEvidence: "Matching evidence", thScope: "Check scope", thAction: "Suggested action",
+  noAnomaly: "None", noEvidence: "No evidence extracted",
+  scopeDisplay: "Browser format and completeness check only — no online lookup was made.",
+  scopeUnknown: "Check scope not recorded in this report; see the original check.",
+  reportCatMatched: "Matched", reportCatFieldMismatch: "Field mismatch",
+  reportCatNotFound: "Not found", reportCatCannotDetermine: "Cannot be determined",
+  reportCatRetrievalFailed: "Retrieval failed",
+  reportActionMatched: "Read the original before relying on it.",
+  reportActionFieldMismatch: "Compare the cited details with the record and correct the citation.",
+  reportActionNotFound: "Check an official reporter or another database before relying on it; if you cannot find it anywhere, remove it.",
+  reportActionCannotDetermine: "Check by hand using the links, or run the CLI full check.",
+  reportActionRetrievalFailed: "Re-run the check later." };
 const md = healthReportMarkdown(rows, t);
 const html = healthReportHtml(rows, t);
 // The disclaimer line is a closed bold span, including the short default.
@@ -108,5 +121,29 @@ for (const lang of ["es", "zh"]) {
 const htmlSrc = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 assert.ok(htmlSrc.includes('id="reportSection"'), "report section in page");
 assert.ok(htmlSrc.includes('src="report.js"'), "report.js loaded");
+
+// (h) P0 display layer: 5-way categories, counts that sum to the total,
+// and per-row display fields in both downloads. No existing test above
+// was changed: the new builders fall back to English defaults for keys
+// the old test strings object does not carry.
+const { reportDisplayCategory } = require("../report.js");
+assert.strictEqual(reportDisplayCategory("NOT_CHECKED", "Brown v. Board of Education"), "cannotDetermine");
+assert.strictEqual(reportDisplayCategory("VERIFIED", "X v. Y"), "matched");
+assert.strictEqual(reportDisplayCategory("MISMATCH", "X v. Y"), "fieldMismatch");
+assert.strictEqual(reportDisplayCategory("CITED", "X v. Y"), "fieldMismatch");
+assert.strictEqual(reportDisplayCategory("CITED", null), "cannotDetermine");
+assert.strictEqual(reportDisplayCategory("NOT_FOUND", null), "notFound");
+assert.strictEqual(reportDisplayCategory("RATE_LIMITED", null), "retrievalFailed");
+assert.strictEqual(reportDisplayCategory("INVALID_REPORTER", null), "fieldMismatch");
+assert.strictEqual(reportDisplayCategory("AMBIGUOUS", null), "cannotDetermine");
+assert.strictEqual(rows.byCategory.cannotDetermine, 4, "browser rows all cannotDetermine");
+assert.strictEqual(Object.values(rows.byCategory).reduce((a, b) => a + b, 0), rows.total,
+  "category counts sum to total");
+for (const field of ["Category", "Anomaly reason", "Matching evidence", "Check scope", "Suggested action"]) {
+  assert.ok(md.includes(field), "md has " + field);
+  assert.ok(html.includes(field), "html has " + field);
+}
+assert.ok(md.includes("Cannot be determined"), "md browser category present");
+assert.ok(html.includes("By category"), "html category counts present");
 
 console.log("web citation health report tests passed");
