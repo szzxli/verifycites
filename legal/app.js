@@ -147,6 +147,59 @@ function onReverify(idx) {
   vcCount("legal-reverify");
 }
 
+/* ---- Tier-1 first-seen index (same-origin static file only) ----
+   The browser page makes no third-party calls: it reads only
+   ../data/tier1-index.json, published by scripts/tier1_poll.py.
+   The note states the index's last poll time, labelled as an index
+   time, never as a registry timestamp. If the fetch fails, the note
+   says the index is unavailable — a stale time is never shown as
+   current. Per-row first-seen text appears ONLY on an exact match
+   (see tier1FindLegal in report.js); unmatched rows get nothing. */
+var __tier1Index = null;
+var __tier1Loaded = false;
+function tier1Load() {
+  if (__tier1Loaded) return Promise.resolve(__tier1Index);
+  __tier1Loaded = true;
+  return fetch("../data/tier1-index.json", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error("index fetch " + r.status); return r.json(); })
+    .then(function (j) { __tier1Index = j; return j; })
+    .catch(function () { __tier1Index = null; return null; });
+}
+function tier1RenderNote() {
+  var el = document.getElementById("tier1Note");
+  if (!el) return;
+  var t = T();
+  if (!__tier1Index || !__tier1Index.meta) {
+    el.textContent = t.tier1Unavailable || "Tier-1 first-seen index unavailable.";
+    return;
+  }
+  var names = (__tier1Index.meta.sources || []).map(function (x) { return x.name; }).join(", ");
+  var time = __tier1Index.meta.last_poll || "";
+  el.textContent = (t.tier1Heading || "Tier-1 first-seen index") + ": "
+    + (t.tier1Note || "Tier-1 direct sources in this index: {sources}. Index last polled {time} (index time, not a registry timestamp).")
+      .replace("{sources}", names).replace("{time}", time);
+}
+function tier1FindForRow(row) {
+  if (!__tier1Index) return null;
+  return (typeof tier1FindLegal === "function") ? tier1FindLegal(__tier1Index, row) : null;
+}
+function tier1ApplyFirstSeen() {
+  if (!__tier1Index) return;
+  var t = T();
+  document.querySelectorAll("[data-tier1-row]").forEach(function (cell) {
+    var ri = parseInt(cell.getAttribute("data-tier1-row"), 10);
+    var report = window.__lastReport;
+    if (!report || !report.rows || !report.rows[ri]) return;
+    var hit = tier1FindForRow(report.rows[ri]);
+    if (!hit || cell.querySelector(".tier1-firstseen")) return;
+    var span = document.createElement("span");
+    span.className = "tier1-firstseen";
+    span.textContent = tier1FirstSeenText(hit, t);
+    cell.appendChild(document.createElement("br"));
+    cell.appendChild(span);
+  });
+}
+
 function renderReport(results) {
   var section = document.getElementById("reportSection");
   if (!section) return;
@@ -185,6 +238,7 @@ function renderReport(results) {
      time when the report was rendered — labelled as such, never a
      registry timestamp. Per-item times are not recorded (see
      reportCheckBasis). */
+  tier1Load().then(function () { tier1RenderNote(); tier1ApplyFirstSeen(); });
   var basisEl = document.getElementById("reportBasis");
   if (basisEl && typeof reportCheckBasis === "function") {
     var basis = reportCheckBasis(report, reportStrings(), new Date().toLocaleString());
@@ -220,7 +274,7 @@ function renderReport(results) {
       + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.year) + "</td>"
       + "<td>" + esc(row.pinCite) + "</td><td>" + esc(flagText) + "</td>"
       + "<td>" + esc(catLabels[cat]) + "</td><td>" + esc(anomaly) + "</td>"
-      + "<td>" + esc(evidence) + "</td><td>" + esc(scope) + "</td>"
+      + "<td data-tier1-row=\"" + ri + "\">" + esc(evidence) + "</td><td>" + esc(scope) + "</td>"
       + "<td>" + esc(catActions[cat]) + "</td>"
       + "<td><select data-review=\"" + ri + "\" aria-label=\"" + esc(t.reportThHumanStatus) + "\">" + humanOptions + "</select>"
       + "<br><input data-note=\"" + ri + "\" value=\"" + esc(human.note) + "\" placeholder=\"" + esc(t.reportNotePlaceholder) + "\" aria-label=\"" + esc(t.reportHumanNote) + "\"></td>"
@@ -258,7 +312,7 @@ function downloadReportMd() {
   if (!window.__lastReport) return;
   vcCount("legal-report-download");
   downloadBlob(healthReportMarkdown(window.__lastReport, reportStrings(), humanReviewLoad(),
-    new Date().toLocaleString()),
+    new Date().toLocaleString(), tier1FindForRow),
     "citation-health-report.md", "text/markdown");
 }
 
@@ -266,7 +320,7 @@ function downloadReportHtml() {
   if (!window.__lastReport) return;
   vcCount("legal-report-download");
   downloadBlob(healthReportHtml(window.__lastReport, reportStrings(), humanReviewLoad(),
-    new Date().toLocaleString()),
+    new Date().toLocaleString(), tier1FindForRow),
     "citation-health-report.html", "text/html");
 }
 

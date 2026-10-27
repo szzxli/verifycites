@@ -33,6 +33,39 @@ function reportDisplayCategory(label, caseName) {
   }
 }
 
+/* ---- Tier-1 first-seen matching (display-only) ----
+   Matches a report row against the static Tier-1 first-seen index
+   (data/tier1-index.json, published by scripts/tier1_poll.py) on an
+   EXACT basis only: the normalised case name must be identical, and
+   when both the row and the index item carry a year, the years must
+   agree. A match means only that the poller first observed an item
+   with this case name at the named direct source on the stated date;
+   it is NOT a verification result, NOT an existence proof, and NOT a
+   claim about the cited case. No match produces no text at all:
+   absence from the index is never worded as "not found". */
+function tier1NormalizeCaseName(s) {
+  return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
+}
+function tier1FindLegal(index, row) {
+  if (!index || !index.items || !row || !row.caseName) return null;
+  var name = tier1NormalizeCaseName(row.caseName);
+  if (!name) return null;
+  var year = row.year ? String(row.year) : null;
+  for (var i = 0; i < index.items.length; i++) {
+    var it = index.items[i];
+    if (it.kind !== "legal") continue;
+    if (tier1NormalizeCaseName(it.title_or_case_name) !== name) continue;
+    if (year && it.date && String(it.date).slice(0, 4) !== year) continue;
+    return it;
+  }
+  return null;
+}
+function tier1FirstSeenText(item, t) {
+  if (!item || !item.first_seen) return null;
+  var tpl = (t && t.tier1FirstSeen) || "First seen at {source} on {date}";
+  return tpl.replace("{source}", item.source).replace("{date}", String(item.first_seen).slice(0, 10));
+}
+
 function buildHealthReport(results) {
   var counts = {};
   var catCounts = {};
@@ -212,7 +245,7 @@ function _flagLabel(flag, t) {
    for any key the caller does not supply. `human` (optional) is the
    human-review lookup described above; its column is separate from the
    machine Category and never merged into it. */
-function healthReportMarkdown(report, t, human, runTime) {
+function healthReportMarkdown(report, t, human, runTime, tier1Find) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   // Fixed English notice, in English in every language version: the report
@@ -250,6 +283,11 @@ function healthReportMarkdown(report, t, human, runTime) {
     var d = _rowDisplay(row, t);
     var h = humanFor(human, row);
     var humanText = humanStatusLabel(h.status, t) + (h.note ? " (" + h.note + ")" : "");
+    var firstSeen = "";
+    if (typeof tier1Find === "function") {
+      var _hit = tier1Find(row);
+      if (_hit) firstSeen = " \u2014 " + tier1FirstSeenText(_hit, t);
+    }
     lines.push("- [ ] **" + row.label + "** \u2014 " + row.text
       + (row.caseName ? " (" + row.caseName + ")" : "")
       + (row.year ? " (" + row.year + ")" : "")
@@ -257,7 +295,7 @@ function healthReportMarkdown(report, t, human, runTime) {
       + " \u2014 " + f("flags", "Structure flags") + ": " + flagText
       + " \u2014 " + f("thCategory", "Category") + ": " + d.categoryLabel
       + " \u2014 " + f("thAnomaly", "Anomaly reason") + ": " + d.anomaly
-      + " \u2014 " + f("thEvidence", "Matching evidence") + ": " + d.evidence
+      + " \u2014 " + f("thEvidence", "Matching evidence") + ": " + d.evidence + firstSeen
       + " \u2014 " + f("thScope", "Check scope") + ": " + d.scope
       + " \u2014 " + f("thAction", "Suggested action") + ": " + d.action
       + " \u2014 " + f("reportThHumanStatus", "Human review") + ": " + humanText
@@ -266,7 +304,7 @@ function healthReportMarkdown(report, t, human, runTime) {
   return lines.join("\n") + "\n";
 }
 
-function healthReportHtml(report, t, human, runTime) {
+function healthReportHtml(report, t, human, runTime, tier1Find) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   var labelRows = Object.keys(report.byLabel).map(function (label) {
@@ -293,7 +331,8 @@ function healthReportHtml(report, t, human, runTime) {
       + "<td>" + _escHtml(row.label) + "</td>"
       + "<td>" + _escHtml(d.categoryLabel) + "</td>"
       + "<td>" + _escHtml(d.anomaly) + "</td>"
-      + "<td>" + _escHtml(d.evidence) + "</td>"
+      + "<td>" + _escHtml(d.evidence)
+      + (function () { if (typeof tier1Find !== "function") return ""; var _h = tier1Find(row); return _h ? "<br>" + _escHtml(tier1FirstSeenText(_h, t)) : ""; })() + "</td>"
       + "<td>" + _escHtml(d.scope) + "</td>"
       + "<td>" + _escHtml(d.action) + "</td>"
       + "<td>" + humanText + "</td>"
@@ -336,6 +375,7 @@ function healthReportHtml(report, t, human, runTime) {
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { buildHealthReport, healthReportMarkdown, healthReportHtml,
+    tier1NormalizeCaseName, tier1FindLegal, tier1FirstSeenText,
     REPORT_FLAG_KEYS, reportDisplayCategory, reportCheckBasis,
     HUMAN_STATUSES, humanFor, humanStatusLabel, humanStatusCounts,
     humanSummaryText, reverifyRow };
