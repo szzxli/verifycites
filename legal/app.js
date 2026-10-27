@@ -10,6 +10,21 @@ function esc(s) {
   });
 }
 
+/* Phase 4A: silent usage counts via the existing GoatCounter script.
+   Fixed event names ONLY — never citation text, brief content, case
+   names, or any user input. Guarded: a no-op when GoatCounter is
+   blocked or absent, and it never throws. The full event dictionary
+   lives in docs/analytics.md; this list is the single enforcement
+   point for the legal app. */
+var VC_EVENTS = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify"];
+function vcCount(name) {
+  try {
+    if (VC_EVENTS.indexOf(name) < 0) return;
+    var gc = (typeof window !== "undefined") ? window.goatcounter : null;
+    if (gc && typeof gc.count === "function") gc.count({ path: name, event: true });
+  } catch (e) { /* analytics must never break the tool */ }
+}
+
 function setLang(lang) {
   if (!I18N[lang]) return;
   currentLang = lang;
@@ -115,6 +130,7 @@ function onHumanReviewChange() {
     else map[row.text] = entry;
   });
   humanReviewSave(map);
+  vcCount("legal-human-review-set");
   if (window.__lastResults) renderReport(window.__lastResults);
 }
 function onReverify(idx) {
@@ -128,6 +144,7 @@ function onReverify(idx) {
   var entry = map[oldRow.text];
   if (entry) { delete map[oldRow.text]; map[out.row.text] = entry; humanReviewSave(map); }
   render(out.results);
+  vcCount("legal-reverify");
 }
 
 function renderReport(results) {
@@ -239,6 +256,7 @@ function downloadBlob(content, filename, type) {
 
 function downloadReportMd() {
   if (!window.__lastReport) return;
+  vcCount("legal-report-download");
   downloadBlob(healthReportMarkdown(window.__lastReport, reportStrings(), humanReviewLoad(),
     new Date().toLocaleString()),
     "citation-health-report.md", "text/markdown");
@@ -246,6 +264,7 @@ function downloadReportMd() {
 
 function downloadReportHtml() {
   if (!window.__lastReport) return;
+  vcCount("legal-report-download");
   downloadBlob(healthReportHtml(window.__lastReport, reportStrings(), humanReviewLoad(),
     new Date().toLocaleString()),
     "citation-health-report.html", "text/html");
@@ -272,6 +291,7 @@ function showQueryPanel(original, english, status) {
    below runs on the original query only, and the status says so. */
 async function check() {
   var text = document.getElementById("input").value || "";
+  if (text.trim()) vcCount("legal-extract");
   if (currentLang === "en") {
     showQueryPanel(text, text, T().queryEnglishNote);
     render(extractCitations(text));
@@ -299,6 +319,7 @@ async function check() {
 function searchEnQuery() {
   var q = (document.getElementById("enQuery").value || "");
   if (!q.trim()) return;
+  vcCount("legal-extract");
   render(extractCitations(q));
   var st = document.getElementById("queryStatus");
   if (st) st.textContent = T().queryEditedSearch;
