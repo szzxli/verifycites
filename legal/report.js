@@ -107,6 +107,66 @@ function _categoryCounts(report) {
   return counts;
 }
 
+/* ---- Phase 2: human review status (display-only, never overwrites the
+   machine result) ----
+   A human status is a SEPARATE mark the reader sets by hand (confirmed by
+   hand / corrected / needs recheck), stored by the page in localStorage
+   keyed by citation text and shown in its OWN column beside the machine
+   Category. Changing it never changes a row's label or category: those
+   come only from buildHealthReport. `human` may be a lookup function
+   row -> {status, note}, or a plain object keyed by row text. */
+var HUMAN_STATUSES = ["", "confirmed", "corrected", "recheck"];
+var HUMAN_STATUS_KEYS = { "": "reportHumanNotSet",
+  confirmed: "reportHumanConfirmed", corrected: "reportHumanCorrected",
+  recheck: "reportHumanRecheck" };
+function humanFor(human, row) {
+  if (!human) return { status: "", note: "" };
+  var v = (typeof human === "function") ? human(row) : human[row.text];
+  v = v || {};
+  return { status: HUMAN_STATUSES.indexOf(v.status) >= 0 ? v.status : "", note: v.note || "" };
+}
+function humanStatusLabel(status, t) {
+  var f = function (k, d) { return (t && t[k]) || d; };
+  var defaults = { "": "Not set", confirmed: "Confirmed by hand",
+    corrected: "Corrected", recheck: "Needs recheck" };
+  return f(HUMAN_STATUS_KEYS[status] || "reportHumanNotSet", defaults[status] || "Not set");
+}
+function humanStatusCounts(report, human) {
+  var counts = { confirmed: 0, corrected: 0, recheck: 0 };
+  (report.rows || []).forEach(function (row) {
+    var h = humanFor(human, row);
+    if (counts[h.status] !== undefined) counts[h.status] += 1;
+  });
+  return counts;
+}
+function humanSummaryText(report, human, t) {
+  var f = function (k, d) { return (t && t[k]) || d; };
+  var counts = humanStatusCounts(report, human);
+  var parts = [];
+  ["confirmed", "corrected", "recheck"].forEach(function (s) {
+    if (counts[s]) parts.push(humanStatusLabel(s, t) + ": " + counts[s]);
+  });
+  return parts.length ? f("reportHumanSummary", "Human review") + ": " + parts.join("; ") : "";
+}
+/* Re-verify: re-run the browser extractor over corrected citation text
+   and swap that row for the first citation the extractor finds. Machine
+   fields (label, category, structure flags) are recomputed from the new
+   text by buildHealthReport; the human mark is NOT carried by this
+   function (the page moves it from the old text to the new one). If the
+   extractor finds nothing, the results are returned unchanged. */
+function reverifyRow(results, index, newText, extractFn) {
+  if (!results || index < 0 || index >= results.length) {
+    return { results: results, changed: false, row: null };
+  }
+  var found = extractFn ? extractFn(newText || "") : [];
+  if (!found || !found.length) {
+    return { results: results, changed: false, row: null };
+  }
+  var next = results.slice();
+  next[index] = found[0];
+  return { results: next, changed: true, row: found[0] };
+}
+
 function _escHtml(s) {
   return String(s == null ? "" : s).replace(/[&<>\"]/g, function (c) {
     return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
@@ -120,8 +180,10 @@ function _flagLabel(flag, t) {
 }
 
 /* t: translation strings for the current language, with English fallbacks
-   for any key the caller does not supply. */
-function healthReportMarkdown(report, t) {
+   for any key the caller does not supply. `human` (optional) is the
+   human-review lookup described above; its column is separate from the
+   machine Category and never merged into it. */
+function healthReportMarkdown(report, t, human) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   // Fixed English notice, in English in every language version: the report
@@ -141,6 +203,8 @@ function healthReportMarkdown(report, t) {
     lines.push("- " + f("byCategory", "By category") + ": "
       + f(REPORT_CATEGORY_KEYS[cat], cat) + ": " + catCounts[cat]);
   });
+  var humanSummary = humanSummaryText(report, human, t);
+  if (humanSummary) lines.push("- " + humanSummary);
   lines.push("");
   lines.push("## " + f("citations", "Citations"));
   report.rows.forEach(function (row) {
@@ -148,6 +212,8 @@ function healthReportMarkdown(report, t) {
       ? row.flags.map(function (fl) { return _flagLabel(fl, t); }).join("; ")
       : f("noFlags", "—");
     var d = _rowDisplay(row, t);
+    var h = humanFor(human, row);
+    var humanText = humanStatusLabel(h.status, t) + (h.note ? " (" + h.note + ")" : "");
     lines.push("- [ ] **" + row.label + "** \u2014 " + row.text
       + (row.caseName ? " (" + row.caseName + ")" : "")
       + (row.year ? " (" + row.year + ")" : "")
@@ -158,12 +224,13 @@ function healthReportMarkdown(report, t) {
       + " \u2014 " + f("thEvidence", "Matching evidence") + ": " + d.evidence
       + " \u2014 " + f("thScope", "Check scope") + ": " + d.scope
       + " \u2014 " + f("thAction", "Suggested action") + ": " + d.action
+      + " \u2014 " + f("reportThHumanStatus", "Human review") + ": " + humanText
       + (row.manualUrl ? " \u2014 [" + f("manual", "Manual check") + "](" + row.manualUrl + ")" : ""));
   });
   return lines.join("\n") + "\n";
 }
 
-function healthReportHtml(report, t) {
+function healthReportHtml(report, t, human) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   var labelRows = Object.keys(report.byLabel).map(function (label) {
@@ -173,11 +240,14 @@ function healthReportHtml(report, t) {
   var catText = Object.keys(catCounts).map(function (cat) {
     return _escHtml(f(REPORT_CATEGORY_KEYS[cat], cat)) + ": " + catCounts[cat];
   }).join(" · ");
+  var humanSummary = humanSummaryText(report, human, t);
   var rows = report.rows.map(function (row) {
     var flagText = (row.flags || []).length
       ? row.flags.map(function (fl) { return _escHtml(_flagLabel(fl, t)); }).join("; ")
       : _escHtml(f("noFlags", "—"));
     var d = _rowDisplay(row, t);
+    var h = humanFor(human, row);
+    var humanText = _escHtml(humanStatusLabel(h.status, t)) + (h.note ? " (" + _escHtml(h.note) + ")" : "");
     var links = (row.manualUrl ? "<a href=\"" + _escHtml(row.manualUrl) + "\">" + _escHtml(f("manual", "Manual check")) + "</a>" : "")
       + (row.scholarUrl ? " | <a href=\"" + _escHtml(row.scholarUrl) + "\">Scholar</a>" : "");
     return "<tr><td>" + row.index + "</td><td>" + _escHtml(row.text) + "</td>"
@@ -189,6 +259,7 @@ function healthReportHtml(report, t) {
       + "<td>" + _escHtml(d.evidence) + "</td>"
       + "<td>" + _escHtml(d.scope) + "</td>"
       + "<td>" + _escHtml(d.action) + "</td>"
+      + "<td>" + humanText + "</td>"
       + "<td>" + links + "</td></tr>";
   }).join("");
   return "<!doctype html><html><head><meta charset='utf-8'>"
@@ -203,6 +274,7 @@ function healthReportHtml(report, t) {
     + "<p>" + _escHtml(f("total", "Total citations")) + ": " + report.total + "</p>"
     + "<table><tr><th>" + _escHtml(f("byLabel", "By label")) + "</th><th>Count</th></tr>" + labelRows + "</table>"
     + (catText ? "<p>" + _escHtml(f("byCategory", "By category")) + ": " + catText + "</p>" : "")
+    + (humanSummary ? "<p>" + _escHtml(humanSummary) + "</p>" : "")
     + "<h2>" + _escHtml(f("citations", "Citations")) + "</h2>"
     + "<table><tr><th>#</th><th>" + _escHtml(f("citation", "Citation")) + "</th>"
     + "<th>" + _escHtml(f("caseName", "Case name in text")) + "</th>"
@@ -215,10 +287,14 @@ function healthReportHtml(report, t) {
     + "<th>" + _escHtml(f("thEvidence", "Matching evidence")) + "</th>"
     + "<th>" + _escHtml(f("thScope", "Check scope")) + "</th>"
     + "<th>" + _escHtml(f("thAction", "Suggested action")) + "</th>"
+    + "<th>" + _escHtml(f("reportThHumanStatus", "Human review")) + "</th>"
     + "<th>" + _escHtml(f("links", "Manual-check links")) + "</th></tr>" + rows + "</table>"
     + "</body></html>";
 }
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { buildHealthReport, healthReportMarkdown, healthReportHtml, REPORT_FLAG_KEYS, reportDisplayCategory };
+  module.exports = { buildHealthReport, healthReportMarkdown, healthReportHtml,
+    REPORT_FLAG_KEYS, reportDisplayCategory,
+    HUMAN_STATUSES, humanFor, humanStatusLabel, humanStatusCounts,
+    humanSummaryText, reverifyRow };
 }
