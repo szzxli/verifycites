@@ -82,7 +82,15 @@ function tier1FirstSeenText(item, t) {
    then stops saying "not yet connected". An 8 CFR row with no exact
    match keeps the old wording; absence from the index is never
    worded as "not found" or "does not exist", because the index may
-   have coverage gaps. A match is NOT a good-law verdict: the
+   have coverage gaps. INA and 8 U.S.C. rows are the second exception:
+   a statute row whose section EXACTLY matches an entry in the static
+   INA mapping table (data/imm-ina-mapping.json, published by
+   scripts/imm-ina-mapping-poll.py from the OLRC Title 8 bulk XML)
+   shows a mapping line naming both numbers plus the release-point
+   currency and the index time — and ONLY then stops saying "not yet
+   connected" / "cannot confirm". An unmapped statute row keeps the
+   old wording exactly; absence from a PARTIAL table is never worded
+   as "not found" or "does not exist". A match is NOT a good-law verdict: the
    enjoined-provision warning still applies (see the #immigration
    subsection), and eCFR text alone never proves a provision is
    currently in effect. Classification is pattern-based on the row
@@ -113,12 +121,19 @@ function immClassifyRow(row) {
   if (row && row.reporter) return "court";
   return "unknown";
 }
-function immSourceLine(type, t, row, imm8cfr) {
+function immSourceLine(type, t, row, imm8cfr, immIna) {
   // A matched 8 CFR row stops saying "not yet connected": the static
   // eCFR index match replaces the regulation line, and only the
   // regulation line. Every other type keeps its honesty wording.
   if (type === "regulation" && imm8cfr && imm8cfr.entry) {
     return imm8cfrFoundText(imm8cfr, t);
+  }
+  // A mapped statute row stops saying "not yet connected" / "cannot
+  // confirm": the static INA mapping match replaces the statute
+  // line, and only the statute line. Callers may omit immIna; then
+  // the old wording is used, as before.
+  if (type === "statute" && immIna && immIna.entry) {
+    return immInaMappingText(immIna, t);
   }
   // A U.S.C. row is a statute row, but labelling it "INA provision"
   // would misidentify it, so it gets its own line (same honesty
@@ -192,6 +207,95 @@ function imm8cfrFoundText(found, t) {
   return tpl.replace("{title}", String(found.entry.title || ""))
     .replace("{upToDate}", String(meta.up_to_date_as_of || "not recorded"))
     .replace("{lastPoll}", String(meta.last_poll || "not recorded"));
+}
+
+/* ---- INA <-> 8 U.S.C. static-mapping matching (display-only) ----
+   Matches a statute row against data/imm-ina-mapping.json on an
+   EXACT section basis only. The row's section is its base number
+   plus any letter suffix, with subsection parentheticals stripped
+   for the lookup (the same normalisation as the 8 CFR matcher):
+   "INA 212(a)" -> base "212", "INA 240A" -> base "240A",
+   "8 U.S.C. 1229b" -> base "1229b". The letter suffix is read from
+   the row's full TEXT, not from page: the extractor's page field
+   drops it ("INA 240A" extracts page "240", "8 U.S.C. 1229b"
+   extracts page "1229"), so matching on page alone would false-
+   positive INA 240A onto INA 240's counterpart (1229a) and
+   8 U.S.C. 1229b onto 1229's counterpart (INA 239). A match means
+   only that the poller found this correspondence in the Code
+   section's own sourceCredit in the current OLRC Title 8 release;
+   it is NOT an existence proof for any other purpose, NOT a
+   good-law verdict, and NOT a claim about the cited subsection's
+   content. No match produces no mapping text at all: the row keeps
+   its "not yet connected" / "cannot confirm" wording, because the
+   table is partial by design. Non-statute rows never match, even if
+   their text happens to contain a section-like number. Subsection
+   suffixes in the rendered line are carried from the row's own
+   cited text onto both sides (INA 212(a) -> 8 U.S.C. 1182(a)); the
+   source evidence establishes the section-level correspondence
+   only, and the table's meta says so. */
+function immInaNormalizeSection(row) {
+  if (!row) return null;
+  var reporter = String(row.reporter || "");
+  var text = String(row.text || "");
+  var side = null;
+  if (reporter === "INA") side = "ina";
+  else if (reporter === "8 U.S.C.") side = "usc";
+  else if (/\bINA\s*§?\s*\d/i.test(text)) side = "ina";
+  else if (/\b8\s*U\.?S\.?C\.?\s*§?\s*\d/i.test(text)) side = "usc";
+  else return null;
+  var page = String(row.page || "");
+  var digits = (page.match(/^\d+/) || [null])[0];
+  if (!digits) {
+    var tm = text.match(side === "ina"
+      ? /\bINA\s*§?\s*(\d+)/i : /\b8\s*U\.?S\.?C\.?\s*§?\s*(\d+)/i);
+    if (!tm) return null;
+    digits = tm[1];
+  }
+  var letter = "";
+  if (side === "ina") {
+    var im = text.match(/\bINA\s*§?\s*\d+([A-Za-z])?/i);
+    letter = im && im[1] ? im[1].toUpperCase() : "";
+  } else {
+    var um = text.match(/\b8\s*U\.?S\.?C\.?\s*§?\s*\d+([a-z])?/i);
+    letter = um && um[1] ? um[1].toLowerCase() : "";
+  }
+  var suffix = page.slice(digits.length);
+  if (!/^(\([^)]*\))*$/.test(suffix)) suffix = "";
+  return { side: side, base: digits + letter, suffix: suffix };
+}
+function immInaFind(index, row) {
+  if (!index || !index.entries || !row) return null;
+  if (immClassifyRow(row) !== "statute") return null;
+  var n = immInaNormalizeSection(row);
+  if (!n) return null;
+  for (var i = 0; i < index.entries.length; i++) {
+    var e = index.entries[i];
+    if (n.side === "ina" && e.ina === n.base) {
+      return { entry: e, meta: index.meta || {}, side: "ina",
+        rowSection: n.base + n.suffix, counterpart: e.usc + n.suffix };
+    }
+    if (n.side === "usc" && e.usc === n.base) {
+      return { entry: e, meta: index.meta || {}, side: "usc",
+        rowSection: n.base + n.suffix, counterpart: e.ina + n.suffix };
+    }
+  }
+  return null;
+}
+function immInaMappingText(found, t) {
+  if (!found || !found.entry) return null;
+  var meta = found.meta || {};
+  var pl = String(meta.current_through_pl || "not recorded");
+  var lastPoll = String(meta.last_poll || "not recorded");
+  if (found.side === "usc") {
+    var tplR = (t && t.immInaFoundReverse)
+      || "8 U.S.C. \u00a7 {usc} maps to INA \u00a7 {ina} (OLRC Title 8, current through P.L. {pl}; index time {lastPoll}, not a registry timestamp)";
+    return tplR.replace("{usc}", found.rowSection).replace("{ina}", found.counterpart)
+      .replace("{pl}", pl).replace("{lastPoll}", lastPoll);
+  }
+  var tpl = (t && t.immInaFound)
+    || "INA \u00a7 {ina} maps to 8 U.S.C. \u00a7 {usc} (OLRC Title 8, current through P.L. {pl}; index time {lastPoll}, not a registry timestamp)";
+  return tpl.replace("{ina}", found.rowSection).replace("{usc}", found.counterpart)
+    .replace("{pl}", pl).replace("{lastPoll}", lastPoll);
 }
 
 function buildHealthReport(results) {
@@ -384,7 +488,7 @@ function _flagLabel(flag, t) {
    for any key the caller does not supply. `human` (optional) is the
    human-review lookup described above; its column is separate from the
    machine Category and never merged into it. */
-function healthReportMarkdown(report, t, human, runTime, tier1Find, imm8cfrFindFn) {
+function healthReportMarkdown(report, t, human, runTime, tier1Find, imm8cfrFindFn, immInaFindFn) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   // Fixed English notice, in English in every language version: the report
@@ -429,7 +533,8 @@ function healthReportMarkdown(report, t, human, runTime, tier1Find, imm8cfrFindF
     }
     var _immType = row.immType || immClassifyRow(row);
     var _imm8cfr = (typeof imm8cfrFindFn === "function") ? imm8cfrFindFn(row) : null;
-    var _immLine = immSourceLine(_immType, t, row, _imm8cfr);
+    var _immIna = (typeof immInaFindFn === "function") ? immInaFindFn(row) : null;
+    var _immLine = immSourceLine(_immType, t, row, _imm8cfr, _immIna);
     var _immLinks = immLinkKeysFor(_immType).map(function (l) {
       return "[" + f(l.key, l.key) + "](" + l.url + ")";
     }).join(", ");
@@ -450,7 +555,7 @@ function healthReportMarkdown(report, t, human, runTime, tier1Find, imm8cfrFindF
   return lines.join("\n") + "\n";
 }
 
-function healthReportHtml(report, t, human, runTime, tier1Find, imm8cfrFindFn) {
+function healthReportHtml(report, t, human, runTime, tier1Find, imm8cfrFindFn, immInaFindFn) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   var labelRows = Object.keys(report.byLabel).map(function (label) {
@@ -480,7 +585,8 @@ function healthReportHtml(report, t, human, runTime, tier1Find, imm8cfrFindFn) {
       + "<td>" + _escHtml(d.evidence)
       + (function () { if (typeof tier1Find !== "function") return ""; var _h = tier1Find(row); return _h ? "<br>" + _escHtml(tier1FirstSeenText(_h, t)) : ""; })()
       + "<br>" + _escHtml(immSourceLine(row.immType || immClassifyRow(row), t, row,
-          (typeof imm8cfrFindFn === "function") ? imm8cfrFindFn(row) : null))
+          (typeof imm8cfrFindFn === "function") ? imm8cfrFindFn(row) : null,
+          (typeof immInaFindFn === "function") ? immInaFindFn(row) : null))
       + immLinkKeysFor(row.immType || immClassifyRow(row)).map(function (l) {
           return " <a href=\"" + _escHtml(l.url) + "\">" + _escHtml(f(l.key, l.key)) + "</a>";
         }).join(" | ") + "</td>"
@@ -529,6 +635,7 @@ if (typeof module !== "undefined" && module.exports) {
     tier1NormalizeCaseName, tier1FindLegal, tier1FirstSeenText,
     immClassifyRow, immSourceLine, immLinkKeysFor, IMM_MANUAL_URLS,
     imm8cfrNormalizeSection, imm8cfrFind, imm8cfrFoundText,
+    immInaNormalizeSection, immInaFind, immInaMappingText,
     REPORT_FLAG_KEYS, reportDisplayCategory, reportCheckBasis,
     HUMAN_STATUSES, humanFor, humanStatusLabel, humanStatusCounts,
     humanSummaryText, reverifyRow };

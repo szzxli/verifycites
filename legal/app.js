@@ -224,6 +224,44 @@ function imm8cfrApplyFound() {
     span.classList.add("imm8cfr-applied");
   });
 }
+/* ---- INA <-> 8 U.S.C. static mapping table (same-origin only) ----
+   Mirrors the 8 CFR pattern: the page reads only
+   ../data/imm-ina-mapping.json, published by
+   scripts/imm-ina-mapping-poll.py from the OLRC Title 8 bulk XML.
+   A statute row with an exact section match shows the mapping line;
+   unmatched rows keep their "not yet connected" / "cannot confirm"
+   wording. If the fetch fails, every row simply keeps the old
+   wording — a missing table is never presented as a negative
+   result. The browser page itself makes no third-party calls. */
+var __immInaIndex = null;
+var __immInaLoaded = false;
+function immInaLoad() {
+  if (__immInaLoaded) return Promise.resolve(__immInaIndex);
+  __immInaLoaded = true;
+  return fetch("../data/imm-ina-mapping.json", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error("index fetch " + r.status); return r.json(); })
+    .then(function (j) { __immInaIndex = j; return j; })
+    .catch(function () { __immInaIndex = null; return null; });
+}
+function immInaFindForRow(row) {
+  if (!__immInaIndex) return null;
+  return (typeof immInaFind === "function") ? immInaFind(__immInaIndex, row) : null;
+}
+function immInaApplyFound() {
+  if (!__immInaIndex) return;
+  var t = T();
+  document.querySelectorAll("[data-imm8cfr-row]").forEach(function (cell) {
+    var ri = parseInt(cell.getAttribute("data-imm8cfr-row"), 10);
+    var report = window.__lastReport;
+    if (!report || !report.rows || !report.rows[ri]) return;
+    var hit = immInaFindForRow(report.rows[ri]);
+    if (!hit) return;
+    var span = cell.querySelector(".imm-source-line");
+    if (!span || span.classList.contains("immIna-applied")) return;
+    span.textContent = immInaMappingText(hit, t);
+    span.classList.add("immIna-applied");
+  });
+}
 function tier1ApplyFirstSeen() {
   if (!__tier1Index) return;
   var t = T();
@@ -281,6 +319,7 @@ function renderReport(results) {
      reportCheckBasis). */
   tier1Load().then(function () { tier1RenderNote(); tier1ApplyFirstSeen(); });
   imm8cfrLoad().then(function () { imm8cfrApplyFound(); });
+  immInaLoad().then(function () { immInaApplyFound(); });
   var basisEl = document.getElementById("reportBasis");
   if (basisEl && typeof reportCheckBasis === "function") {
     var basis = reportCheckBasis(report, reportStrings(), new Date().toLocaleString());
@@ -310,7 +349,7 @@ function renderReport(results) {
        system it belongs to — or says it could not be routed. */
     var immType = row.immType || (typeof immClassifyRow === "function" ? immClassifyRow(row) : "unknown");
     var immHtml = "<br><span class=\"imm-source-line\">"
-      + esc(typeof immSourceLine === "function" ? immSourceLine(immType, t, row, imm8cfrFindForRow(row)) : "")
+      + esc(typeof immSourceLine === "function" ? immSourceLine(immType, t, row, imm8cfrFindForRow(row), immInaFindForRow(row)) : "")
       + "</span>"
       + (typeof immLinkKeysFor === "function" ? immLinkKeysFor(immType).map(function (l) {
           return " <a href=\"" + esc(l.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(t[l.key] || l.key) + "</a>";
@@ -364,7 +403,7 @@ function downloadReportMd() {
   if (!window.__lastReport) return;
   vcCount("legal-report-download");
   downloadBlob(healthReportMarkdown(window.__lastReport, reportStrings(), humanReviewLoad(),
-    new Date().toLocaleString(), tier1FindForRow, imm8cfrFindForRow),
+    new Date().toLocaleString(), tier1FindForRow, imm8cfrFindForRow, immInaFindForRow),
     "citation-health-report.md", "text/markdown");
 }
 
@@ -372,7 +411,7 @@ function downloadReportHtml() {
   if (!window.__lastReport) return;
   vcCount("legal-report-download");
   downloadBlob(healthReportHtml(window.__lastReport, reportStrings(), humanReviewLoad(),
-    new Date().toLocaleString(), tier1FindForRow, imm8cfrFindForRow),
+    new Date().toLocaleString(), tier1FindForRow, imm8cfrFindForRow, immInaFindForRow),
     "citation-health-report.html", "text/html");
 }
 
