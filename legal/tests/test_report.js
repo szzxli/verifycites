@@ -6,7 +6,7 @@ const path = require("path");
 
 const { extractCitations, REPORTERS } = require("../extract.js");
 global.REPORTERS = REPORTERS;
-const { buildHealthReport, healthReportMarkdown, healthReportHtml } = require("../report.js");
+const { buildHealthReport, healthReportMarkdown, healthReportHtml, reportCheckBasis } = require("../report.js");
 const { I18N } = require("../i18n.js");
 
 // (a) Counts by label: browser rows default to NOT_CHECKED.
@@ -206,5 +206,38 @@ assert.ok(cliMd.includes("Check scope not recorded in this report"),
 assert.ok(cliMd.includes("Human review: Corrected (fixed name)"),
   "CLI row accepts a human status");
 assert.ok(!/found name|record name/i.test(cliMd), "no invented cited-vs-found comparison");
+// Phase 3: check basis. Browser-only reports state what was checked, the
+// source (pasted text only), and a run time labelled as the browser's
+// local run time — never a registry timestamp. Per-item time is always
+// "not recorded". Mixed reports do not invent a basis for CLI rows.
+const basisBrowser = reportCheckBasis(rows, I18N.en, "2026-10-27, 1:00:00 PM");
+assert.strictEqual(basisBrowser.heading, "Check basis", "basis heading");
+assert.ok(basisBrowser.checked.includes("No online lookup was made"), "browser basis: no lookup");
+assert.ok(basisBrowser.source.includes("text you pasted only"), "browser basis source: pasted text");
+assert.ok(basisBrowser.runTime.includes("2026-10-27, 1:00:00 PM")
+  && basisBrowser.runTime.includes("local run time"), "run time labelled as browser local time");
+assert.ok(!/registr|database timestamp/i.test(basisBrowser.runTime.split("not a")[0] || "")
+  || basisBrowser.runTime.includes("not a registry"), "run time is not presented as a registry timestamp");
+assert.ok(basisBrowser.itemTime.includes("not recorded"), "per-item time not recorded");
+const basisMixed = reportCheckBasis(cliRows, I18N.en, "2026-10-27, 1:00:00 PM");
+assert.ok(basisMixed.checked.includes("not recorded in this report"), "mixed basis does not invent CLI basis");
+const t3 = Object.assign({}, t, {
+  reportBasisHeading: I18N.en.reportBasisHeading,
+  reportBasisBrowserChecked: I18N.en.reportBasisBrowserChecked,
+  reportBasisBrowserSource: I18N.en.reportBasisBrowserSource,
+  reportBasisMixed: I18N.en.reportBasisMixed,
+  reportBasisRunTime: I18N.en.reportBasisRunTime,
+  reportBasisItemTime: I18N.en.reportBasisItemTime });
+const mdBasis = healthReportMarkdown(rows, t3, null, "2026-10-27, 1:00:00 PM");
+const htmlBasis = healthReportHtml(rows, t3, null, "2026-10-27, 1:00:00 PM");
+assert.ok(mdBasis.includes("## Check basis") && mdBasis.includes("text you pasted only")
+  && mdBasis.includes("Per-item check time: not recorded"), "basis section in Markdown download");
+assert.ok(htmlBasis.includes("Check basis") && htmlBasis.includes("local run time"),
+  "basis section in HTML download");
+assert.ok(mdBasis.indexOf("## Check basis") < mdBasis.indexOf("## Citations"),
+  "basis section precedes citations, does not alter them");
+const mdNoTime = healthReportMarkdown(rows, t3);
+assert.ok(!/registry timestamp/i.test(mdNoTime) || mdNoTime.includes("not a registry"),
+  "no run time supplied: no timestamp is invented");
 
 console.log("web citation health report tests passed");
