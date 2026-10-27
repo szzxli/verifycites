@@ -60,15 +60,29 @@ ok('matched authors not compared, not invented', /Authors: cited Not recorded se
 const b1 = fieldBlock(html, 1);
 ok('missing title shown Missing', /Title: cited Not recorded separately in this check · record Missing — Missing in record/.test(b1));
 ok('missing year shown Missing', /Year: cited Not recorded separately in this check · record Missing — Missing in record/.test(b1));
-ok('missing identifier not compared', /Identifier: cited Not shown in the claim text · record Missing — Not compared/.test(b1));
+ok('missing identifier Missing in record (P3 consistency)', /Identifier: cited Not shown in the claim text · record Missing — Missing in record/.test(b1));
 // (d) Chimeric authors are highlighted as Differs; other fields are not.
 const b2 = fieldBlock(html, 2);
 ok('chimeric authors Differs', /Authors: cited Differs from the record \(flagged by the check\) · record Vaswani, Ashish — <b>Differs<\/b>/.test(b2));
 ok('chimeric title not marked Differs', !/Title:[^<]*<b>Differs<\/b>/.test(b2));
-// (e) Fabricated identifier: cited id present, no record -> Differs (not a
-// fabrication accusation about the author, just the identifier comparison).
+// (e) Fabricated identifier: cited id present, registry lookup found no
+// record -> the record identifier is Missing in record (P3 consistency:
+// the lookup was made, so record absence is established; this is not an
+// accusation about the author, just the identifier comparison).
 const b3 = fieldBlock(html, 3);
-ok('fabricated identifier Differs', /Identifier: cited 10\.1234\/fake999 · record Missing — <b>Differs<\/b>/.test(b3));
+ok('fabricated identifier Missing in record', /Identifier: cited 10\.1234\/fake999 · record Missing — Missing in record/.test(b3));
+// (e2) P3 exceptions where record absence is NOT established: the check
+// failed (RATE_LIMITED) or no lookup was made (INVALID_DOI) keep
+// "Not compared" wording instead of claiming a missing record.
+const edgeHtml = sb.renderReport([
+  { claim: 'A paper, DOI 10.1234/edge1.', base: 'RATE_LIMITED', label: 'RATE_LIMITED', title: '', authors: [], venue: '', year: '', doi: '', arxiv_id: '', note: 'rate limited' },
+  { claim: 'A paper, DOI not-a-doi.', base: 'INVALID_DOI', label: 'INVALID_DOI', title: '', authors: [], venue: '', year: '', doi: '', arxiv_id: '', note: 'invalid doi' },
+  { claim: 'A paper found by title.', base: 'CITED', label: 'CITED', title: 'Some Title', authors: [], venue: '', year: '', doi: '', arxiv_id: '', note: 'record without identifier' },
+]);
+const eParts = edgeHtml.split('Field comparison (cited vs. record):');
+ok('rate-limited identifier stays Not compared', /Identifier: cited 10\.1234\/edge1 · record Missing — Not compared — check failed/.test(eParts[1]), eParts[1].slice(0, 300));
+ok('invalid-doi identifier stays Not compared', /Identifier: cited Not shown in the claim text · record Missing — Not compared/.test(eParts[2]) && !/Identifier:[^<]*Missing in record/.test(eParts[2].split('Anomaly reason:')[0]));
+ok('record without identifier is Missing in record', /Identifier: cited Not shown in the claim text · record Missing — Missing in record/.test(eParts[3]));
 // (f) P0 fields and warnings stay intact alongside the new block.
 for (const f of ['Category:', 'Matching evidence:', 'Check scope:', 'Suggested action:']) {
   ok('P0 field intact: ' + f, html.includes(f));
