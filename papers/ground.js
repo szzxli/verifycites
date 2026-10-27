@@ -1651,6 +1651,58 @@ const VP_CATEGORY_LABEL = {
   cannotDetermine: 'Cannot be determined', retrievalFailed: 'Retrieval failed'
 };
 
+/* Display-only field comparison for renderReport. It reads ONLY fields
+   already present in the evidence object (record fields + the claim
+   text) and never recomputes a label. Honest limits, stated in the
+   rendered block itself: the check does not store the cited title,
+   authors, venue or year separately, so those rows can only show the
+   record value — they are marked "Not compared", never guessed. Two
+   comparisons ARE grounded in the evidence: the identifier (a DOI or
+   arXiv ID written in the claim text, compared with the record's
+   identifier) and authors (the CHIMERIC flag means the listed authors
+   differ from the record). A record value that is absent is shown as
+   "Missing", never filled in. */
+function vpNormId(id) {
+  return String(id || '').replace(/^10\.48550\/arXiv\./i, '').replace(/^arXiv:/i, '').toLowerCase();
+}
+function vpCitedIdentifier(claim) {
+  const s = String(claim || '');
+  const doi = s.match(/10\.\d{4,9}\/[^\s,;\])}]+/);
+  if (doi) return doi[0].replace(/[).,;]+$/, '');
+  const ax = s.match(/arXiv:(\d{4}\.\d{4,5})(v\d+)?/i);
+  if (ax) return 'arXiv:' + ax[1];
+  return '';
+}
+function vpFieldDiff(e) {
+  const isChimeric = /\[CHIMERIC/.test(e.label || '');
+  const citedId = vpCitedIdentifier(e.claim);
+  const recordId = e.doi || (e.arxiv_id ? 'arXiv:' + String(e.arxiv_id).replace(/^arXiv:/i, '') : '');
+  let idStatus;
+  if (!citedId) idStatus = 'Not compared';
+  else if (!recordId) idStatus = (e.base === 'RATE_LIMITED') ? 'Not compared — check failed' : 'Differs';
+  else if (vpNormId(citedId) === vpNormId(recordId)) idStatus = 'Matches';
+  else idStatus = 'Differs';
+  const rows = [
+    { field: 'Title', cited: 'Not recorded separately in this check', record: e.title || 'Missing',
+      status: e.title ? 'Not compared' : 'Missing in record' },
+    { field: 'Authors', cited: isChimeric ? 'Differs from the record (flagged by the check)' : 'Not recorded separately in this check',
+      record: (e.authors && e.authors.length) ? e.authors.join(', ') : 'Missing',
+      status: isChimeric ? 'Differs' : ((e.authors && e.authors.length) ? 'Not compared' : 'Missing in record') },
+    { field: 'Venue', cited: 'Not recorded separately in this check', record: e.venue || 'Missing',
+      status: e.venue ? 'Not compared' : 'Missing in record' },
+    { field: 'Year', cited: 'Not recorded separately in this check', record: e.year || 'Missing',
+      status: e.year ? 'Not compared' : 'Missing in record' },
+    { field: 'Identifier', cited: citedId || 'Not shown in the claim text', record: recordId || 'Missing',
+      status: idStatus },
+  ];
+  const body = rows.map(r =>
+    `${r.field}: cited ${gesc(r.cited)} · record ${gesc(r.record)} — ` +
+    (r.status === 'Differs' ? '<b>Differs</b>' : gesc(r.status))).join('<br>');
+  return `<div style="margin-top:6px">Field comparison (cited vs. record):</div>` +
+    `<div style="color:var(--ink-soft);font-size:13px">${body}</div>` +
+    `<div style="color:var(--ink-soft);font-size:12.5px">Cited title, authors, venue and year are not stored separately by this check, so they cannot be compared field by field here; only the identifier and flagged author mismatches are compared. "Missing" means the record returned no value for that field.</div>`;
+}
+
 function renderReport(evidence, ropts) {
   const unit = (ropts && ropts.unit) || 'claims';
   const counts = { 'ABSTRACT-SUPPORTED': 0, CITED: 0, UNVERIFIED: 0, RATE_LIMITED: 0, INVALID_DOI: 0, FABRICATED: 0 };
@@ -1737,6 +1789,7 @@ function renderReport(evidence, ropts) {
       (evParts.length ? `<div style="color:var(--ink-soft);font-size:13px">${evParts.join(' · ')}</div>` : '') +
       (doiLink ? `<div style="color:var(--ink-soft);font-size:13px">${doiLink}</div>` : '') +
       (arxivLink ? `<div style="color:var(--ink-soft);font-size:13px">${arxivLink}</div>` : '') +
+      vpFieldDiff(e) +
       `<div style="margin-top:6px;color:var(--ink-soft)">Anomaly reason: ${gesc(anomaly)}</div>` +
       `<div style="margin-top:4px;color:var(--ink-soft)">Check scope: registry lookup; support judgments are abstract-level only — the full text was not checked.</div>` +
       `<div style="margin-top:4px">Suggested action: ${gesc(action)}</div>` +
