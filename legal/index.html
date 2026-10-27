@@ -125,6 +125,7 @@
           <p class="report-note" data-i18n="reportNotCheckedNote">Browser mode: every citation below is NOT_CHECKED. This report summarizes what was extracted; it does not verify any case. Check each case by hand using the links.</p>
           <p class="report-note" data-i18n="reportScopeNote">This report does not check whether cases support your argument, whether quotes are accurate, or whether a case is still good law.</p>
           <p class="report-note" data-i18n="reportFlagNote">In browser mode, only recognized reporters are extracted, so an unknown reporter usually means the citation was not extracted at all. These flags describe the extracted text only; they are not a judgment about quality.</p>
+          <p class="report-note" data-i18n="reportHumanStorageNote">Human review marks are stored in this browser only (localStorage), keyed by the citation text. They do not change the machine result shown beside them.</p>
           <div class="export-actions">
             <button class="button button-small button-secondary" type="button" onclick="downloadReportMd()" data-i18n="reportDownloadMd">Download report (Markdown)</button>
             <button class="button button-small button-secondary" type="button" onclick="downloadReportHtml()" data-i18n="reportDownloadHtml">Download report (printable HTML)</button>
@@ -132,7 +133,7 @@
           <p class="report-note" data-i18n="reportShareNote">Shareable means the downloaded file: send that file onward. There is no hosted link for your brief, and nothing is stored on a server.</p>
           <div class="table-wrap">
             <table class="data-table results-table">
-              <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="reportThYear">Year</th><th scope="col" data-i18n="reportThPin">Pin cite</th><th scope="col" data-i18n="reportThFlags">Structure flags</th><th scope="col" data-i18n="reportThCategory">Category</th><th scope="col" data-i18n="reportThAnomaly">Anomaly reason</th><th scope="col" data-i18n="reportThEvidence">Matching evidence</th><th scope="col" data-i18n="reportThScope">Check scope</th><th scope="col" data-i18n="reportThAction">Suggested action</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
+              <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="reportThYear">Year</th><th scope="col" data-i18n="reportThPin">Pin cite</th><th scope="col" data-i18n="reportThFlags">Structure flags</th><th scope="col" data-i18n="reportThCategory">Category</th><th scope="col" data-i18n="reportThAnomaly">Anomaly reason</th><th scope="col" data-i18n="reportThEvidence">Matching evidence</th><th scope="col" data-i18n="reportThScope">Check scope</th><th scope="col" data-i18n="reportThAction">Suggested action</th><th scope="col" data-i18n="reportThHumanStatus">Human review</th><th scope="col" data-i18n="reportThReverify">Re-verify</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
               <tbody id="reportRows"></tbody>
             </table>
           </div>

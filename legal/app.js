@@ -71,8 +71,57 @@ function reportStrings() {
     reportCatRetrievalFailed: t.reportCatRetrievalFailed,
     reportActionMatched: t.reportActionMatched, reportActionFieldMismatch: t.reportActionFieldMismatch,
     reportActionNotFound: t.reportActionNotFound, reportActionCannotDetermine: t.reportActionCannotDetermine,
-    reportActionRetrievalFailed: t.reportActionRetrievalFailed
+    reportActionRetrievalFailed: t.reportActionRetrievalFailed,
+    reportThHumanStatus: t.reportThHumanStatus, reportHumanNotSet: t.reportHumanNotSet,
+    reportHumanConfirmed: t.reportHumanConfirmed, reportHumanCorrected: t.reportHumanCorrected,
+    reportHumanRecheck: t.reportHumanRecheck, reportHumanSummary: t.reportHumanSummary
   };
+}
+
+/* ---- Phase 2: human review status, browser-local only ----
+   Stored in localStorage under REVIEW_STORAGE_KEY, keyed by citation
+   text. This is a reader's own mark: it never changes the machine label
+   or category shown beside it, and it never leaves this browser. */
+var REVIEW_STORAGE_KEY = "lcc-human-review-v1";
+function humanReviewLoad() {
+  try {
+    var raw = localStorage.getItem(REVIEW_STORAGE_KEY);
+    var parsed = raw ? JSON.parse(raw) : {};
+    return (parsed && typeof parsed === "object") ? parsed : {};
+  } catch (e) { return {}; }
+}
+function humanReviewSave(map) {
+  try { localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(map || {})); } catch (e) { /* private mode: marks simply do not persist */ }
+}
+function humanReviewFor(map, text) {
+  var v = (map || {})[text] || {};
+  return { status: HUMAN_STATUSES.indexOf(v.status) >= 0 ? v.status : "", note: v.note || "" };
+}
+function onHumanReviewChange() {
+  var map = humanReviewLoad();
+  document.querySelectorAll("[data-review]").forEach(function (sel) {
+    var idx = parseInt(sel.getAttribute("data-review"), 10);
+    var row = (window.__lastReport && window.__lastReport.rows[idx]) || null;
+    if (!row) return;
+    var noteEl = document.querySelector("[data-note=\"" + idx + "\"]");
+    var entry = { status: sel.value, note: noteEl ? noteEl.value : "" };
+    if (!entry.status && !entry.note) delete map[row.text];
+    else map[row.text] = entry;
+  });
+  humanReviewSave(map);
+  if (window.__lastResults) renderReport(window.__lastResults);
+}
+function onReverify(idx) {
+  var editEl = document.querySelector("[data-edit=\"" + idx + "\"]");
+  var results = window.__lastResults || [];
+  var oldRow = (window.__lastReport && window.__lastReport.rows[idx]) || null;
+  if (!editEl || !oldRow || typeof reverifyRow !== "function") return;
+  var out = reverifyRow(results, idx, editEl.value, extractCitations);
+  if (!out.changed) { editEl.focus(); editEl.select(); return; }
+  var map = humanReviewLoad();
+  var entry = map[oldRow.text];
+  if (entry) { delete map[oldRow.text]; map[out.row.text] = entry; humanReviewSave(map); }
+  render(out.results);
 }
 
 function renderReport(results) {
@@ -97,13 +146,21 @@ function renderReport(results) {
   var catParts = Object.keys(report.byCategory || {}).map(function (c) {
     return catLabels[c] + ": " + report.byCategory[c];
   });
+  var humanMap = humanReviewLoad();
+  var humanCounts = (typeof humanStatusCounts === "function")
+    ? humanStatusCounts(report, humanMap) : { confirmed: 0, corrected: 0, recheck: 0 };
+  var humanLabels = { confirmed: t.reportHumanConfirmed, corrected: t.reportHumanCorrected,
+    recheck: t.reportHumanRecheck };
+  var humanParts = ["confirmed", "corrected", "recheck"].filter(function (s) { return humanCounts[s]; })
+    .map(function (s) { return humanLabels[s] + ": " + humanCounts[s]; });
   document.getElementById("reportSummary").textContent =
     t.reportTotal + ": " + report.total + " · " + t.reportByLabel + ": " + byLabel
     + (catParts.length ? " · " + t.reportByCategory + ": " + catParts.join("; ") : "")
-    + (flagParts.length ? " · " + t.reportStructureHeading + ": " + flagParts.join("; ") : "");
+    + (flagParts.length ? " · " + t.reportStructureHeading + ": " + flagParts.join("; ") : "")
+    + (humanParts.length ? " · " + t.reportHumanSummary + ": " + humanParts.join("; ") : "");
   var tbody = document.getElementById("reportRows");
   tbody.innerHTML = "";
-  report.rows.forEach(function (row) {
+  report.rows.forEach(function (row, ri) {
     var flagText = row.flags.length ? row.flags.map(function (fl) {
       return { duplicate: t.reportFlagDuplicate, missingYear: t.reportFlagMissingYear,
         noCaseName: t.reportFlagNoCaseName, invalidReporter: t.reportFlagInvalidReporter }[fl];
@@ -120,6 +177,11 @@ function renderReport(results) {
     if (row.pinCite) evParts.push(t.reportThPin + ": " + row.pinCite);
     var evidence = evParts.length ? evParts.join("; ") : t.reportNoEvidence;
     var scope = row.label === "NOT_CHECKED" ? t.reportScopeDisplay : t.reportScopeUnknown;
+    var human = humanReviewFor(humanMap, row.text);
+    var humanOptions = [["", t.reportHumanNotSet], ["confirmed", t.reportHumanConfirmed],
+      ["corrected", t.reportHumanCorrected], ["recheck", t.reportHumanRecheck]].map(function (o) {
+      return "<option value=\"" + o[0] + "\"" + (human.status === o[0] ? " selected" : "") + ">" + esc(o[1]) + "</option>";
+    }).join("");
     var tr = document.createElement("tr");
     tr.innerHTML = "<td>" + row.index + "</td><td>" + esc(row.text) + "</td>"
       + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.year) + "</td>"
@@ -127,11 +189,26 @@ function renderReport(results) {
       + "<td>" + esc(catLabels[cat]) + "</td><td>" + esc(anomaly) + "</td>"
       + "<td>" + esc(evidence) + "</td><td>" + esc(scope) + "</td>"
       + "<td>" + esc(catActions[cat]) + "</td>"
+      + "<td><select data-review=\"" + ri + "\" aria-label=\"" + esc(t.reportThHumanStatus) + "\">" + humanOptions + "</select>"
+      + "<br><input data-note=\"" + ri + "\" value=\"" + esc(human.note) + "\" placeholder=\"" + esc(t.reportNotePlaceholder) + "\" aria-label=\"" + esc(t.reportHumanNote) + "\"></td>"
+      + "<td><input data-edit=\"" + ri + "\" value=\"" + esc(row.text) + "\" placeholder=\"" + esc(t.reportEditPlaceholder) + "\" aria-label=\"" + esc(t.reportThReverify) + "\">"
+      + "<br><button type=\"button\" data-reverify=\"" + ri + "\">" + esc(t.reportThReverify) + "</button></td>"
       + "<td><a href=\"" + esc(row.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(t.openCourtListener) + "</a>"
       + " | <a href=\"" + esc(row.scholarUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(t.searchScholar) + "</a></td>";
     tbody.appendChild(tr);
+  });
+  tbody.querySelectorAll("[data-review]").forEach(function (sel) {
+    sel.addEventListener("change", onHumanReviewChange);
+  });
+  tbody.querySelectorAll("[data-note]").forEach(function (inp) {
+    inp.addEventListener("change", onHumanReviewChange);
+  });
+  tbody.querySelectorAll("[data-reverify]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      onReverify(parseInt(btn.getAttribute("data-reverify"), 10));
+    });
   });
   section.hidden = false;
 }
@@ -146,13 +223,13 @@ function downloadBlob(content, filename, type) {
 
 function downloadReportMd() {
   if (!window.__lastReport) return;
-  downloadBlob(healthReportMarkdown(window.__lastReport, reportStrings()),
+  downloadBlob(healthReportMarkdown(window.__lastReport, reportStrings(), humanReviewLoad()),
     "citation-health-report.md", "text/markdown");
 }
 
 function downloadReportHtml() {
   if (!window.__lastReport) return;
-  downloadBlob(healthReportHtml(window.__lastReport, reportStrings()),
+  downloadBlob(healthReportHtml(window.__lastReport, reportStrings(), humanReviewLoad()),
     "citation-health-report.html", "text/html");
 }
 
