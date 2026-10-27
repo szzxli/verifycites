@@ -146,4 +146,65 @@ for (const field of ["Category", "Anomaly reason", "Matching evidence", "Check s
 assert.ok(md.includes("Cannot be determined"), "md browser category present");
 assert.ok(html.includes("By category"), "html category counts present");
 
+// (i) Phase 2: human review status lives beside the machine result and
+// never changes it; re-verify recomputes machine fields from new text.
+const { humanStatusCounts, humanSummaryText, reverifyRow } = require("../report.js");
+const t2 = Object.assign({}, t, { reportThHumanStatus: "Human review",
+  reportHumanNotSet: "Not set", reportHumanConfirmed: "Confirmed by hand",
+  reportHumanCorrected: "Corrected", reportHumanRecheck: "Needs recheck",
+  reportHumanSummary: "Human review" });
+const humanMap = { "347 U.S. 483": { status: "confirmed", note: "checked on CourtListener" } };
+const md2 = healthReportMarkdown(rows, t2, humanMap);
+const html2 = healthReportHtml(rows, t2, humanMap);
+assert.ok(md2.includes("Human review: Confirmed by hand (checked on CourtListener)"),
+  "md human column present with status + note");
+assert.ok(html2.includes("Human review") && html2.includes("Confirmed by hand"),
+  "html human column present");
+assert.ok(md2.includes("NOT_CHECKED") && md2.includes("Cannot be determined"),
+  "machine label/category unchanged by human status");
+assert.deepStrictEqual(humanStatusCounts(rows, humanMap),
+  { confirmed: 2, corrected: 0, recheck: 0 },
+  "human counts count both duplicate-text rows under one key");
+assert.ok(humanSummaryText(rows, humanMap, t2).includes("Confirmed by hand: 2"),
+  "human summary counts");
+const md3 = healthReportMarkdown(rows, t2,
+  { "347 U.S. 483": { status: "recheck", note: "" } });
+assert.ok(md3.includes("Human review: Needs recheck"), "changed human status shown");
+assert.ok(md3.includes("NOT_CHECKED") && md3.includes("Cannot be determined"),
+  "changing human status still leaves machine label/category alone");
+const md2Body = md2.split("## Citations")[1] || "";
+const html2Body = html2.split("<h2>Citations</h2>")[1] || "";
+for (const body of [md2Body, html2Body]) {
+  assert.ok(!/relevan|support|good law|win|score|%/i.test(body),
+    "no relevance/score/good-law judgment or percentage in human column output");
+}
+// Re-verify: adding a year removes missingYear; removing it brings it back;
+// text with no citation leaves results untouched.
+const start = extractCitations("Smith v. Jones, 123 F.3d 456.");
+assert.ok(buildHealthReport(start).rows[0].flags.includes("missingYear"), "start lacks year");
+const fixed = reverifyRow(start, 0, "Smith v. Jones, 123 F.3d 456 (1999).", extractCitations);
+assert.strictEqual(fixed.changed, true, "re-verify changed");
+assert.strictEqual(fixed.row.year, "1999", "re-verified row carries the new year");
+assert.ok(!buildHealthReport(fixed.results).rows[0].flags.includes("missingYear"),
+  "structure flags recomputed after re-verify");
+const undone = reverifyRow(fixed.results, 0, "Smith v. Jones, 123 F.3d 456.", extractCitations);
+assert.ok(buildHealthReport(undone.results).rows[0].flags.includes("missingYear"),
+  "removing the year re-raises missingYear");
+const noop = reverifyRow(start, 0, "no citations in this sentence", extractCitations);
+assert.strictEqual(noop.changed, false, "no citation found: not changed");
+assert.strictEqual(noop.results, start, "no citation found: results untouched");
+const badIdx = reverifyRow(start, 5, "Roe v. Wade, 410 U.S. 113 (1973).", extractCitations);
+assert.strictEqual(badIdx.changed, false, "out-of-range index: not changed");
+// Non-browser (CLI-style) rows keep their scope wording and still accept a
+// human status; no cited-vs-found name comparison is invented for them.
+const cliRows = buildHealthReport([
+  { text: "1 U.S. 1", volume: "1", reporter: "U.S.", page: "1", caseName: "A v. B", year: "1900", label: "MISMATCH" },
+]);
+const cliMd = healthReportMarkdown(cliRows, t2, { "1 U.S. 1": { status: "corrected", note: "fixed name" } });
+assert.ok(cliMd.includes("Check scope not recorded in this report"),
+  "CLI row scope wording unchanged");
+assert.ok(cliMd.includes("Human review: Corrected (fixed name)"),
+  "CLI row accepts a human status");
+assert.ok(!/found name|record name/i.test(cliMd), "no invented cited-vs-found comparison");
+
 console.log("web citation health report tests passed");
