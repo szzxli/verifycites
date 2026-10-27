@@ -97,6 +97,35 @@ function _rowDisplay(row, t) {
   };
 }
 
+/* ---- Phase 3: check basis (display-only, never invents a timestamp) ----
+   What was actually checked, what source it came from, and when. The only
+   time this report can state honestly is the browser's local run time of
+   the report itself (supplied by the caller as a string); it is NEVER a
+   registry or database timestamp. Per-item check times are not recorded
+   in this report at all, and are shown as such. For rows that came from
+   another check (any label other than NOT_CHECKED), the original basis
+   is not in this report, so the basis section says so instead of
+   guessing it. */
+function reportCheckBasis(report, t, runTime) {
+  var f = function (k, d) { return (t && t[k]) || d; };
+  var rows = (report && report.rows) || [];
+  var allBrowser = rows.every(function (row) { return (row.label || "NOT_CHECKED") === "NOT_CHECKED"; });
+  var runText = runTime
+    ? f("reportBasisRunTime", "Report generated in this browser at {t} (your browser's local run time, not a registry or database timestamp).").replace("{t}", runTime)
+    : f("reportBasisItemTime", "Per-item check time: not recorded in this report.");
+  return {
+    heading: f("reportBasisHeading", "Check basis"),
+    checked: allBrowser
+      ? f("reportBasisBrowserChecked", "What was checked: text extraction from the text you pasted, plus structure checks on the extracted citations (duplicates, missing year, no case name, unknown reporter). No online lookup was made in browser mode.")
+      : f("reportBasisMixed", "What was checked: this report mixes rows from different checks. Browser rows were checked by text extraction only; for rows from another check, the basis is not recorded in this report \u2014 see the original check."),
+    source: allBrowser
+      ? f("reportBasisBrowserSource", "Data source: the text you pasted only. No external database was consulted.")
+      : f("reportScopeUnknown", "Check scope not recorded in this report; see the original check."),
+    runTime: runText,
+    itemTime: f("reportBasisItemTime", "Per-item check time: not recorded in this report.")
+  };
+}
+
 function _categoryCounts(report) {
   if (report.byCategory) return report.byCategory;
   var counts = {};
@@ -183,7 +212,7 @@ function _flagLabel(flag, t) {
    for any key the caller does not supply. `human` (optional) is the
    human-review lookup described above; its column is separate from the
    machine Category and never merged into it. */
-function healthReportMarkdown(report, t, human) {
+function healthReportMarkdown(report, t, human, runTime) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   // Fixed English notice, in English in every language version: the report
@@ -205,6 +234,13 @@ function healthReportMarkdown(report, t, human) {
   });
   var humanSummary = humanSummaryText(report, human, t);
   if (humanSummary) lines.push("- " + humanSummary);
+  var basis = reportCheckBasis(report, t, runTime);
+  lines.push("");
+  lines.push("## " + basis.heading);
+  lines.push(basis.checked);
+  lines.push(basis.source);
+  lines.push(basis.runTime);
+  lines.push(basis.itemTime);
   lines.push("");
   lines.push("## " + f("citations", "Citations"));
   report.rows.forEach(function (row) {
@@ -230,7 +266,7 @@ function healthReportMarkdown(report, t, human) {
   return lines.join("\n") + "\n";
 }
 
-function healthReportHtml(report, t, human) {
+function healthReportHtml(report, t, human, runTime) {
   t = t || {};
   var f = function (k, d) { return t[k] || d; };
   var labelRows = Object.keys(report.byLabel).map(function (label) {
@@ -241,6 +277,7 @@ function healthReportHtml(report, t, human) {
     return _escHtml(f(REPORT_CATEGORY_KEYS[cat], cat)) + ": " + catCounts[cat];
   }).join(" · ");
   var humanSummary = humanSummaryText(report, human, t);
+  var basis = reportCheckBasis(report, t, runTime);
   var rows = report.rows.map(function (row) {
     var flagText = (row.flags || []).length
       ? row.flags.map(function (fl) { return _escHtml(_flagLabel(fl, t)); }).join("; ")
@@ -275,6 +312,11 @@ function healthReportHtml(report, t, human) {
     + "<table><tr><th>" + _escHtml(f("byLabel", "By label")) + "</th><th>Count</th></tr>" + labelRows + "</table>"
     + (catText ? "<p>" + _escHtml(f("byCategory", "By category")) + ": " + catText + "</p>" : "")
     + (humanSummary ? "<p>" + _escHtml(humanSummary) + "</p>" : "")
+    + "<h2>" + _escHtml(basis.heading) + "</h2>"
+    + "<p>" + _escHtml(basis.checked) + "</p>"
+    + "<p>" + _escHtml(basis.source) + "</p>"
+    + "<p>" + _escHtml(basis.runTime) + "</p>"
+    + "<p>" + _escHtml(basis.itemTime) + "</p>"
     + "<h2>" + _escHtml(f("citations", "Citations")) + "</h2>"
     + "<table><tr><th>#</th><th>" + _escHtml(f("citation", "Citation")) + "</th>"
     + "<th>" + _escHtml(f("caseName", "Case name in text")) + "</th>"
@@ -294,7 +336,7 @@ function healthReportHtml(report, t, human) {
 
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { buildHealthReport, healthReportMarkdown, healthReportHtml,
-    REPORT_FLAG_KEYS, reportDisplayCategory,
+    REPORT_FLAG_KEYS, reportDisplayCategory, reportCheckBasis,
     HUMAN_STATUSES, humanFor, humanStatusLabel, humanStatusCounts,
     humanSummaryText, reverifyRow };
 }

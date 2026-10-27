@@ -74,7 +74,10 @@ function reportStrings() {
     reportActionRetrievalFailed: t.reportActionRetrievalFailed,
     reportThHumanStatus: t.reportThHumanStatus, reportHumanNotSet: t.reportHumanNotSet,
     reportHumanConfirmed: t.reportHumanConfirmed, reportHumanCorrected: t.reportHumanCorrected,
-    reportHumanRecheck: t.reportHumanRecheck, reportHumanSummary: t.reportHumanSummary
+    reportHumanRecheck: t.reportHumanRecheck, reportHumanSummary: t.reportHumanSummary,
+    reportBasisHeading: t.reportBasisHeading, reportBasisBrowserChecked: t.reportBasisBrowserChecked,
+    reportBasisBrowserSource: t.reportBasisBrowserSource, reportBasisMixed: t.reportBasisMixed,
+    reportBasisRunTime: t.reportBasisRunTime, reportBasisItemTime: t.reportBasisItemTime
   };
 }
 
@@ -158,6 +161,16 @@ function renderReport(results) {
     + (catParts.length ? " · " + t.reportByCategory + ": " + catParts.join("; ") : "")
     + (flagParts.length ? " · " + t.reportStructureHeading + ": " + flagParts.join("; ") : "")
     + (humanParts.length ? " · " + t.reportHumanSummary + ": " + humanParts.join("; ") : "");
+  /* Phase 3: check-basis paragraph. Run time is this browser's local
+     time when the report was rendered — labelled as such, never a
+     registry timestamp. Per-item times are not recorded (see
+     reportCheckBasis). */
+  var basisEl = document.getElementById("reportBasis");
+  if (basisEl && typeof reportCheckBasis === "function") {
+    var basis = reportCheckBasis(report, reportStrings(), new Date().toLocaleString());
+    basisEl.textContent = basis.heading + ": " + basis.checked + " " + basis.source
+      + " " + basis.runTime + " " + basis.itemTime;
+  }
   var tbody = document.getElementById("reportRows");
   tbody.innerHTML = "";
   report.rows.forEach(function (row, ri) {
@@ -223,13 +236,15 @@ function downloadBlob(content, filename, type) {
 
 function downloadReportMd() {
   if (!window.__lastReport) return;
-  downloadBlob(healthReportMarkdown(window.__lastReport, reportStrings(), humanReviewLoad()),
+  downloadBlob(healthReportMarkdown(window.__lastReport, reportStrings(), humanReviewLoad(),
+    new Date().toLocaleString()),
     "citation-health-report.md", "text/markdown");
 }
 
 function downloadReportHtml() {
   if (!window.__lastReport) return;
-  downloadBlob(healthReportHtml(window.__lastReport, reportStrings(), humanReviewLoad()),
+  downloadBlob(healthReportHtml(window.__lastReport, reportStrings(), humanReviewLoad(),
+    new Date().toLocaleString()),
     "citation-health-report.html", "text/html");
 }
 
