@@ -199,7 +199,7 @@ var I18N = {
     queryEnglishNote: "La consulta ya est\u00e1 en ingl\u00e9s; no se aplic\u00f3 ninguna traducci\u00f3n.",
     searchEnQuery: "Extraer citas de esta consulta en inglés",
     queryEditedSearch: "Extracción de citas completada con la consulta en inglés editada.",
-    briefingHeading: "Resumen legal diario \u2014 \u6bcf\u65e5\u6cd5\u5f8b\u7b80\u62a5",
+    briefingHeading: "Resumen legal diario",
     briefingIntro: "Su resumen matutino, para abrir y ver: sin cuenta y sin env\u00edo por correo. Las preferencias quedan solo en este navegador. Elija un estado, temas y casos que sigue, y obtenga el resumen de hoy (m\u00e1ximo 5 elementos, unos 5 minutos).",
     briefingStateLabel: "Estado (primera versi\u00f3n: CA, TX, FL, NY)",
     briefingTopicsLabel: "Temas / cuestiones (separados por comas)",
