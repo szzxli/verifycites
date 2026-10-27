@@ -1677,9 +1677,18 @@ function vpFieldDiff(e) {
   const isChimeric = /\[CHIMERIC/.test(e.label || '');
   const citedId = vpCitedIdentifier(e.claim);
   const recordId = e.doi || (e.arxiv_id ? 'arXiv:' + String(e.arxiv_id).replace(/^arXiv:/i, '') : '');
+  /* Phase 3 identifier-status consistency: when the record has no
+     identifier, the status is "Missing in record", like the other four
+     rows — EXCEPT two cases where record absence is not established:
+     RATE_LIMITED (the check failed, so nothing about the record is
+     known) and INVALID_DOI (no registry lookup was made at all). Those
+     keep "Not compared" wording instead of claiming a missing record. */
   let idStatus;
-  if (!citedId) idStatus = 'Not compared';
-  else if (!recordId) idStatus = (e.base === 'RATE_LIMITED') ? 'Not compared — check failed' : 'Differs';
+  if (!recordId) {
+    if (e.base === 'RATE_LIMITED') idStatus = 'Not compared — check failed';
+    else if (e.base === 'INVALID_DOI') idStatus = 'Not compared';
+    else idStatus = 'Missing in record';
+  } else if (!citedId) idStatus = 'Not compared';
   else if (vpNormId(citedId) === vpNormId(recordId)) idStatus = 'Matches';
   else idStatus = 'Differs';
   const rows = [
@@ -1734,7 +1743,17 @@ function renderReport(evidence, ropts) {
     `Retrieval failed ${catCounts.retrievalFailed}</div>` +
     `<div style="margin-bottom:18px;font-size:13px;color:var(--ink-soft)">Check scope: registry lookup ` +
     `(Crossref, DataCite, arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar as a last resort); ` +
-    `any support judgment is abstract-level only — the full text was not checked.</div>`;
+    `any support judgment is abstract-level only — the full text was not checked.</div>` +
+    /* Phase 3 check basis: what was checked, from which sources, and
+       when. The time is this browser's local run time when the report
+       was rendered — labelled as such, never a registry timestamp.
+       Per-item check times are not recorded in this report (the cache
+       holds an internal timestamp for expiry only, and it is not shown
+       as a check time). */
+    `<div style="margin-bottom:18px;font-size:13px;color:var(--ink-soft)">Check basis: each claim was looked up in the registries above and, where a record was found, its abstract was screened for support. ` +
+    `Sources: Crossref, DataCite, arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar (last resort). ` +
+    `This check ran in your browser at ${new Date().toLocaleString()} (your browser's local run time, not a registry timestamp). ` +
+    `Per-item check time: not recorded in this report.</div>`;
   evidence.forEach((e, i) => {
     const tags = (e.label || '').split(' ').slice(1).map(t =>
       `<span class="label ${/CHIMERIC|RETRACTED/.test(t) ? 'l-unverified' : /KEYLESS-NLI/.test(t) ? 'l-cited' : 'l-stale'}">${gesc(t)}</span>`).join(' ');
@@ -1791,7 +1810,7 @@ function renderReport(evidence, ropts) {
       (arxivLink ? `<div style="color:var(--ink-soft);font-size:13px">${arxivLink}</div>` : '') +
       vpFieldDiff(e) +
       `<div style="margin-top:6px;color:var(--ink-soft)">Anomaly reason: ${gesc(anomaly)}</div>` +
-      `<div style="margin-top:4px;color:var(--ink-soft)">Check scope: registry lookup; support judgments are abstract-level only — the full text was not checked.</div>` +
+      `<div style="margin-top:4px;color:var(--ink-soft)">Check scope: registry lookup; support judgments are abstract-level only — the full text was not checked. Item check time: not recorded.</div>` +
       `<div style="margin-top:4px">Suggested action: ${gesc(action)}</div>` +
       `</div></div>`;
   });
