@@ -514,7 +514,7 @@ function renderBriefing(briefing) {
       }
       div.innerHTML = "<p><a href=\"" + esc(it.url) + "\" target=\"_blank\" rel=\"noopener\">"
         + esc(it.title) + "</a>"
-        + (it.sample ? " <strong>[SAMPLE / 示例]</strong>" : "")
+        + (it.sample ? " <strong>[" + esc(T().briefingSampleTag || "SAMPLE") + "]</strong>" : "")
         + (it.court ? " — " + esc(it.court) : "")
         + (it.date ? " (" + esc(it.date) + countdown + ")" : "") + "<br>"
         + (it.snippet ? "<em>" + esc(it.snippet) + "</em><br>" : "")

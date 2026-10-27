@@ -36,7 +36,9 @@ function reportDisplayCategory(label, caseName) {
 /* ---- Tier-1 first-seen matching (display-only) ----
    Matches a report row against the static Tier-1 first-seen index
    (data/tier1-index.json, published by scripts/tier1_poll.py) on an
-   EXACT basis only: the normalised case name must be identical, and
+   EXACT basis only: the normalised case name must be identical
+   (modulo "et al." party suffixes, which index titles and extracted
+   case names carry inconsistently), and
    when both the row and the index item carry a year, the years must
    agree. A match means only that the poller first observed an item
    with this case name at the named direct source on the stated date;
@@ -44,7 +46,7 @@ function reportDisplayCategory(label, caseName) {
    claim about the cited case. No match produces no text at all:
    absence from the index is never worded as "not found". */
 function tier1NormalizeCaseName(s) {
-  return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
+  return String(s || "").toLowerCase().replace(/\bet\s+al\b/g, " ").replace(/\betal\b/g, " ").replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
 }
 function tier1FindLegal(index, row) {
   if (!index || !index.items || !row || !row.caseName) return null;
