@@ -35,6 +35,9 @@ function render(results) {
     var tr = document.createElement("tr");
     tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + esc(r.text) + "</td>"
       + "<td>" + esc(r.caseName) + "</td><td>NOT_CHECKED</td>"
+      + "<td>" + esc(standardCitation(r))
+      + "<br><button type=\"button\" onclick=\"copyStandardFormat(" + i + ")\">"
+      + esc(T().copyFormat) + "</button></td>"
       + "<td><a href=\"" + esc(r.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(T().openCourtListener) + "</a>"
       + " | <a href=\"" + esc(r.scholarUrl) + "\" target=\"_blank\" rel=\"noopener\">"
@@ -310,6 +313,28 @@ function openFile(input) {
     check();
   };
   reader.readAsText(file);
+}
+
+function copyStandardFormat(i) {
+  var r = (window.__lastResults || [])[i];
+  if (!r) return;
+  var text = standardCitation(r);
+  var done = function (ok) {
+    document.getElementById("count").textContent = ok ? T().copiedFormat : T().copyFormatFailed;
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function () { done(true); },
+      function () { done(false); });
+  } else {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    done(ok);
+  }
 }
 
 function exportMarkdown() {

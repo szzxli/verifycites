@@ -113,11 +113,12 @@
         <p class="label-legend" data-i18n="labelLegend">VERIFIED = the case exists and the case name matches. MISMATCH = the case name at that citation differs from the one you wrote. NOT_FOUND = no case at that citation in CourtListener's database.</p>
         <div class="table-wrap" id="resultsWrap" hidden>
           <table class="data-table results-table">
-            <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="thLabel">Label</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
+            <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="thLabel">Label</th><th scope="col" data-i18n="thStandardFormat">Standard format</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
             <tbody id="results"></tbody>
           </table>
         </div>
         <div class="not-checked-note"><span class="note-dot" aria-hidden="true"></span><p data-copy="browserModeNote">Every result in browser mode is marked NOT_CHECKED. Use the links to verify manually, or see the CLI guide for the full CourtListener check.</p></div>
+        <p class="format-note" data-i18n="formatNote">Standard format is assembled from the extracted fields only. It is not a certified Bluebook citation, and it is not a verification result. California state courts follow the California Style Manual, not Bluebook.</p>
         <p class="results-guide"><a href="#cli" data-i18n="resultsCliGuide">All NOT_CHECKED? Use the CLI for a full check →</a></p>
         <div class="report-section" id="reportSection" hidden>
           <h3 data-i18n="reportHeading">Citation health report</h3>

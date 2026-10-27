@@ -165,6 +165,22 @@ function extractCitations(text) {
   return out;
 }
 
+/* Standard format for one extracted row, assembled ONLY from fields the
+   extractor already found (case name, volume, reporter, page, pin cite,
+   year). This is spacing/punctuation normalization of the user's own
+   text: it is NOT a certified Bluebook citation (California state courts
+   follow the California Style Manual, not Bluebook) and NOT a
+   verification result — the case may still not exist. */
+function standardCitation(r) {
+  var cite = [r.volume, r.reporter, r.page].filter(Boolean).join(" ");
+  if (r.pinCite) cite += ", " + r.pinCite;
+  var out = "";
+  if (r.caseName) out += r.caseName + ", ";
+  out += cite;
+  if (r.year) out += " (" + r.year + ")";
+  return out;
+}
+
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { extractCitations, REPORTERS };
+  module.exports = { extractCitations, REPORTERS, standardCitation };
 }
