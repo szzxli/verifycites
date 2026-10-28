@@ -1,6 +1,15 @@
 {
   "items": [
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "CENTER FOR BIOLOGICAL DIVERSITY, ET AL. V. UNITED STATES BUREAU OF RECLAMATION, ET AL.",
+      "identifier": "25-5137",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/28/25-5137.pdf",
+      "date": "2026-10-28",
+      "first_seen": "2026-10-28T22:17:42Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction",
@@ -1081,7 +1090,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-10-28T12:16:42Z",
+    "last_poll": "2026-10-28T22:17:42Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -1104,7 +1113,7 @@
       {
         "name": "Europe PMC",
         "status": "ok",
-        "items": 25,
+        "items": 18,
         "last_error": null
       }
     ]
