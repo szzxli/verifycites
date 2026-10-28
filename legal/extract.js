@@ -434,6 +434,56 @@ function scanCitations(text) {
   };
 }
 
+// Prose abbreviations that sit between a number and another number
+// ("12 Dec. 1955", "12 Fig. 3") and are not reporters.
+const PROSE_ABBREV = {
+  fig: 1, no: 1, vol: 1, pp: 1, p: 1, mr: 1, ms: 1, mrs: 1, dr: 1, st: 1,
+  jr: 1, sr: 1, inc: 1, co: 1, ltd: 1, corp: 1, jan: 1, feb: 1, mar: 1,
+  apr: 1, jun: 1, jul: 1, aug: 1, sep: 1, sept: 1, oct: 1, nov: 1, dec: 1,
+  vs: 1, cf: 1, eg: 1, ie: 1, id: 1, art: 1, sec: 1, ch: 1, para: 1,
+  ed: 1, rev: 1, op: 1, cit: 1, supra: 1, infra: 1, note: 1, notes: 1,
+  table: 1, ex: 1, eq: 1, al: 1
+};
+
+// A reporter-like token has a dot and stays short ("F.3d", "F.4ht", "U.S.").
+// A run of five or more letters is a word ("Washington."), not an abbreviation.
+function reporterishToken(token) {
+  if (!token || token.length < 2 || token.length > 24) return false;
+  if (token.indexOf(".") < 0) return false;
+  if (/[A-Za-z]{5,}/.test(token)) return false;
+  const letters = token.replace(/[^A-Za-z]/g, "").toLowerCase();
+  if (!letters || PROSE_ABBREV[letters]) return false;
+  return true;
+}
+
+// "12 F. Supp. 34" is a reporter phrase. "12 Dec. 1955", "12 Fig. 3",
+// and "12 Washington. 3" are not: a month, a figure label, or a long word.
+function dottedCiteIsReporter(snippet) {
+  const body = String(snippet).replace(/\s+(?:at\s+)?\d{1,5}\s*$/i, "").replace(/^\d{1,4}\s+/, "");
+  const words = body.split(/\s+/).filter(Boolean);
+  return words.length > 0 && words.every(reporterishToken);
+}
+
+// A parenthetical counts as part of a near-miss cite when it carries a
+// year or a court/agency word. "(federal)" and "(see below)" do not.
+function consumeCiteParens(text, index) {
+  let consumed = 0;
+  let slice = text.slice(index);
+  const chunks = [];
+  for (;;) {
+    const m = /^\s*(\((?:[^()]|\([^()]*\)){0,120}\))/.exec(slice);
+    if (!m) break;
+    chunks.push(m[1]);
+    consumed += m[0].length;
+    slice = text.slice(index + consumed);
+  }
+  if (!chunks.length) return index;
+  const joined = chunks.join(" ");
+  if (!/\b(?:1[6-9]\d{2}|20\d{2})\b/.test(joined)
+      && !/\b(?:Cir|App|Ct|BIA|AAO|Dist|A\.G)\b/i.test(joined)) return index;
+  return index + consumed;
+}
+
 function findUnrecognized(text, spans) {
   const patterns = [
     /\b\d{1,3}\s+Fed\.\s*Reg\.\s+[\d,]+/g,
@@ -441,22 +491,49 @@ function findUnrecognized(text, spans) {
     /\bImmigration and Nationality Act\s*,?\s*(?:§§|§)\s*\d[^.;\n]{0,60}/g,
     /\b\d{1,3}\s+I\s*&\s*N\s+Dec\.\s+(?:at\s+)?\d{1,5}/g,
     /\bMatter of\s+[A-Za-z0-9][^.\n]{0,80}\(\s*AAO\b[^)]{0,40}\)/g,
-    /\b\d{1,4}\s+(?:[A-Z][A-Za-z]*\.|[A-Z]\.)(?:\s*(?:[A-Za-z]+\.|[A-Z]\.|[A-Z][a-z]*\.)){0,4}\s+(?:at\s+)?\d{1,5}\b/g,
   ];
+  const dottedCite = /\b\d{1,4}\s+(?:[A-Z][A-Za-z]*\.|[A-Z]\.)(?:\s*(?:[A-Za-z]+\.|[A-Z]\.|[A-Z][a-z]*\.)){0,4}\s+(?:at\s+)?\d{1,5}\b/g;
   const found = [];
   const seen = {};
+  const foundSpans = spans.slice();
+  function add(start, end, snippet) {
+    snippet = snippet.replace(/\s+/g, " ").trim();
+    if (!snippet || seen[snippet]) return;
+    if (overlaps(foundSpans, start, end)) return;
+    seen[snippet] = true;
+    foundSpans.push([start, end]);
+    found.push(snippet);
+  }
   patterns.forEach((re) => {
-    let m;
-    while ((m = re.exec(text)) !== null) {
-      const start = m.index;
-      const end = start + m[0].length;
-      if (overlaps(spans, start, end)) continue;
-      const snippet = m[0].replace(/\s+/g, " ").trim();
-      if (!snippet || seen[snippet]) continue;
-      seen[snippet] = true;
-      found.push(snippet);
+    let hit;
+    while ((hit = re.exec(text)) !== null) {
+      add(hit.index, hit.index + hit[0].length, hit[0]);
     }
   });
+  // Dotted reporter words plus a page: "12 F. Supp. 34".
+  // Months, figure labels, and long words are not reporters.
+  let dotted;
+  while ((dotted = dottedCite.exec(text)) !== null) {
+    if (!dottedCiteIsReporter(dotted[0])) continue;
+    add(dotted.index, dotted.index + dotted[0].length, dotted[0]);
+  }
+
+  // Near-miss court cites the extractor did not take:
+  // a volume, a short dotted reporter token (including a typo such as
+  // "F.4ht" or a series marker such as "F.3d"), then a page, or "at"
+  // plus a citation parenthetical when the page is missing.
+  const near = /\b\d{1,4}\s+[A-Z](?=[A-Za-z0-9.'’]{0,20}\.)(?:[A-Za-z0-9.'’]*\.)+(?:[A-Za-z0-9]{0,8})?\s+(?:at\s+)?(?:\d{1,5}\b|(?=\())/g;
+  let m;
+  while ((m = near.exec(text)) !== null) {
+    const token = (/^\d{1,4}\s+(\S+)/.exec(m[0]) || [])[1];
+    if (!reporterishToken(token)) continue;
+    const hasPage = /\d\s*$/.test(m[0]) || /\bat\s+\d{1,5}\s*$/i.test(m[0]);
+    let end = m.index + m[0].length;
+    const parenEnd = consumeCiteParens(text, end);
+    if (!hasPage && parenEnd === end) continue;
+    if (parenEnd > end) end = parenEnd;
+    add(m.index, end, text.slice(m.index, end));
+  }
   return found.slice(0, 20);
 }
 
