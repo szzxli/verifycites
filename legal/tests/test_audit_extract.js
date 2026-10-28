@@ -54,6 +54,34 @@ assert.deepStrictEqual(real.rows[0].flags, []);
 const missed = unrecognizedCitations("Discussed in 12 F. Supp. 34, which this extractor does not list.");
 assert.ok(missed.some((s) => s.includes("12 F. Supp. 34")), JSON.stringify(missed));
 
+// Near-misses: a mistyped reporter, and a cite whose page was left out.
+const typo = unrecognizedCitations("The brief cites 12 F.4ht 55 for the rule.");
+assert.ok(typo.some((s) => s.includes("12 F.4ht 55")), JSON.stringify(typo));
+assert.strictEqual(extractCitations("The brief cites 12 F.4ht 55 for the rule.").length, 0);
+
+const noPage = unrecognizedCitations("See 512 F.3d at (9th Cir. 2008).");
+assert.ok(noPage.some((s) => s.includes("512 F.3d at (9th Cir. 2008)")), JSON.stringify(noPage));
+assert.strictEqual(extractCitations("See 512 F.3d at (9th Cir. 2008).").length, 0);
+
+// A real reporter with its page is extracted, not also listed as unrecognized.
+assert.strictEqual(extractCitations("12 F.4th 55.").length, 1);
+assert.deepStrictEqual(unrecognizedCitations("12 F.4th 55."), []);
+
+// Ordinary prose is not citation-like.
+const prose = [
+  "The court heard 12 witnesses in the hearing on May 3.",
+  "See Figure 12. The appendix has 3 tables.",
+  "On 12 Dec. 1955 the agency issued a memo.",
+  "There are 12 U.S. citizens in the group (federal employees).",
+  "Read 512 F.3d opinions before the argument.",
+  "Item 12 F. The next point is separate.",
+  "See 12 Fig. 3 of the appendix.",
+  "12 Washington. 3 more points followed.",
+];
+prose.forEach((sentence) => {
+  assert.deepStrictEqual(unrecognizedCitations(sentence), [], sentence);
+});
+
 const mixed = "Immigration and Nationality Act § 101(a)(42)(A); 85 Fed. Reg. 23,986 (Apr. 30, 2020).";
 const mixedRows = extractCitations(mixed);
 assert.deepStrictEqual(mixedRows.map((r) => r.reporter), ["INA", "Fed. Reg."]);
