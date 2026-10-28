@@ -22,11 +22,11 @@ assert.strictEqual(rows[0].reporter, "I&N Dec.");
 assert.strictEqual(rows[0].page, "185");
 assert.strictEqual(rows[0].caseName, "Matter of MERCADER");
 assert.strictEqual(rows[0].year, "2026");
-assert.strictEqual(rows[0].manualUrl, "https://www.justice.gov/eoir/ag-bia-decisions");
+assert.strictEqual(rows[0].manualUrl, "https://www.justice.gov/eoir/volume-30");
 assert.strictEqual(immClassifyRow(rows[0]), "bia");
 assert.strictEqual(rep.rows[0].immType, "bia");
 assert.deepStrictEqual(rep.rows[0].flags, [], "BIA row with name+year has no flags");
-assert.strictEqual(standardCitation(rows[0]), "Matter of MERCADER, 30 I&N Dec. 185 (2026)");
+assert.strictEqual(standardCitation(rows[0]), "Matter of MERCADER, 30 I&N Dec. 185 (BIA 2026)");
 
 // (b) BIA anonymised form.
 ({ rows } = flagsOf("Matter of M-K-, 28 I&N Dec. 123 (BIA 2021)."));

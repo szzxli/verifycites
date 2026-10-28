@@ -84,10 +84,10 @@ assert.deepStrictEqual(immLinkKeysFor("court"), []);
 assert.deepStrictEqual(immLinkKeysFor("unknown"), []);
 assert.strictEqual(IMM_MANUAL_URLS.biaDecisions, "https://www.justice.gov/eoir/ag-bia-decisions");
 assert.strictEqual(IMM_MANUAL_URLS.biaLibrary, "https://www.justice.gov/eoir/virtual-law-library");
-assert.strictEqual(IMM_MANUAL_URLS.aaoSearch, "https://www.uscis.gov/about-us/directorates-and-program-offices/administrative-appeals-office-aao/aao-non-precedent-decisions");
+assert.strictEqual(IMM_MANUAL_URLS.aaoSearch, "https://www.uscis.gov/administrative-appeals/aao-decisions/aao-non-precedent-decisions");
 assert.strictEqual(IMM_MANUAL_URLS.policyManual, "https://www.uscis.gov/policy-manual");
 assert.strictEqual(IMM_MANUAL_URLS.ecfrTitle8, "https://www.ecfr.gov/current/title-8");
-assert.strictEqual(IMM_MANUAL_URLS.olrcTitle8, "https://uscode.house.gov/download.html");
+assert.strictEqual(IMM_MANUAL_URLS.olrcTitle8, "https://www.law.cornell.edu/uscode/text/8");
 
 // (d) i18n: every new key exists in all three languages, sets identical.
 const immKeys = Object.keys(en).filter((k) => k.startsWith("imm"));

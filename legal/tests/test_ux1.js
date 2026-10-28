@@ -31,8 +31,8 @@ for (const l of ["en", "es", "zh"]) {
 const heroLineAt = idx('data-i18n="browserModeFirstLine"');
 assert.ok(heroLineAt > 0 && heroLineAt < checkerAt,
   "browserModeFirstLine must sit in the hero, before the checker section");
-assert.ok(I18N.en.browserModeFirstLine.includes("does not check cases online"));
-assert.ok(I18N.en.browserModeFirstLine.includes("use the CLI below"));
+assert.ok(I18N.en.browserModeFirstLine.includes("NOT_CHECKED"));
+assert.ok(I18N.en.browserModeFirstLine.includes("does not check whether a case exists"));
 for (const k of ["trustLimit1", "trustLimit2", "trustLimit3"]) {
   assert.ok(html.includes('data-i18n="' + k + '"'), k + " in trust panel");
 }
@@ -40,8 +40,9 @@ assert.ok(I18N.en.trustLimit1.includes("supports your argument"));
 assert.ok(I18N.en.trustLimit2.includes("pin cites"));
 assert.ok(I18N.en.trustLimit3.includes("still good law"));
 // Full disclaimer untouched + English-authoritative note untouched.
-assert.ok(html.includes("This tool only checks whether a cited case exists in CourtListener"),
-  "full disclaimer paragraph intact");
+assert.ok(html.includes("Every row is NOT_CHECKED"),
+  "disclaimer states browser rows are not checked");
+assert.ok(I18N.en.disclaimer.includes("does not check whether a cited case exists"));
 assert.ok(html.includes('data-i18n="disclaimerNote"'), "disclaimer note intact");
 // Hero "Not legal advice" chip merged away (disclaimer itself kept above).
 assert.ok(!html.includes('data-copy="factNoAdvice"'), "hero factNoAdvice chip removed");
@@ -54,12 +55,13 @@ const thead = reportThead.slice(0, reportThead.indexOf("</thead>"));
 const ths = [...thead.matchAll(/<th\s[^>]*>/g)].map((m) => m[0]);
 assert.strictEqual(ths.length, 15, "report thead has 15 columns (14 + Label), got " + ths.length);
 const visible = ths.filter((t) => !t.includes("col-extra"));
-assert.strictEqual(visible.length, 4, "4 visible columns by default, got " + visible.length);
+assert.strictEqual(visible.length, 5, "5 visible columns by default, got " + visible.length);
 assert.ok(visible.some((t) => t.includes('data-i18n="thCitation"')), "Citation visible");
 assert.ok(visible.some((t) => t.includes('data-i18n="thCaseName"')), "Case name visible");
 assert.ok(visible.some((t) => t.includes('data-i18n="thLabel"')), "Label visible");
 assert.ok(visible.some((t) => t.includes('data-i18n="thLinks"')), "Manual-check links visible");
-assert.strictEqual(ths.filter((t) => t.includes("col-extra")).length, 11, "11 extra columns hidden by default");
+assert.strictEqual(ths.filter((t) => t.includes("col-extra")).length, 10, "10 extra columns hidden by default");
+assert.ok(visible.some((t) => t.includes('data-i18n="reportThEvidence"')), "Matching evidence visible");
 assert.ok(html.includes('id="reportColumnsToggle"'), "toggle button present");
 assert.ok(html.includes('onclick="toggleReportColumns()"'), "toggle wired");
 assert.ok(html.includes('data-i18n="columnsNote"'), "columns note present");
@@ -109,7 +111,7 @@ assert.ok(!I18N.en.eligibilityNote.includes("free CourtListener"), "no unconditi
 assert.ok(!I18N.en.howToText.includes("free CourtListener"), "howToText no longer says free token");
 
 // --- 6. Section order + nav order alignment.
-const order = ["checker", "cli", "immigration", "query-translation", "translation", "briefing"];
+const order = ["checker", "cli", "immigration"];
 const positions = order.map((id) => idx('id="' + id + '"'));
 for (let i = 1; i < positions.length; i++) {
   assert.ok(positions[i] > positions[i - 1], "section order: " + order[i - 1] + " before " + order[i]);
@@ -119,7 +121,7 @@ const navBlock = html.slice(navStart, html.indexOf("</nav>", navStart));
 const navHrefs = [...navBlock.matchAll(/href="#([^"]+)"/g)].map((m) => m[1]);
 assert.deepStrictEqual(navHrefs, order, "nav order matches page order, got " + navHrefs.join(","));
 assert.ok(navBlock.includes('data-copy="navImmigration"'), "nav has immigration link");
-assert.ok(navBlock.includes('data-copy="navQuery"'), "nav has query-translation link");
+assert.ok(!navBlock.includes('data-copy="navQuery"'), "query-translation is not in the page nav");
 // Audience line moved to the hero (exactly once, before the checker).
 const audienceHits = [...html.matchAll(/data-i18n="briefingAudience"/g)].length;
 assert.strictEqual(audienceHits, 1, "briefingAudience appears exactly once");
@@ -128,9 +130,9 @@ assert.ok(idx('data-i18n="briefingAudience"') < checkerAt, "audience line is on 
 // --- 7. Coverage line beside the input.
 const covAt = idx('data-i18n="coverageLine"');
 assert.ok(covAt > checkerAt && covAt < idx('id="input"'), "coverage line sits above the checker input");
-assert.ok(I18N.en.coverageLine.includes("U.S. federal and state cases"), "coverage: US cases");
-assert.ok(I18N.en.coverageLine.includes("Not covered"), "coverage: exclusions listed");
-assert.ok(I18N.en.coverageLine.includes("live BIA lookup"), "coverage: BIA exclusion");
+assert.ok(I18N.en.coverageLine.includes("NOT_CHECKED") || I18N.en.coverageLine.includes("Not checked here"), "coverage: browser does not check");
+assert.ok(I18N.en.coverageLine.includes("8 C.F.R."), "coverage names regulations");
+assert.ok(I18N.en.coverageLine.includes("BIA"), "coverage names BIA");
 assert.ok(I18N.en.immCheckerLink.includes("partial coverage"), "immigration link reads partial coverage");
 
 // --- 8. Privacy narrowed to the extraction step (hero + footer).
@@ -143,8 +145,8 @@ assert.ok(privacyEl.includes("citation extraction runs in this browser"), "foote
 assert.ok(html.includes("goatcounter"), "GoatCounter snippet untouched");
 // Module disclosures intact.
 assert.ok(html.includes("does not send this text to CourtListener"), "input disclosure intact");
-assert.ok(html.includes("send only the query text to CourtListener") || I18N.en.privacy.includes("briefing requests"),
-  "briefing disclosure intact");
+assert.ok(I18N.en.privacy.includes("GoatCounter"), "privacy names GoatCounter");
+assert.ok(!I18N.en.privacy.includes("translation endpoint"), "translation is not promoted in the privacy line");
 
 // --- 9. Checker-top limit line (for #checker deep-link landings).
 const topLimitAt = idx('data-i18n="checkerTopLimit"');
@@ -159,9 +161,9 @@ assert.ok(noteDiv.includes('data-copy="browserModeNotePrefix"'), "note prefix pr
 assert.ok(noteDiv.includes('data-copy="browserModeNoteSuffix"'), "note suffix present");
 // Prefix + link + suffix reconstruct the original note exactly.
 const ORIG_NOTE = {
-  en: "Every result in browser mode is marked NOT_CHECKED. Use the links to verify manually, or see the CLI guide for the full CourtListener check.",
-  es: "Todos los resultados del modo navegador se marcan NOT_CHECKED. Use los enlaces para verificarlos manualmente o consulte la guía CLI para la comprobación completa en CourtListener.",
-  zh: "浏览器模式下的结果均标为 NOT_CHECKED。请通过链接手动核对；完整 CourtListener 检查请参见 CLI 说明。",
+  en: "Every result in browser mode is marked NOT_CHECKED. Use the links to check by hand. The CLI checks CourtListener case existence and case name only. It does not check statutes, regulations, BIA, AAO, the INA, or the C.F.R.",
+  es: "Todos los resultados del modo navegador se marcan NOT_CHECKED. Use los enlaces para comprobarlos a mano. La CLI solo comprueba en CourtListener si el caso existe y si el nombre coincide. No comprueba leyes, reglamentos, decisiones de BIA o AAO, la INA ni el C.F.R.",
+  zh: "浏览器模式下的结果均标为 NOT_CHECKED。请通过链接手动核对。CLI 只在 CourtListener 中核查判例是否存在以及案名是否一致，不核查法规、BIA、AAO、INA 或 C.F.R.。",
 };
 const copyOf = (lang, key) => {
   const block = copySrc.split("var COPY = {")[1];

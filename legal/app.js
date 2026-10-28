@@ -28,6 +28,7 @@ function vcCount(name) {
 function setLang(lang) {
   if (!I18N[lang]) return;
   currentLang = lang;
+  try { localStorage.setItem("vc-lang", lang); } catch (e) {}
   document.documentElement.lang = lang;
   document.title = T().pageTitle;
   document.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -43,25 +44,51 @@ function setLang(lang) {
   if (window.__lastBriefing) renderBriefing(window.__lastBriefing);
 }
 
+function anomalyText(flags) {
+  var t = T();
+  return (flags || []).filter(function (fl) {
+    return fl === "impossibleYear" || fl === "impossibleVolume";
+  }).map(function (fl) {
+    return fl === "impossibleYear" ? (t.reportFlagImpossibleYear || "Impossible year")
+      : (t.reportFlagImpossibleVolume || "Impossible volume");
+  }).join("; ");
+}
 function render(results) {
   var tbody = document.getElementById("results");
   tbody.innerHTML = "";
+  var report = (typeof buildHealthReport === "function") ? buildHealthReport(results) : null;
   results.forEach(function (r, i) {
     var tr = document.createElement("tr");
     var immT = (typeof immClassifyRow === "function") ? immClassifyRow(r) : "unknown";
-    var manualLabel = (immT === "bia" || immT === "statute" || immT === "regulation" || immT === "aao")
+    var manualLabel = (immT === "bia" || immT === "statute" || immT === "regulation" || immT === "aao" || immT === "fedreg")
       ? T().openSourcePage : T().openCourtListener;
-    tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + esc(r.text) + "</td>"
+    var flags = (report && report.rows[i]) ? report.rows[i].flags : [];
+    var anomaly = anomalyText(flags);
+    tr.className = "row-not-checked" + (anomaly ? " row-anomaly" : "");
+    tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + esc(r.text)
+      + (anomaly ? "<div class=\"anomaly-pill\">" + esc(anomaly) + "</div>" : "")
+      + "<div class=\"row-source\" data-source-row=\"" + i + "\"></div></td>"
       + "<td>" + esc(r.caseName) + "</td><td>NOT_CHECKED</td>"
       + "<td>" + esc(standardCitation(r))
       + "<br><button type=\"button\" onclick=\"copyStandardFormat(" + i + ")\">"
       + esc(T().copyFormat) + "</button></td>"
-      + "<td><a href=\"" + esc(r.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
+      + "<td><a data-manual-row=\"" + i + "\" href=\"" + esc(r.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(manualLabel) + "</a>"
       + " | <a href=\"" + esc(r.scholarUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(T().searchScholar) + "</a></td>";
     tbody.appendChild(tr);
   });
+  var missed = (typeof extractCitations === "function" && extractCitations.lastUnrecognized) || [];
+  var box = document.getElementById("unrecognizedBox");
+  if (box) {
+    if (!missed.length) { box.hidden = true; box.textContent = ""; }
+    else {
+      box.hidden = false;
+      box.textContent = (T().unrecognizedNote || "{n} citation-like passage(s) were not recognized, so this list may be incomplete:")
+        .replace("{n}", missed.length) + " " + missed.join("; ");
+    }
+  }
+  if (typeof applyVisibleSources === "function") applyVisibleSources();
   document.getElementById("count").textContent =
     T().countFound.replace("{n}", results.length);
   window.__lastResults = results;
@@ -80,6 +107,7 @@ function reportStrings() {
     scope: t.reportScopeNote, flags: t.reportThFlags,
     flagDuplicate: t.reportFlagDuplicate, flagMissingYear: t.reportFlagMissingYear,
     flagNoCaseName: t.reportFlagNoCaseName, flagInvalidReporter: t.reportFlagInvalidReporter,
+    flagImpossibleYear: t.reportFlagImpossibleYear, flagImpossibleVolume: t.reportFlagImpossibleVolume,
     noFlags: t.reportNoFlags, citation: t.thCitation, caseName: t.thCaseName,
     year: t.reportThYear, pin: t.reportThPin, label: t.thLabel, links: t.thLinks,
     byCategory: t.reportByCategory,
@@ -209,6 +237,23 @@ function imm8cfrFindForRow(row) {
   if (!__imm8cfrIndex) return null;
   return (typeof imm8cfrFind === "function") ? imm8cfrFind(__imm8cfrIndex, row) : null;
 }
+function applyVisibleSources() {
+  var t = T();
+  document.querySelectorAll("[data-source-row]").forEach(function (el) {
+    var i = parseInt(el.getAttribute("data-source-row"), 10);
+    var row = (window.__lastResults || [])[i];
+    if (!row || typeof immSourceLine !== "function") return;
+    var type = immClassifyRow(row);
+    var cfr = imm8cfrFindForRow(row);
+    var ina = immInaFindForRow(row);
+    el.textContent = immSourceLine(type, t, row, cfr, ina);
+    var link = document.querySelector("[data-manual-row=\"" + i + "\"]");
+    if (link && ina && ina.entry) {
+      var usc = String(ina.side === "usc" ? ina.rowSection : ina.counterpart).replace(/\([^)]*\)/g, "");
+      if (/^\d+[A-Za-z]?$/.test(usc)) link.href = "https://www.law.cornell.edu/uscode/text/8/" + usc;
+    }
+  });
+}
 function imm8cfrApplyFound() {
   if (!__imm8cfrIndex) return;
   var t = T();
@@ -223,6 +268,7 @@ function imm8cfrApplyFound() {
     span.textContent = imm8cfrFoundText(hit, t);
     span.classList.add("imm8cfr-applied");
   });
+  applyVisibleSources();
 }
 /* ---- INA <-> 8 U.S.C. static mapping table (same-origin only) ----
    Mirrors the 8 CFR pattern: the page reads only
@@ -261,6 +307,7 @@ function immInaApplyFound() {
     span.textContent = immInaMappingText(hit, t);
     span.classList.add("immIna-applied");
   });
+  applyVisibleSources();
 }
 function tier1ApplyFirstSeen() {
   if (!__tier1Index) return;
@@ -292,7 +339,8 @@ function renderReport(results) {
   var flagParts = REPORT_FLAG_KEYS.filter(function (f) { return report.flagCounts[f]; })
     .map(function (f) {
       var label = { duplicate: t.reportFlagDuplicate, missingYear: t.reportFlagMissingYear,
-        noCaseName: t.reportFlagNoCaseName, invalidReporter: t.reportFlagInvalidReporter }[f];
+        noCaseName: t.reportFlagNoCaseName, invalidReporter: t.reportFlagInvalidReporter,
+        impossibleYear: t.reportFlagImpossibleYear, impossibleVolume: t.reportFlagImpossibleVolume }[f];
       return label + ": " + report.flagCounts[f];
     });
   var catLabels = { matched: t.reportCatMatched, fieldMismatch: t.reportCatFieldMismatch,
@@ -331,7 +379,8 @@ function renderReport(results) {
   report.rows.forEach(function (row, ri) {
     var flagText = row.flags.length ? row.flags.map(function (fl) {
       return { duplicate: t.reportFlagDuplicate, missingYear: t.reportFlagMissingYear,
-        noCaseName: t.reportFlagNoCaseName, invalidReporter: t.reportFlagInvalidReporter }[fl];
+        noCaseName: t.reportFlagNoCaseName, invalidReporter: t.reportFlagInvalidReporter,
+        impossibleYear: t.reportFlagImpossibleYear, impossibleVolume: t.reportFlagImpossibleVolume }[fl];
     }).join("; ") : t.reportNoFlags;
     var cat = (typeof reportDisplayCategory === "function")
       ? reportDisplayCategory(row.label, row.caseName) : "cannotDetermine";
@@ -343,7 +392,7 @@ function renderReport(results) {
     if (row.caseName) evParts.push(t.thCaseName + ": " + row.caseName);
     if (row.year) evParts.push(t.reportThYear + ": " + row.year);
     if (row.pinCite) evParts.push(t.reportThPin + ": " + row.pinCite);
-    var evidence = evParts.length ? evParts.join("; ") : t.reportNoEvidence;
+    var evidence = evParts.length ? evParts.join("; ") : "";
     /* Immigration source line (display-only, never a check result):
        appended to the Matching evidence cell so every row names the
        system it belongs to — or says it could not be routed. */
@@ -351,7 +400,7 @@ function renderReport(results) {
     var immHtml = "<br><span class=\"imm-source-line\">"
       + esc(typeof immSourceLine === "function" ? immSourceLine(immType, t, row, imm8cfrFindForRow(row), immInaFindForRow(row)) : "")
       + "</span>"
-      + (typeof immLinkKeysFor === "function" ? immLinkKeysFor(immType).map(function (l) {
+      + (typeof immLinkKeysFor === "function" ? immLinkKeysFor(immType, row).map(function (l) {
           return " <a href=\"" + esc(l.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(t[l.key] || l.key) + "</a>";
         }).join(" | ") : "");
     var scope = row.label === "NOT_CHECKED" ? t.reportScopeDisplay : t.reportScopeUnknown;
@@ -366,14 +415,14 @@ function renderReport(results) {
       + "<td class=\"col-extra\">" + esc(row.year) + "</td>"
       + "<td class=\"col-extra\">" + esc(row.pinCite) + "</td><td class=\"col-extra\">" + esc(flagText) + "</td>"
       + "<td class=\"col-extra\">" + esc(catLabels[cat]) + "</td><td class=\"col-extra\">" + esc(anomaly) + "</td>"
-      + "<td class=\"col-extra\" data-tier1-row=\"" + ri + "\" data-imm8cfr-row=\"" + ri + "\">" + esc(evidence) + immHtml + "</td><td class=\"col-extra\">" + esc(scope) + "</td>"
+      + "<td data-tier1-row=\"" + ri + "\" data-imm8cfr-row=\"" + ri + "\">" + esc(evidence) + immHtml + "</td><td class=\"col-extra\">" + esc(scope) + "</td>"
       + "<td class=\"col-extra\">" + esc(catActions[cat]) + "</td>"
       + "<td class=\"col-extra\"><select data-review=\"" + ri + "\" aria-label=\"" + esc(t.reportThHumanStatus) + "\">" + humanOptions + "</select>"
       + "<br><input data-note=\"" + ri + "\" value=\"" + esc(human.note) + "\" placeholder=\"" + esc(t.reportNotePlaceholder) + "\" aria-label=\"" + esc(t.reportHumanNote) + "\"></td>"
       + "<td class=\"col-extra\"><input data-edit=\"" + ri + "\" value=\"" + esc(row.text) + "\" placeholder=\"" + esc(t.reportEditPlaceholder) + "\" aria-label=\"" + esc(t.reportThReverify) + "\">"
       + "<br><button type=\"button\" data-reverify=\"" + ri + "\">" + esc(t.reportThReverify) + "</button></td>"
       + "<td><a href=\"" + esc(row.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
-      + esc((immType === "bia" || immType === "statute" || immType === "regulation" || immType === "aao") ? t.openSourcePage : t.openCourtListener) + "</a>"
+      + esc((immType === "bia" || immType === "statute" || immType === "regulation" || immType === "aao" || immType === "fedreg") ? t.openSourcePage : t.openCourtListener) + "</a>"
       + " | <a href=\"" + esc(row.scholarUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc(t.searchScholar) + "</a></td>";
     tbody.appendChild(tr);
@@ -677,7 +726,8 @@ function rankManualBriefing() {
 /* Restore saved preferences on load (no fetch until the user clicks). */
 (function () {
   try {
-    if (typeof localStorage !== "undefined" && localStorage.getItem(BRIEFING_STORAGE_KEY)) {
+    if (typeof briefingLoadPrefs === "function" && document.getElementById("briefState")
+        && typeof localStorage !== "undefined" && localStorage.getItem(BRIEFING_STORAGE_KEY)) {
       briefingPrefsToForm(briefingLoadPrefs(localStorage));
     }
   } catch (e) { /* private mode etc.: preferences simply do not persist */ }

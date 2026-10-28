@@ -343,6 +343,11 @@ textarea:focus, input:focus, select:focus { outline: none; border-color: #4d9692
    Citation / Case name / Label / Manual-check links; the rest carry
    .col-extra and are hidden until "Show all columns" is pressed. */
 #reportTableWrap.report-collapsed .col-extra { display: none; }
+.unrecognized-box { margin: 8px 0 12px; padding: 10px 12px; border: 1px solid #e0c48a; border-radius: 8px; background: #fff8ec; color: #6d4b12; font-size: 13px; line-height: 1.45; }
+.anomaly-pill { display: inline-block; margin-top: 6px; padding: 2px 8px; border-radius: 999px; background: #fde8e4; color: #8c2f1b; font-size: 12px; font-weight: 750; }
+.row-anomaly { background: #fff7f4; }
+.row-source { display: block; margin-top: 6px; color: #1d4e3c; font-size: 12.5px; line-height: 1.4; }
+.result-label { border-style: dashed; border-width: 2px; }
 .report-columns-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 0 0 10px; }
 .columns-note { color: #627482; font-size: 12.5px; }
 

@@ -43,3 +43,27 @@
   border-bottom-color: #fff;
   font-weight: 600;
 }
+.vc-nav-lang { margin-left: auto; display: inline-flex; gap: 4px; }
+.vc-nav-lang button {
+  min-height: 28px;
+  padding: 0 8px;
+  border: 1px solid #8eabc4;
+  border-radius: 4px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.vc-nav-lang button[aria-pressed="true"],
+.vc-nav-lang button.is-active { background: #fff; color: #18324b; font-weight: 700; }
+.page-anchors, .primary-nav.page-anchors, nav.primary-nav {
+  display: flex; flex-wrap: wrap; gap: 8px 16px;
+  max-width: 1100px; margin: 0 auto; padding: 10px 24px 0;
+}
+@media (max-width: 390px) {
+  .vc-nav-inner { padding: 8px 12px; gap: 8px 12px; }
+  .vc-nav-links { gap: 12px; }
+  .vc-nav-lang { margin-left: 0; }
+  .vc-nav-lang button { min-height: 32px; padding: 0 10px; }
+}
