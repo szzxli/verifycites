@@ -15,9 +15,13 @@ for (const l of ["en", "es", "zh"]) {
   for (const k of NEW_KEYS) assert.ok(I18N[l][k], l + "/" + k);
   assert.deepStrictEqual(Object.keys(I18N[l]).sort(), Object.keys(I18N.en).sort(), l + " keys");
 }
-// Fix 1: problem-first hero in all 3 languages.
-assert.ok(I18N.en.heading.includes("actually exist"));
-assert.ok(I18N.zh.heading.includes("真实存在"));
+// Fix 1 (SUPERSEDED by UX2): the problem-first hero question is replaced by a
+// browser-truthful heading. UX2 heading states extraction + self-check.
+assert.ok(I18N.en.heading.includes("Extract citations"));
+assert.ok(I18N.en.heading.includes("check each case yourself"));
+assert.ok(I18N.zh.heading.includes("逐一自行核查"));
+assert.ok(!I18N.en.heading.includes("actually exist"));
+assert.ok(!I18N.zh.heading.includes("真实存在"));
 // Fix 7: exact Chinese disclaimer-authoritative sentence; English still authoritative.
 assert.strictEqual(I18N.zh.disclaimerNote, "如有歧义，以英文版免责声明为准。");
 assert.ok(I18N.en.disclaimerNote.toLowerCase().includes("authoritative"));
