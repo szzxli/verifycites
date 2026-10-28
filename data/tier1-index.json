@@ -1,6 +1,401 @@
 {
   "items": [
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction",
+      "identifier": "2610.37668",
+      "url": "https://arxiv.org/abs/2610.37668",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The 't Hooft model on (A)dS$_2$",
+      "identifier": "2610.37667",
+      "url": "https://arxiv.org/abs/2610.37667",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "ThinkWorld: World Imagination Reinforces Chain-of-Dynamics Reasoning",
+      "identifier": "2610.37666",
+      "url": "https://arxiv.org/abs/2610.37666",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Exact Analytical Treatment of Collectively Pumped Dicke Superradiance",
+      "identifier": "2610.37665",
+      "url": "https://arxiv.org/abs/2610.37665",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Improving cosmological distance measurements at high redshift using Lyman-Alpha forest BAO reconstruction",
+      "identifier": "2610.37664",
+      "url": "https://arxiv.org/abs/2610.37664",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "An EVM-Cosmos Bridge for Atomic, Semantic-Preserving Transfer of Environmental Tokens",
+      "identifier": "2610.37663",
+      "url": "https://arxiv.org/abs/2610.37663",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Can Discrete Tokens Serve as Semantically Lossless Representations of Visual Signals?",
+      "identifier": "2610.37662",
+      "url": "https://arxiv.org/abs/2610.37662",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Spatially-Resolved Recent Star Formation History of the M81 Disk",
+      "identifier": "2610.37661",
+      "url": "https://arxiv.org/abs/2610.37661",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Optimal quantum discrimination at Liouvillian exceptional points",
+      "identifier": "2610.37660",
+      "url": "https://arxiv.org/abs/2610.37660",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Sharp Stability of Brenier Potentials and its Link to Poincaré Inequalities",
+      "identifier": "2610.37659",
+      "url": "https://arxiv.org/abs/2610.37659",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "When Should We Intervene at Test Time?",
+      "identifier": "2610.37658",
+      "url": "https://arxiv.org/abs/2610.37658",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Heads of Security: Learned Attention Gates Improve Prompt Injection Robustness",
+      "identifier": "2610.37657",
+      "url": "https://arxiv.org/abs/2610.37657",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Attention as Lattice Gauge Theory: Relations Interact Only Through Wilson Loops",
+      "identifier": "2610.37656",
+      "url": "https://arxiv.org/abs/2610.37656",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "KPPax: preprocess differentiable kinetic ODE for machine learning in atmospheric chemistry",
+      "identifier": "2610.37655",
+      "url": "https://arxiv.org/abs/2610.37655",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Mediated Interactions between Fermi Polarons in the Strongly Interacting Regime",
+      "identifier": "2610.37654",
+      "url": "https://arxiv.org/abs/2610.37654",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Nonuniqueness of Solutions to 2D Incompressible Euler Equations with Unbounded Vorticity",
+      "identifier": "2610.37653",
+      "url": "https://arxiv.org/abs/2610.37653",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Pushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well",
+      "identifier": "2610.37652",
+      "url": "https://arxiv.org/abs/2610.37652",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "GEPA-Curator: Curated Learning for Self Improving Agents",
+      "identifier": "2610.37651",
+      "url": "https://arxiv.org/abs/2610.37651",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hodge--Riemann relations for nef bundles",
+      "identifier": "2610.37650",
+      "url": "https://arxiv.org/abs/2610.37650",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Can LLMs Uncover Hidden Physical Laws through Free Exploration?",
+      "identifier": "2610.37649",
+      "url": "https://arxiv.org/abs/2610.37649",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Scaling Laws for Tool-Use Agents via Controllable Environment Synthesis",
+      "identifier": "2610.37648",
+      "url": "https://arxiv.org/abs/2610.37648",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "MuonGS: Pretraining LLMs with Relaxed Weight-Norm Control",
+      "identifier": "2610.37647",
+      "url": "https://arxiv.org/abs/2610.37647",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Measuring the magnetization profiles of galaxy groups and clusters",
+      "identifier": "2610.37646",
+      "url": "https://arxiv.org/abs/2610.37646",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Multi-State Linear Attention with Generalized Second-Order Routing",
+      "identifier": "2610.37645",
+      "url": "https://arxiv.org/abs/2610.37645",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Applications of the fixed point theorem for mappings contracting perimeters of triangles: ODEs, PDEs, integer and difference equations",
+      "identifier": "2610.37644",
+      "url": "https://arxiv.org/abs/2610.37644",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Fatigue links sociodemographic risk to pain intensity and spread in 2 surgical cohorts.",
+      "identifier": "10.1097/j.pain.0000000000004137",
+      "url": "https://europepmc.org/article/MED/42944554",
+      "date": "2026-10-28",
+      "doi": "10.1097/j.pain.0000000000004137",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Survival Outcomes of Patients With Melanoma Treated With Mohs Micrographic Surgery: A Systematic Review and Meta-Analysis.",
+      "identifier": "10.1097/dss.0000000000005402",
+      "url": "https://europepmc.org/article/MED/42937688",
+      "date": "2026-10-28",
+      "doi": "10.1097/dss.0000000000005402",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Minimally Invasive Treatment of Digital Mucous Cysts With Drainage and Intralesional Cryotherapy.",
+      "identifier": "10.1097/dss.0000000000005424",
+      "url": "https://europepmc.org/article/MED/42937692",
+      "date": "2026-10-28",
+      "doi": "10.1097/dss.0000000000005424",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "How We Do It: Implantable Cranial Devices in Mohs Micrographic Surgery.",
+      "identifier": "10.1097/dss.0000000000005426",
+      "url": "https://europepmc.org/article/MED/42937687",
+      "date": "2026-10-28",
+      "doi": "10.1097/dss.0000000000005426",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "How We Do It: The STANCE Checklist for Surgeon Ergonomics in Mohs Micrographic Surgery.",
+      "identifier": "10.1097/dss.0000000000005430",
+      "url": "https://europepmc.org/article/MED/42937683",
+      "date": "2026-10-28",
+      "doi": "10.1097/dss.0000000000005430",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The impact of servant leadership on collaborative culture in UAE multicultural healthcare organizations.",
+      "identifier": "10.1108/lhs-02-2026-0030",
+      "url": "https://europepmc.org/article/MED/42937543",
+      "date": "2026-10-28",
+      "doi": "10.1108/lhs-02-2026-0030",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Unlike most biomarkers, Lp(a) is far less forgiving on selectivity and metrological shortcomings.",
+      "identifier": "10.1515/cclm-2026-1787",
+      "url": "https://europepmc.org/article/MED/42937532",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1787",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Dietary intake of vitamin B12 (cobalamin) and gastric cancer risk: a pooled analysis within the StoP Project.",
+      "identifier": "10.1097/cej.0000000000001044",
+      "url": "https://europepmc.org/article/MED/42937461",
+      "date": "2026-10-28",
+      "doi": "10.1097/cej.0000000000001044",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A Systematic Review of Elagolix for the Management of Endometriosis-associated Pain.",
+      "identifier": "10.4103/aam.aam_534_26",
+      "url": "https://europepmc.org/article/MED/42937421",
+      "date": "2026-10-28",
+      "doi": "10.4103/aam.aam_534_26",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Survey on lipoprotein(a) testing in Europe. A report by the EFLM Committee on Vascular Risk Biomarkers.",
+      "identifier": "10.1515/cclm-2026-1363",
+      "url": "https://europepmc.org/article/MED/42937314",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1363",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Effects of Cyclic High Ambient Temperature on Tricarboxylic Acid Cycle Intermediates and Orotate Levels in the Liver and Breast Muscle of Broiler Chickens.",
+      "identifier": "10.2141/jpsa.2026024",
+      "url": "https://europepmc.org/article/MED/42936156",
+      "date": "2026-10-28",
+      "doi": "10.2141/jpsa.2026024",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Inter-platform variability of TgAb, TPOAb and TRAb immunoassays: analytical agreement and consequences for antibody positivity.",
+      "identifier": "10.1515/cclm-2026-1197",
+      "url": "https://europepmc.org/article/MED/42935447",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1197",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Why do hemolysis interference studies produce different results? A proposal for standardized experimental design and reporting.",
+      "identifier": "10.1515/cclm-2026-1381",
+      "url": "https://europepmc.org/article/MED/42935293",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1381",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beyond analytical proficiency: information continuity gaps in human papillomavirus testing laboratories within China's national external quality assessment network.",
+      "identifier": "10.1515/cclm-2026-1582",
+      "url": "https://europepmc.org/article/MED/42935277",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1582",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Albumin-coated tubes and blood contamination correction improve the accuracy of thyroglobulin measurement in lymph node FNA washout.",
+      "identifier": "10.1515/cclm-2026-1372",
+      "url": "https://europepmc.org/article/MED/42935276",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1372",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Deep phenotyping of blood cell data reveals novel clinical biomarkers.",
+      "identifier": "10.1515/cclm-2026-0822",
+      "url": "https://europepmc.org/article/MED/42935273",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-0822",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Tumor digital twins uncover therapeutic strategies in triple-negative breast cancer.",
+      "identifier": "10.1016/j.xcrm.2026.103119",
+      "url": "https://europepmc.org/article/MED/42933397",
+      "date": "2026-10-28",
+      "doi": "10.1016/j.xcrm.2026.103119",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
@@ -686,7 +1081,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-10-27T21:53:46Z",
+    "last_poll": "2026-10-28T04:28:13Z",
     "sources": [
       {
         "name": "Ninth Circuit",
