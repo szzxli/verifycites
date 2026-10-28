@@ -3,13 +3,15 @@
 // Guarantees: a statute row whose section EXACTLY matches the static
 // OLRC Title 8 mapping table shows a mapping line naming both numbers
 // plus the release-point currency and the index time, and stops saying
-// "not yet connected" / "cannot confirm". An unmapped statute row keeps
-// its CURRENT wording exactly — absence from a PARTIAL table is never
-// worded as "does not exist" or "not found". Letter suffixes are
-// honoured (INA 240A -> 1229b, never 1229a; 8 U.S.C. 1229b -> INA 240A,
-// never 239), because the extractor's page field drops the letter and
-// the matcher must read it from the row text. Number similarity alone
-// never matches (INA 1158 is not INA 208's counterpart). Non-statute
+// "not yet connected" / "cannot be confirmed". An unmapped statute row
+// keeps its NEW wording exactly — the section is not in the partial
+// table and therefore cannot be confirmed; absence from a PARTIAL
+// table is never worded as "does not exist" or "not found". Letter
+// suffixes are honoured (INA 240A -> 1229b, never 1229a; 8 U.S.C.
+// 1229b -> INA 240A, never 239), because the extractor captures the
+// letter into the row's page field and the matcher reads it from
+// there (text recovery survives only as a legacy fallback for
+// hand-built rows). Number similarity alone never matches (INA 1158 is not INA 208's counterpart). Non-statute
 // rows never match. No live lookup is performed by any of these tests.
 const assert = require("assert");
 const fs = require("fs");
@@ -60,7 +62,7 @@ assert.deepStrictEqual(
 assert.deepStrictEqual(
   immInaNormalizeSection(inaRow("INA \u00a7 240A", "240")),
   { side: "ina", base: "240A", suffix: "" },
-  "letter suffix must come from row text: the extractor drops it from page");
+  "legacy fallback: letter suffix recovered from row text when page carries none");
 assert.deepStrictEqual(
   immInaNormalizeSection(uscRow("8 U.S.C. \u00a7 1229b", "1229")),
   { side: "usc", base: "1229b", suffix: "" });
@@ -120,14 +122,17 @@ assert.ok(immSourceLine("statute", I18N.en,
   uscRow("8 U.S.C. \u00a7 1182(a)", "1182(a)"), null, revSub)
   .includes("8 U.S.C. \u00a7 1182(a) maps to INA \u00a7 212(a)"));
 
-// (f) Unmapped rows keep the CURRENT wording exactly.
+// (f) Unmapped rows keep the NEW wording exactly.
 assert.strictEqual(immInaFind(SAMPLE_INDEX, inaRow("INA \u00a7 999", "999")), null);
 const missLine = immSourceLine("statute", I18N.en, inaRow("INA \u00a7 999", "999"), null, null);
 assert.strictEqual(missLine, I18N.en.immSourceStatute,
-  "unmapped INA row must keep the old line verbatim, got: " + missLine);
-assert.ok(missLine.includes("cannot confirm a section exists"));
-assert.ok(!/does not exist|not found/i.test(missLine.replace("cannot confirm a section exists", "")),
+  "unmapped INA row must keep the new line verbatim, got: " + missLine);
+assert.ok(missLine.includes("not in the partial"));
+assert.ok(missLine.includes("cannot be confirmed"));
+assert.ok(!/does not exist|not found/i.test(missLine.replace("cannot be confirmed", "")),
   "absence must never be worded as not found / does not exist");
+assert.ok(!missLine.includes("does not yet map"),
+  "the mapping table exists now, so 'does not yet map' would be false");
 assert.strictEqual(immInaFind(SAMPLE_INDEX, uscRow("8 U.S.C. \u00a7 9999", "9999")), null);
 assert.strictEqual(
   immSourceLine("statute", I18N.en, uscRow("8 U.S.C. \u00a7 9999", "9999"), null, null),
@@ -204,10 +209,10 @@ const md = healthReportMarkdown(report, I18N.en, {}, "2026-10-27",
   null, null, (row) => immInaFind(SAMPLE_INDEX, row));
 assert.ok(md.includes("INA \u00a7 208 maps to 8 U.S.C. \u00a7 1158"));
 assert.ok(md.includes("8 U.S.C. \u00a7 1158 maps to INA \u00a7 208"));
-assert.ok(md.includes("INA provision \u2014 not yet connected"),
-  "unmapped row in the same download keeps the old wording");
+assert.ok(md.includes("INA provision \u2014 this section is not in the partial"),
+  "unmapped row in the same download keeps the new wording");
 const mdOld = healthReportMarkdown(report, I18N.en, {}, "2026-10-27");
 assert.ok(!mdOld.includes("maps to 8 U.S.C."));
-assert.ok(mdOld.includes("INA provision \u2014 not yet connected"));
+assert.ok(mdOld.includes("INA provision \u2014 this section is not in the partial"));
 
 console.log("INA mapping tests passed");

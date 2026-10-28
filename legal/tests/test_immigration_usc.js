@@ -104,7 +104,8 @@ assert.deepStrictEqual(rep.rows.map((r) => r.immType),
 // ---------- Change 2f: distinct U.S.C. source line + backward compat ----------
 const uscLineEn = immSourceLine("statute", I18N.en, { reporter: "8 U.S.C." });
 assert.ok(uscLineEn.includes("8 U.S.C."), uscLineEn);
-assert.ok(uscLineEn.includes("not yet connected"), uscLineEn);
+assert.ok(uscLineEn.includes("not in the partial"),
+  "unmapped U.S.C. line must say the section is not in the partial table: " + uscLineEn);
 assert.ok(!uscLineEn.includes("INA provision"),
   "U.S.C. rows must not be labelled INA provisions: " + uscLineEn);
 const inaLineEn = immSourceLine("statute", I18N.en, { reporter: "INA" });

@@ -2,9 +2,12 @@
 // Run: node tests/test_immigration.js
 // Guarantees: every extracted row is routed to at most one source line
 // by pattern, and NO immigration row is ever rendered as checked or
-// verified — BIA and INA rows always say "not yet connected" with
+// verified — BIA rows always say "not yet connected" with
 // manual links, because no live lookup for them exists in this
-// page. 8 CFR rows say "not yet connected" UNLESS they exactly match
+// page. Unmapped INA / 8 U.S.C. rows say the section is not in the
+// partial mapping table and therefore cannot be confirmed (the
+// mapping table exists now, so "does not yet map" would be false).
+// 8 CFR rows say "not yet connected" UNLESS they exactly match
 // the static eCFR Title 8 index (see test_imm8cfr.js for the matched
 // case); an unmatched 8 CFR row keeps the old wording. Unclassifiable
 // rows stay "unknown" and are never forced into a category. No live
@@ -49,18 +52,22 @@ assert.strictEqual(immClassifyRow(null), "unknown");
 
 // (b) Source lines: immigration rows never read as checked/verified.
 const en = I18N.en;
-for (const type of ["bia", "statute", "regulation"]) {
+for (const type of ["bia", "regulation"]) {
   const line = immSourceLine(type, en);
   assert.ok(line.includes("not yet connected"),
     type + " line must say not yet connected, got: " + line);
   assert.ok(!/was checked|has been verified|verified against/i.test(line),
     type + " line must never claim a check happened: " + line);
 }
+assert.ok(immSourceLine("statute", en).includes("not in the partial"),
+  "unmapped statute line must say the section is not in the partial table, got: "
+  + immSourceLine("statute", en));
+assert.ok(!immSourceLine("statute", en).includes("does not yet map"),
+  "the mapping table exists now, so 'does not yet map' would be false");
 assert.ok(immSourceLine("aao", en).includes("manual check only"));
 assert.ok(immSourceLine("aao", en).includes("bind only the parties"));
 assert.ok(immSourceLine("aao", en).includes("may not be cited as authority"));
 assert.ok(immSourceLine("court", en).includes("no live lookup"));
-assert.ok(immSourceLine("statute", en).includes("does not yet map"));
 assert.ok(immSourceLine("unknown", en).includes("Not identified"));
 
 // (c) Manual links: present, correct, and only for routed types.
@@ -110,7 +117,7 @@ assert.deepStrictEqual(report.rows.map((r) => r.immType),
   ["court", "bia", "statute", "regulation"]);
 const md = healthReportMarkdown(report, en, null, "2026-10-27");
 assert.ok(md.includes("BIA precedent \u2014 not yet connected"));
-assert.ok(md.includes("INA provision \u2014 not yet connected"));
+assert.ok(md.includes("INA provision \u2014 this section is not in the partial"));
 assert.ok(md.includes("8 CFR provision (eCFR) \u2014 not yet connected"));
 assert.ok(md.includes("https://www.justice.gov/eoir/ag-bia-decisions"));
 assert.ok(md.includes("https://www.ecfr.gov/current/title-8"));
