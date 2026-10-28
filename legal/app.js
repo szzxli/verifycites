@@ -361,15 +361,16 @@ function renderReport(results) {
       return "<option value=\"" + o[0] + "\"" + (human.status === o[0] ? " selected" : "") + ">" + esc(o[1]) + "</option>";
     }).join("");
     var tr = document.createElement("tr");
-    tr.innerHTML = "<td>" + row.index + "</td><td>" + esc(row.text) + "</td>"
-      + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.year) + "</td>"
-      + "<td>" + esc(row.pinCite) + "</td><td>" + esc(flagText) + "</td>"
-      + "<td>" + esc(catLabels[cat]) + "</td><td>" + esc(anomaly) + "</td>"
-      + "<td data-tier1-row=\"" + ri + "\" data-imm8cfr-row=\"" + ri + "\">" + esc(evidence) + immHtml + "</td><td>" + esc(scope) + "</td>"
-      + "<td>" + esc(catActions[cat]) + "</td>"
-      + "<td><select data-review=\"" + ri + "\" aria-label=\"" + esc(t.reportThHumanStatus) + "\">" + humanOptions + "</select>"
+    tr.innerHTML = "<td class=\"col-extra\">" + row.index + "</td><td>" + esc(row.text) + "</td>"
+      + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.label) + "</td>"
+      + "<td class=\"col-extra\">" + esc(row.year) + "</td>"
+      + "<td class=\"col-extra\">" + esc(row.pinCite) + "</td><td class=\"col-extra\">" + esc(flagText) + "</td>"
+      + "<td class=\"col-extra\">" + esc(catLabels[cat]) + "</td><td class=\"col-extra\">" + esc(anomaly) + "</td>"
+      + "<td class=\"col-extra\" data-tier1-row=\"" + ri + "\" data-imm8cfr-row=\"" + ri + "\">" + esc(evidence) + immHtml + "</td><td class=\"col-extra\">" + esc(scope) + "</td>"
+      + "<td class=\"col-extra\">" + esc(catActions[cat]) + "</td>"
+      + "<td class=\"col-extra\"><select data-review=\"" + ri + "\" aria-label=\"" + esc(t.reportThHumanStatus) + "\">" + humanOptions + "</select>"
       + "<br><input data-note=\"" + ri + "\" value=\"" + esc(human.note) + "\" placeholder=\"" + esc(t.reportNotePlaceholder) + "\" aria-label=\"" + esc(t.reportHumanNote) + "\"></td>"
-      + "<td><input data-edit=\"" + ri + "\" value=\"" + esc(row.text) + "\" placeholder=\"" + esc(t.reportEditPlaceholder) + "\" aria-label=\"" + esc(t.reportThReverify) + "\">"
+      + "<td class=\"col-extra\"><input data-edit=\"" + ri + "\" value=\"" + esc(row.text) + "\" placeholder=\"" + esc(t.reportEditPlaceholder) + "\" aria-label=\"" + esc(t.reportThReverify) + "\">"
       + "<br><button type=\"button\" data-reverify=\"" + ri + "\">" + esc(t.reportThReverify) + "</button></td>"
       + "<td><a href=\"" + esc(row.manualUrl) + "\" target=\"_blank\" rel=\"noopener\">"
       + esc((immType === "bia" || immType === "statute" || immType === "regulation" || immType === "aao") ? t.openSourcePage : t.openCourtListener) + "</a>"
@@ -389,6 +390,20 @@ function renderReport(results) {
     });
   });
   section.hidden = false;
+  applyReportColumns();
+}
+
+function applyReportColumns() {
+  var wrap = document.getElementById("reportTableWrap");
+  var btn = document.getElementById("reportColumnsToggle");
+  var showAll = !!window.__reportShowAll;
+  if (wrap) wrap.classList.toggle("report-collapsed", !showAll);
+  if (btn) btn.textContent = showAll ? T().showFewerColumns : T().showAllColumns;
+}
+
+function toggleReportColumns() {
+  window.__reportShowAll = !window.__reportShowAll;
+  applyReportColumns();
 }
 
 function downloadBlob(content, filename, type) {

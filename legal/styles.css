@@ -338,3 +338,14 @@ textarea:focus, input:focus, select:focus { outline: none; border-color: #4d9692
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* UX1: health-report column toggle. Default (collapsed) shows only
+   Citation / Case name / Label / Manual-check links; the rest carry
+   .col-extra and are hidden until "Show all columns" is pressed. */
+#reportTableWrap.report-collapsed .col-extra { display: none; }
+.report-columns-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 0 0 10px; }
+.columns-note { color: #627482; font-size: 12.5px; }
+
+/* UX1: "Important limits" box — three short limit items. */
+.trust-limits { margin: 6px 0 8px; padding-left: 20px; }
+.trust-limits li { margin-bottom: 4px; color: #435867; font-size: 12.5px; line-height: 1.55; }
