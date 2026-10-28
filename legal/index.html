@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#18324b">
   <meta name="description" content="Extract case citations from legal text in your browser, then review source links. This tool does not provide legal advice or verify legal validity.">
-  <title>legal-cite-check — does the case you cited exist?</title>
+  <title>legal-cite-check — browser citation extraction</title>
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../site-nav.css">
@@ -45,7 +45,7 @@
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-copy="heroKicker">A focused workspace for cited cases</span></p>
-        <h1 id="page-title" data-i18n="heading">Does every case in your brief actually exist?</h1>
+        <h1 id="page-title" data-i18n="heading">Extract citations from your brief — then check each case yourself</h1>
         <p class="hero-lede" data-i18n="subtitle">Paste your motion or brief. The tool pulls out every citation and shows you a link to check it yourself — in the extraction step, your text does not leave your browser.</p>
         <p class="hero-browser-note" data-i18n="browserModeFirstLine">Browser mode: this page extracts citation formats and gives you verification links. It does not check cases online. For the full existence check, use the CLI below.</p>
         <p class="briefing-audience" data-i18n="briefingAudience">For Chinese-speaking users in the US, or Chinese-friendly legal-aid settings. This tool covers US CourtListener cases only — it does not cover Chinese law.</p>
@@ -60,6 +60,7 @@
     <div class="trust-panel" id="disclaimer">
       <div class="trust-heading"><span class="trust-symbol" aria-hidden="true">i</span><span data-copy="trustSummary">Important limits — please read</span></div>
       <div class="trust-content">
+        <p class="trust-lead"><strong data-i18n="trustLeadLine">Browser mode: this page extracts only — it does not check cases online.</strong></p>
         <p data-i18n="disclaimer">Not legal advice. This tool only checks whether a cited case exists in CourtListener and whether the case name matches. It does not check whether the case supports your argument, whether quotes or pin cites are accurate, or whether the case is still good law. A case marked NOT FOUND may still exist (CourtListener's coverage is incomplete); a case marked VERIFIED may still be wrong for your purpose. Read every case you cite.</p>
         <ul class="trust-limits">
           <li data-i18n="trustLimit1">Does not check whether the case supports your argument.</li>
@@ -212,6 +213,7 @@ python -m legalcite check brief.md --md report.md
           <span class="summary-chevron" aria-hidden="true">⌄</span>
         </summary>
         <div class="disclosure-body">
+          <p class="field-hint" data-i18n="queryDevNote">Developer feature: requires a translation service you provide. A translation endpoint is the web address of a translation service — this page has no translation service built in, so without one this section does nothing. This section uses the endpoint you configure in the opinion-translation section below. Example format: https://your-translation-service.example/translate</p>
           <div class="query-steps">
             <div class="query-box"><strong data-i18n="origQueryLabel">Original query</strong><p id="origQuery" class="query-original" data-copy="queryPlaceholder">Your original text will appear here after extraction.</p></div>
             <div class="query-box"><label for="enQuery" class="field-label" data-i18n="enQueryLabel">English query (auto-translated — edit it and search again if the translation is wrong)</label><textarea id="enQuery" rows="3" aria-describedby="query-help"></textarea></div>
@@ -230,6 +232,7 @@ python -m legalcite check brief.md --md report.md
           <span class="summary-chevron" aria-hidden="true">⌄</span>
         </summary>
         <div class="disclosure-body">
+      <p class="field-hint" data-i18n="transDevNote">Developer feature: requires a translation service you provide. A translation endpoint is the web address of a translation service — this page has no translation service built in, so without one this section does nothing. Example format: https://your-translation-service.example/translate</p>
       <div class="warning-card"><span class="warning-icon" aria-hidden="true">!</span><div><strong data-i18n="transWarning">Machine-translation warning: this is a machine translation, not legal advice. The original text prevails. Always read the original before relying on any translated passage. Case names, citations, reporter abbreviations, and numbers are kept verbatim and are not translated.</strong></div></div>
       <div class="translation-notes"><p data-i18n="transPreservedNote">Protected text (case names, citations, reporter abbreviations, numbers) is shown verbatim in both columns.</p><p data-i18n="transPrivacyNote">If you enter an endpoint, the pasted opinion text is sent to that endpoint for translation. It is not sent anywhere when no endpoint is configured.</p><p data-i18n="transSourceNote">v2 assumes the pasted opinion is in English.</p></div>
       <div class="field-block"><label for="opinion" class="field-label" data-copy="opinionLabel">Opinion text</label><textarea id="opinion" data-i18n-placeholder="transPastePlaceholder" placeholder="Paste opinion text here (blank lines separate paragraphs)..." rows="7"></textarea></div>
@@ -271,7 +274,7 @@ python -m legalcite check brief.md --md report.md
           <div class="briefing-results" aria-live="polite">
             <h3 data-i18n="briefingOverview">30-second overview</h3><p id="briefingOverview" class="briefing-overview"></p><p id="briefingStatus" class="inline-status"></p><div id="briefingResults"></div>
           </div>
-          <details class="manual-mode"><summary data-i18n="briefingManualLabel">Manual items</summary><p class="field-hint" data-i18n="briefingManualHint">Manual mode: paste CourtListener links or opinion text below.</p><textarea id="briefManual" rows="4" placeholder="Title | Court | YYYY-MM-DD | https://link | snippet"></textarea><button class="button button-secondary" onclick="rankManualBriefing()" data-i18n="briefingManualGet">Rank manual items</button></details>
+          <details class="manual-mode"><summary data-i18n="briefingManualLabel">Manual items</summary><p class="field-hint" data-i18n="briefingManualExplainer">Manual items are CourtListener links or opinion text you paste yourself. Use them when the automatic briefing fetch is blocked or unavailable — the page reports fetch failures honestly — or when you have specific items to rank. “Rank manual items” ranks your pasted items by the same jurisdiction × issue × citation rule, dropping items with no statable reason.</p><p class="field-hint" data-i18n="briefingManualHint">Manual mode: paste CourtListener links or opinion text below.</p><textarea id="briefManual" rows="4" placeholder="Title | Court | YYYY-MM-DD | https://link | snippet"></textarea><button class="button button-secondary" onclick="rankManualBriefing()" data-i18n="briefingManualGet">Rank manual items</button></details>
         </div>
       </details>
     </section>
