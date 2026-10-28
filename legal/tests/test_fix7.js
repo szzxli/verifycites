@@ -27,19 +27,21 @@ assert.strictEqual(I18N.zh.disclaimerNote, "如有歧义，以英文版免责声
 assert.ok(I18N.en.disclaimerNote.toLowerCase().includes("authoritative"));
 // Fix 7: briefing audience line present in HTML and i18n (US-only scope).
 assert.ok(html.includes('data-i18n="briefingAudience"'));
-assert.ok(I18N.en.briefingAudience.includes("CourtListener cases only"));
-assert.ok(I18N.zh.briefingAudience.includes("不覆盖中国法律"));
+assert.ok(I18N.en.briefingAudience.includes("solo lawyers"));
+assert.ok(!I18N.en.briefingAudience.includes("Chinese-speaking"));
+assert.ok(I18N.zh.briefingAudience.includes("独立执业律师"));
+assert.ok(!I18N.zh.briefingAudience.includes("在美华人"));
 // Fix 2/3/6: HTML hooks present.
 assert.ok(html.includes('data-i18n="extractPreNote"'), "prenote under button");
 assert.ok(html.includes('data-i18n="labelLegend"'), "legend above table");
 assert.ok(html.includes('<a href="#cli" data-i18n="resultsCliGuide"'), "guide anchor to #cli");
-// Fix 3: translation section is inside a <details> block.
-const transSec = html.slice(html.indexOf('<section class="utility-card" id="translation"'));
-assert.ok(transSec.startsWith('<section class="utility-card" id="translation" aria-labelledby="translation-title">\n      <details'), "translation in details");
+assert.ok(!html.includes('id="translation"'), "translation section is not promoted");
+assert.ok(!html.includes('id="briefing"'), "daily briefing is not promoted");
+assert.ok(!html.includes('id="query-translation"'), "query translation is not promoted");
 // Disclaimer: full disclaimer sentence must NOT sit inside any <details> block.
 // (Tag-depth scan at the marker position; the briefing warning also says
 // "Not legal advice" but is a different, shorter sentence.)
-const marker = "This tool only checks whether a cited case exists in CourtListener";
+const marker = "Every row is NOT_CHECKED";
 const idx = html.indexOf(marker);
 assert.ok(idx > 0, "disclaimer marker");
 let depth = 0;

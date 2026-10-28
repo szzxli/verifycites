@@ -15,7 +15,7 @@ assert.ok(html.includes('data-i18n="briefingAudience"'),
 // Minimal stub document: one [data-i18n] element, the briefing audience line,
 // starting with the English static fallback text from index.html.
 const audienceEl = {
-  textContent: "For Chinese-speaking users in the US, or Chinese-friendly legal-aid settings. This tool covers US CourtListener cases only — it does not cover Chinese law.",
+  textContent: "For solo lawyers, small firms, paralegals, and law-school writing courses. This page extracts U.S. citations for you to check. It does not give legal advice.",
   getAttribute: function (name) { return name === "data-i18n" ? "briefingAudience" : null; }
 };
 global.document = {
@@ -37,7 +37,7 @@ assert.strictEqual(audienceEl.textContent, I18N.zh.briefingAudience,
   "ZH switch must render the ZH audience string, got: " + audienceEl.textContent);
 assert.ok(/[\u4e00-\u9fff]/.test(audienceEl.textContent),
   "ZH audience line must contain Chinese characters");
-assert.ok(!audienceEl.textContent.includes("For Chinese-speaking"),
+assert.ok(!audienceEl.textContent.includes("solo lawyers"),
   "ZH audience line must not still show the English fallback");
 
 setLang("en");

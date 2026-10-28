@@ -50,7 +50,7 @@ assert.strictEqual(pinEnDash[0].pinCite, "490–492");
 const noteYear = extractCitations("Smith v. Jones, 123 F.3d 456, 460 n.2 (1999).");
 assert.strictEqual(noteYear[0].caseName, "Smith v. Jones");
 assert.strictEqual(noteYear[0].year, "1999", "year after a footnote pin");
-assert.strictEqual(noteYear[0].pinCite, "460");
+assert.strictEqual(noteYear[0].pinCite, "460 n.2");
 const starYear = extractCitations("Smith v. Jones, 123 F.3d 456, *7 (1999).");
 assert.strictEqual(starYear[0].year, "1999", "year after a star-page pin");
 

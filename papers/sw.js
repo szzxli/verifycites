@@ -20,8 +20,16 @@ self.addEventListener('fetch',e=>{
   e.respondWith(
     fetch(e.request).then(r=>{
       const cp=r.clone();
-      caches.open(C).then(c=>c.put(e.request,cp));
+      var stored = new URL(e.request.url);
+      stored.search = "";
+      caches.open(C).then(c=>c.put(stored.toString(), cp));
       return r;
-    }).catch(()=>caches.match(e.request))
+    }).catch(function () {
+      var u = new URL(e.request.url);
+      u.search = "";
+      return caches.match(u.toString(), { ignoreSearch: true }).then(function (hit) {
+        return hit || caches.match("index.html", { ignoreSearch: true });
+      });
+    })
   );
 });

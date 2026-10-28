@@ -101,24 +101,141 @@ function stripLeadingSignals(name) {
   }
 }
 
-// Year only from this citation's own parenthetical, directly after the
-// cite or its pin cite ("123 F.3d 456 (1999)", "644, 650 (9th Cir. 2015)",
-// "456, 460 n.2 (1999)"). A "(YYYY)" later in the text is not borrowed.
-function yearBelongingToCitation(text, citeEnd) {
+// Year, pin cite, and trailing parentheticals that belong to THIS cite.
+// A "(YYYY)" later in the text is not borrowed. The parenthetical text
+// (court, BIA, A.G., AAO, en banc, and the year) is kept whole so a
+// normalized copy never drops words that were in the original.
+function readCiteSuffix(text, citeEnd, reporterRes) {
   const rest = text.slice(citeEnd);
-  const lead = /^(?:\s*,\s*\*?\d{1,5}(?:\s*[-\u2013\u2014]\s*\*?\d{1,5})?)?(?:\s+n+\.?\s*\d{1,4}(?:\s*[-\u2013\u2014]\s*\d{1,4})?)?\s*/.exec(rest);
-  const after = rest.slice(lead[0].length);
-  if (after.charAt(0) !== "(") return null;
-  const close = after.indexOf(")");
-  if (close < 0) return null;
-  const inner = after.slice(1, close);
-  if (inner.indexOf("(") !== -1) return null;
-  const year = inner.match(/(?:^|\D)(\d{4})\s*$/);
-  return year ? year[1] : null;
+  let pinCite = null;
+  let pinKind = null;
+  let consumed = 0;
+  const comma = /^\s*,\s*(\*?\d{1,5})(?:\s*[-\u2013\u2014]\s*(\*?\d{1,5}))?((?:\s+n+\.?\s*\d{1,4}(?:\s*[-\u2013\u2014]\s*\d{1,4})?)?)/.exec(rest);
+  if (comma) {
+    const after = rest.slice(comma[0].length);
+    const followedByReporter = (reporterRes || []).some((rep) =>
+      new RegExp("^\\s+" + rep + "\\s+\\d").test(after));
+    const followedByAnotherCite = /^\s*(?:C\.?\s*F\.?\s*R|U\.?\s*S\.?\s*C|Fed\.|I&N|I\s*&)/i.test(after);
+    if (!followedByReporter && !followedByAnotherCite) {
+      let pin = comma[1];
+      if (comma[2]) pin += "\u2013" + comma[2].replace(/^\*/, "");
+      const note = (comma[3] || "").replace(/^\s+/, "").replace(/\s+/g, " ");
+      pinCite = note ? pin + " " + note : pin;
+      pinKind = "comma";
+      consumed = comma[0].length;
+    }
+  }
+  if (!pinCite) {
+    const at = /^\s+at\s+(\d{1,5})(?:\s*[-\u2013\u2014]\s*(\d{1,5}))?((?:\s+n+\.?\s*\d{1,4})?)/.exec(rest);
+    if (at) {
+      let pin = at[1];
+      if (at[2]) pin += "\u2013" + at[2];
+      const note = (at[3] || "").replace(/^\s+/, "").replace(/\s+/g, " ");
+      pinCite = note ? pin + " " + note : pin;
+      pinKind = "at";
+      consumed = at[0].length;
+    }
+  }
+  const parens = [];
+  let slice = rest.slice(consumed);
+  for (;;) {
+    const m = /^\s*(\((?:[^()]|\([^()]*\)){0,200}\))/.exec(slice);
+    if (!m) break;
+    parens.push(m[1]);
+    consumed += m[0].length;
+    slice = rest.slice(consumed);
+  }
+  const parenthetical = parens.length ? parens.join(" ") : null;
+  let year = null;
+  if (parenthetical) {
+    const endYear = parenthetical.match(/(\d{4})\s*\)\s*$/);
+    if (endYear) year = endYear[1];
+    else {
+      const years = parenthetical.match(/\b(\d{4})\b/g);
+      if (years) year = years[years.length - 1];
+    }
+  }
+  return { pinCite: pinCite, pinKind: pinKind, parenthetical: parenthetical, year: year, end: citeEnd + consumed };
 }
 
-function extractCitations(text) {
-  // Longest reporter abbreviations first.
+function yearBelongingToCitation(text, citeEnd) {
+  return readCiteSuffix(text, citeEnd, []).year;
+}
+
+const AAO_SEARCH_URL = "https://www.uscis.gov/administrative-appeals/aao-decisions/aao-non-precedent-decisions";
+
+function scholarUrlFor(cite) {
+  return "https://scholar.google.com/scholar?q=" + encodeURIComponent('"' + cite + '"');
+}
+
+// Volumes 27–30 have their own EOIR pages. Older volumes resolve through
+// the legacy interim-decision path, which redirects to the volume list.
+// A volume outside 1–30 (including an impossible volume) stays on the
+// decisions index instead of a guessed URL that would 404.
+function biaVolumeUrl(volume) {
+  const n = parseInt(volume, 10);
+  if (!n || n < 1 || n > 30) return "https://www.justice.gov/eoir/ag-bia-decisions";
+  if (n >= 27) return "https://www.justice.gov/eoir/volume-" + n;
+  const nn = (n < 10 ? "0" : "") + n;
+  return "https://www.justice.gov/eoir/vll/intdec/nfvol" + nn + ".html";
+}
+
+function ecfrSectionUrl(section) {
+  const bare = String(section || "").replace(/\([^)]*\)/g, "");
+  const part = bare.split(".")[0];
+  if (!/^\d+$/.test(part) || !/^\d+\.\d+$/.test(bare)) {
+    return "https://www.ecfr.gov/current/title-8";
+  }
+  return "https://www.ecfr.gov/current/title-8/part-" + part + "/section-" + bare;
+}
+
+function uscSectionUrl(section) {
+  const bare = String(section || "").replace(/\([^)]*\)/g, "");
+  if (!/^\d+[A-Za-z]?$/.test(bare)) return "https://www.law.cornell.edu/uscode/text/8";
+  return "https://www.law.cornell.edu/uscode/text/8/" + bare;
+}
+
+function fedRegUrl(volume, page) {
+  const p = String(page || "").replace(/,/g, "");
+  if (!volume || !/^\d+$/.test(p)) return "https://www.federalregister.gov/";
+  return "https://www.federalregister.gov/citation/" + volume + "-FR-" + p;
+}
+
+function sectionTokens(body, tokenRe) {
+  const out = [];
+  const re = new RegExp(tokenRe, "g");
+  let m;
+  while ((m = re.exec(body)) !== null) out.push(m[1]);
+  return out;
+}
+
+function overlaps(spans, start, end) {
+  for (let i = 0; i < spans.length; i++) {
+    if (start < spans[i][1] && end > spans[i][0]) return true;
+  }
+  return false;
+}
+
+function nameSpanStart(text, citeStart, name) {
+  if (!name) return citeStart;
+  const from = Math.max(0, citeStart - Math.min(180, name.length + 40));
+  const slice = text.slice(from, citeStart);
+  const at = slice.lastIndexOf(name);
+  if (at < 0) return citeStart;
+  // Do not let a case name from an earlier sentence cover the cites in between.
+  if (/[.!?]/.test(slice.slice(at + name.length))) return citeStart;
+  return from + at;
+}
+function matterNameBefore(text, citeStart) {
+  const before = text.slice(Math.max(0, citeStart - 160), citeStart);
+  const sentence = before.split(/[.!?]\s/).pop();
+  const matter = /Matter of\s+([A-Za-z0-9][^,;\n]{0,60}?)\s*,\s*$/.exec(sentence)
+    || /Matter of\s+([A-Za-z0-9][^,;\n]{0,60}?)\s*$/.exec(sentence);
+  if (!matter) return null;
+  return "Matter of " + matter[1].trim().replace(/\s+/g, " ");
+}
+
+function scanCitations(text) {
   const reporters = REPORTERS.map((r) => r.abbreviation)
     .sort((a, b) => b.length - a.length)
     .map(escapeRegExp);
@@ -126,170 +243,267 @@ function extractCitations(text) {
     "\\b(\\d{1,4})\\s+(" + reporters.join("|") + ")\\s+(\\d{1,5})\\b", "g");
   const out = [];
   const starts = [];
+  const spans = [];
   let m;
+
+  function pushRow(row, start, end) {
+    out.push(row);
+    starts.push(start);
+    spans.push([start, end]);
+  }
+
   while ((m = pattern.exec(text)) !== null) {
     const start = m.index;
     const before = text.slice(Math.max(0, start - 160), start);
     const party = "[A-Z][\\w.'&\\-]+(?:\\s+(?:[A-Z][\\w.'&\\-]+|(?:of|the|and|for)\\s+[A-Z][\\w.'&\\-]+)){0,4}(?:,\\s+(?:Inc\\.|LLC|Corp\\.))?";
     const nameMatch = [...before.matchAll(
       new RegExp("(" + party + ")\\s+v\\.\\s+(" + party + ")", "g"))].pop();
-    const year = yearBelongingToCitation(text, m.index + m[0].length);
+    const suffix = readCiteSuffix(text, m.index + m[0].length, reporters);
     const reporter = m[2].replace(/\s+/g, " ").trim();
     const info = REPORTERS.find((r) => r.abbreviation === reporter);
     const slug = info ? info.slug : null;
     const manualUrl = slug
       ? "https://www.courtlistener.com/c/" + slug + "/" + m[1] + "/" + m[3] + "/"
       : "https://www.courtlistener.com/c/" + encodeURIComponent(reporter) + "/" + m[1] + "/" + m[3] + "/";
-    // Pin cite: a page (or page range) immediately after the first page,
-    // e.g. "576 U.S. 644, 650". Not a pin cite when the digits are the
-    // volume of a following citation ("644, 577 U.S. 100").
-    let pinCite = null;
-    const tail = text.slice(m.index + m[0].length, m.index + m[0].length + 24);
-    const pinMatch = tail.match(/^\s*,\s*(\d{1,5})(?:\s*[-\u2013]\s*(\d{1,5}))?\b/);
-    if (pinMatch) {
-      const afterPin = tail.slice(pinMatch[0].length);
-      const followedByReporter = reporters.some((rep) =>
-        new RegExp("^\\s+" + rep + "\\s+\\d").test(afterPin));
-      if (!followedByReporter) {
-        pinCite = pinMatch[2] ? pinMatch[1] + "\u2013" + pinMatch[2] : pinMatch[1];
-      }
-    }
-    out.push({
+    const caseName = nameMatch ? stripLeadingSignals(nameMatch[1]) + " v. " + nameMatch[2] : null;
+    pushRow({
       text: m[0], volume: m[1], reporter: reporter, page: m[3],
-      pinCite: pinCite,
-      caseName: nameMatch ? stripLeadingSignals(nameMatch[1]) + " v. " + nameMatch[2] : null,
-      year: year,
+      pinCite: suffix.pinCite, pinKind: suffix.pinKind,
+      parenthetical: suffix.parenthetical,
+      caseName: caseName,
+      year: suffix.year,
       manualUrl: manualUrl,
-      scholarUrl: "https://scholar.google.com/scholar?q=" + encodeURIComponent('"' + m[0] + '"'),
-    });
-    starts.push(start);
+      scholarUrl: scholarUrlFor(m[0]),
+    }, nameSpanStart(text, start, caseName), suffix.end);
   }
 
-  // Immigration citations. These are NOT volume+reporter+page court
-  // cites, so they are matched by their own patterns and merged with
-  // the court rows in text order. They are extraction only: the rows
-  // are still browser-mode NOT_CHECKED, and the immigration source
-  // lines in report.js label them "not yet connected" — extraction
-  // makes them visible and routable, never verified.
-  const scholar = (cite) =>
-    "https://scholar.google.com/scholar?q=" + encodeURIComponent('"' + cite + '"');
-
-  // BIA precedent: "30 I&N Dec. 185", with a preceding
-  // "Matter of <name>," (anonymised forms like "Matter of M-K-" work;
-  // the name runs to the comma). Year from a following "(BIA YYYY)"
-  // parenthetical via the same rule as court cites; absent, the row
-  // carries no year and the missing-year flag fires (a real defect
-  // for a BIA cite, which normally carries a year).
+  // Immigration citations are not volume+reporter+page court cites.
+  // They are extraction only: still browser-mode NOT_CHECKED.
   const biaPattern = /\b(\d{1,3})\s+I&N Dec\.\s+(\d{1,5})\b/g;
   while ((m = biaPattern.exec(text)) !== null) {
     const start = m.index;
-    const before = text.slice(Math.max(0, start - 160), start);
-    const matter = [...before.matchAll(/Matter of\s+([A-Za-z0-9][^,;\n]{0,60}?)\s*,/g)].pop()
-      || [...before.matchAll(/Matter of\s+([A-Za-z0-9][^,;\n]{0,60}?)\s*$/g)].pop();
-    const name = matter ? "Matter of " + matter[1].trim().replace(/\s+/g, " ") : null;
-    out.push({
+    const name = matterNameBefore(text, start);
+    const suffix = readCiteSuffix(text, m.index + m[0].length, reporters);
+    // "19 I&N Dec. at 233" is the short-form pattern below, not this one.
+    const parenthetical = suffix.parenthetical;
+    const aao = parenthetical && /\(AAO\b/i.test(parenthetical);
+    pushRow({
       text: m[0], volume: m[1], reporter: "I&N Dec.", page: m[2],
-      pinCite: null, caseName: name,
-      year: yearBelongingToCitation(text, m.index + m[0].length),
-      manualUrl: "https://www.justice.gov/eoir/ag-bia-decisions",
-      scholarUrl: scholar(m[0]),
-    });
-    starts.push(start);
+      pinCite: suffix.pinCite, pinKind: suffix.pinKind,
+      parenthetical: parenthetical, caseName: name,
+      year: suffix.year,
+      manualUrl: aao ? AAO_SEARCH_URL : biaVolumeUrl(m[1]),
+      scholarUrl: scholarUrlFor(m[0]),
+    }, nameSpanStart(text, start, name), suffix.end);
   }
 
-  // INA provisions: "INA § 208", "INA § 101(a)(15)(L)", "INA § 240A".
-  // No case name and no year apply to a statute cite, so volume is
-  // null and the section string is carried in page (reporter "INA");
-  // report.js suppresses the missing-year / no-case-name flags for
-  // these rows. The section string includes ONE trailing letter
-  // suffix when immediately attached ("240A"): the letter is part of
-  // the section identity — INA § 240 and INA § 240A are distinct
-  // sections mapping to different U.S.C. sections — so dropping it
-  // misdirected lawyers (240A read as 240). Only an immediately
-  // attached single letter is captured; a spaced form ("240 A") is
-  // not a standard cite form and is left uncaptured.
-  const inaPattern = /\bINA\s*§?\s*(\d{1,4}[A-Za-z]?(?:\([^)]{1,20}\))*)/g;
-  while ((m = inaPattern.exec(text)) !== null) {
-    out.push({
-      text: m[0], volume: null, reporter: "INA", page: m[1],
-      pinCite: null, caseName: null, year: null,
-      manualUrl: "https://uscode.house.gov/download.html",
-      scholarUrl: scholar(m[0]),
-    });
-    starts.push(m.index);
+  const biaShort = /\b(\d{1,3})\s+I&N Dec\.\s+at\s+(\d{1,5})\b/g;
+  while ((m = biaShort.exec(text)) !== null) {
+    if (overlaps(spans, m.index, m.index + m[0].length)) continue;
+    const start = m.index;
+    const name = matterNameBefore(text, start);
+    const suffix = readCiteSuffix(text, m.index + m[0].length, reporters);
+    const aao = suffix.parenthetical && /\(AAO\b/i.test(suffix.parenthetical);
+    pushRow({
+      text: m[0], volume: m[1], reporter: "I&N Dec.", page: null,
+      pinCite: suffix.pinCite || m[2], pinKind: "at",
+      parenthetical: suffix.parenthetical, caseName: name,
+      year: suffix.year,
+      manualUrl: aao ? AAO_SEARCH_URL : biaVolumeUrl(m[1]),
+      scholarUrl: scholarUrlFor(m[0]),
+    }, nameSpanStart(text, start, name), suffix.end);
   }
 
-  // 8 CFR provisions: "8 CFR 208.18", "8 CFR § 103.3(c)",
-  // "8 C.F.R. § 103.3(c)". The reporter is normalised to "8 CFR"
-  // for both spellings so duplicates are recognised; the text field
-  // keeps the citation exactly as written. Same row shape and
-  // flag rules as INA rows.
-  const cfrPattern = /\b8\s*C\.?F\.?R\.?\s*§?\s*(\d{1,4}\.\d{1,4}(?:\([^)]{1,20}\))*)/g;
+  function pushSections(match, sections, spec) {
+    const body = match[1];
+    const head = match[0].slice(0, match[0].length - body.length).replace(/§§?\s*$/, "").replace(/\s+$/, "");
+    const suffix = readCiteSuffix(text, match.index + match[0].length, reporters);
+    sections.forEach((sec, i) => {
+      const textOf = sections.length === 1 ? match[0] : (head + " § " + sec);
+      pushRow({
+        text: textOf, volume: null, reporter: spec.reporter, page: sec,
+        pinCite: null, pinKind: null,
+        parenthetical: suffix.parenthetical,
+        statuteLead: spec.lead,
+        caseName: null, year: null,
+        manualUrl: spec.url(sec),
+        scholarUrl: scholarUrlFor(textOf),
+      }, i === 0 ? match.index : match.index + i, i === sections.length - 1 ? suffix.end : match.index + match[0].length);
+    });
+    // One span covers the whole multi-cite so the other sections are not
+    // reported again as unrecognized.
+    if (sections.length > 1) {
+      spans[spans.length - sections.length][1] = suffix.end;
+    }
+  }
+
+  // Do not treat the next citation ("and 8 U.S.C.", "and 8 CFR", "85 Fed. Reg.")
+  // as another section of this one.
+  const notNextCite = "(?!\\d+[A-Za-z]?\\s+(?:U\\.?\\s*S|C\\.?\\s*F|Fed\\.|I&N|I\\s*&))";
+  const cfrToken = "(\\d{1,4}\\.\\d{1,4}(?:\\([^)]{1,24}\\))*)";
+  const cfrPattern = new RegExp(
+    "\\b8\\s*C\\.?\\s*F\\.?\\s*R\\.?\\s*(?:§§|§)?\\s*(" + cfrToken + "(?:\\s*(?:,|&|\\band\\b|[\u2013\u2014-])\\s*" + notNextCite + cfrToken + ")*)", "gi");
   while ((m = cfrPattern.exec(text)) !== null) {
-    out.push({
-      text: m[0], volume: null, reporter: "8 CFR", page: m[1],
-      pinCite: null, caseName: null, year: null,
-      manualUrl: "https://www.ecfr.gov/current/title-8",
-      scholarUrl: scholar(m[0]),
+    if (overlaps(spans, m.index, m.index + m[0].length)) continue;
+    const sections = sectionTokens(m[1], cfrToken);
+    if (!sections.length) continue;
+    pushSections(m, sections, {
+      reporter: "8 CFR",
+      lead: "8 CFR \u00a7 ",
+      url: ecfrSectionUrl,
     });
-    starts.push(m.index);
   }
 
-  // 8 U.S.C. provisions: "8 U.S.C. § 1158", "8 U.S.C. § 1101(a)(15)(L)",
-  // "8 USC 1158", "8 U.S.C. § 1229b". Same row shape and flag rules
-  // as INA rows (reporter "8 U.S.C.", section string in page; manual
-  // link is the OLRC Title 8 download page). The section string
-  // includes ONE immediately attached trailing letter suffix
-  // ("1229b"): the letter is part of the section identity — 1229
-  // and 1229b are distinct sections with different INA counterparts
-  // — so dropping it misdirected lawyers (1229b read as 1229).
-  // Overlap note: the court pattern cannot match a substring of this
-  // span, because it requires digits immediately after the reporter —
-  // "8 U.S. 100" is a court cite, but this pattern requires the C of
-  // U.S.C. — so no suppression step is needed; the single-row guard
-  // test proves it.
-  const uscPattern = /\b8\s*U\.?S\.?C\.?\s*§?\s*(\d{1,4}[A-Za-z]?(?:\([^)]{1,20}\))*)/g;
+  const inaToken = "(\\d{1,4}[A-Za-z]?(?:\\([^)]{1,24}\\))*)";
+  const inaPattern = new RegExp(
+    "\\bINA\\s*(?:§§|§)?\\s*(" + inaToken + "(?:\\s*(?:,|&|\\band\\b|[\u2013\u2014-])\\s*" + notNextCite + inaToken + ")*)", "g");
+  while ((m = inaPattern.exec(text)) !== null) {
+    if (overlaps(spans, m.index, m.index + m[0].length)) continue;
+    const sections = sectionTokens(m[1], inaToken);
+    if (!sections.length) continue;
+    pushSections(m, sections, {
+      reporter: "INA",
+      lead: "INA \u00a7 ",
+      url: function () { return "https://www.law.cornell.edu/uscode/text/8"; },
+    });
+  }
+
+  const actPattern = new RegExp(
+    "\\bImmigration and Nationality Act\\s*,?\\s*(?:§§|§)\\s*(" + inaToken + "(?:\\s*(?:,|&|\\band\\b|[\u2013\u2014-])\\s*" + notNextCite + inaToken + ")*)", "gi");
+  while ((m = actPattern.exec(text)) !== null) {
+    if (overlaps(spans, m.index, m.index + m[0].length)) continue;
+    const sections = sectionTokens(m[1], inaToken);
+    if (!sections.length) continue;
+    pushSections(m, sections, {
+      reporter: "INA",
+      lead: "Immigration and Nationality Act \u00a7 ",
+      url: function () { return "https://www.law.cornell.edu/uscode/text/8"; },
+    });
+  }
+
+  const uscPattern = new RegExp(
+    "\\b8\\s*U\\.?\\s*S\\.?\\s*C\\.?\\s*(?:§§|§)?\\s*(" + inaToken + "(?:\\s*(?:,|&|\\band\\b|[\u2013\u2014-])\\s*" + notNextCite + inaToken + ")*)", "gi");
   while ((m = uscPattern.exec(text)) !== null) {
-    out.push({
-      text: m[0], volume: null, reporter: "8 U.S.C.", page: m[1],
-      pinCite: null, caseName: null, year: null,
-      manualUrl: "https://uscode.house.gov/download.html",
-      scholarUrl: scholar(m[0]),
+    if (overlaps(spans, m.index, m.index + m[0].length)) continue;
+    const sections = sectionTokens(m[1], inaToken);
+    if (!sections.length) continue;
+    pushSections(m, sections, {
+      reporter: "8 U.S.C.",
+      lead: "8 U.S.C. \u00a7 ",
+      url: uscSectionUrl,
     });
-    starts.push(m.index);
   }
 
-  // Merge in text order. Row objects carry no start field: the sort
-  // index is computed here and discarded, so reports and downloads
-  // see exactly the same row shape as before.
-  const order = out.map((_, i) => i).sort((a, b) => starts[a] - starts[b]);
-  return order.map((i) => out[i]);
+  const fedPattern = /\b(\d{1,3})\s+Fed\.\s*Reg\.\s+(\d{1,3}(?:,\d{3})+|\d{1,6})(?:\s*,\s*(\d{1,3}(?:,\d{3})+|\d{1,6}))?/g;
+  while ((m = fedPattern.exec(text)) !== null) {
+    if (overlaps(spans, m.index, m.index + m[0].length)) continue;
+    const suffix = readCiteSuffix(text, m.index + m[0].length, reporters);
+    const page = m[2].replace(/,/g, "");
+    const pin = m[3] ? m[3] : (suffix.pinKind === "comma" ? suffix.pinCite : null);
+    pushRow({
+      text: m[0], volume: m[1], reporter: "Fed. Reg.", page: page,
+      pageDisplay: m[2],
+      pinCite: pin, pinKind: pin ? "comma" : null,
+      parenthetical: suffix.parenthetical,
+      caseName: null, year: suffix.year,
+      manualUrl: fedRegUrl(m[1], page),
+      scholarUrl: scholarUrlFor(m[0]),
+    }, m.index, suffix.end);
+  }
+
+  const aaoPattern = /\bMatter of\s+([A-Za-z0-9][A-Za-z0-9.'\- ]{0,70}?)\s*(?:,\s*ID\s*#\s*(\d+))?\s*(\([^)]{0,80}\bAAO\b[^)]{0,40}\))/g;
+  while ((m = aaoPattern.exec(text)) !== null) {
+    if (overlaps(spans, m.index, m.index + m[0].length)) continue;
+    const name = "Matter of " + m[1].trim().replace(/\s+/g, " ");
+    const yearMatch = m[3].match(/\b(\d{4})\b/);
+    pushRow({
+      text: m[0], volume: null, reporter: "AAO", page: m[2] || null,
+      pinCite: null, pinKind: null,
+      parenthetical: m[3],
+      caseName: name,
+      year: yearMatch ? yearMatch[1] : null,
+      manualUrl: AAO_SEARCH_URL,
+      scholarUrl: scholarUrlFor(m[0]),
+    }, m.index, m.index + m[0].length);
+  }
+
+  const order = out.map((_, i) => i).sort((a, b) => starts[a] - starts[b] || a - b);
+  return {
+    rows: order.map((i) => out[i]),
+    spans: order.map((i) => spans[i]),
+  };
+}
+
+function findUnrecognized(text, spans) {
+  const patterns = [
+    /\b\d{1,3}\s+Fed\.\s*Reg\.\s+[\d,]+/g,
+    /\b8\s*C\.?\s*F\.?\s*R\.?\s*(?:§§|§)?\s*\d[\d.()]*/g,
+    /\bImmigration and Nationality Act\s*,?\s*(?:§§|§)\s*\d[^.;\n]{0,60}/g,
+    /\b\d{1,3}\s+I\s*&\s*N\s+Dec\.\s+(?:at\s+)?\d{1,5}/g,
+    /\bMatter of\s+[A-Za-z0-9][^.\n]{0,80}\(\s*AAO\b[^)]{0,40}\)/g,
+    /\b\d{1,4}\s+(?:[A-Z][A-Za-z]*\.|[A-Z]\.)(?:\s*(?:[A-Za-z]+\.|[A-Z]\.|[A-Z][a-z]*\.)){0,4}\s+(?:at\s+)?\d{1,5}\b/g,
+  ];
+  const found = [];
+  const seen = {};
+  patterns.forEach((re) => {
+    let m;
+    while ((m = re.exec(text)) !== null) {
+      const start = m.index;
+      const end = start + m[0].length;
+      if (overlaps(spans, start, end)) continue;
+      const snippet = m[0].replace(/\s+/g, " ").trim();
+      if (!snippet || seen[snippet]) continue;
+      seen[snippet] = true;
+      found.push(snippet);
+    }
+  });
+  return found.slice(0, 20);
+}
+
+function extractCitations(text) {
+  const scanned = scanCitations(String(text || ""));
+  const missed = findUnrecognized(String(text || ""), scanned.spans);
+  extractCitations.lastUnrecognized = missed;
+  return scanned.rows;
+}
+
+function unrecognizedCitations(text) {
+  extractCitations(text);
+  return (extractCitations.lastUnrecognized || []).slice();
 }
 
 /* Standard format for one extracted row, assembled ONLY from fields the
-   extractor already found (case name, volume, reporter, page, pin cite,
-   year). This is spacing/punctuation normalization of the user's own
-   text: it is NOT a certified Bluebook citation (California state courts
-   follow the California Style Manual, not Bluebook) and NOT a
-   verification result — the case may still not exist. */
+   extractor already found. Spacing and the section sign are normalized.
+   Parentheticals and pin cites that were in the original are kept.
+   This is NOT a certified Bluebook citation and NOT a verification result. */
 function standardCitation(r) {
-  // Statute / regulation rows have no volume: the section string is
-  // the citation, so the standard format is the section cite with a
-  // normalised section sign (pure spacing/punctuation normalisation,
-  // the same job this function does for court cites). It is NOT a
-  // certified Bluebook citation and NOT a verification result.
-  if (r.reporter === "INA") return "INA \u00a7 " + (r.page || "");
-  if (r.reporter === "8 CFR") return "8 CFR \u00a7 " + (r.page || "");
-  if (r.reporter === "8 U.S.C.") return "8 U.S.C. \u00a7 " + (r.page || "");
-  var cite = [r.volume, r.reporter, r.page].filter(Boolean).join(" ");
-  if (r.pinCite) cite += ", " + r.pinCite;
-  var out = "";
-  if (r.caseName) out += r.caseName + ", ";
-  out += cite;
-  if (r.year) out += " (" + r.year + ")";
-  return out;
+  if (r.reporter === "INA" || r.reporter === "8 CFR" || r.reporter === "8 U.S.C.") {
+    const lead = r.statuteLead || (r.reporter === "INA" ? "INA \u00a7 " : r.reporter === "8 CFR" ? "8 CFR \u00a7 " : "8 U.S.C. \u00a7 ");
+    let statute = lead + (r.page || "");
+    if (r.parenthetical) statute += " " + r.parenthetical;
+    return statute;
+  }
+  if (r.reporter === "AAO") {
+    let aao = r.caseName ? r.caseName : (r.text || "AAO");
+    if (r.parenthetical && aao.indexOf(r.parenthetical) < 0) aao += " " + r.parenthetical;
+    return aao;
+  }
+  let cite;
+  if (r.pinKind === "at" && !r.page) {
+    cite = [r.volume, r.reporter, "at", r.pinCite].filter(Boolean).join(" ");
+  } else {
+    cite = [r.volume, r.reporter, r.pageDisplay || r.page].filter(Boolean).join(" ");
+    if (r.pinCite) cite += ", " + r.pinCite;
+  }
+  let formatted = "";
+  if (r.caseName) formatted += r.caseName + ", ";
+  formatted += cite;
+  if (r.parenthetical) formatted += " " + r.parenthetical;
+  else if (r.year) formatted += " (" + r.year + ")";
+  return formatted;
 }
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { extractCitations, REPORTERS, standardCitation };
+  module.exports = { extractCitations, unrecognizedCitations, REPORTERS, standardCitation,
+    readCiteSuffix, biaVolumeUrl, ecfrSectionUrl, uscSectionUrl, fedRegUrl, AAO_SEARCH_URL };
 }

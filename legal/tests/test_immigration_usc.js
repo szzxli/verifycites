@@ -55,7 +55,7 @@ assert.strictEqual(rows[0].page, "1158");
 assert.strictEqual(rows[0].volume, null);
 assert.strictEqual(rows[0].caseName, null);
 assert.strictEqual(rows[0].year, null);
-assert.strictEqual(rows[0].manualUrl, "https://uscode.house.gov/download.html");
+assert.strictEqual(rows[0].manualUrl, "https://www.law.cornell.edu/uscode/text/8/1158");
 assert.strictEqual(immClassifyRow(rows[0]), "statute");
 assert.strictEqual(rep.rows[0].immType, "statute");
 assert.deepStrictEqual(rep.rows[0].flags, [],

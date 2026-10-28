@@ -5,9 +5,9 @@
 
   var COPY = {
     en: {
-      skipToContent: "Skip to content", languageLabel: "Language", brandHome: "legal-cite-check home", navLabel: "Primary navigation", navCheck: "Citation checker", navBriefing: "Briefing", navTranslation: "Translate", navCli: "CLI guide", navImmigration: "Immigration", navQuery: "Query translation",
+      skipToContent: "Skip to content", languageLabel: "Language", brandHome: "VerifyCites home", navLabel: "Primary navigation", navCheck: "Citation checker", navBriefing: "Briefing", navTranslation: "Translate", navCli: "CLI guide", navImmigration: "Immigration", navQuery: "Query translation",
       heroKicker: "A focused workspace for cited cases", factLocal: "Citation extraction runs in this browser",
-      factNoLookup: "Browser mode does not look up cases", factCli: "Full existence check runs via the CLI",
+      factNoLookup: "Browser mode does not look up cases", factCli: "CLI checks CourtListener case existence and case name only",
       trustSummary: "Important limits — please read", primaryTask: "Primary task",
       checkerTitle: "Extract citations from a document",
       checkerDescription: "Paste legal text or upload a plain-text file. Review the extracted citations and open each source to check it yourself.",
@@ -16,9 +16,9 @@
       uploadFile: "Upload .txt file", trySample: "Try a sample", clearInput: "Clear text",
       resultsHeading: "Extracted citations", resultsPlaceholder: "Your extracted citations will appear here.",
       resultsPlaceholderHint: "Start by pasting text above or loading the sample.",
-      browserModeNotePrefix: "Every result in browser mode is marked NOT_CHECKED. Use the links to verify manually, or ",
-      browserModeNoteLink: "see the CLI guide",
-      browserModeNoteSuffix: " for the full CourtListener check.",
+      browserModeNotePrefix: "Every result in browser mode is marked NOT_CHECKED. Use the links to check by hand. ",
+      browserModeNoteLink: "The CLI",
+      browserModeNoteSuffix: " checks CourtListener case existence and case name only. It does not check statutes, regulations, BIA, AAO, the INA, or the C.F.R.",
       utilityTool: "Optional tool", querySummary: "Translate a query to English before extracting citation patterns.",
       queryPlaceholder: "Your original text will appear here after extraction.",
       queryHelp: "Automatic translation requires a translation endpoint you provide in the opinion translator below. Without it, no English query is generated.",
@@ -37,9 +37,9 @@
       queryEmpty: "Enter an English query before extracting citation patterns.", queryCopied: "Copied."
     },
     es: {
-      skipToContent: "Saltar al contenido", languageLabel: "Idioma", brandHome: "Inicio de legal-cite-check", navLabel: "Navegación principal", navCheck: "Verificador de citas", navBriefing: "Resumen", navTranslation: "Traducción", navCli: "Guía CLI", navImmigration: "Inmigración", navQuery: "Traducción de consulta",
+      skipToContent: "Saltar al contenido", languageLabel: "Idioma", brandHome: "Inicio de VerifyCites", navLabel: "Navegación principal", navCheck: "Verificador de citas", navBriefing: "Resumen", navTranslation: "Traducción", navCli: "Guía CLI", navImmigration: "Inmigración", navQuery: "Traducción de consulta",
       heroKicker: "Un espacio de trabajo para citas judiciales", factLocal: "La extracción de citas se realiza en este navegador",
-      factNoLookup: "El modo navegador no busca casos", factCli: "La verificación completa de existencia se ejecuta con la CLI",
+      factNoLookup: "El modo navegador no busca casos", factCli: "La CLI solo comprueba en CourtListener si el caso existe y si el nombre coincide",
       trustSummary: "Límites importantes — léalos", primaryTask: "Tarea principal",
       checkerTitle: "Extraer citas de un documento", checkerDescription: "Pegue texto jurídico o cargue un archivo de texto plano. Revise las citas extraídas y abra cada fuente para comprobarla usted mismo.",
       inputLabel: "Texto del documento", inputMeta: "El texto se procesa en este navegador",
@@ -47,9 +47,9 @@
       uploadFile: "Cargar archivo .txt", trySample: "Probar un ejemplo", clearInput: "Borrar texto",
       resultsHeading: "Citas extraídas", resultsPlaceholder: "Aquí aparecerán las citas extraídas.",
       resultsPlaceholderHint: "Pegue texto arriba o cargue el ejemplo para empezar.",
-      browserModeNotePrefix: "Todos los resultados del modo navegador se marcan NOT_CHECKED. Use los enlaces para verificarlos manualmente o ",
-      browserModeNoteLink: "consulte la guía CLI",
-      browserModeNoteSuffix: " para la comprobación completa en CourtListener.",
+      browserModeNotePrefix: "Todos los resultados del modo navegador se marcan NOT_CHECKED. Use los enlaces para comprobarlos a mano. ",
+      browserModeNoteLink: "La CLI",
+      browserModeNoteSuffix: " solo comprueba en CourtListener si el caso existe y si el nombre coincide. No comprueba leyes, reglamentos, decisiones de BIA o AAO, la INA ni el C.F.R.",
       utilityTool: "Herramienta opcional", querySummary: "Traduzca una consulta al inglés antes de extraer patrones de citas.",
       queryPlaceholder: "El texto original aparecerá aquí después de la extracción.",
       queryHelp: "La traducción automática requiere un endpoint que usted proporcione en el visor de opiniones. Sin él, no se genera una consulta en inglés.",
@@ -68,9 +68,9 @@
       queryEmpty: "Introduzca una consulta en inglés antes de extraer patrones de citas.", queryCopied: "Copiado."
     },
     zh: {
-      skipToContent: "跳转到正文", languageLabel: "语言", brandHome: "返回 legal-cite-check 首页", navLabel: "主导航", navCheck: "引文核验", navBriefing: "法律简报", navTranslation: "翻译", navCli: "CLI 说明", navImmigration: "移民引用", navQuery: "查询翻译",
+      skipToContent: "跳转到正文", languageLabel: "语言", brandHome: "VerifyCites 首页", navLabel: "主导航", navCheck: "引文核验", navBriefing: "法律简报", navTranslation: "翻译", navCli: "CLI 说明", navImmigration: "移民引用", navQuery: "查询翻译",
       heroKicker: "面向判例引文的研究工作台", factLocal: "引文提取在当前浏览器中完成",
-      factNoLookup: "浏览器模式不会联网查询案件", factCli: "完整存在性核查通过 CLI 运行",
+      factNoLookup: "浏览器模式不会联网查询案件", factCli: "CLI 只在 CourtListener 中核查判例是否存在以及案名是否一致",
       trustSummary: "重要限制 — 请先阅读", primaryTask: "主要任务",
       checkerTitle: "从法律文书中提取引文", checkerDescription: "粘贴法律文本或上传纯文本文件。检查提取出的引文，并打开来源链接自行核对。",
       inputLabel: "文书文本", inputMeta: "文本在当前浏览器中处理",
@@ -78,9 +78,9 @@
       uploadFile: "上传 .txt 文件", trySample: "试用示例", clearInput: "清除文本",
       resultsHeading: "提取出的引文", resultsPlaceholder: "提取出的引文会显示在这里。",
       resultsPlaceholderHint: "先粘贴文本，或载入示例内容。",
-      browserModeNotePrefix: "浏览器模式下的结果均标为 NOT_CHECKED。请通过链接手动核对；完整 CourtListener 检查请参见 ",
-      browserModeNoteLink: "CLI 说明",
-      browserModeNoteSuffix: "。",
+      browserModeNotePrefix: "浏览器模式下的结果均标为 NOT_CHECKED。请通过链接手动核对。",
+      browserModeNoteLink: "CLI",
+      browserModeNoteSuffix: " 只在 CourtListener 中核查判例是否存在以及案名是否一致，不核查法规、BIA、AAO、INA 或 C.F.R.。",
       utilityTool: "辅助工具", querySummary: "先将查询词译为英文，再提取其中的引文格式。",
       queryPlaceholder: "提取后，原始文本会显示在这里。",
       queryHelp: "自动翻译需要使用下方判决意见翻译器中的自定义端点。未设置端点时，不会生成英文查询。",
@@ -321,11 +321,18 @@
     });
   });
   window.addEventListener("hashchange", function () {
-    openTargetDetails(document.getElementById(decodeURIComponent(location.hash.slice(1))));
+    // Query strings such as ?ref= are not part of the hash and are not routes.
+    try { openTargetDetails(document.getElementById(decodeURIComponent(location.hash.slice(1)))); }
+    catch (e) { /* a bad fragment must not stop the page */ }
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    setLang(lang());
+    var stored = "en";
+    try {
+      var savedLang = localStorage.getItem("vc-lang");
+      if (savedLang === "es" || savedLang === "zh") stored = savedLang;
+    } catch (e) {}
+    setLang(stored);
     applyCopy();
     syncResults([]);
     var disclaimer = document.getElementById("disclaimer");
@@ -340,6 +347,9 @@
     }
     var translatorBtn = document.querySelector('button[onclick="doTranslate()"]');
     if (translatorBtn) translatorBtn.id = "translateBtn";
-    if (location.hash) openTargetDetails(document.getElementById(decodeURIComponent(location.hash.slice(1))));
+    if (location.hash) {
+      try { openTargetDetails(document.getElementById(decodeURIComponent(location.hash.slice(1)))); }
+      catch (e) { /* a bad fragment must not stop the page */ }
+    }
   });
 })();

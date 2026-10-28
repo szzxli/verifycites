@@ -66,47 +66,20 @@ assert.ok(visible.includes("in the extraction step, your text does not leave you
 // Footer privacy line is present and scoped (extraction local; endpoint/query only; GoatCounter views).
 assert.ok(html.includes('data-i18n="privacy"'), "footer privacy hook");
 assert.ok(I18N.en.privacy.includes("citation extraction runs in this browser"));
-assert.ok(I18N.en.privacy.includes("translation endpoint you choose"));
-assert.ok(I18N.en.privacy.includes("briefing requests send"));
 assert.ok(I18N.en.privacy.includes("GoatCounter"));
-// No page-wide privacy claim inside the immigration section.
+assert.ok(!I18N.en.privacy.includes("translation endpoint"), "translation is not promoted");
+assert.ok(!html.includes('id="query-translation"') && !html.includes('id="translation"') && !html.includes('id="briefing"'),
+  "translation, query translation, and the daily briefing are not on the page");
 const immAt = html.indexOf('id="immigration"');
-const queryAt = html.indexOf('id="query-translation"');
-const immSection = html.slice(immAt, queryAt);
+const footerAt = html.indexOf("<footer");
+const immSection = html.slice(immAt, footerAt);
 assert.ok(!/privacy/i.test(immSection), "no privacy claim inside immigration section");
-
-// --- 5. Translation sections: developer-feature label + endpoint explainer.
-assert.ok(html.indexOf('data-i18n="queryDevNote"') > queryAt, "query dev note present");
-const transAt = html.indexOf('id="translation"');
-assert.ok(html.indexOf('data-i18n="transDevNote"') > transAt, "translation dev note present");
-for (const l of ["en", "es", "zh"]) {
-  assert.ok(/developer|desarrollador|开发者/i.test(I18N[l].queryDevNote), l + " query dev label");
-  assert.ok(/developer|desarrollador|开发者/i.test(I18N[l].transDevNote), l + " trans dev label");
-  assert.ok(I18N[l].queryDevNote.includes("your-translation-service.example"),
-    l + " query example format");
-  assert.ok(I18N[l].transDevNote.includes("your-translation-service.example"),
-    l + " trans example format");
-  assert.ok(!/libretranslate/i.test(I18N[l].queryDevNote), l + " no real service named in dev note");
-  assert.ok(!/libretranslate/i.test(I18N[l].transDevNote), l + " no real service named in dev note");
-}
-assert.ok(I18N.en.queryDevNote.includes("opinion-translation section below"),
-  "query dependency note explicit");
-
-// --- 6. Briefing manual items explained.
-const briefAt = html.indexOf('id="briefing"');
-assert.ok(html.indexOf('data-i18n="briefingManualExplainer"') > briefAt, "manual explainer present");
-assert.ok(I18N.en.briefingManualExplainer.includes("paste yourself"));
-assert.ok(I18N.en.briefingManualExplainer.includes("blocked or unavailable"));
-assert.ok(I18N.en.briefingManualExplainer.includes("Rank manual items"));
-assert.ok(I18N.es.briefingManualExplainer.includes("Ordenar elementos manuales"));
-assert.ok(I18N.zh.briefingManualExplainer.includes("排序手动条目"));
 
 // --- 7. UX1 regressions (must all still hold).
 assert.ok(html.includes('class="table-wrap report-collapsed"'), "report table collapsed by default");
 assert.ok(html.includes('id="reportColumnsToggle"'), "columns toggle present");
 assert.ok(I18N.en.labelLegend.startsWith("NOT_CHECKED"), "legend leads with NOT_CHECKED");
-const order = ["id=\"checker\"", "id=\"cli\"", "id=\"immigration\"",
-  "id=\"query-translation\"", "id=\"translation\"", "id=\"briefing\""]
+const order = ["id=\"checker\"", "id=\"cli\"", "id=\"immigration\""]
   .map((s) => html.indexOf(s));
 assert.ok(order.every((v) => v > 0) && order.every((v, i) => i === 0 || v > order[i - 1]),
   "section order unchanged");
