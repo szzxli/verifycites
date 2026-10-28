@@ -197,11 +197,18 @@ function extractCitations(text) {
     starts.push(start);
   }
 
-  // INA provisions: "INA § 208", "INA § 101(a)(15)(L)". No case name
-  // and no year apply to a statute cite, so volume is null and the
-  // section string is carried in page (reporter "INA"); report.js
-  // suppresses the missing-year / no-case-name flags for these rows.
-  const inaPattern = /\bINA\s*§?\s*(\d{1,4}(?:\([^)]{1,20}\))*)/g;
+  // INA provisions: "INA § 208", "INA § 101(a)(15)(L)", "INA § 240A".
+  // No case name and no year apply to a statute cite, so volume is
+  // null and the section string is carried in page (reporter "INA");
+  // report.js suppresses the missing-year / no-case-name flags for
+  // these rows. The section string includes ONE trailing letter
+  // suffix when immediately attached ("240A"): the letter is part of
+  // the section identity — INA § 240 and INA § 240A are distinct
+  // sections mapping to different U.S.C. sections — so dropping it
+  // misdirected lawyers (240A read as 240). Only an immediately
+  // attached single letter is captured; a spaced form ("240 A") is
+  // not a standard cite form and is left uncaptured.
+  const inaPattern = /\bINA\s*§?\s*(\d{1,4}[A-Za-z]?(?:\([^)]{1,20}\))*)/g;
   while ((m = inaPattern.exec(text)) !== null) {
     out.push({
       text: m[0], volume: null, reporter: "INA", page: m[1],
@@ -229,14 +236,19 @@ function extractCitations(text) {
   }
 
   // 8 U.S.C. provisions: "8 U.S.C. § 1158", "8 U.S.C. § 1101(a)(15)(L)",
-  // "8 USC 1158". Same row shape and flag rules as INA rows
-  // (reporter "8 U.S.C.", section string in page; manual link is the
-  // OLRC Title 8 download page). Overlap note: the court pattern
-  // cannot match a substring of this span, because it requires digits
-  // immediately after the reporter — "8 U.S. 100" is a court cite, but
-  // this pattern requires the C of U.S.C. — so no suppression step is
-  // needed; the single-row guard test proves it.
-  const uscPattern = /\b8\s*U\.?S\.?C\.?\s*§?\s*(\d{1,4}(?:\([^)]{1,20}\))*)/g;
+  // "8 USC 1158", "8 U.S.C. § 1229b". Same row shape and flag rules
+  // as INA rows (reporter "8 U.S.C.", section string in page; manual
+  // link is the OLRC Title 8 download page). The section string
+  // includes ONE immediately attached trailing letter suffix
+  // ("1229b"): the letter is part of the section identity — 1229
+  // and 1229b are distinct sections with different INA counterparts
+  // — so dropping it misdirected lawyers (1229b read as 1229).
+  // Overlap note: the court pattern cannot match a substring of this
+  // span, because it requires digits immediately after the reporter —
+  // "8 U.S. 100" is a court cite, but this pattern requires the C of
+  // U.S.C. — so no suppression step is needed; the single-row guard
+  // test proves it.
+  const uscPattern = /\b8\s*U\.?S\.?C\.?\s*§?\s*(\d{1,4}[A-Za-z]?(?:\([^)]{1,20}\))*)/g;
   while ((m = uscPattern.exec(text)) !== null) {
     out.push({
       text: m[0], volume: null, reporter: "8 U.S.C.", page: m[1],

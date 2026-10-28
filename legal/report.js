@@ -72,10 +72,9 @@ function tier1FirstSeenText(item, t) {
    A real immigration brief mixes federal court cases, BIA precedent
    (Matter of), INA provisions, and 8 CFR provisions. This block only
    CLASSIFIES an already-extracted row and names its source line; it
-   performs no lookup of any kind. BIA, INA, and 8 U.S.C. rows are
-   always labelled "not yet connected" with manual links, and must
-   never be rendered as checked or verified. 8 CFR rows are the one
-   exception: a row whose section EXACTLY matches an entry in the
+   performs no lookup of any kind. BIA rows are always labelled
+   "not yet connected" with manual links, and must never be rendered
+   as checked or verified. 8 CFR rows are the one exception: a row whose section EXACTLY matches an entry in the
    static eCFR Title 8 index (data/imm-8cfr-index.json, published by
    scripts/imm8cfr_poll.py) shows a "Found in eCFR Title 8" line with
    the section title and the index-level currency signals — and ONLY
@@ -87,9 +86,10 @@ function tier1FirstSeenText(item, t) {
    INA mapping table (data/imm-ina-mapping.json, published by
    scripts/imm-ina-mapping-poll.py from the OLRC Title 8 bulk XML)
    shows a mapping line naming both numbers plus the release-point
-   currency and the index time — and ONLY then stops saying "not yet
-   connected" / "cannot confirm". An unmapped statute row keeps the
-   old wording exactly; absence from a PARTIAL table is never worded
+   currency and the index time — and ONLY then stops saying the
+   section cannot be confirmed. An unmapped statute row says the
+   section is not in the PARTIAL mapping table and therefore cannot
+   be confirmed; absence from a PARTIAL table is never worded
    as "not found" or "does not exist". A match is NOT a good-law verdict: the
    enjoined-provision warning still applies (see the #immigration
    subsection), and eCFR text alone never proves a provision is
@@ -141,12 +141,12 @@ function immSourceLine(type, t, row, imm8cfr, immIna) {
   // shared statute line is used, as before.
   if (type === "statute" && row && row.reporter === "8 U.S.C.") {
     return (t && t.immSourceUsc)
-      || "Source line: U.S. Code provision (8 U.S.C.) \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.";
+      || "Source line: U.S. Code provision (8 U.S.C.) \u2014 this section is not in the partial INA\u2194U.S.C. mapping table, so it cannot be confirmed; check by hand below.";
   }
   var fallback = {
     court: "Source line: Federal court case \u2014 CourtListener line (browser mode: no live lookup; check by hand with the links).",
     bia: "Source line: BIA precedent \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.",
-    statute: "Source line: INA provision \u2014 not yet connected in this page; check by hand below. Note: lawyers cite INA \u00a7 numbers, the U.S. Code stores 8 U.S.C. \u00a7 numbers; this page does not yet map one numbering to the other, so it cannot confirm a section exists.",
+    statute: "Source line: INA provision \u2014 this section is not in the partial INA\u2194U.S.C. mapping table, so it cannot be confirmed; check by hand below.",
     regulation: "Source line: 8 CFR provision (eCFR) \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.",
     aao: "Source line: AAO non-precedent decision \u2014 manual check only. Non-precedent decisions bind only the parties and may not be cited as authority.",
     unknown: "Source line: Not identified \u2014 this row could not be routed to a source line; check by hand with the links."
@@ -216,23 +216,26 @@ function imm8cfrFoundText(found, t) {
    for the lookup (the same normalisation as the 8 CFR matcher):
    "INA 212(a)" -> base "212", "INA 240A" -> base "240A",
    "8 U.S.C. 1229b" -> base "1229b". The letter suffix is read from
-   the row's full TEXT, not from page: the extractor's page field
-   drops it ("INA 240A" extracts page "240", "8 U.S.C. 1229b"
-   extracts page "1229"), so matching on page alone would false-
-   positive INA 240A onto INA 240's counterpart (1229a) and
-   8 U.S.C. 1229b onto 1229's counterpart (INA 239). A match means
-   only that the poller found this correspondence in the Code
-   section's own sourceCredit in the current OLRC Title 8 release;
-   it is NOT an existence proof for any other purpose, NOT a
-   good-law verdict, and NOT a claim about the cited subsection's
-   content. No match produces no mapping text at all: the row keeps
-   its "not yet connected" / "cannot confirm" wording, because the
-   table is partial by design. Non-statute rows never match, even if
-   their text happens to contain a section-like number. Subsection
-   suffixes in the rendered line are carried from the row's own
-   cited text onto both sides (INA 212(a) -> 8 U.S.C. 1182(a)); the
-   source evidence establishes the section-level correspondence
-   only, and the table's meta says so. */
+   the row's page field first: the extractor captures one immediately
+   attached trailing letter into page ("240A", "1229b"), so page and
+   text agree. Text recovery survives ONLY as a legacy fallback for
+   hand-built rows whose page carries no letter. Suffixed and
+   unsuffixed sections are DISTINCT and never conflated: matching on
+   digits alone false-positived INA 240A onto INA 240's counterpart
+   (1229a) and 8 U.S.C. 1229b onto 1229's counterpart (INA 239) — the
+   live wrong-answer bug this fix closes. A match means only that the
+   poller found this correspondence in the Code section's own
+   sourceCredit in the current OLRC Title 8 release; it is NOT an
+   existence proof for any other purpose, NOT a good-law verdict, and
+   NOT a claim about the cited subsection's content. No match
+   produces no mapping text at all: the row keeps its unmapped
+   wording, because the table is partial by design. Non-statute rows
+   never match, even if their text happens to contain a section-like
+   number. Subsection suffixes in the rendered line are carried from
+   the row's own cited section onto both sides (INA 212(a) ->
+   8 U.S.C. 1182(a), INA 240A(a) -> 8 U.S.C. 1229b(a)); the source
+   evidence establishes the section-level correspondence only, and
+   the table's meta says so. */
 function immInaNormalizeSection(row) {
   if (!row) return null;
   var reporter = String(row.reporter || "");
@@ -244,23 +247,48 @@ function immInaNormalizeSection(row) {
   else if (/\b8\s*U\.?S\.?C\.?\s*§?\s*\d/i.test(text)) side = "usc";
   else return null;
   var page = String(row.page || "");
-  var digits = (page.match(/^\d+/) || [null])[0];
-  if (!digits) {
-    var tm = text.match(side === "ina"
-      ? /\bINA\s*§?\s*(\d+)/i : /\b8\s*U\.?S\.?C\.?\s*§?\s*(\d+)/i);
-    if (!tm) return null;
-    digits = tm[1];
-  }
-  var letter = "";
-  if (side === "ina") {
-    var im = text.match(/\bINA\s*§?\s*\d+([A-Za-z])?/i);
-    letter = im && im[1] ? im[1].toUpperCase() : "";
+  var digits = null, letter = "", suffix = "";
+  // Primary path: the extractor's page is digits + optional single
+  // letter + parentheticals only, so parse it directly.
+  var pm = page.match(/^(\d+)([A-Za-z]?)((?:\([^)]*\))*)$/);
+  if (pm) {
+    digits = pm[1];
+    letter = pm[2] || "";
+    suffix = pm[3] || "";
+    if (!letter) {
+      // Legacy fallback: a hand-built row whose page carries no
+      // letter but whose text does ("INA § 240A", page "240").
+      var lm = text.match(side === "ina"
+        ? /\bINA\s*§?\s*\d+([A-Za-z])?/i
+        : /\b8\s*U\.?S\.?C\.?\s*§?\s*\d+([A-Za-z])?/i);
+      if (lm && lm[1]) letter = lm[1];
+    }
   } else {
-    var um = text.match(/\b8\s*U\.?S\.?C\.?\s*§?\s*\d+([a-z])?/i);
-    letter = um && um[1] ? um[1].toLowerCase() : "";
+    // Malformed page: recover digits, then letter and parentheticals
+    // only when the remainder is exactly letter + parentheticals.
+    digits = (page.match(/^\d+/) || [null])[0];
+    if (!digits) {
+      var tm = text.match(side === "ina"
+        ? /\bINA\s*§?\s*(\d+)/i : /\b8\s*U\.?S\.?C\.?\s*§?\s*(\d+)/i);
+      if (!tm) return null;
+      digits = tm[1];
+    }
+    var rm = page.slice(digits.length).match(/^([A-Za-z]?)((?:\([^)]*\))*)$/);
+    if (rm) {
+      letter = rm[1] || "";
+      suffix = rm[2] || "";
+    }
+    if (!letter) {
+      var lm2 = text.match(side === "ina"
+        ? /\bINA\s*§?\s*\d+([A-Za-z])?/i
+        : /\b8\s*U\.?S\.?C\.?\s*§?\s*\d+([A-Za-z])?/i);
+      if (lm2 && lm2[1]) letter = lm2[1];
+    }
   }
-  var suffix = page.slice(digits.length);
-  if (!/^(\([^)]*\))*$/.test(suffix)) suffix = "";
+  // Section identity is case-normalised by side: INA letters are
+  // uppercase (240A), U.S.C. letters lowercase (1229b).
+  if (side === "ina") letter = letter.toUpperCase();
+  else letter = letter.toLowerCase();
   return { side: side, base: digits + letter, suffix: suffix };
 }
 function immInaFind(index, row) {
