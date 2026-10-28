@@ -301,3 +301,21 @@ h1, h2, h3, p { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Homepage capability table, example row, language switcher, legal-card disclaimer (home2 rebuild). */
+.lang-switch { display: inline-flex; gap: 2px; margin-left: 16px; }
+.lang-switch button { height: 26px; padding: 0 9px; border: 1px solid #cbd5d1; border-radius: 4px; background: transparent; color: #52656c; font-size: 11px; font-weight: 650; cursor: pointer; }
+.lang-switch button.active { border-color: var(--navy); background: var(--navy); color: #fff; }
+.hero-split { margin-top: 14px; }
+.cap-table-section { padding-top: 8px; padding-bottom: 34px; }
+.table-wrap { overflow-x: auto; }
+.cap-table { width: 100%; border-collapse: collapse; background: var(--paper-strong); border: 1px solid var(--line); border-radius: 8px; font-size: 14px; }
+.cap-table caption { padding-bottom: 12px; text-align: left; font-family: var(--serif); font-size: 24px; color: var(--ink); }
+.cap-table th, .cap-table td { padding: 12px 14px; border-top: 1px solid #edf0eb; text-align: left; line-height: 1.5; }
+.cap-table thead th { border-top: none; color: var(--ink-soft); font-size: 12px; letter-spacing: .02em; }
+.cap-table tbody th { white-space: nowrap; font-weight: 700; }
+.table-footnote { max-width: 860px; margin: 12px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.table-note { margin: 10px 0 0; color: var(--ink-soft); font-size: 14px; font-weight: 600; }
+.example-row { margin-top: 16px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 255, 255, .5); font-size: 14px; line-height: 1.6; }
+.example-label { display: block; margin-bottom: 4px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.tool-disclaimer { margin: 10px 0 0; color: var(--muted); font-size: 12px; font-weight: 600; }
