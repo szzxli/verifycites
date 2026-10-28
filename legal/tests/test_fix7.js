@@ -44,10 +44,14 @@ for (const m of html.slice(0, idx).matchAll(/<\/?details\b/g)) {
 }
 assert.strictEqual(depth, 0, "main disclaimer must not be inside <details>");
 assert.ok(html.includes('<div class="trust-panel" id="disclaimer">'), "disclaimer is a div");
-// Fix 4: CLI lines + token docs link present; no minute estimate published.
+// Fix 4: CLI lines + token docs link present; first-time setup estimate
+// present, worded as an estimate (UX1 batch supersedes the old
+// no-minute-estimate rule: the parent brief explicitly requires it).
 assert.ok(html.includes('data-i18n="cliSingle"') && html.includes('data-i18n="cliBatch"'));
 assert.ok(html.includes("https://wiki.free.law/c/courtlistener/help/api/rest/v3/overview"), "token docs link");
-assert.ok(!html.includes("约10分钟") && !html.includes("10 分钟") && !html.includes("10 minutes"), "no minute estimate");
+assert.ok(I18N.en.cliBatch.includes("about 10 minutes"), "CLI estimate present (EN, as estimate)");
+assert.ok(I18N.es.cliBatch.includes("10 minutos"), "CLI estimate present (ES)");
+assert.ok(I18N.zh.cliBatch.includes("10 分钟"), "CLI estimate present (ZH)");
 // Fix 5: terms note + details link present; nuanced wording (no absolute claim).
 assert.ok(html.includes('data-i18n="cliTerms"'));
 assert.ok(html.includes("https://free.law/membership/allowed-api-usage/"), "terms details link");
