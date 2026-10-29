@@ -16,7 +16,7 @@ function esc(s) {
    blocked or absent, and it never throws. The full event dictionary
    lives in docs/analytics.md; this list is the single enforcement
    point for the legal app. */
-var VC_EVENTS = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify", "legal-news-click", "legal-review-complete"];
+var VC_EVENTS = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify", "legal-news-click", "legal-review-complete", "legal-bia-search"];
 function vcCount(name) {
   try {
     if (VC_EVENTS.indexOf(name) < 0) return;

@@ -1,0 +1,83 @@
+# BIA precedent snapshot poller.
+#
+# Daily (plus manual dispatch), builds the static BIA snapshot index
+# from EOIR decisions pages and decision PDFs, and commits the data
+# files when they changed. No secrets, no keys, no tokens. TLS
+# certificates are verified (the --insecure flag is never passed here).
+#
+# Modes (workflow_dispatch input "mode"):
+#   probe    — dry run, writes nothing. Index page + current volume
+#              page + a few sample PDFs, prints verification counts.
+#              Use this first on a new branch: it validates page
+#              structure and extraction before any backfill.
+#   backfill — one volume group per run (input "volume_group", e.g.
+#              08-10). Groups are sized to finish inside one Actions
+#              run at 10s/request (job cap is 6 hours): 08-10, 11-13,
+#              14-19, 20-25, 26-30. Dispatch one group per run.
+#   poll     — daily freshness (also the scheduled mode): index page
+#              plus the current volume page only; downloads PDFs only
+#              for decisions absent from the existing index.
+#
+# The published JSON files are static, same-origin files. The browser
+# page reads them and never contacts justice.gov. Full decision text
+# is never published: data/bia-index.json holds metadata only and
+# data/bia-search/volNN.json holds per-volume inverted indexes.
+# See docs/bia-snapshot.md for design rules, gates, and limits.
+
+name: bia-snapshot-poll
+
+on:
+  schedule:
+    - cron: "45 14 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "probe (dry run), backfill (one volume group), or poll (new decisions only)"
+        type: choice
+        options:
+          - probe
+          - backfill
+          - poll
+        default: probe
+      volume_group:
+        description: "Backfill only, e.g. 08-10. Volumes 01-07 are phase 2 and are refused by the script."
+        type: string
+        default: "26-30"
+      limit:
+        description: "Probe only: how many sample PDFs to fetch"
+        type: string
+        default: "5"
+
+permissions:
+  contents: write
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+      - name: Install PDF extraction library
+        run: pip install pypdf
+      - name: Run BIA snapshot poller
+        env:
+          MODE: ${{ github.event.inputs.mode || 'poll' }}
+          GROUP: ${{ github.event.inputs.volume_group || '26-30' }}
+          LIMIT: ${{ github.event.inputs.limit || '5' }}
+        run: |
+          if [ "$MODE" = "probe" ]; then
+            python3 scripts/bia_snapshot_poll.py --mode probe --limit "$LIMIT"
+          elif [ "$MODE" = "backfill" ]; then
+            python3 scripts/bia_snapshot_poll.py --mode backfill --volume-group "$GROUP"
+          else
+            python3 scripts/bia_snapshot_poll.py --mode poll
+          fi
+      - name: Commit snapshot files if changed
+        if: ${{ github.event.inputs.mode != 'probe' }}
+        run: |
+          git config user.name "bia-snapshot-poller"
+          git config user.email "bia-snapshot-poller@users.noreply.github.com"
+          git add data/bia-index.json data/bia-search data/bia-manifest.json
+          git diff --cached --quiet || git commit -m "Update BIA snapshot index"
+          git push

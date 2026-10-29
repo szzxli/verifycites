@@ -363,3 +363,12 @@ textarea:focus, input:focus, select:focus { outline: none; border-color: #4d9692
 /* UX1: "Important limits" box — three short limit items. */
 .trust-limits { margin: 6px 0 8px; padding-left: 20px; }
 .trust-limits li { margin-bottom: 4px; color: #435867; font-size: 12.5px; line-height: 1.55; }
+
+/* BIA precedent search (branch prototype, #47) */
+#bia-form { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+#bia-form .field-label { flex-basis: 100%; }
+#bia-query { flex: 1 1 260px; min-width: 0; padding: 8px 10px; font: inherit; }
+.bia-results { padding-left: 1.2em; }
+.bia-result { margin: 0 0 12px; }
+.bia-result-head { margin: 0; }
+.bia-result-note { margin: 4px 0 0; color: var(--ink-soft); font-size: 0.92em; }

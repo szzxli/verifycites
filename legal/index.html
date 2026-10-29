@@ -32,6 +32,7 @@
     <a href="#checker" data-copy="navCheck">Citation checker</a>
     <a href="#cli" data-copy="navCli">CLI guide</a>
     <a href="#immigration" data-copy="navImmigration">Immigration guide</a>
+    <a href="#bia-search" data-copy="navBia">BIA precedent search</a>
   </nav>
   </div>
 
@@ -216,6 +217,23 @@ python -m legalcite check brief.md --md report.md
       </ul>
     </section>
 
+    <section class="utility-card" id="bia-search" aria-labelledby="bia-search-title">
+      <div class="section-heading">
+        <span class="section-number section-number-small" aria-hidden="true">04</span>
+        <span class="summary-copy"><span class="summary-title" id="bia-search-title">BIA precedent search (volume 30)</span></span>
+      </div>
+      <p class="section-job">Job: find BIA or Attorney General precedent decisions that contain your keywords, then open the official PDF to read it yourself.</p>
+      <p id="bia-scope">Scope: BIA and Attorney General precedent decisions only. Currently volume 30 only. Volumes 01&#8211;07 are a known gap and are not searchable here.</p>
+      <p class="field-hint" id="bia-local-note">Search runs in this browser against a static snapshot of the EOIR volume pages. Your keywords are not sent anywhere and are not saved.</p>
+      <form id="bia-form" class="input-block" role="search" autocomplete="off">
+        <label for="bia-query" class="field-label">Keywords (every keyword must appear in the decision)</label>
+        <input id="bia-query" type="search" maxlength="200" placeholder="e.g. asylum particular social group">
+        <button class="button button-secondary" type="submit">Search volume 30</button>
+      </form>
+      <p id="bia-status" class="result-count" role="status" aria-live="polite"></p>
+      <ol id="bia-results" class="bia-results"></ol>
+    </section>
+
     <footer class="site-footer">
       <p data-i18n="privacy">Privacy: citation extraction runs in this browser. GoatCounter records page views only. Credits: CourtListener / Free Law Project, eyecite (BSD-2). License: MIT.</p>
       <div class="footer-links"><a href="https://www.courtlistener.com/" target="_blank" rel="noopener noreferrer">CourtListener</a><a href="https://free.law/" target="_blank" rel="noopener noreferrer">Free Law Project</a><a href="https://github.com/szzxli/legal-cite-check" target="_blank" rel="noopener noreferrer">MIT License &amp; source</a><a href="mailto:info@verifycites.com">info@verifycites.com</a><a class="back-top" href="#top">Back to top</a></div>
@@ -230,6 +248,7 @@ python -m legalcite check brief.md --md report.md
   <script src="translate.js"></script>
   <script src="review.js"></script>
   <script src="news.js"></script>
+  <script src="bia.js"></script>
   <script src="app.js"></script>
   <script src="ui-enhancements.js"></script>
   <script src="../site-nav.js"></script>
