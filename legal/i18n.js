@@ -192,7 +192,7 @@ var I18N = {
     checkerTopLimit: "Browser mode: citations are extracted here and marked NOT_CHECKED. They are not checked online. Use a source link to check by hand. The CLI checks CourtListener case existence and case name only.",
     showAllColumns: "Show all columns",
     showFewerColumns: "Show fewer columns",
-    columnsNote: "Section titles and INA to U.S. Code mappings stay visible. Year, pin cite, structure flags, category, anomaly reason, check scope, suggested action, and re-verify are under \u201cShow all columns\u201d.",
+    columnsNote: "Section titles and INA to U.S. Code mappings stay visible. #, year, pin cite, structure flags, category, anomaly reason, check scope, suggested action, human review, and re-verify are under \u201cShow all columns\u201d.",
   },
   es: {
     pageTitle: "VerifyCites — extracción de citas en el navegador",
@@ -381,7 +381,7 @@ var I18N = {
     checkerTopLimit: "Modo navegador: las citas se extraen aquí y se marcan NOT_CHECKED. No se verifican en línea. Use un enlace de fuente para comprobar a mano. La CLI solo comprueba en CourtListener si el caso existe y si el nombre coincide.",
     showAllColumns: "Mostrar todas las columnas",
     showFewerColumns: "Mostrar menos columnas",
-    columnsNote: "El título de la sección y la correspondencia INA–Código de EE. UU. permanecen visibles. El año, la pin cite, las marcas de estructura, la categoría, el motivo de anomalía, el alcance, la acción sugerida y la nueva verificación están en “Mostrar todas las columnas”.",
+    columnsNote: "El título de la sección y la correspondencia INA–Código de EE. UU. permanecen visibles. El #, el año, la pin cite, las marcas de estructura, la categoría, el motivo de anomalía, el alcance, la acción sugerida, la revisión humana y la nueva verificación están en “Mostrar todas las columnas”.",
   },
   zh: {
     pageTitle: "VerifyCites — 浏览器端引文提取",
@@ -570,7 +570,7 @@ var I18N = {
     checkerTopLimit: "浏览器模式：此处提取引用并标为 NOT_CHECKED，不联网核查。请用来源链接手工核对。CLI 只在 CourtListener 中核查判例是否存在以及案名是否一致。",
     showAllColumns: "\u663e\u793a\u5168\u90e8\u5217",
     showFewerColumns: "\u663e\u793a\u8f83\u5c11\u5217",
-    columnsNote: "条文标题和 INA 与美国法典的对应关系保持可见。年份、页码、结构标记、分类、异常原因、核查范围、建议操作和重新核验在“显示全部列”中。",
+    columnsNote: "条文标题和 INA 与美国法典的对应关系保持可见。#、年份、页码、结构标记、分类、异常原因、核查范围、建议操作、人工复核和重新核验在“显示全部列”中。",
   }
 };
 /* Label explanations per language. Codes stay the same; only text changes. */

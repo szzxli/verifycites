@@ -65,8 +65,15 @@ assert.ok(visible.some((t) => t.includes('data-i18n="reportThEvidence"')), "Matc
 assert.ok(html.includes('id="reportColumnsToggle"'), "toggle button present");
 assert.ok(html.includes('onclick="toggleReportColumns()"'), "toggle wired");
 assert.ok(html.includes('data-i18n="columnsNote"'), "columns note present");
-assert.ok(!I18N.en.columnsNote.includes("Human review"), "human review is a default column, not listed under Show all columns");
-assert.ok(I18N.en.columnsNote.includes("re-verify"), "columns note names what is still under Show all columns");
+const extraLabels = [...thead.matchAll(/<th\b[^>]*\bcol-extra\b[^>]*>([^<]*)</g)].map((m) => m[1].trim());
+assert.deepStrictEqual(extraLabels, ["#", "Year", "Pin cite", "Structure flags", "Category", "Anomaly reason", "Check scope", "Suggested action", "Human review", "Re-verify"],
+  "col-extra headers are what Show all columns reveals");
+for (const label of extraLabels) {
+  assert.ok(I18N.en.columnsNote.toLowerCase().includes(label.toLowerCase()),
+    "columns note must name the revealed column: " + label);
+}
+assert.ok(I18N.en.columnsNote.includes("human review"), "Human review column (status and note) is under Show all columns");
+assert.ok(I18N.en.columnsNote.includes("re-verify"), "Re-verify is under Show all columns");
 assert.ok(css.includes("#reportTableWrap.report-collapsed .col-extra"), "collapsed CSS rule present");
 assert.ok(css.includes("display: none"), "collapsed rule hides extras");
 assert.ok(appSrc.includes("function toggleReportColumns()"), "toggle function in app.js");
