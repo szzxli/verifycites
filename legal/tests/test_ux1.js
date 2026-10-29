@@ -65,8 +65,8 @@ assert.ok(visible.some((t) => t.includes('data-i18n="reportThEvidence"')), "Matc
 assert.ok(html.includes('id="reportColumnsToggle"'), "toggle button present");
 assert.ok(html.includes('onclick="toggleReportColumns()"'), "toggle wired");
 assert.ok(html.includes('data-i18n="columnsNote"'), "columns note present");
-assert.ok(I18N.en.columnsNote.includes("Human review"), "columns note names human review");
-assert.ok(I18N.en.columnsNote.includes("re-verify"), "columns note names re-verify");
+assert.ok(!I18N.en.columnsNote.includes("Human review"), "human review is a default column, not listed under Show all columns");
+assert.ok(I18N.en.columnsNote.includes("re-verify"), "columns note names what is still under Show all columns");
 assert.ok(css.includes("#reportTableWrap.report-collapsed .col-extra"), "collapsed CSS rule present");
 assert.ok(css.includes("display: none"), "collapsed rule hides extras");
 assert.ok(appSrc.includes("function toggleReportColumns()"), "toggle function in app.js");

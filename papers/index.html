@@ -191,12 +191,13 @@ details.fold section.side{padding:26px 0 4px}
     <a href="#ground" id="cta-check" class="btn primary hero-tool-link" style="padding:14px 38px;font-size:16px">Check citations</a>
   </div>
   <p class="hint hero-tool-links">Tools: <a class="hero-tool-link" href="#ground">Check citations</a> · <a class="hero-tool-link" href="#verify">Verify a citation</a></p>
+  <p class="hint hero-tool-links" id="hero-side-tools">Side tools: <a class="hero-tool-link" href="#idea">Idea</a> · <a class="hero-tool-link" href="#datasets">Checklist</a> · <a class="hero-tool-link" href="#venues">Venues</a> · <a class="hero-tool-link" href="#rebuttal">Rebuttal</a> · <a class="hero-tool-link" href="#submissions">Submissions</a></p>
   <p class="hint" style="text-align:center;margin-top:12px">Draft, .docx, .pdf or .bib &nbsp;·&nbsp; or <button id="demo-btn" class="linkbtn">watch a 30-second demo</button></p>
 </div>
 
 <section id="ground">
   <div class="sec-head"><span class="sec-no">§1</span><h2>Check citations</h2></div>
-  <p class="sec-lede">Paste a draft (markdown or plain text), upload a .docx / .pdf, or paste / upload a BibTeX <code>.bib</code>. Four checks per citation: does it <b>exist</b>, does its <b>metadata match</b> (authors vs. title), is it <b>retracted</b>, and does the cited abstract <b>support the claim</b>. Text is extracted in your browser — nothing is uploaded.</p>
+  <p class="sec-lede">Paste a draft (markdown or plain text), upload a .docx / .pdf, or paste / upload a BibTeX <code>.bib</code>. For each citation the checker looks up whether the source <b>exists</b>, whether the <b>identifier</b> in the text matches the record, whether the paper is <b>retracted</b>, and whether the cited <b>abstract supports the claim</b>. Title, authors, venue, and year are not compared field by field; an author mismatch is flagged only when the check detects one. Text is extracted in your browser — nothing is uploaded.</p>
   <div class="toolcard">
     <div class="btnrow" style="margin:0 0 12px">
       <button id="ground-sample" class="btn ghost">Load sample</button>
@@ -286,7 +287,7 @@ details.fold section.side{padding:26px 0 4px}
     <dd>The source exists <i>and</i> its abstract substantively supports the claim's key assertion. Full text is <i>not</i> checked — supporting evidence may live in the paper body.</dd>
     <dd class="example">Example: "LLMs fabricate 23.4% of citations in academic drafts" — matched against the cited paper's abstract.</dd>
     <dt><span class="label l-cited">CITED</span></dt>
-    <dd>The source exists, but support is unchecked or only partial. The author decides.</dd>
+    <dd>Source found; whether it supports the claim was not checked (or only partly).</dd>
     <dd class="example">Example: "The dataset contains 1.2M annotated examples (Smith et al.)" — real source, content not yet compared.</dd>
     <dt><span class="label l-unverified">UNVERIFIED</span></dt>
     <dd>No record found, the marker cannot be resolved, or the match is ambiguous. Do not cite it as-is.</dd>
@@ -326,7 +327,7 @@ details.fold section.side{padding:26px 0 4px}
   <p class="sec-lede">Three horizons. Only <b>Now</b> is built; <b>Next</b> and <b>Later</b> are plans, not features.</p>
   <h3>Now</h3>
   <ul class="tight">
-    <li><b>Citation checker.</b> Per citation: does the work exist, does its metadata match, is it retracted, and does the cited abstract support the claim (abstract-level only — see <a href="#limits">limits</a>). <i class="st-live">Built — §1 and §2 above.</i></li>
+    <li><b>Citation checker.</b> Per citation: does the work exist, does the identifier match the record, is it retracted, and does the cited abstract support the claim (abstract-level only — see <a href="#limits">limits</a>). Title, authors, venue, and year are not compared field by field. <i class="st-live">Built — §1 and §2 above.</i></li>
     <li><b>.bib CLI and GitHub Action.</b> Check bibliographies from the command line or as a CI gate (<a href="https://github.com/szzxli/veripaper#check-bib-files-in-ci-github-action--cli">how</a>). <i class="st-live">Built.</i></li>
     <li>Early, unvalidated side tools sit collapsed at the bottom of this page.</li>
   </ul>
@@ -358,7 +359,7 @@ details.fold section.side{padding:26px 0 4px}
     <button id="pj-del" class="btn ghost" style="padding:9px 16px;font-size:13px">Delete</button>
   </div>
   <p class="hint" id="pj-hint" style="margin-bottom:0"></p>
-  <p class="hint" id="grounded-definition">grounded ×N is project.groundRuns.length: the number of completed citation-check runs saved on this project. VP.recordGround appends one entry to groundRuns after a check finishes, and the summary shows that length. It is not a count of claims or of ABSTRACT-SUPPORTED rows. When groundRuns.length is 0, the summary shows ground —.</p>
+  <p class="hint" id="grounded-definition">grounded ×N = number of citation checks completed in this project, saved in this browser.</p>
 </div>
 
 <section class="side" id="idea">
@@ -455,7 +456,7 @@ details.fold section.side{padding:26px 0 4px}
       </select>
       <input id="sub-date" type="date" title="Submitted" style="padding:10px;border:1px solid var(--line);font-family:var(--sans);font-size:13px">
       <input id="sub-deadline" type="date" title="Deadline" style="padding:10px;border:1px solid var(--line);font-family:var(--sans);font-size:13px">
-      <span class="hint" id="deadline-no-reminders">A deadline recorded here does not send reminders.</span>
+      <span class="hint" id="deadline-no-reminders">For your own tracking — this page does not send reminders.</span>
       <input id="sub-note" type="text" placeholder="Note (optional)" style="flex:1;min-width:120px;padding:11px 13px;border:1px solid var(--line);font-family:var(--sans);font-size:14px">
       <button id="sub-add" class="btn primary">Add</button>
     </div>

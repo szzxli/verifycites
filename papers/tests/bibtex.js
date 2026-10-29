@@ -179,7 +179,7 @@ const BIB = String.raw`% exported from a reference manager
     'api.openalex.org', 'api.semanticscholar.org', 'dblp.org'];
   ok('only registry lookup hosts contacted', hosts.every(h => allowed.includes(h)), JSON.stringify(hosts));
   const html = sbNet.renderReport(ev, { unit: 'BibTeX entries' });
-  ok('report counts entries', /5<\/b> BibTeX entries checked/.test(html));
+  ok('report counts entries', /5<\/b> BibTeX entries processed by the checker/.test(html));
 
   console.log('— 429 stays RATE_LIMITED in bib mode —');
   const sb429 = makeSandbox(async () => ({ ok: false, status: 429 }));

@@ -138,7 +138,7 @@ var I18N = {
     tier1Note: "Tier-1 direct sources in this index: {sources}. Index last polled {time} (index time, not a registry timestamp). First-seen dates below are when this index first observed the item, not publication dates.",
     tier1Unavailable: "Tier-1 first-seen index unavailable.",
     tier1FirstSeen: "First seen at {source} on {date}",
-    immSectionKicker: "Optional guide",
+    immSectionKicker: "Immigration guide",
     immSectionTitle: "Immigration guide",
     immSectionIntro: "An immigration brief mixes federal court cases, BIA precedent (Matter of), INA provisions, and 8 CFR provisions. This page classifies each extracted row and names its source line; immigration rows are not yet looked up live.",
     immSectionNotCovered: "Not yet covered: no live BIA lookup in this page (8 CFR rows are matched against a static eCFR Title 8 index and INA / 8 U.S.C. rows are matched against a partial INA\u21948 U.S.C. mapping table built from OLRC Title 8 \u2014 see the row's source line; unmapped sections still cannot be confirmed); no judgment on whether a case supports your argument or is still good law. A BIA precedent can be overruled, and circuit precedent controls; some Title 8 provisions may be enjoined, so eCFR text alone never proves a provision is currently in effect. The core statute and regulation text (INA, 8 CFR) changes rarely; what changes more often is policy guidance and new BIA precedent.",
@@ -192,7 +192,7 @@ var I18N = {
     checkerTopLimit: "Browser mode: citations are extracted here and marked NOT_CHECKED. They are not checked online. Use a source link to check by hand. The CLI checks CourtListener case existence and case name only.",
     showAllColumns: "Show all columns",
     showFewerColumns: "Show fewer columns",
-    columnsNote: "Section titles and INA to U.S. Code mappings stay visible. Human review and re-verify are under \u201cShow all columns\u201d.",
+    columnsNote: "Section titles and INA to U.S. Code mappings stay visible. Year, pin cite, structure flags, category, anomaly reason, check scope, suggested action, and re-verify are under \u201cShow all columns\u201d.",
   },
   es: {
     pageTitle: "VerifyCites — extracción de citas en el navegador",
@@ -327,7 +327,7 @@ var I18N = {
     tier1Note: "Fuentes directas de nivel 1 en este índice: {sources}. Índice actualizado por última vez {time} (hora del índice, no marca de tiempo de un registro). Las fechas de primera observación indican cuándo este índice observó el elemento por primera vez, no la fecha de publicación.",
     tier1Unavailable: "Índice de primera observación de nivel 1 no disponible.",
     tier1FirstSeen: "Visto por primera vez en {source} el {date}",
-    immSectionKicker: "Gu\u00eda opcional",
+    immSectionKicker: "Gu\u00eda de inmigraci\u00f3n",
     immSectionTitle: "Gu\u00eda de inmigraci\u00f3n",
     immSectionIntro: "Un escrito de inmigraci\u00f3n mezcla casos de tribunales federales, precedentes BIA (Matter of), disposiciones INA y disposiciones 8 CFR. Esta p\u00e1gina clasifica cada fila extra\u00edda y nombra su l\u00ednea de fuente; las filas de inmigraci\u00f3n a\u00fan no se consultan en vivo.",
     immSectionNotCovered: "A\u00fan no cubierto: ninguna consulta en vivo de BIA en esta p\u00e1gina (las filas de 8 CFR se comparan con un \u00edndice est\u00e1tico del T\u00edtulo 8 de eCFR y las filas de INA / 8 U.S.C. se comparan con una tabla parcial de correspondencias INA\u21948 U.S.C. construida a partir del T\u00edtulo 8 de OLRC \u2014 vea la l\u00ednea de fuente de la fila; las secciones sin correspondencia a\u00fan no pueden confirmarse); ning\u00fan juicio sobre si un caso respalda su argumento ni sobre si sigue vigente. Un precedente BIA puede ser revocado y prevalece el precedente del tribunal de circuito; algunas disposiciones del T\u00edtulo 8 pueden estar suspendidas por orden judicial, as\u00ed que el texto eCFR por s\u00ed solo nunca prueba que algo est\u00e9 actualmente en vigor. El texto b\u00e1sico de la ley y el reglamento (INA, 8 CFR) cambia rara vez; lo que cambia con m\u00e1s frecuencia son las gu\u00edas de pol\u00edtica y los nuevos precedentes BIA.",
@@ -381,7 +381,7 @@ var I18N = {
     checkerTopLimit: "Modo navegador: las citas se extraen aquí y se marcan NOT_CHECKED. No se verifican en línea. Use un enlace de fuente para comprobar a mano. La CLI solo comprueba en CourtListener si el caso existe y si el nombre coincide.",
     showAllColumns: "Mostrar todas las columnas",
     showFewerColumns: "Mostrar menos columnas",
-    columnsNote: "El título de la sección y la correspondencia INA–Código de EE. UU. permanecen visibles. La revisión humana y la nueva verificación están en “Mostrar todas las columnas”.",
+    columnsNote: "El título de la sección y la correspondencia INA–Código de EE. UU. permanecen visibles. El año, la pin cite, las marcas de estructura, la categoría, el motivo de anomalía, el alcance, la acción sugerida y la nueva verificación están en “Mostrar todas las columnas”.",
   },
   zh: {
     pageTitle: "VerifyCites — 浏览器端引文提取",
@@ -516,7 +516,7 @@ var I18N = {
     tier1Note: "本索引中的 Tier-1 直接来源：{sources}。索引上次轮询 {time}（索引时间，不是登记处时间戳）。下方首次发现日期是指本索引首次观测到该条目的时间，不是发表时间。",
     tier1Unavailable: "Tier-1 首次发现索引不可用。",
     tier1FirstSeen: "首次见于{source}，{date}",
-    immSectionKicker: "可选指南",
+    immSectionKicker: "移民指南",
     immSectionTitle: "移民指南",
     immSectionIntro: "移民 brief 常混用联邦法院判例、BIA 先例（Matter of）、INA 条款与 8 CFR 条款。本页对每个提取行分类并标明来源线；移民类行目前不做实时查询。",
     immSectionNotCovered: "尚未覆盖：本页无 BIA 的实时查询（8 CFR 行对照 eCFR 第 8 编静态索引匹配，INA / 8 U.S.C. 行对照 OLRC 第 8 编建立的部分 INA↔8 U.S.C. 对照表匹配，见该行来源线；未列入对照表的条款仍不能确认）；不判断论点支持、不判断效力。BIA 先例可被推翻，巡回法院先例优先；部分第 8 编条款可能已被禁令冻结，因此仅凭 eCFR 文本永远不能证明某条现行有效。INA 与 8 CFR 的核心法条文本变化很少；变化较多的是政策指引和新的 BIA 先例。",
@@ -570,7 +570,7 @@ var I18N = {
     checkerTopLimit: "浏览器模式：此处提取引用并标为 NOT_CHECKED，不联网核查。请用来源链接手工核对。CLI 只在 CourtListener 中核查判例是否存在以及案名是否一致。",
     showAllColumns: "\u663e\u793a\u5168\u90e8\u5217",
     showFewerColumns: "\u663e\u793a\u8f83\u5c11\u5217",
-    columnsNote: "条文标题和 INA 与美国法典的对应关系保持可见。人工复核和重新核验在“显示全部列”中。",
+    columnsNote: "条文标题和 INA 与美国法典的对应关系保持可见。年份、页码、结构标记、分类、异常原因、核查范围、建议操作和重新核验在“显示全部列”中。",
   }
 };
 /* Label explanations per language. Codes stay the same; only text changes. */

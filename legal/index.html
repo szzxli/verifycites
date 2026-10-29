@@ -42,7 +42,7 @@
         <h1 id="page-title" data-i18n="heading">Extract citations from your brief — then check each case yourself</h1>
         <p class="hero-lede" data-i18n="subtitle">Paste your motion or brief. The tool pulls out every citation and shows you a link to check it yourself — in the extraction step, your text does not leave your browser.</p>
         <p class="hero-browser-note" data-i18n="browserModeFirstLine">Browser mode: this page extracts citation formats and gives you source links. Every row is NOT_CHECKED. It does not check whether a case exists or whether details match.</p>
-        <p class="briefing-audience" data-i18n="briefingAudience">For solo lawyers, small firms, paralegals, and law-school writing courses. This page extracts U.S. citations for you to check. It does not give legal advice.</p>
+        <p data-i18n="briefingAudience">For solo lawyers, small firms, paralegals, and law-school writing courses. This page extracts U.S. citations for you to check. It does not give legal advice.</p>
       </div>
       <div class="hero-facts" aria-label="How the browser tool works">
         <div class="fact-row"><span class="fact-icon fact-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-copy="factLocal">Citation extraction runs in this browser</span></div>
@@ -134,6 +134,7 @@
         <div class="report-section" id="reportSection" hidden>
           <h3 data-i18n="reportHeading">Citation health report</h3>
           <p id="handCheckProgress" class="report-note">You have checked 0 of 0 rows by hand</p>
+          <p class="report-note" id="handCheckPersistNote">Your marks are saved in this browser only. Paste the same text again to restore them.</p>
           <button type="button" class="button button-quiet button-clear-marks" id="clearMarksBtn" onclick="clearHandMarks()">Clear my marks</button>
           <p id="reportSummary" class="report-summary" role="status" aria-live="polite"></p>
           <p id="reportBasis" class="report-note"></p>
@@ -149,7 +150,7 @@
           <p class="report-note" data-i18n="reportShareNote">Shareable means the downloaded file: send that file onward. There is no hosted link for your brief, and nothing is stored on a server.</p>
           <div class="report-columns-row">
             <button class="button button-small button-secondary" type="button" id="reportColumnsToggle" onclick="toggleReportColumns()">Show all columns</button>
-            <span class="columns-note" data-i18n="columnsNote">Section titles and INA to U.S. Code mappings stay visible. Human review and re-verify are under “Show all columns”.</span>
+            <span class="columns-note" data-i18n="columnsNote">Section titles and INA to U.S. Code mappings stay visible. Year, pin cite, structure flags, category, anomaly reason, check scope, suggested action, and re-verify are under “Show all columns”.</span>
           </div>
           <div class="table-wrap report-collapsed" id="reportTableWrap">
             <table class="data-table results-table">
@@ -177,7 +178,7 @@
       <details class="tool-disclosure">
         <summary class="tool-summary">
           <span class="section-number section-number-small" aria-hidden="true">02</span>
-          <span class="summary-copy"><span class="section-kicker" data-copy="advancedOption">Advanced option</span><span class="summary-title" data-i18n="howTo">What the CLI can check</span><span class="section-job">Job: optional command-line check of CourtListener case existence and case name, on your computer.</span><span class="summary-subtitle" data-i18n="howToText">The CLI needs Python and your own CourtListener token (membership-based access; see the README). It checks case existence and case-name match in CourtListener only. It does not check statutes, regulations, BIA or AAO decisions, the INA, or the C.F.R. It sends only the extracted citation strings by default, never your brief text.</span></span>
+          <span class="summary-copy"><span class="section-kicker" data-copy="advancedOption">Advanced option</span><span class="summary-title" data-i18n="howTo">What the CLI can check</span><span class="section-job">Command-line check (run on your own computer).</span><span class="summary-subtitle" data-i18n="howToText">The CLI needs Python and your own CourtListener token (membership-based access; see the README). It checks case existence and case-name match in CourtListener only. It does not check statutes, regulations, BIA or AAO decisions, the INA, or the C.F.R. It sends only the extracted citation strings by default, never your brief text.</span></span>
           <span class="summary-chevron" aria-hidden="true">⌄</span>
         </summary>
         <div class="disclosure-body cli-body">
@@ -198,7 +199,7 @@ python -m legalcite check brief.md --md report.md
     <section class="utility-card" id="immigration" aria-labelledby="immigration-title">
       <div class="section-heading">
         <span class="section-number section-number-small" aria-hidden="true">03</span>
-        <span class="summary-copy"><span class="section-kicker" data-i18n="immSectionKicker">Optional guide</span><span class="summary-title" id="immigration-title" data-i18n="immSectionTitle">Immigration guide</span></span>
+        <span class="summary-copy"><span class="summary-title" id="immigration-title" data-i18n="immSectionTitle">Immigration guide</span></span>
       </div>
       <p class="section-job">Job: see where each immigration citation type is routed, and which official page to open.</p>
       <p data-i18n="immSectionIntro">An immigration brief mixes federal court cases, BIA precedent (Matter of), INA provisions, and 8 CFR provisions. This page classifies each extracted row and names its source line; immigration rows are not yet looked up live.</p>

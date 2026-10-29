@@ -58,13 +58,36 @@ assert.ok(report.includes('Checked by hand'));
 assert.ok(report.includes('data-handcheck="' + id0 + '"'));
 
 assert.ok(html.includes('id="grounded-definition"'));
-assert.ok(html.includes('project.groundRuns.length'));
+assert.ok(html.includes('grounded ×N = number of citation checks completed in this project, saved in this browser.'));
+assert.ok(!html.includes('VP.recordGround'), 'user-facing page does not name VP.recordGround');
 assert.ok(html.includes('id="deadline-no-reminders"'));
-assert.ok(html.includes('does not send reminders'));
+assert.ok(html.includes('For your own tracking — this page does not send reminders.'));
 assert.ok(html.includes('class="btn primary hero-tool-link"'));
 assert.ok(html.includes('href="#verify"'));
+assert.ok(html.includes('id="hero-side-tools"'));
+for (const href of ['#idea', '#datasets', '#venues', '#rebuttal', '#submissions']) {
+  assert.ok(html.includes('href="' + href + '"'), 'hero side link ' + href);
+}
+assert.ok(html.includes('claims processed by the checker') || src.includes('processed by the checker'));
+assert.ok(src.includes('source found; whether it supports the claim was not checked (or only partly)'));
+assert.ok(src.includes('This check was counted in project '));
+assert.ok(html.includes('identifier</b> in the text matches the record') || html.includes('identifier'));
+assert.ok(!html.includes('metadata match'), 'section 1 does not claim metadata matching');
 assert.ok(projectSrc.includes('p.groundRuns.length'));
 assert.ok(projectSrc.includes('p.groundRuns.push'));
 assert.ok(src.includes('VP.recordGround(evidence)'));
+
+const outer = { tagName: 'DETAILS', open: false, parentElement: null };
+const mid = { tagName: 'DIV', parentElement: outer };
+const nested = { tagName: 'DETAILS', open: false };
+const section = {
+  tagName: 'SECTION', id: 'idea', parentElement: mid, scrolled: false,
+  querySelector(sel) { return sel === 'details' ? nested : null; },
+  scrollIntoView() { this.scrolled = true; }
+};
+sandbox.openHeroToolTarget(section);
+assert.strictEqual(outer.open, true, 'ancestor Experimental side tools details opens');
+assert.strictEqual(nested.open, true, 'the tool details opens when present');
+assert.strictEqual(section.scrolled, true, 'the link scrolls to the tool');
 
 console.log('papers handcheck tests passed');
