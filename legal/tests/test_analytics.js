@@ -9,8 +9,9 @@ const fs = require("fs");
 const path = require("path");
 const src = fs.readFileSync(path.join(__dirname, "..", "app.js"), "utf8");
 const newsSrc = fs.readFileSync(path.join(__dirname, "..", "news.js"), "utf8");
-const callSrc = src + "\n" + newsSrc;
-const EXPECTED = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify", "legal-news-click", "legal-review-complete"];
+const biaSrc = fs.readFileSync(path.join(__dirname, "..", "bia.js"), "utf8");
+const callSrc = src + "\n" + newsSrc + "\n" + biaSrc;
+const EXPECTED = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify", "legal-news-click", "legal-review-complete", "legal-bia-search"];
 const analyticsDoc = fs.readFileSync(path.join(__dirname, "..", "..", "docs", "analytics.md"), "utf8");
 for (const name of EXPECTED) {
   assert.ok(analyticsDoc.includes("`" + name + "`"), "docs/analytics.md missing " + name);
