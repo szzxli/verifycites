@@ -122,3 +122,20 @@ browser.
    correct this note if the dashboard shows otherwise.
 3. Re-check after any GoatCounter script upgrade: the helper depends
    on `window.goatcounter.count` existing with this call shape.
+
+## Test visits are not counted (2026-10-29)
+
+Each page loads GoatCounter through one identical inline loader (the
+`GoatCounter loader` script, replacing the old static `count.js` tag).
+`count.js` is **not loaded at all** — so neither page views nor the
+events above are sent — when:
+
+- the URL contains `v=`, `cb=`, `cachebust`, `_=` or `nocount`; or
+- localStorage has `skipgc` = `t` (GoatCounter's own opt-out flag, also
+  toggled by `#toggle-goatcounter`).
+
+`?nocount=1` sets that flag so it persists in that browser; `?nocount=0` clears it.
+`papers/analytics.js` also stops when the loader marks a test visit
+(`window.gcSkip`). Humans and agents: test with `?nocount=1` (headless
+browsers start fresh, so add it to every URL). Checked by
+`legal/tests/test_goatcounter_guard.js`.
