@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "mode": "backfill",
+  "updated_utc": "2026-10-29T17:07:12Z",
+  "last_success_utc": "2026-10-29T17:07:12Z",
+  "volumes": {
+    "30": {
+      "found_on_page": 28,
+      "pairing_gaps": 5,
+      "pairing_gap_sample": [
+        "citation without a following PDF link: Matter of L-A-B-R- (27 I&N Dec. 405)",
+        "citation without a following PDF link: Matter of K- (7 I&N Dec. 594)",
+        "citation without a following PDF link: Matter of J- (2 I&N Dec. 285)"
+      ],
+      "expected_count": null,
+      "new_downloaded": 28,
+      "failed": 0,
+      "missing_ids": [],
+      "extraction_short": 0
+    }
+  },
+  "failed": [],
+  "gaps": [
+    "volumes 01-07 not enumerable from volume pages (cumulative-index PDFs): phase 2, not in this run"
+  ],
+  "error": null
+}
