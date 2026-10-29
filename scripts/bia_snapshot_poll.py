@@ -325,13 +325,22 @@ def parse_volume_entries(volume_html, page_volume=None):
                 entry.update({"pdf_url": link["pdf_url"], "id": link["id"]})
                 entries.append(entry)
         prev_end = end
+    # A holding summary can cite the same older precedent more than
+    # once (2026-10-29 probe: R-K-K-, 26 I&N Dec. 658, listed twice).
+    # Report each unpaired citation once, keyed by its I&N Dec. cite.
+    seen_cites = set()
     for i, cite in enumerate(citations):
-        if i not in used:
-            gaps.append({"kind": "citation",
-                         "detail": "citation without a following PDF link: %s "
-                                   "(%d I&N Dec. %d)"
-                                   % (cite["display_name"], cite["cite_vol"],
-                                      cite["cite_page"])})
+        if i in used:
+            continue
+        key = (cite["cite_vol"], cite["cite_page"])
+        if key in seen_cites:
+            continue
+        seen_cites.add(key)
+        gaps.append({"kind": "citation",
+                     "detail": "citation without a following PDF link: %s "
+                               "(%d I&N Dec. %d)"
+                               % (cite["display_name"], cite["cite_vol"],
+                                  cite["cite_page"])})
     return entries, gaps
 
 
@@ -447,7 +456,7 @@ def run_probe(fetcher, limit):
             ok += 1
     print("probe: index volumes=%s current=%s entries_on_page=%d sampled=%d text_ok=%d gaps=%d"
           % (",".join(volumes), current, len(entries), len(sample), ok, len(gaps)))
-    for gap in gaps[:5]:
+    for gap in gaps:
         print("  gap: %s" % gap["detail"])
     for built in shown:
         print("  id=%s %s (%d) %s chars=%d status=%s"
