@@ -9,7 +9,11 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 const src = fs.readFileSync(path.join(__dirname, "..", "ground.js"), "utf8");
-const EXPECTED = ["papers-check", "papers-references-export"];
+const EXPECTED = ["papers-check", "papers-references-export", "papers-claim-mark", "papers-review-complete", "papers-tool-link"];
+const analyticsDoc = fs.readFileSync(path.join(__dirname, "..", "..", "docs", "analytics.md"), "utf8");
+for (const name of EXPECTED) {
+  assert.ok(analyticsDoc.includes("`" + name + "`"), "docs/analytics.md missing " + name);
+}
 
 const listMatch = src.match(/const VP_EVENTS = \[([^\]]*)\]/);
 assert.ok(listMatch, "VP_EVENTS list must be present");
@@ -23,7 +27,7 @@ for (const line of src.split("\n")) {
   const m = line.match(/vpCount\(([^)]*)\)/);
   if (m) calls.push(m[1].trim());
 }
-assert.ok(calls.length >= 2, "expected at least 2 vpCount call sites, got " + calls.length);
+assert.ok(calls.length >= 5, "expected at least 5 vpCount call sites, got " + calls.length);
 for (const arg of calls) {
   const lit = arg.match(/^"([^"]+)"$/);
   assert.ok(lit, "vpCount argument must be a string literal, got: " + arg);

@@ -16,7 +16,7 @@ function esc(s) {
    blocked or absent, and it never throws. The full event dictionary
    lives in docs/analytics.md; this list is the single enforcement
    point for the legal app. */
-var VC_EVENTS = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify"];
+var VC_EVENTS = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify", "legal-news-click", "legal-review-complete"];
 function vcCount(name) {
   try {
     if (VC_EVENTS.indexOf(name) < 0) return;
@@ -41,7 +41,6 @@ function setLang(lang) {
   if (sel) sel.value = lang;
   if (window.__lastResults) render(window.__lastResults);
   if (window.__transRows) renderTrans(window.__transRows);
-  if (window.__lastBriefing) renderBriefing(window.__lastBriefing);
 }
 
 function anomalyText(flags) {
@@ -131,37 +130,68 @@ function reportStrings() {
 }
 
 /* ---- Phase 2: human review status, browser-local only ----
-   Stored in localStorage under REVIEW_STORAGE_KEY, keyed by citation
-   text. This is a reader's own mark: it never changes the machine label
-   or category shown beside it, and it never leaves this browser. */
-var REVIEW_STORAGE_KEY = "lcc-human-review-v1";
-function humanReviewLoad() {
-  try {
-    var raw = localStorage.getItem(REVIEW_STORAGE_KEY);
-    var parsed = raw ? JSON.parse(raw) : {};
-    return (parsed && typeof parsed === "object") ? parsed : {};
-  } catch (e) { return {}; }
+   Stored in localStorage under REVIEW_STORAGE_KEY (see review.js).
+   Marks are scoped to the current report, a hash of the checker input.
+   A mark never changes the machine label or category, and it never
+   leaves this browser. */
+function currentReviewKey() {
+  var input = document.getElementById("input");
+  return reviewReportKey(input ? input.value : "");
 }
-function humanReviewSave(map) {
-  try { localStorage.setItem(REVIEW_STORAGE_KEY, JSON.stringify(map || {})); } catch (e) { /* private mode: marks simply do not persist */ }
+function currentReviewCites() {
+  var rows = (window.__lastReport && window.__lastReport.rows) || window.__lastResults || [];
+  return rows.map(function (r) { return r.text || ""; });
+}
+function humanReviewLoad() {
+  var store = reviewLoadStore(localStorage);
+  var marks = reviewMarksForReport(store, currentReviewKey(), currentReviewCites());
+  reviewSaveStore(localStorage, store);
+  return marks;
 }
 function humanReviewFor(map, text) {
   var v = (map || {})[text] || {};
   return { status: HUMAN_STATUSES.indexOf(v.status) >= 0 ? v.status : "", note: v.note || "" };
 }
+function handCheckProgressText(rows, marks) {
+  var c = reviewCheckedCount(rows, marks);
+  return "You have checked " + c.checked + " of " + c.total + " rows by hand";
+}
 function onHumanReviewChange() {
-  var map = humanReviewLoad();
+  var store = reviewLoadStore(localStorage);
+  var rows = (window.__lastReport && window.__lastReport.rows) || [];
+  var marks = reviewMarksForReport(store, currentReviewKey(), currentReviewCites());
+  var before = reviewCheckedCount(rows, marks).checked;
   document.querySelectorAll("[data-review]").forEach(function (sel) {
     var idx = parseInt(sel.getAttribute("data-review"), 10);
-    var row = (window.__lastReport && window.__lastReport.rows[idx]) || null;
+    var row = rows[idx] || null;
     if (!row) return;
     var noteEl = document.querySelector("[data-note=\"" + idx + "\"]");
     var entry = { status: sel.value, note: noteEl ? noteEl.value : "" };
-    if (!entry.status && !entry.note) delete map[row.text];
-    else map[row.text] = entry;
+    if (!entry.status && !entry.note) delete marks[row.text];
+    else marks[row.text] = entry;
   });
-  humanReviewSave(map);
+  reviewSaveStore(localStorage, store);
+  var after = reviewCheckedCount(rows, marks).checked;
   vcCount("legal-human-review-set");
+  if (rows.length && after === rows.length && before < rows.length) vcCount("legal-review-complete");
+  if (window.__lastResults) renderReport(window.__lastResults);
+}
+function onHandToggle(idx) {
+  var box = document.querySelector("[data-hand=\"" + idx + "\"]");
+  var sel = document.querySelector("[data-review=\"" + idx + "\"]");
+  if (!box || !sel) return;
+  if (box.checked) {
+    if (!reviewIsCheckedStatus(sel.value)) sel.value = "confirmed";
+  } else {
+    sel.value = "";
+  }
+  onHumanReviewChange();
+}
+function clearHandMarks() {
+  if (!window.confirm("Clear hand-check marks for this report?")) return;
+  var store = reviewLoadStore(localStorage);
+  reviewClearReport(store, currentReviewKey());
+  reviewSaveStore(localStorage, store);
   if (window.__lastResults) renderReport(window.__lastResults);
 }
 function onReverify(idx) {
@@ -171,9 +201,10 @@ function onReverify(idx) {
   if (!editEl || !oldRow || typeof reverifyRow !== "function") return;
   var out = reverifyRow(results, idx, editEl.value, extractCitations);
   if (!out.changed) { editEl.focus(); editEl.select(); return; }
-  var map = humanReviewLoad();
-  var entry = map[oldRow.text];
-  if (entry) { delete map[oldRow.text]; map[out.row.text] = entry; humanReviewSave(map); }
+  var store = reviewLoadStore(localStorage);
+  var marks = reviewMarksForReport(store, currentReviewKey(), currentReviewCites());
+  var entry = marks[oldRow.text];
+  if (entry) { delete marks[oldRow.text]; marks[out.row.text] = entry; reviewSaveStore(localStorage, store); }
   render(out.results);
   vcCount("legal-reverify");
 }
@@ -350,6 +381,8 @@ function renderReport(results) {
     return catLabels[c] + ": " + report.byCategory[c];
   });
   var humanMap = humanReviewLoad();
+  var progress = document.getElementById("handCheckProgress");
+  if (progress) progress.textContent = handCheckProgressText(report.rows, humanMap);
   var humanCounts = (typeof humanStatusCounts === "function")
     ? humanStatusCounts(report, humanMap) : { confirmed: 0, corrected: 0, recheck: 0 };
   var humanLabels = { confirmed: t.reportHumanConfirmed, corrected: t.reportHumanCorrected,
@@ -410,7 +443,10 @@ function renderReport(results) {
       return "<option value=\"" + o[0] + "\"" + (human.status === o[0] ? " selected" : "") + ">" + esc(o[1]) + "</option>";
     }).join("");
     var tr = document.createElement("tr");
-    tr.innerHTML = "<td class=\"col-extra\">" + row.index + "</td><td>" + esc(row.text) + "</td>"
+    var handChecked = (typeof reviewIsCheckedStatus === "function") && reviewIsCheckedStatus(human.status);
+    tr.innerHTML = "<td class=\"col-extra\">" + row.index + "</td><td>" + esc(row.text)
+      + "<div class=\"hand-check-line\"><label><input type=\"checkbox\" data-hand=\"" + ri + "\""
+      + (handChecked ? " checked" : "") + "> Checked by hand</label></div></td>"
       + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.label) + "</td>"
       + "<td class=\"col-extra\">" + esc(row.year) + "</td>"
       + "<td class=\"col-extra\">" + esc(row.pinCite) + "</td><td class=\"col-extra\">" + esc(flagText) + "</td>"
@@ -429,6 +465,11 @@ function renderReport(results) {
   });
   tbody.querySelectorAll("[data-review]").forEach(function (sel) {
     sel.addEventListener("change", onHumanReviewChange);
+  });
+  tbody.querySelectorAll("[data-hand]").forEach(function (box) {
+    box.addEventListener("change", function () {
+      onHandToggle(parseInt(box.getAttribute("data-hand"), 10));
+    });
   });
   tbody.querySelectorAll("[data-note]").forEach(function (inp) {
     inp.addEventListener("change", onHumanReviewChange);
@@ -612,123 +653,3 @@ async function doTranslate() {
     { endpoint: endpoint, target: target });
   renderTrans(rows);
 }
-
-/* ---- Daily Legal Briefing (local-only, first version) ---- */
-function briefingPrefsFromForm() {
-  return {
-    state: (document.getElementById("briefState").value || "CA"),
-    topics: (document.getElementById("briefTopics").value || "")
-      .split(",").map(function (s) { return s.trim(); }).filter(Boolean),
-    cases: (document.getElementById("briefCases").value || "")
-      .split("\n").map(function (s) { return s.trim(); }).filter(Boolean),
-    rules: briefingParseDatedLines(document.getElementById("briefRules").value || ""),
-    deadlines: briefingParseDatedLines(document.getElementById("briefDeadlines").value || "")
-  };
-}
-function briefingPrefsToForm(prefs) {
-  document.getElementById("briefState").value = prefs.state;
-  document.getElementById("briefTopics").value = (prefs.topics || []).join(", ");
-  document.getElementById("briefCases").value = (prefs.cases || []).join("\n");
-  document.getElementById("briefRules").value = (prefs.rules || [])
-    .map(function (r) { return r.date + " | " + r.label + " | " + r.source; }).join("\n");
-  document.getElementById("briefDeadlines").value = (prefs.deadlines || [])
-    .map(function (d) { return d.date + " | " + d.label + " | " + d.source; }).join("\n");
-}
-function renderBriefing(briefing) {
-  window.__lastBriefing = briefing;
-  var o = briefing.overview;
-  document.getElementById("briefingOverview").textContent =
-    o.followed + " " + T().briefingFollowedCount + " · "
-    + o.deadlines + " " + T().briefingDeadlinesCount + " · "
-    + o.rules + " " + T().briefingRulesCount;
-  var st = document.getElementById("briefingStatus");
-  if (briefing.isSample) {
-    st.textContent = T().briefingSampleNote;
-  } else if (!briefing.items.length) {
-    st.textContent = T().briefingNoReal;
-  } else { st.textContent = ""; }
-  var wrap = document.getElementById("briefingResults");
-  wrap.innerHTML = "";
-  var buckets = { followed: [], rules: [], fines: [] };
-  briefing.items.forEach(function (it) { (buckets[it.bucket] || buckets.fines).push(it); });
-  ["followed", "rules", "fines"].forEach(function (b) {
-    var h = document.createElement("h4");
-    h.textContent = b === "followed" ? T().briefingFollowedCount
-      : b === "rules" ? T().briefingRulesCount : T().briefingFinesHeading;
-    wrap.appendChild(h);
-    if (!buckets[b].length) {
-      var em = document.createElement("p"); em.textContent = T().briefingEmptyBucket;
-      wrap.appendChild(em); return;
-    }
-    buckets[b].forEach(function (it) {
-      var div = document.createElement("div");
-      var countdown = "";
-      if (it.kind === "deadline") {
-        var days = briefingCountdownDays(it.date, briefingTodayStr());
-        countdown = " — " + briefingCountdownLabel(days, currentLang);
-      }
-      div.innerHTML = "<p><a href=\"" + esc(it.url) + "\" target=\"_blank\" rel=\"noopener\">"
-        + esc(it.title) + "</a>"
-        + (it.sample ? " <strong>[" + esc(T().briefingSampleTag || "SAMPLE") + "]</strong>" : "")
-        + (it.court ? " — " + esc(it.court) : "")
-        + (it.date ? " (" + esc(it.date) + countdown + ")" : "") + "<br>"
-        + (it.snippet ? "<em>" + esc(it.snippet) + "</em><br>" : "")
-        + T().briefingWhyLabel + ": " + esc(it.why) + "</p>";
-      wrap.appendChild(div);
-    });
-  });
-}
-function showSampleBriefing() {
-  renderBriefing({ isSample: true, items: BRIEFING_SAMPLE_ITEMS.slice(),
-    overview: { followed: 0, deadlines: 0, rules: 0, sample: true } });
-}
-function saveBriefingPrefs() {
-  var prefs = briefingPrefsFromForm();
-  briefingSavePrefs(localStorage, prefs);
-  document.getElementById("briefingSaved").textContent = T().briefingSavedNote;
-  getBriefing();
-}
-function clearBriefingPrefs() {
-  briefingClearPrefs(localStorage);
-  briefingPrefsToForm(briefingDefaultPrefs());
-  document.getElementById("briefingResults").innerHTML = "";
-  document.getElementById("briefingOverview").textContent = "";
-  document.getElementById("briefingStatus").textContent = "";
-  document.getElementById("briefingSaved").textContent = "";
-}
-async function getBriefing() {
-  var prefs = briefingPrefsFromForm();
-  try {
-    var raws = await briefingFetchOpinions(prefs, fetch);
-    var briefing = briefingBuild(raws, prefs, briefingTodayStr());
-    if (briefing.isSample) {
-      document.getElementById("briefingStatus").textContent = T().briefingNoReal;
-    }
-    renderBriefing(briefing);
-  } catch (e) {
-    document.getElementById("briefingStatus").textContent = T().briefingFetchBlocked;
-    document.getElementById("briefingOverview").textContent = "";
-    document.getElementById("briefingResults").innerHTML = "";
-  }
-}
-function rankManualBriefing() {
-  var prefs = briefingPrefsFromForm();
-  var raws = (document.getElementById("briefManual").value || "").split("\n")
-    .map(function (line) {
-      var parts = line.split("|").map(function (s) { return s.trim(); });
-      if (parts.length < 4 || !/^https?:\/\//.test(parts[3])) return null;
-      return { kind: "opinion", title: parts[0], court: parts[1], date: parts[2],
-        url: parts[3], snippet: parts[4] || "" };
-    }).filter(Boolean);
-  var briefing = briefingBuild(raws, prefs, briefingTodayStr());
-  renderBriefing(briefing);
-}
-/* Restore saved preferences on load (no fetch until the user clicks). */
-(function () {
-  try {
-    if (typeof briefingLoadPrefs === "function" && document.getElementById("briefState")
-        && typeof localStorage !== "undefined" && localStorage.getItem(BRIEFING_STORAGE_KEY)) {
-      briefingPrefsToForm(briefingLoadPrefs(localStorage));
-    }
-  } catch (e) { /* private mode etc.: preferences simply do not persist */ }
-})();

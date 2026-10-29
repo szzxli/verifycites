@@ -1,0 +1,129 @@
+{
+  "status": "ok",
+  "updated_utc": "2026-10-29T03:39:13Z",
+  "last_success_utc": "2026-10-29T03:39:13Z",
+  "query": "(\"fabricated citation\" OR \"fabricated citations\" OR \"fabricated case\" OR \"fabricated cases\" OR \"fictitious citation\" OR \"fictitious citations\" OR \"fictitious case\" OR \"fictitious cases\" OR \"hallucinated citation\" OR \"hallucinated citations\" OR \"hallucinated case\" OR \"hallucinated cases\" OR \"nonexistent citation\" OR \"nonexistent citations\" OR \"nonexistent case\" OR \"non-existent citation\" OR \"non-existent case\" OR \"AI-generated citation\" OR \"AI-generated citations\" OR \"artificial intelligence hallucination\" OR \"artificial intelligence hallucinations\") AND (\"artificial intelligence\" OR \"AI-generated\" OR ChatGPT OR \"generative AI\" OR \"generative artificial intelligence\" OR \"large language model\" OR GPT)",
+  "error": null,
+  "items": [
+    {
+      "date": "2026-10-22",
+      "court": "Court of Appeals for the Fifth Circuit",
+      "case_name": "Jackson Fed of Tchr v. Fitch",
+      "url": "https://www.courtlistener.com/opinion/11043586/jackson-fed-of-tchr-v-fitch/"
+    },
+    {
+      "date": "2026-10-07",
+      "court": "District Court of Appeal of Florida",
+      "case_name": "Kid International, LLC v. City National Bank of Florida and 2655 SW 25, LLC",
+      "url": "https://www.courtlistener.com/opinion/11013650/kid-international-llc-v-city-national-bank-of-florida-and-2655-sw-25-llc/"
+    },
+    {
+      "date": "2026-10-07",
+      "court": "District Court of Appeal of Florida",
+      "case_name": "Washington, Washington v. Justice, Crist",
+      "url": "https://www.courtlistener.com/opinion/11013588/washington-washington-v-justice-crist/"
+    },
+    {
+      "date": "2026-10-02",
+      "court": "Nebraska Supreme Court",
+      "case_name": "Shannon v. Shannon",
+      "url": "https://www.courtlistener.com/opinion/11009430/shannon-v-shannon/"
+    },
+    {
+      "date": "2026-10-01",
+      "court": "Supreme Court of Arkansas",
+      "case_name": "In the Matter of the Estate of David Simpson, Andrew Simpson v. Larry Porter",
+      "url": "https://www.courtlistener.com/opinion/11007622/in-the-matter-of-the-estate-of-david-simpson-andrew-simpson-v-larry/"
+    },
+    {
+      "date": "2026-10-01",
+      "court": "Board of Immigration Appeals",
+      "case_name": "Sethi",
+      "url": "https://www.courtlistener.com/opinion/11008237/sethi/"
+    },
+    {
+      "date": "2026-09-30",
+      "court": "Texas Attorney General Reports",
+      "case_name": "Untitled Texas Attorney General Opinion: KP-0536",
+      "url": "https://www.courtlistener.com/opinion/10992217/untitled-texas-attorney-general-opinion-kp-0536/"
+    },
+    {
+      "date": "2026-09-29",
+      "court": "Appellate Court of Illinois",
+      "case_name": "Rhyu v. Frost",
+      "url": "https://www.courtlistener.com/opinion/10986482/rhyu-v-frost/"
+    },
+    {
+      "date": "2026-09-23",
+      "court": "Court of Appeals of Oregon",
+      "case_name": "R. M. v. Mohr",
+      "url": "https://www.courtlistener.com/opinion/10980744/r-m-v-mohr/"
+    },
+    {
+      "date": "2026-09-23",
+      "court": "Court of Appeals of Arkansas",
+      "case_name": "Florine Williams v. Wogan Group, LLC, D/B/A Chapel Ridge Apartments of Forrest City",
+      "url": "https://www.courtlistener.com/opinion/10980508/florine-williams-v-wogan-group-llc-dba-chapel-ridge-apartments-of/"
+    },
+    {
+      "date": "2026-09-10",
+      "court": "California Court of Appeal",
+      "case_name": "Southland Homes, etc. v. Lam",
+      "url": "https://www.courtlistener.com/opinion/10970821/southland-homes-etc-v-lam/"
+    },
+    {
+      "date": "2026-09-09",
+      "court": "New York Supreme Court, Nassau County",
+      "case_name": "Youssian v. Village of Kings Point",
+      "url": "https://www.courtlistener.com/opinion/10986622/youssian-v-village-of-kings-point/"
+    },
+    {
+      "date": "2026-09-03",
+      "court": "District of Columbia Court of Appeals",
+      "case_name": "Douglas v. Deutsche Bank National Trust Co., Published Order",
+      "url": "https://www.courtlistener.com/opinion/10965874/douglas-v-deutsche-bank-national-trust-co-published-order/"
+    },
+    {
+      "date": "2026-08-21",
+      "court": "District Court of Appeal of Florida",
+      "case_name": "Capital Standard, LLC, Tchentsov v. US Bank National Association, Bear Stearns Asset Backed Securities I Trust 2005-AC9",
+      "url": "https://www.courtlistener.com/opinion/10954406/capital-standard-llc-tchentsov-v-us-bank-national-association-bear/"
+    },
+    {
+      "date": "2026-08-19",
+      "court": "District Court, District of Columbia",
+      "case_name": "Hennepin County, Minnesota v. U.S. Department of Health and Human Services",
+      "url": "https://www.courtlistener.com/opinion/10953562/hennepin-county-minnesota-v-us-department-of-health-and-human-services/"
+    },
+    {
+      "date": "2026-08-19",
+      "court": "Superior Court of Pennsylvania",
+      "case_name": "Kaspryak, Z. v. Stadarskyy, M.",
+      "url": "https://www.courtlistener.com/opinion/10953674/kaspryak-z-v-stadarskyy-m/"
+    },
+    {
+      "date": "2026-08-19",
+      "court": "Court of Appeals of Iowa",
+      "case_name": "Brett Thomas Wilkinson v. Lacey Schmelzer",
+      "url": "https://www.courtlistener.com/opinion/10953670/brett-thomas-wilkinson-v-lacey-schmelzer/"
+    },
+    {
+      "date": "2026-08-12",
+      "court": "District Court of Appeal of Florida",
+      "case_name": "JMOR Properties, LLC v. Artist Alley Townhomes, LLC",
+      "url": "https://www.courtlistener.com/opinion/10945803/jmor-properties-llc-v-artist-alley-townhomes-llc/"
+    },
+    {
+      "date": "2026-08-05",
+      "court": "Texas Court of Appeals, 4th District (San Antonio)",
+      "case_name": "San Antonio Independent School District v. Laura Becerra, as Next Friend of J.C., a Minor",
+      "url": "https://www.courtlistener.com/opinion/10944403/san-antonio-independent-school-district-v-laura-becerra-as-next-friend-of/"
+    },
+    {
+      "date": "2026-08-04",
+      "court": "Supreme Court of Connecticut",
+      "case_name": "TOV Realty, LLC v. Suarez",
+      "url": "https://www.courtlistener.com/opinion/10941955/tov-realty-llc-v-suarez/"
+    }
+  ]
+}

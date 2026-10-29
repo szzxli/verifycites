@@ -12,8 +12,8 @@ const { I18N } = require("../i18n.js");
 
 assert.ok(!appSrc.includes("[SAMPLE / 示例]"),
   "hardcoded bilingual sample marker must not remain in app.js");
-assert.ok(appSrc.includes("T().briefingSampleTag"),
-  "sample marker must come from the current language dictionary");
+assert.ok(!appSrc.includes("briefingSampleTag") && !appSrc.includes("renderBriefing"),
+  "briefing sample rendering was removed with briefing.js");
 assert.strictEqual(I18N.en.briefingSampleTag, "SAMPLE");
 assert.strictEqual(I18N.es.briefingSampleTag, "MUESTRA");
 assert.strictEqual(I18N.zh.briefingSampleTag, "示例");

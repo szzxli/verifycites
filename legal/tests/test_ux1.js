@@ -95,9 +95,9 @@ for (const field of ["NOT_CHECKED", "Brown v. Board of Education", "1954", "pin 
 for (const l of ["en", "es", "zh"]) {
   assert.ok(I18N[l].labelLegend.startsWith("NOT_CHECKED"), l + " legend leads with NOT_CHECKED");
 }
-assert.ok(I18N.en.labelLegend.includes("appear only in CLI results"), "EN marks CLI-only statuses");
-assert.ok(I18N.es.labelLegend.includes("solo aparecen en resultados de la CLI"), "ES marks CLI-only statuses");
-assert.ok(I18N.zh.labelLegend.includes("只出现在 CLI 结果中"), "ZH marks CLI-only statuses");
+assert.ok(!I18N.en.labelLegend.includes("VERIFIED"), "EN legend is NOT_CHECKED only");
+assert.ok(!I18N.es.labelLegend.includes("VERIFIED"), "ES legend is NOT_CHECKED only");
+assert.ok(!I18N.zh.labelLegend.includes("VERIFIED"), "ZH legend is NOT_CHECKED only");
 
 // --- 5. Eligibility paragraph below the results, with the agreement link.
 const eligAt = idx('data-i18n="eligibilityNote"');

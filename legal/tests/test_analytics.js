@@ -8,7 +8,13 @@ const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
 const src = fs.readFileSync(path.join(__dirname, "..", "app.js"), "utf8");
-const EXPECTED = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify"];
+const newsSrc = fs.readFileSync(path.join(__dirname, "..", "news.js"), "utf8");
+const callSrc = src + "\n" + newsSrc;
+const EXPECTED = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify", "legal-news-click", "legal-review-complete"];
+const analyticsDoc = fs.readFileSync(path.join(__dirname, "..", "..", "docs", "analytics.md"), "utf8");
+for (const name of EXPECTED) {
+  assert.ok(analyticsDoc.includes("`" + name + "`"), "docs/analytics.md missing " + name);
+}
 
 const listMatch = src.match(/var VC_EVENTS = \[([^\]]*)\]/);
 assert.ok(listMatch, "VC_EVENTS list must be present");
@@ -17,12 +23,12 @@ assert.deepStrictEqual([...listed].sort(), [...EXPECTED].sort(),
   "VC_EVENTS must equal the documented event list exactly");
 
 const calls = [];
-for (const line of src.split("\n")) {
+for (const line of callSrc.split("\n")) {
   if (line.includes("function vcCount")) continue;
   const m = line.match(/vcCount\(([^)]*)\)/);
   if (m) calls.push(m[1].trim());
 }
-assert.ok(calls.length >= 6, "expected at least 6 vcCount call sites, got " + calls.length);
+assert.ok(calls.length >= 8, "expected at least 8 vcCount call sites, got " + calls.length);
 for (const arg of calls) {
   const lit = arg.match(/^"([^"]+)"$/);
   assert.ok(lit, "vcCount argument must be a string literal, got: " + arg);

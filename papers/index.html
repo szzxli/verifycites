@@ -188,8 +188,9 @@ details.fold section.side{padding:26px 0 4px}
   <h1>Your AI wrote the draft.<br>Did it invent the citations?</h1>
   <div class="byline">Paste a draft or a BibTeX file. VerifyCites checks every citation — free, in your browser.</div>
   <div class="btnrow" style="justify-content:center;margin:26px 0 4px">
-    <a href="#ground" id="cta-check" class="btn primary" style="padding:14px 38px;font-size:16px">Check citations</a>
+    <a href="#ground" id="cta-check" class="btn primary hero-tool-link" style="padding:14px 38px;font-size:16px">Check citations</a>
   </div>
+  <p class="hint hero-tool-links">Tools: <a class="hero-tool-link" href="#ground">Check citations</a> · <a class="hero-tool-link" href="#verify">Verify a citation</a></p>
   <p class="hint" style="text-align:center;margin-top:12px">Draft, .docx, .pdf or .bib &nbsp;·&nbsp; or <button id="demo-btn" class="linkbtn">watch a 30-second demo</button></p>
 </div>
 
@@ -357,6 +358,7 @@ details.fold section.side{padding:26px 0 4px}
     <button id="pj-del" class="btn ghost" style="padding:9px 16px;font-size:13px">Delete</button>
   </div>
   <p class="hint" id="pj-hint" style="margin-bottom:0"></p>
+  <p class="hint" id="grounded-definition">grounded ×N is project.groundRuns.length: the number of completed citation-check runs saved on this project. VP.recordGround appends one entry to groundRuns after a check finishes, and the summary shows that length. It is not a count of claims or of ABSTRACT-SUPPORTED rows. When groundRuns.length is 0, the summary shows ground —.</p>
 </div>
 
 <section class="side" id="idea">
@@ -453,6 +455,7 @@ details.fold section.side{padding:26px 0 4px}
       </select>
       <input id="sub-date" type="date" title="Submitted" style="padding:10px;border:1px solid var(--line);font-family:var(--sans);font-size:13px">
       <input id="sub-deadline" type="date" title="Deadline" style="padding:10px;border:1px solid var(--line);font-family:var(--sans);font-size:13px">
+      <span class="hint" id="deadline-no-reminders">A deadline recorded here does not send reminders.</span>
       <input id="sub-note" type="text" placeholder="Note (optional)" style="flex:1;min-width:120px;padding:11px 13px;border:1px solid var(--line);font-family:var(--sans);font-size:14px">
       <button id="sub-add" class="btn primary">Add</button>
     </div>
