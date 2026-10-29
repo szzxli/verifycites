@@ -122,3 +122,34 @@ citable authority).
   search-type-based news (mail subscription vs browser push vs
   on-page related news) and where search history lives (browser-local
   vs account). Those decisions do not block the snapshot index.
+
+## 7. Current run mode on this branch (agreed in #47, 2026-10-29)
+
+GitHub Actions runs `schedule:` triggers only on the default branch,
+so the daily cron in `.github/workflows/bia-snapshot-poll.yml` does
+not run while this package lives on `bia-snapshot-package`. The
+workflow is NOT moved to main before a merge decision. Until then:
+
+- Daily poll is run locally, once per day, from a checkout of this
+  branch, and the result is committed to this branch only:
+
+  ```
+  git checkout bia-snapshot-package && git pull --ff-only
+  python3 scripts/bia_snapshot_poll.py --mode poll --data-dir data
+  git add data/bia-index.json data/bia-search data/bia-manifest.json
+  git diff --cached --quiet || git commit -m "Update BIA snapshot index (local daily poll)"
+  git push origin bia-snapshot-package
+  ```
+
+  Exit 1 (blocked or failed enumeration) writes nothing; commit
+  nothing that day and record the error. HTTP 403/429 is not retried.
+  pypdf is optional locally: the script falls back to `pdftotext`.
+- Backfill so far: volume 30 only (local run 2026-10-29: 28 entries,
+  0 failed, 0 short, 5 pairing gaps; `data/bia-search/vol30.json`
+  336,142 bytes, `data/bia-index.json` 14,467 bytes,
+  `data/bia-manifest.json` 794 bytes). Volumes 08-29 are deferred and
+  backfilled on demand, one group at a time, not all at once.
+  Volumes 01-07 remain the phase-2 gap.
+- The /legal page on this branch reads `data/bia-index.json` and
+  `data/bia-search/vol30.json` (same origin, browser-local search,
+  keyword matching only). Not merged, not deployed.
