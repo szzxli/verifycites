@@ -10,17 +10,30 @@
 var BIA_RESULT_NOTE = "Keyword matching only. This shows that the decision exists, its citation, and the official link. It does not say whether the decision is still good law. Not legal advice.";
 var BIA_SCOPE_NOTE = "Scope: BIA and Attorney General precedent decisions only. Currently volume 30 only. Volumes 01\u201307 are a known gap and are not searchable here.";
 var BIA_VOLUMES = ["30"];
+var BIA_ZERO_RESULTS = "No decision in the snapshot contains every keyword. Only volume 30 is indexed.";
 var BIA_STOPWORDS = ("the and of to in a an is are was were be been being for with on at by from that this it as or not no has have had " +
   "will would can could should may might must shall upon which who whom whose when where under over after before between through during " +
   "also than then them they their his her its our your all any each per via into out").split(" ");
 var BIA_OFFICIAL_PREFIX = "https://www.justice.gov/eoir/";
 
-/* Same tokenizer as scripts/bia_snapshot_poll.py tokenize(). */
+/* Same tokenizer as scripts/bia_snapshot_poll.py tokenize(): a run of
+   single letters joined by hyphens (initials case names such as
+   K-Y-V-R-) collapses to one token ("kyvr", kept at 2+ letters); other
+   tokens are lowercase alphanumeric, 3+ chars, minus stopwords. Keep
+   BIA_INITIALS_RE identical to INITIALS_RE in the Python poller. */
+var BIA_INITIALS_RE = /(^|[^A-Za-z0-9])((?:[A-Za-z]-)+[A-Za-z]?)(?=[^A-Za-z0-9]|$)/g;
 function biaTokenize(text) {
   var out = [];
-  var toks = String(text || "").toLowerCase().match(/[a-z0-9]+/g) || [];
-  toks.forEach(function (t) {
-    if (t.length >= 3 && BIA_STOPWORDS.indexOf(t) < 0 && out.indexOf(t) < 0) out.push(t);
+  var add = function (t) { if (out.indexOf(t) < 0) out.push(t); };
+  var src = String(text || "");
+  src.replace(BIA_INITIALS_RE, function (_m, pre, run) {
+    var key = run.replace(/-/g, "").toLowerCase();
+    if (key.length >= 2) add(key);
+    return _m;
+  });
+  var collapsed = src.replace(BIA_INITIALS_RE, function (_m, pre, run) { return pre + run.replace(/-/g, ""); });
+  (collapsed.toLowerCase().match(/[a-z0-9]+/g) || []).forEach(function (t) {
+    if (t.length >= 3 && BIA_STOPWORDS.indexOf(t) < 0) add(t);
   });
   return out;
 }
@@ -72,7 +85,9 @@ function renderBiaResults(view, updated) {
   if (status) {
     status.textContent = !view.terms.length
       ? "Enter at least one keyword of three or more letters."
-      : view.results.length + " decision(s) contain every keyword. Snapshot updated: " + (updated || "(unknown)") + ".";
+      : view.results.length
+        ? view.results.length + " decision(s) contain every keyword. Snapshot updated: " + (updated || "(unknown)") + "."
+        : BIA_ZERO_RESULTS + " Snapshot updated: " + (updated || "(unknown)") + ".";
   }
   view.results.forEach(function (e) {
     var li = document.createElement("li");
@@ -130,5 +145,5 @@ if (typeof document !== "undefined") {
 }
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { BIA_RESULT_NOTE, BIA_SCOPE_NOTE, BIA_VOLUMES, biaTokenize, biaHref, biaSearch };
+  module.exports = { BIA_ZERO_RESULTS, BIA_RESULT_NOTE, BIA_SCOPE_NOTE, BIA_VOLUMES, biaTokenize, biaHref, biaSearch };
 }

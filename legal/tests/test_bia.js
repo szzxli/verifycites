@@ -4,7 +4,7 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const { BIA_RESULT_NOTE, BIA_SCOPE_NOTE, BIA_VOLUMES, biaTokenize, biaHref, biaSearch } = require("../bia.js");
+const { BIA_ZERO_RESULTS, BIA_RESULT_NOTE, BIA_SCOPE_NOTE, BIA_VOLUMES, biaTokenize, biaHref, biaSearch } = require("../bia.js");
 
 assert.strictEqual(BIA_RESULT_NOTE, "Keyword matching only. This shows that the decision exists, its citation, and the official link. It does not say whether the decision is still good law. Not legal advice.");
 assert.ok(BIA_SCOPE_NOTE.includes("BIA and Attorney General precedent decisions only"));
@@ -54,5 +54,27 @@ assert.ok(realIndex.entries.length > 0);
 assert.ok(realIndex.entries.every((e) => biaHref(e.pdf_url)), "every entry links to the official EOIR PDF");
 assert.ok(realIndex.entries.every((e) => !("text" in e)), "no full text in the index");
 assert.ok(biaSearch(realIndex, [realVol], "asylum").results.length > 0, "real snapshot returns hits");
+
+// Initials names: same cases as scripts/tests/test_bia_snapshot_poll.py TOKEN_CASES.
+const pySrc = fs.readFileSync(path.join(__dirname, "..", "..", "scripts", "tests", "test_bia_snapshot_poll.py"), "utf8");
+const caseRe = /\("([^"]*)", \[([^\]]*)\]\)/g;
+const tokenBlock = pySrc.slice(pySrc.indexOf("TOKEN_CASES = ["), pySrc.indexOf("]\n\n\nclass TokenizerTests"));
+let nCases = 0;
+for (const m of tokenBlock.matchAll(caseRe)) {
+  const want = [...m[2].matchAll(/"([^"]*)"/g)].map((x) => x[1]).sort();
+  assert.deepStrictEqual([...biaTokenize(m[1])].sort(), want, "JS tokenizer matches Python for: " + m[1]);
+  nCases++;
+}
+assert.ok(nCases >= 7, "shared tokenizer cases parsed: " + nCases);
+const pyPoller = fs.readFileSync(path.join(__dirname, "..", "..", "scripts", "bia_snapshot_poll.py"), "utf8");
+assert.ok(pyPoller.includes('r"(^|[^A-Za-z0-9])((?:[A-Za-z]-)+[A-Za-z]?)(?=[^A-Za-z0-9]|$)"'), "Python INITIALS_RE unchanged");
+assert.ok(src.includes("/(^|[^A-Za-z0-9])((?:[A-Za-z]-)+[A-Za-z]?)(?=[^A-Za-z0-9]|$)/g"), "JS BIA_INITIALS_RE identical");
+for (const q of ["K-Y-V-R", "K-Y-V-R-", "kyvr", "Matter of K-Y-V-R-"]) {
+  const ids = biaSearch(realIndex, [realVol], q).results.map((e) => e.id);
+  assert.ok(ids.includes(4268), "query finds K-Y-V-R-: " + q);
+}
+assert.ok(BIA_ZERO_RESULTS.includes("Only volume 30 is indexed."));
+assert.ok(src.includes("BIA_ZERO_RESULTS + "), "zero-result status uses the scope reminder");
+assert.ok(/<nav class="primary-nav"[\s\S]*?<a href="#bia-search" data-copy="navBia">BIA precedent search<\/a>[\s\S]*?<\/nav>/.test(html), "sub-nav links to #bia-search");
 
 console.log("legal BIA search tests passed");

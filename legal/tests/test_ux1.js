@@ -118,7 +118,7 @@ assert.ok(!I18N.en.eligibilityNote.includes("free CourtListener"), "no unconditi
 assert.ok(!I18N.en.howToText.includes("free CourtListener"), "howToText no longer says free token");
 
 // --- 6. Section order + nav order alignment.
-const order = ["checker", "cli", "immigration"];
+const order = ["checker", "cli", "immigration", "bia-search"];
 const positions = order.map((id) => idx('id="' + id + '"'));
 for (let i = 1; i < positions.length; i++) {
   assert.ok(positions[i] > positions[i - 1], "section order: " + order[i - 1] + " before " + order[i]);
