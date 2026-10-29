@@ -47,6 +47,23 @@ function handcheckCounts(evidence, marks) {
   list.forEach((e, i) => { if (marks && marks[handcheckClaimId(i, e.claim)]) checked++; });
   return { checked: checked, total: list.length };
 }
+function openHeroToolTarget(target) {
+  if (!target) return;
+  let node = target;
+  while (node) {
+    if (String(node.tagName || "").toUpperCase() === "DETAILS") node.open = true;
+    node = node.parentElement || null;
+  }
+  if (String(target.tagName || "").toUpperCase() === "DETAILS") target.open = true;
+  if (typeof target.querySelector === "function") {
+    const nested = target.querySelector("details");
+    if (nested) nested.open = true;
+  }
+  if (typeof target.scrollIntoView === "function") {
+    try { target.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { /* scroll is best-effort */ }
+  }
+}
+
 function bindPapersHandcheck(root, evidence) {
   if (!root || typeof root.querySelectorAll !== "function") return;
   const projectId = handcheckProjectId();
@@ -1844,7 +1861,7 @@ function renderReport(evidence, ropts) {
   const hand = handcheckCounts(evidence, handMarks);
   let html = `<p id="papers-handcheck-progress">You have checked ${hand.checked} of ${hand.total} claims by hand</p>` +
     `<div style="margin-bottom:18px;font-size:14.5px">` +
-    `<b>${evidence.length}</b> ${unit} checked &nbsp;·&nbsp; ` +
+    `<b>${evidence.length}</b> ${unit} processed by the checker &nbsp;·&nbsp; ` +
     `<span class="label l-verified">ABSTRACT-SUPPORTED ${counts['ABSTRACT-SUPPORTED']}</span> ` +
     `<span class="label l-cited">CITED ${counts.CITED}</span> ` +
     `<span class="label l-unverified">UNVERIFIED ${counts.UNVERIFIED}</span>` +
@@ -1941,7 +1958,7 @@ function renderReport(evidence, ropts) {
       `</div></div>`;
   });
   html += `<p style="font-size:12.5px;color:var(--ink-soft);margin-top:14px">` +
-    `Labels: ABSTRACT-SUPPORTED = the abstract substantively supports the claim's key assertion (full text NOT checked — supporting evidence may live in the paper body); CITED = source exists but support is uncertain/unchecked (author decides); ` +
+    `Labels: ABSTRACT-SUPPORTED = the abstract substantively supports the claim's key assertion (full text NOT checked — supporting evidence may live in the paper body); CITED = source found; whether it supports the claim was not checked (or only partly); ` +
     `UNVERIFIED = no record found or marker not resolvable (absence of evidence, not evidence of fabrication); ` +
     `FABRICATED = identifier checked against its registry and found not to exist (identifier not found in its registry); recheck the identifier, correct it, or remove the citation; ` +
     `RATE_LIMITED = sources were rate-limited or could not be reached (offline, blocked, server error) while checking — not checked, NOT proven fake; ` +
@@ -1965,7 +1982,13 @@ function initGround() {
   if (!ta) return;
   if (typeof document.querySelectorAll === "function") {
     document.querySelectorAll("a.hero-tool-link").forEach(a => {
-      a.addEventListener("click", () => vpCount("papers-tool-link"));
+      a.addEventListener("click", () => {
+        vpCount("papers-tool-link");
+        const href = a.getAttribute("href") || "";
+        const id = href.charAt(0) === "#" ? href.slice(1) : "";
+        const target = id && document.getElementById(id);
+        if (target) openHeroToolTarget(target);
+      });
     });
   }
   sample.addEventListener('click', () => { ta.value = SAMPLE; });
@@ -2026,7 +2049,22 @@ function initGround() {
       out.appendChild(rep);
       bindPapersHandcheck(rep, evidence);
       vpCount("papers-check");
-      if (window.VP) { try { VP.recordGround(evidence); } catch {} }
+      if (window.VP) {
+        let countedRun = false;
+        try { VP.recordGround(evidence); countedRun = true; } catch (e) { /* project bar is optional */ }
+        if (countedRun) {
+          try {
+            const proj = VP.active && VP.active();
+            if (proj) {
+              const counted = document.createElement("p");
+              counted.className = "hint";
+              counted.id = "grounded-counted";
+              counted.textContent = "This check was counted in project " + (proj.name || "") + " (grounded ×" + ((proj.groundRuns && proj.groundRuns.length) || 0) + ").";
+              out.insertBefore(counted, out.firstChild);
+            }
+          } catch (e) { /* notice is best-effort */ }
+        }
+      }
       try {
         document.getElementById('exp-bib').addEventListener('click', () => {
           const bib = evidenceToBibTeX(evidence);
