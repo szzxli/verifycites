@@ -36,12 +36,25 @@ Design rules (do not weaken them without recording why):
   * first_seen is IMMUTABLE: once a decision is in the index,
     re-polling never overwrites its first_seen. Fetch time and sha256
     may be refreshed.
-  * Pairing is validated, not assumed. A volume page's citation lines
-    and PDF links are paired by document order, and the run aborts
-    (exit 1, nothing written) when their counts differ. The page
-    display omits the "Matter of" prefix, so the indexer prepends it
-    for display names; BIA and A.G. entries are both accepted and the
-    deciding body is recorded.
+  * Pairing is validated, not assumed. A volume page lists one entry
+    per decision: a header row carrying the decision's own citation
+    and its PDF link, followed by a holding summary that itself cites
+    older precedent. Pairing citations and links by whole-page order
+    therefore over-counts (2026-10-29 probe: 32 citations vs 26 PDF
+    links on the current volume page; the page's own text shows the
+    extra citations inside holding summaries). So each PDF link pairs
+    with the nearest preceding citation that no earlier link
+    intervenes before, accepted only when that citation's volume
+    matches the page volume. Anything else is a gap, never a forced
+    pair: a citation with no following link (a holding-summary
+    citation, or an entry listed before its PDF is published) and a
+    link with no valid header citation. Whole-page count mismatch is
+    no longer an abort, because the no-guess intent is preserved
+    structurally: a link pairs only with the one citation that can be
+    its header by position and volume. The page display omits the
+    "Matter of" prefix, so the indexer prepends it for display names;
+    BIA and A.G. entries are both accepted and the deciding body is
+    recorded.
   * Extraction honesty. A PDF yielding under 500 characters is marked
     extraction_status "short" (often a scanned PDF needing OCR) and is
     listed as a gap, not silently indexed: short extractions are
@@ -68,8 +81,8 @@ Design rules (do not weaken them without recording why):
 Modes:
   * probe — dry run, writes nothing. Fetches the index page, the
     current volume page, and --limit sample PDFs; prints entries and
-    verification counts. Fails when pairing mismatches or when none
-    of the sampled PDFs yields usable text.
+    verification counts. Fails when no entries pair on the current
+    volume page or when none of the sampled PDFs yields usable text.
   * backfill — one volume group (e.g. 08-10), volumes 08-30 only.
     Volumes 01-07 are NOT enumerable from volume pages (they live in
     cumulative-index PDFs) and are a recorded phase-2 gap, not
@@ -235,11 +248,13 @@ def parse_volume_links(index_html):
     return sorted(set(volumes))
 
 
-def parse_volume_entries(volume_html):
-    """Pair citation lines with PDF links by document order.
+def parse_volume_entries(volume_html, page_volume=None):
+    """Pair each PDF link with its own entry's header citation.
 
-    Returns a list of dicts. Raises ValueError when citation count and
-    PDF-link count differ: pairing is validated, never guessed.
+    Returns (entries, gaps). See the module docstring for why
+    whole-page order pairing was replaced: holding summaries cite
+    older precedent, so whole-page citation counts always exceed
+    PDF-link counts on real volume pages.
     """
     parser = LinkParser()
     parser.feed(volume_html)
@@ -249,6 +264,7 @@ def parse_volume_entries(volume_html):
     for m in CITATION_RE.finditer(page_text):
         name = re.sub(r"\s+", " ", m.group(1)).strip()
         citations.append({
+            "start": m.start(),
             "name": name,
             "display_name": "Matter of " + name,
             "cite_vol": int(m.group(2)),
@@ -257,25 +273,66 @@ def parse_volume_entries(volume_html):
             "year": int(m.group(5)),
         })
     pdf_links = []
+    search_from = 0
     for href, text in parser.anchors:
         href = (href or "").strip()
-        if PDF_HREF_RE.match(href) or LEGACY_HREF_RE.match(href):
-            id_m = ID_TEXT_RE.search(text or "")
-            pdf_links.append({
-                "pdf_url": urllib.parse.urljoin(BASE, href),
-                "id": int(id_m.group(1)) if id_m else None,
-            })
-    if len(citations) != len(pdf_links):
-        raise ValueError(
-            "citation/link pairing mismatch: %d citations vs %d PDF links "
-            "(first citations: %s; first links: %s)"
-            % (len(citations), len(pdf_links),
-               [c["display_name"] for c in citations[:3]],
-               [p["pdf_url"] for p in pdf_links[:3]]))
+        if not (PDF_HREF_RE.match(href) or LEGACY_HREF_RE.match(href)):
+            continue
+        id_m = ID_TEXT_RE.search(text or "")
+        anchor_text = re.sub(r"\s+", " ", text or "").strip()
+        anchor_start = None
+        anchor_end = None
+        if anchor_text:
+            found = page_text.find(anchor_text, search_from)
+            if found >= 0:
+                anchor_start = found
+                anchor_end = found + len(anchor_text)
+                search_from = anchor_end
+        pdf_links.append({
+            "pdf_url": urllib.parse.urljoin(BASE, href),
+            "id": int(id_m.group(1)) if id_m else None,
+            "anchor_start": anchor_start,
+            "anchor_end": anchor_end,
+        })
     entries = []
-    for cite, link in zip(citations, pdf_links):
-        entries.append({**cite, **link})
-    return entries
+    gaps = []
+    used = set()
+    prev_end = -1
+    for link in pdf_links:
+        start = link["anchor_start"]
+        if start is None:
+            gaps.append({"kind": "link",
+                         "detail": "PDF link with unlocatable anchor text: %s"
+                                   % link["pdf_url"]})
+            continue
+        end = link["anchor_end"]
+        cands = [i for i, c in enumerate(citations)
+                 if i not in used and prev_end <= c["start"] < end]
+        if not cands:
+            gaps.append({"kind": "link",
+                         "detail": "no citation before PDF link: %s" % link["pdf_url"]})
+        else:
+            cand = citations[cands[-1]]
+            if page_volume is not None and cand["cite_vol"] != page_volume:
+                gaps.append({"kind": "link",
+                             "detail": "nearest citation before %s is %s, not page "
+                                       "volume %d; not paired"
+                                       % (link["pdf_url"], cand["display_name"],
+                                          page_volume)})
+            else:
+                used.add(cands[-1])
+                entry = {k: v for k, v in cand.items() if k != "start"}
+                entry.update({"pdf_url": link["pdf_url"], "id": link["id"]})
+                entries.append(entry)
+        prev_end = end
+    for i, cite in enumerate(citations):
+        if i not in used:
+            gaps.append({"kind": "citation",
+                         "detail": "citation without a following PDF link: %s "
+                                   "(%d I&N Dec. %d)"
+                                   % (cite["display_name"], cite["cite_vol"],
+                                      cite["cite_page"])})
+    return entries, gaps
 
 
 def extract_text(pdf_bytes):
@@ -375,7 +432,10 @@ def run_probe(fetcher, limit):
         raise RuntimeError("no volume links found on the EOIR index page")
     current = volumes[-1]
     vol_html = fetcher.get(BASE + "/eoir/volume-" + current).decode("utf-8", errors="replace")
-    entries = parse_volume_entries(vol_html)
+    entries, gaps = parse_volume_entries(vol_html, page_volume=int(current))
+    if not entries:
+        raise RuntimeError("probe failed: no entries paired on current "
+                           "volume page (%d gaps)" % len(gaps))
     sample = entries[:limit]
     ok = 0
     shown = []
@@ -385,8 +445,10 @@ def run_probe(fetcher, limit):
         shown.append(built)
         if built["extraction_status"] == "ok":
             ok += 1
-    print("probe: index volumes=%s current=%s entries_on_page=%d sampled=%d text_ok=%d"
-          % (",".join(volumes), current, len(entries), len(sample), ok))
+    print("probe: index volumes=%s current=%s entries_on_page=%d sampled=%d text_ok=%d gaps=%d"
+          % (",".join(volumes), current, len(entries), len(sample), ok, len(gaps)))
+    for gap in gaps[:5]:
+        print("  gap: %s" % gap["detail"])
     for built in shown:
         print("  id=%s %s (%d) %s chars=%d status=%s"
               % (built["id"], built["display_name"], built["year"],
@@ -423,7 +485,9 @@ def run_backfill_or_poll(fetcher, data_dir, mode, volume_group, now):
     search_updates = {}
     for vol in todo_vols:
         vol_html = fetcher.get(BASE + "/eoir/volume-" + vol).decode("utf-8", errors="replace")
-        page_entries = parse_volume_entries(vol_html)
+        page_entries_all, page_gaps = parse_volume_entries(
+            vol_html, page_volume=int(vol))
+        page_entries = page_entries_all
         if mode == "poll":
             page_entries = [e for e in page_entries if e["pdf_url"] not in old_entries]
         vol_new = []
@@ -451,11 +515,17 @@ def run_backfill_or_poll(fetcher, data_dir, mode, volume_group, now):
         for term in vol_terms:
             vol_terms[term] = sorted(set(vol_terms[term]),
                                      key=lambda x: (isinstance(x, str), x))
-        found_ids = [e["id"] for e in page_entries if e["id"] is not None]
+        if not page_entries_all and page_gaps:
+            vol_failed.append({"volume": vol,
+                               "error": "pairing produced no entries (%d gaps)"
+                                        % len(page_gaps)})
+        found_ids = [e["id"] for e in page_entries_all if e["id"] is not None]
         expected = EXPECTED_IDS.get(vol)
         missing = sorted(expected - set(found_ids)) if expected is not None else []
         per_volume[vol] = {
-            "found_on_page": len(page_entries),
+            "found_on_page": len(page_entries_all),
+            "pairing_gaps": len(page_gaps),
+            "pairing_gap_sample": [g["detail"] for g in page_gaps[:3]],
             "expected_count": EXPECTED_COUNTS.get(vol),
             "new_downloaded": len(vol_new),
             "failed": len(vol_failed),
@@ -467,7 +537,7 @@ def run_backfill_or_poll(fetcher, data_dir, mode, volume_group, now):
         if vol_terms:
             search_updates[vol] = vol_terms
         print("volume %s: page=%d new=%d failed=%d missing_ids=%d"
-              % (vol, len(page_entries), len(vol_new), len(vol_failed), len(missing)))
+              % (vol, len(page_entries_all), len(vol_new), len(vol_failed), len(missing)))
 
     merged = dict(old_entries)
     for built in new_entries:
