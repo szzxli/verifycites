@@ -370,9 +370,42 @@ def extract_text(pdf_bytes):
     raise RuntimeError("no PDF text extractor available (need pypdf or pdftotext)")
 
 
+# Initials case names (K-Y-V-R-, N-L-U-, R-K-K-) would otherwise split
+# into one-letter tokens and be dropped. A run of single letters joined
+# by hyphens collapses to one token first: "K-Y-V-R-" -> "kyvr". The
+# same regex and steps live in legal/bia.js biaTokenize(); keep them in
+# sync (both sides are tested).
+INITIALS_RE = re.compile(r"(^|[^A-Za-z0-9])((?:[A-Za-z]-)+[A-Za-z]?)(?=[^A-Za-z0-9]|$)")
+
+
+def collapse_initials(text):
+    return INITIALS_RE.sub(lambda m: m.group(1) + m.group(2).replace("-", ""), text)
+
+
+def name_key(name):
+    """Normalized case-name key: lowercase, letters and digits only."""
+    return re.sub(r"[^a-z0-9]", "", (name or "").lower())
+
+
+def name_terms(name):
+    """Search terms for a case name: its normalized key plus its tokens."""
+    terms = tokenize(name or "")
+    key = name_key(name)
+    if len(key) >= 2:
+        terms.add(key)
+    return terms
+
+
 def tokenize(text):
+    """Lowercase alphanumeric tokens, 3+ chars, minus stopwords; plus
+    collapsed initials runs of 2+ letters (so M-K- -> "mk" is kept)."""
+    text = text or ""
     terms = set()
-    for tok in TOKEN_RE.findall(text.lower()):
+    for m in INITIALS_RE.finditer(text):
+        key = m.group(2).replace("-", "").lower()
+        if len(key) >= 2:
+            terms.add(key)
+    for tok in TOKEN_RE.findall(collapse_initials(text).lower()):
         if len(tok) >= 3 and tok not in STOPWORDS:
             terms.add(tok)
     return terms
@@ -388,11 +421,17 @@ def load_json(path, default):
         return default
 
 
-def write_json(path, payload):
+def write_json(path, payload, compact=False):
+    """Write JSON atomically. compact=True (published page files:
+    bia-index.json, bia-search/volNN.json) drops indentation to keep
+    the files the page downloads small; the manifest stays readable."""
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     tmp = path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as fh:
-        json.dump(payload, fh, ensure_ascii=False, indent=2)
+        if compact:
+            json.dump(payload, fh, ensure_ascii=False, separators=(",", ":"))
+        else:
+            json.dump(payload, fh, ensure_ascii=False, indent=2)
         fh.write("\n")
     os.replace(tmp, path)
 
@@ -422,6 +461,7 @@ def build_entry(entry, pdf_bytes, now):
         "id": entry["id"],
         "name": entry["name"],
         "display_name": entry["display_name"],
+        "name_key": name_key(entry["name"]),
         "citation": "%d I&N Dec. %d" % (entry["cite_vol"], entry["cite_page"]),
         "year": entry["year"],
         "body": entry["body"],
@@ -519,8 +559,14 @@ def run_backfill_or_poll(fetcher, data_dir, mode, volume_group, now):
             vol_new.append(built)
             if flat:
                 key = built["id"] if built["id"] is not None else built["pdf_url"]
-                for term in tokenize(flat):
+                for term in tokenize(flat) | name_terms(built["name"]):
                     vol_terms.setdefault(term, []).append(key)
+        if mode == "poll" and vol_terms:
+            # Poll indexes only new decisions; merge them into the
+            # existing volume index instead of replacing it.
+            prev_vol = load_json(os.path.join(search_dir, "vol%s.json" % vol), {})
+            for term, keys in ((prev_vol or {}).get("terms") or {}).items():
+                vol_terms.setdefault(term, []).extend(keys)
         for term in vol_terms:
             vol_terms[term] = sorted(set(vol_terms[term]),
                                      key=lambda x: (isinstance(x, str), x))
@@ -573,10 +619,11 @@ def run_backfill_or_poll(fetcher, data_dir, mode, volume_group, now):
         "source": "EOIR AG/BIA precedent decisions (justice.gov)",
         "entries": all_entries,
     }
-    write_json(index_path, index_payload)
+    write_json(index_path, index_payload, compact=True)
     for vol, terms in search_updates.items():
         write_json(os.path.join(search_dir, "vol%s.json" % vol),
-                   {"volume": vol, "updated_utc": now, "terms": terms})
+                   {"volume": vol, "updated_utc": now, "terms": terms},
+                   compact=True)
     write_json(manifest_path, manifest)
     print("done: mode=%s volumes=%s total_entries=%d new=%d failed=%d status=%s"
           % (mode, ",".join(todo_vols), len(all_entries),

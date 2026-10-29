@@ -145,9 +145,21 @@ workflow is NOT moved to main before a merge decision. Until then:
   nothing that day and record the error. HTTP 403/429 is not retried.
   pypdf is optional locally: the script falls back to `pdftotext`.
 - Backfill so far: volume 30 only (local run 2026-10-29: 28 entries,
-  0 failed, 0 short, 5 pairing gaps; `data/bia-search/vol30.json`
-  336,142 bytes, `data/bia-index.json` 14,467 bytes,
-  `data/bia-manifest.json` 794 bytes). Volumes 08-29 are deferred and
+  0 failed, 0 short, 5 pairing gaps). Page files are written compact
+  (no indentation): `data/bia-search/vol30.json` 153,998 bytes (was
+  336,142 indented), `data/bia-index.json` 11,816 bytes (was 14,467);
+  `data/bia-manifest.json` stays indented, 794 bytes.
+- Initials case names (K-Y-V-R-, N-L-U-) are searchable: the tokenizer
+  collapses a run of hyphen-joined single letters into one token
+  ("kyvr", kept at 2+ letters), and each decision's normalized
+  `name_key` plus its name tokens are added to its volume index. The
+  same rule lives in `legal/bia.js`; both sides are tested. The
+  committed vol30 data was regenerated from the already-fetched files
+  without a re-crawl, so collapsed initials inside decision *bodies*
+  (e.g. a citing reference to R-K-K-) appear only after the next
+  volume-30 backfill; decision names are covered now.
+- Poll mode merges new decisions into the existing volume index
+  instead of replacing it. Volumes 08-29 are deferred and
   backfilled on demand, one group at a time, not all at once.
   Volumes 01-07 remain the phase-2 gap.
 - The /legal page on this branch reads `data/bia-index.json` and
