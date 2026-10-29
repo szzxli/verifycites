@@ -1,8 +1,8 @@
 {
   "status": "complete",
-  "mode": "backfill",
-  "updated_utc": "2026-10-29T17:07:12Z",
-  "last_success_utc": "2026-10-29T17:07:12Z",
+  "mode": "poll",
+  "updated_utc": "2026-10-29T17:39:23Z",
+  "last_success_utc": "2026-10-29T17:39:23Z",
   "volumes": {
     "30": {
       "found_on_page": 28,
@@ -13,7 +13,7 @@
         "citation without a following PDF link: Matter of J- (2 I&N Dec. 285)"
       ],
       "expected_count": null,
-      "new_downloaded": 28,
+      "new_downloaded": 0,
       "failed": 0,
       "missing_ids": [],
       "extraction_short": 0
