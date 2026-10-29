@@ -1,0 +1,35 @@
+# Citation-integrity news poller.
+#
+# Once a day (plus manual dispatch), reads the CourtListener opinion Atom
+# search feed and commits data/legal-news.json when it changed. No
+# secrets, no keys, no tokens. TLS certificates are verified (the
+# --insecure flag is never passed here).
+#
+# The published JSON is a static, same-origin file. The browser page
+# reads it and does not call CourtListener.
+
+name: legal-news-poll
+
+on:
+  schedule:
+    - cron: "30 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+      - name: Poll CourtListener citation-integrity opinions
+        run: python3 scripts/legal_news_poll.py
+      - name: Commit news file if changed
+        run: |
+          git config user.name "legal-news-poller"
+          git config user.email "legal-news-poller@users.noreply.github.com"
+          git add data/legal-news.json
+          git diff --cached --quiet || git commit -m "Update citation-integrity news"
+          git push

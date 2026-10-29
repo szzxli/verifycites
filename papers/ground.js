@@ -13,7 +13,67 @@
    absent, and it never throws. The full event dictionary lives in
    docs/analytics.md; this list is the single enforcement point for
    the papers app. */
-const VP_EVENTS = ["papers-check", "papers-references-export"];
+const VP_EVENTS = ["papers-check", "papers-references-export", "papers-claim-mark", "papers-review-complete", "papers-tool-link"];
+function handcheckHash(str) {
+  let h = 0x811c9dc5;
+  const s = String(str == null ? "" : str);
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return ("00000000" + (h >>> 0).toString(16)).slice(-8);
+}
+function handcheckStorageKey(projectId) {
+  return "veripaper.handcheck.v1." + (projectId || "none");
+}
+function handcheckProjectId() {
+  try {
+    if (window.VP && typeof VP.active === "function" && VP.active()) return VP.active().id;
+  } catch (e) { /* no project bar */ }
+  return "none";
+}
+function handcheckClaimId(index, claim) {
+  return handcheckHash(String(index) + "\n" + String(claim || ""));
+}
+function handcheckLoad(storage, projectId) {
+  try {
+    const parsed = JSON.parse(storage.getItem(handcheckStorageKey(projectId)) || "{}");
+    return (parsed && typeof parsed === "object" && !Array.isArray(parsed)) ? parsed : {};
+  } catch (e) { return {}; }
+}
+function handcheckCounts(evidence, marks) {
+  const list = evidence || [];
+  let checked = 0;
+  list.forEach((e, i) => { if (marks && marks[handcheckClaimId(i, e.claim)]) checked++; });
+  return { checked: checked, total: list.length };
+}
+function bindPapersHandcheck(root, evidence) {
+  if (!root || typeof root.querySelectorAll !== "function") return;
+  const projectId = handcheckProjectId();
+  const key = handcheckStorageKey(projectId);
+  let marks = (typeof localStorage !== "undefined") ? handcheckLoad(localStorage, projectId) : {};
+  const progress = root.querySelector("#papers-handcheck-progress");
+  const paint = () => {
+    const c = handcheckCounts(evidence, marks);
+    if (progress) progress.textContent = "You have checked " + c.checked + " of " + c.total + " claims by hand";
+  };
+  root.querySelectorAll("[data-handcheck]").forEach(box => {
+    box.addEventListener("change", () => {
+      const id = box.getAttribute("data-handcheck");
+      const before = handcheckCounts(evidence, marks);
+      if (box.checked) marks[id] = true;
+      else delete marks[id];
+      try { localStorage.setItem(key, JSON.stringify(marks)); } catch (e) { /* private mode */ }
+      const after = handcheckCounts(evidence, marks);
+      vpCount("papers-claim-mark");
+      if (after.total > 0 && after.checked === after.total && before.checked < after.total) {
+        vpCount("papers-review-complete");
+      }
+      paint();
+    });
+  });
+}
+
 function vpCount(name) {
   try {
     if (!VP_EVENTS.includes(name)) return;
@@ -1780,7 +1840,10 @@ function renderReport(evidence, ropts) {
     if (/\[CHIMERIC/.test(e.label || '')) chimericN++;
     if (/\[RETRACTED\]/.test(e.label || '')) retractedN++;
   }
-  let html = `<div style="margin-bottom:18px;font-size:14.5px">` +
+  const handMarks = (ropts && ropts.handMarks) || {};
+  const hand = handcheckCounts(evidence, handMarks);
+  let html = `<p id="papers-handcheck-progress">You have checked ${hand.checked} of ${hand.total} claims by hand</p>` +
+    `<div style="margin-bottom:18px;font-size:14.5px">` +
     `<b>${evidence.length}</b> ${unit} checked &nbsp;·&nbsp; ` +
     `<span class="label l-verified">ABSTRACT-SUPPORTED ${counts['ABSTRACT-SUPPORTED']}</span> ` +
     `<span class="label l-cited">CITED ${counts.CITED}</span> ` +
@@ -1874,6 +1937,7 @@ function renderReport(evidence, ropts) {
       `<div style="margin-top:6px;color:var(--ink-soft)">Anomaly reason: ${gesc(anomaly)}</div>` +
       `<div style="margin-top:4px;color:var(--ink-soft)">Check scope: registry lookup; support judgments are abstract-level only — the full text was not checked. Item check time: not recorded.</div>` +
       `<div style="margin-top:4px">Suggested action: ${gesc(action)}</div>` +
+      `<label class="hand-check-line"><input type="checkbox" data-handcheck="${handcheckClaimId(i, e.claim)}"${handMarks[handcheckClaimId(i, e.claim)] ? " checked" : ""}> Checked by hand</label>` +
       `</div></div>`;
   });
   html += `<p style="font-size:12.5px;color:var(--ink-soft);margin-top:14px">` +
@@ -1899,6 +1963,11 @@ function initGround() {
   const prog = document.getElementById('ground-progress');
   const out = document.getElementById('ground-result');
   if (!ta) return;
+  if (typeof document.querySelectorAll === "function") {
+    document.querySelectorAll("a.hero-tool-link").forEach(a => {
+      a.addEventListener("click", () => vpCount("papers-tool-link"));
+    });
+  }
   sample.addEventListener('click', () => { ta.value = SAMPLE; });
   initFileUpload(ta, prog);
   // 30-second demo: load the sample, run it, scroll to results
@@ -1951,8 +2020,11 @@ function initGround() {
         const _r = await fetch('../data/tier1-index.json', { cache: 'no-store' });
         if (_r.ok) tier1 = await _r.json();
       } catch (_) { /* Tier-1 note renders as unavailable */ }
-      rep.innerHTML = renderReport(evidence, { unit, tier1 });
+      let handMarks = {};
+      try { handMarks = handcheckLoad(localStorage, handcheckProjectId()); } catch (e) { handMarks = {}; }
+      rep.innerHTML = renderReport(evidence, { unit, tier1, handMarks });
       out.appendChild(rep);
+      bindPapersHandcheck(rep, evidence);
       vpCount("papers-check");
       if (window.VP) { try { VP.recordGround(evidence); } catch {} }
       try {

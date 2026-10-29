@@ -5,7 +5,7 @@
 
   var COPY = {
     en: {
-      skipToContent: "Skip to content", languageLabel: "Language", brandHome: "VerifyCites home", navLabel: "Primary navigation", navCheck: "Citation checker", navBriefing: "Briefing", navTranslation: "Translate", navCli: "CLI guide", navImmigration: "Immigration", navQuery: "Query translation",
+      skipToContent: "Skip to content", languageLabel: "Language", brandHome: "VerifyCites home", navLabel: "Primary navigation", navCheck: "Citation checker", navBriefing: "Briefing", navTranslation: "Translate", navCli: "CLI guide", navImmigration: "Immigration guide", navQuery: "Query translation",
       heroKicker: "A focused workspace for cited cases", factLocal: "Citation extraction runs in this browser",
       factNoLookup: "Browser mode does not look up cases", factCli: "CLI checks CourtListener case existence and case name only",
       trustSummary: "Important limits — please read", primaryTask: "Primary task",
@@ -37,7 +37,7 @@
       queryEmpty: "Enter an English query before extracting citation patterns.", queryCopied: "Copied."
     },
     es: {
-      skipToContent: "Saltar al contenido", languageLabel: "Idioma", brandHome: "Inicio de VerifyCites", navLabel: "Navegación principal", navCheck: "Verificador de citas", navBriefing: "Resumen", navTranslation: "Traducción", navCli: "Guía CLI", navImmigration: "Inmigración", navQuery: "Traducción de consulta",
+      skipToContent: "Saltar al contenido", languageLabel: "Idioma", brandHome: "Inicio de VerifyCites", navLabel: "Navegación principal", navCheck: "Verificador de citas", navBriefing: "Resumen", navTranslation: "Traducción", navCli: "Guía CLI", navImmigration: "Guía de inmigración", navQuery: "Traducción de consulta",
       heroKicker: "Un espacio de trabajo para citas judiciales", factLocal: "La extracción de citas se realiza en este navegador",
       factNoLookup: "El modo navegador no busca casos", factCli: "La CLI solo comprueba en CourtListener si el caso existe y si el nombre coincide",
       trustSummary: "Límites importantes — léalos", primaryTask: "Tarea principal",
@@ -68,7 +68,7 @@
       queryEmpty: "Introduzca una consulta en inglés antes de extraer patrones de citas.", queryCopied: "Copiado."
     },
     zh: {
-      skipToContent: "跳转到正文", languageLabel: "语言", brandHome: "VerifyCites 首页", navLabel: "主导航", navCheck: "引文核验", navBriefing: "法律简报", navTranslation: "翻译", navCli: "CLI 说明", navImmigration: "移民引用", navQuery: "查询翻译",
+      skipToContent: "跳转到正文", languageLabel: "语言", brandHome: "VerifyCites 首页", navLabel: "主导航", navCheck: "引文核验", navBriefing: "法律简报", navTranslation: "翻译", navCli: "CLI 说明", navImmigration: "移民指南", navQuery: "查询翻译",
       heroKicker: "面向判例引文的研究工作台", factLocal: "引文提取在当前浏览器中完成",
       factNoLookup: "浏览器模式不会联网查询案件", factCli: "CLI 只在 CourtListener 中核查判例是否存在以及案名是否一致",
       trustSummary: "重要限制 — 请先阅读", primaryTask: "主要任务",

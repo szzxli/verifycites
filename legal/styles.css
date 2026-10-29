@@ -44,6 +44,15 @@ button { color: inherit; }
 .sr-only, .visually-hidden { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
 
 .site-header { position: sticky; z-index: 10; top: 0; width: 100%; border-bottom: 1px solid rgba(204, 213, 214, .74); background: rgba(255, 255, 255, .94); backdrop-filter: blur(14px); }
+.legal-sticky-nav { position: sticky; top: 0; z-index: 40; background: var(--paper); }
+.legal-sticky-nav .primary-nav { background: var(--paper); padding-bottom: 8px; }
+.section-job { margin: 0 0 8px; color: var(--ink-soft); font-size: 14px; }
+.button-clear-marks { color: var(--muted); font-weight: 500; margin: 0 0 8px; }
+.news-stale { margin: 8px 0; padding: 8px 10px; background: var(--amber-pale); border: 1px solid #e6d3a1; }
+.hand-check-line { margin-top: 6px; color: var(--ink-soft); font-size: 13px; }
+.footer-operator { color: var(--muted); font-size: 13px; }
+#legal-news-list { padding-left: 1.2em; }
+#legal-news-note { color: var(--ink-soft); }
 .header-inner { width: min(var(--content), calc(100% - 48px)); min-height: 70px; margin: 0 auto; display: flex; align-items: center; gap: 30px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; color: var(--navy); text-decoration: none; }
 .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: #e9f0f3; color: var(--navy); }

@@ -12,6 +12,7 @@
 </head>
 <body>
   <a class="skip-link" href="#main" data-copy="skipToContent">Skip to content</a>
+  <div class="legal-sticky-nav">
   <header class="vc-nav">
     <div class="vc-nav-inner">
       <a class="vc-nav-brand" href="/">VerifyCites</a>
@@ -30,8 +31,9 @@
   <nav class="primary-nav" id="top" aria-label="On this page" data-aria-copy="navLabel">
     <a href="#checker" data-copy="navCheck">Citation checker</a>
     <a href="#cli" data-copy="navCli">CLI guide</a>
-    <a href="#immigration" data-copy="navImmigration">Immigration</a>
+    <a href="#immigration" data-copy="navImmigration">Immigration guide</a>
   </nav>
+  </div>
 
   <main id="main" class="page-shell">
     <section class="hero" aria-labelledby="page-title">
@@ -69,6 +71,7 @@
         <div>
           <p class="section-kicker" data-copy="primaryTask">Primary task</p>
           <h2 id="checker-title" data-copy="checkerTitle">Extract citations from a document</h2>
+          <p class="section-job">Job: paste a brief and get a checklist of each citation with a link to open.</p>
           <p class="section-description" data-copy="checkerDescription">Paste legal text or upload a plain-text file. Review the extracted citations and open each source to check it yourself.</p>
         </div>
       </div>
@@ -98,6 +101,7 @@
         </div>
         <button class="text-button" type="button" onclick="clearInput()" data-copy="clearInput">Clear text</button>
       </div>
+      <p class="field-hint" id="paste-word-pdf">Paste text copied from Word or PDF. The upload button accepts a plain-text .txt file only.</p>
       <p class="browser-mode-prenote" data-i18n="extractPreNote">Browser mode only extracts citation formats. Every row is NOT_CHECKED. It does not check cases online. Open a source link to check by hand. The CLI below checks CourtListener case existence and case name only.</p>
       <p class="results-guide"><a href="#immigration" data-i18n="immCheckerLink">Immigration brief? See how each citation type is routed (partial coverage) →</a></p>
       <p id="file-status" class="file-status" aria-live="polite"></p>
@@ -117,7 +121,7 @@
           <span class="empty-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M9 5h9l6 6v16H9a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/><path d="M18 5v6h6M11 16h10M11 20h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           <div><strong data-copy="resultsPlaceholder">Your extracted citations will appear here.</strong><p data-copy="resultsPlaceholderHint">Start by pasting text above or loading the sample.</p></div>
         </div>
-        <p class="label-legend" data-i18n="labelLegend">NOT_CHECKED = browser mode: no online lookup was made; check by hand using the links. VERIFIED, MISMATCH, and NOT_FOUND appear only in CLI results: VERIFIED = the case exists and the case name matches; MISMATCH = the case name at that citation differs from the one you wrote; NOT_FOUND = no case at that citation in CourtListener's database — and because CourtListener's coverage is incomplete, NOT_FOUND does not prove the case does not exist.</p>
+        <p class="label-legend" data-i18n="labelLegend">NOT_CHECKED = browser mode: no online lookup was made; check by hand using the links.</p>
         <div class="table-wrap" id="resultsWrap" hidden>
           <table class="data-table results-table">
             <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="thLabel">Label</th><th scope="col" data-i18n="thStandardFormat">Standard format</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
@@ -129,13 +133,15 @@
         <p class="results-guide"><a href="#cli" data-i18n="resultsCliGuide">All NOT_CHECKED. The CLI checks CourtListener cases only — not statutes, regulations, or BIA/AAO →</a></p>
         <div class="report-section" id="reportSection" hidden>
           <h3 data-i18n="reportHeading">Citation health report</h3>
+          <p id="handCheckProgress" class="report-note">You have checked 0 of 0 rows by hand</p>
+          <button type="button" class="button button-quiet button-clear-marks" id="clearMarksBtn" onclick="clearHandMarks()">Clear my marks</button>
           <p id="reportSummary" class="report-summary" role="status" aria-live="polite"></p>
           <p id="reportBasis" class="report-note"></p>
           <p id="tier1Note" class="report-note"></p>
           <p class="report-note" data-i18n="reportNotCheckedNote">Browser mode: every citation below is NOT_CHECKED. This report summarizes what was extracted; it does not verify any case. Check each case by hand using the links.</p>
           <p class="report-note" data-i18n="reportScopeNote">This report does not check whether cases support your argument, whether quotes are accurate, or whether a case is still good law.</p>
           <p class="report-note" data-i18n="reportFlagNote">In browser mode, only recognized reporters are extracted, so an unknown reporter usually means the citation was not extracted at all. These flags describe the extracted text only; they are not a judgment about quality.</p>
-          <p class="report-note" data-i18n="reportHumanStorageNote">Human review marks are stored in this browser only (localStorage), keyed by the citation text. They do not change the machine result shown beside them.</p>
+          <p class="report-note" data-i18n="reportHumanStorageNote">Human review marks are stored in this browser only (localStorage), scoped to this report. They do not change the machine result shown beside them.</p>
           <div class="export-actions">
             <button class="button button-small button-secondary" type="button" onclick="downloadReportMd()" data-i18n="reportDownloadMd">Download report (Markdown)</button>
             <button class="button button-small button-secondary" type="button" onclick="downloadReportHtml()" data-i18n="reportDownloadHtml">Download report (printable HTML)</button>
@@ -157,11 +163,21 @@
       <p><a class="source-link" href="https://free.law/membership/allowed-api-usage/" target="_blank" rel="noopener noreferrer" data-i18n="cliTermsLink">Free Law Project API usage details ↗</a></p>
     </section>
 
+    <section class="utility-card" id="legal-news" aria-labelledby="legal-news-title">
+      <details id="legal-news-details" open>
+        <summary id="legal-news-title">Citation-integrity news</summary>
+        <p id="legal-news-note">Court opinions whose text matches a fixed search for AI-generated or nonexistent citations. Inclusion does not mean a court found misconduct. Not legal advice.</p>
+        <p id="legal-news-updated"></p>
+        <p id="legal-news-stale" class="news-stale" hidden></p>
+        <ol id="legal-news-list"></ol>
+      </details>
+    </section>
+
     <section class="utility-card cli-card" id="cli">
       <details class="tool-disclosure">
         <summary class="tool-summary">
           <span class="section-number section-number-small" aria-hidden="true">02</span>
-          <span class="summary-copy"><span class="section-kicker" data-copy="advancedOption">Advanced option</span><span class="summary-title" data-i18n="howTo">What the CLI can check</span><span class="summary-subtitle" data-i18n="howToText">The CLI needs Python and your own CourtListener token (membership-based access; see the README). It checks case existence and case-name match in CourtListener only. It does not check statutes, regulations, BIA or AAO decisions, the INA, or the C.F.R. It sends only the extracted citation strings by default, never your brief text.</span></span>
+          <span class="summary-copy"><span class="section-kicker" data-copy="advancedOption">Advanced option</span><span class="summary-title" data-i18n="howTo">What the CLI can check</span><span class="section-job">Job: optional command-line check of CourtListener case existence and case name, on your computer.</span><span class="summary-subtitle" data-i18n="howToText">The CLI needs Python and your own CourtListener token (membership-based access; see the README). It checks case existence and case-name match in CourtListener only. It does not check statutes, regulations, BIA or AAO decisions, the INA, or the C.F.R. It sends only the extracted citation strings by default, never your brief text.</span></span>
           <span class="summary-chevron" aria-hidden="true">⌄</span>
         </summary>
         <div class="disclosure-body cli-body">
@@ -182,8 +198,9 @@ python -m legalcite check brief.md --md report.md
     <section class="utility-card" id="immigration" aria-labelledby="immigration-title">
       <div class="section-heading">
         <span class="section-number section-number-small" aria-hidden="true">03</span>
-        <span class="summary-copy"><span class="section-kicker" data-i18n="immSectionKicker">Optional guide</span><span class="summary-title" id="immigration-title" data-i18n="immSectionTitle">Immigration citations</span></span>
+        <span class="summary-copy"><span class="section-kicker" data-i18n="immSectionKicker">Optional guide</span><span class="summary-title" id="immigration-title" data-i18n="immSectionTitle">Immigration guide</span></span>
       </div>
+      <p class="section-job">Job: see where each immigration citation type is routed, and which official page to open.</p>
       <p data-i18n="immSectionIntro">An immigration brief mixes federal court cases, BIA precedent (Matter of), INA provisions, and 8 CFR provisions. This page classifies each extracted row and names its source line; immigration rows are not yet looked up live.</p>
       <p data-i18n="immSectionNotCovered">Not yet covered: no live BIA lookup in this page (8 CFR rows are matched against a static eCFR Title 8 index and INA / 8 U.S.C. rows are matched against a partial INA↔8 U.S.C. mapping table built from OLRC Title 8 — see the row's source line; unmapped sections still cannot be confirmed); no judgment on whether a case supports your argument or is still good law. A BIA precedent can be overruled, and circuit precedent controls; some Title 8 provisions may be enjoined, so eCFR text alone never proves a provision is currently in effect. The core statute and regulation text (INA, 8 CFR) changes rarely; what changes more often is policy guidance and new BIA precedent.</p>
       <p data-i18n="immSectionMemo">Memo-currency rule: a memo's currency is shown only when the official source itself states supersession, rescission, or replacement — never inferred from list presence or absence.</p>
@@ -200,7 +217,8 @@ python -m legalcite check brief.md --md report.md
 
     <footer class="site-footer">
       <p data-i18n="privacy">Privacy: citation extraction runs in this browser. GoatCounter records page views only. Credits: CourtListener / Free Law Project, eyecite (BSD-2). License: MIT.</p>
-      <div class="footer-links"><a href="https://www.courtlistener.com/" target="_blank" rel="noopener noreferrer">CourtListener</a><a href="https://free.law/" target="_blank" rel="noopener noreferrer">Free Law Project</a><a href="https://github.com/szzxli/legal-cite-check" target="_blank" rel="noopener noreferrer">MIT License &amp; source</a><a href="mailto:info@verifycites.com">info@verifycites.com</a></div>
+      <div class="footer-links"><a href="https://www.courtlistener.com/" target="_blank" rel="noopener noreferrer">CourtListener</a><a href="https://free.law/" target="_blank" rel="noopener noreferrer">Free Law Project</a><a href="https://github.com/szzxli/legal-cite-check" target="_blank" rel="noopener noreferrer">MIT License &amp; source</a><a href="mailto:info@verifycites.com">info@verifycites.com</a><a class="back-top" href="#top">Back to top</a></div>
+      <p class="footer-operator">VerifyCites is not a law firm and does not provide legal advice. Maintained by szzxli.</p>
     </footer>
   </main>
 
@@ -209,7 +227,8 @@ python -m legalcite check brief.md --md report.md
   <script src="report.js"></script>
   <script src="i18n.js"></script>
   <script src="translate.js"></script>
-  <script src="briefing.js"></script>
+  <script src="review.js"></script>
+  <script src="news.js"></script>
   <script src="app.js"></script>
   <script src="ui-enhancements.js"></script>
   <script src="../site-nav.js"></script>
