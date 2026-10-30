@@ -187,8 +187,33 @@ function onHandToggle(idx) {
   }
   onHumanReviewChange();
 }
+// "Clear my marks" asks in an in-page confirm bar (role=alertdialog,
+// aria-live) instead of the native confirm dialog, so it is visible in the
+// accessibility tree. Cancel keeps the marks; Yes clears only the
+// current report's marks.
 function clearHandMarks() {
-  if (!window.confirm("Clear hand-check marks for this report?")) return;
+  var bar = document.getElementById("clearMarksConfirm");
+  var btn = document.getElementById("clearMarksBtn");
+  if (!bar) return;
+  bar.hidden = false;
+  if (btn) btn.setAttribute("aria-expanded", "true");
+  var cancel = document.getElementById("clearMarksCancel");
+  (cancel || bar).focus();
+}
+function closeClearMarksBar() {
+  var bar = document.getElementById("clearMarksConfirm");
+  var btn = document.getElementById("clearMarksBtn");
+  if (bar) bar.hidden = true;
+  if (btn) { btn.setAttribute("aria-expanded", "false"); btn.focus(); }
+}
+function cancelClearHandMarks() {
+  closeClearMarksBar();
+}
+function confirmClearHandMarks() {
+  closeClearMarksBar();
+  doClearHandMarks();
+}
+function doClearHandMarks() {
   var store = reviewLoadStore(localStorage);
   reviewClearReport(store, currentReviewKey());
   reviewSaveStore(localStorage, store);

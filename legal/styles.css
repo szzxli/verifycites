@@ -55,6 +55,9 @@ button { color: inherit; }
 #legal-news-note { color: var(--ink-soft); }
 #court-ai-orders-note, #court-ai-orders-reviewed { color: var(--ink-soft); }
 .court-orders-scope { font-weight: 700; }
+.confirm-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 8px 0; padding: 8px 10px; background: var(--amber-pale); border: 1px solid #e6d3a1; border-radius: var(--radius-sm); }
+.confirm-bar[hidden] { display: none; }
+.confirm-bar:focus { outline: 2px solid var(--teal); outline-offset: 2px; }
 .court-orders-table th:nth-child(1) { width: 18%; }
 .court-orders-table th:nth-child(2) { width: 17%; }
 .court-orders-table th:nth-child(3) { width: 11%; }

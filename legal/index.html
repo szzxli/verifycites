@@ -30,7 +30,7 @@
   </header>
   <nav class="primary-nav" id="top" aria-label="On this page" data-aria-copy="navLabel">
     <a href="#checker" data-copy="navCheck">Citation checker</a>
-    <a href="#cli" data-copy="navCli">CLI guide</a>
+    <a href="#cli" data-copy="navCli">CLI check</a>
     <a href="#immigration" data-copy="navImmigration">Immigration guide</a>
     <a href="#bia-search" data-copy="navBia">BIA precedent search</a>
   </nav>
@@ -48,7 +48,7 @@
       <div class="hero-facts" aria-label="How the browser tool works">
         <div class="fact-row"><span class="fact-icon fact-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-copy="factLocal">Citation extraction runs in this browser</span></div>
         <div class="fact-row"><span class="fact-icon fact-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5v5l3.2 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factNoLookup">Browser mode does not look up cases</span></div>
-        <div class="fact-row"><span class="fact-icon fact-icon-amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 20 7v5.2c0 4.1-3.2 6.9-8 8.3-4.8-1.4-8-4.2-8-8.3V7l8-3.5Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12.1h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factCli">CLI checks CourtListener case existence and case name only</span></div>
+        <div class="fact-row"><span class="fact-icon fact-icon-amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 20 7v5.2c0 4.1-3.2 6.9-8 8.3-4.8-1.4-8-4.2-8-8.3V7l8-3.5Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12.1h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factCli">CLI check: CourtListener case existence and case name only</span></div>
       </div>
     </section>
 
@@ -77,8 +77,6 @@
         </div>
       </div>
 
-      <p class="browser-mode-prenote" data-i18n="checkerTopLimit">Browser mode: citations are extracted here and marked NOT_CHECKED. They are not checked online. Use a source link to check by hand. The CLI checks CourtListener case existence and case name only.</p>
-
       <div class="input-block">
         <div class="label-line">
           <label for="input" class="field-label" data-copy="inputLabel">Document text</label>
@@ -102,8 +100,8 @@
         </div>
         <button class="text-button" type="button" onclick="clearInput()" data-copy="clearInput">Clear text</button>
       </div>
+      <p class="field-hint" id="sample-sources" hidden>Sample: three real citations. Official sources: <a href="https://www.courtlistener.com/c/U.S./347/483/" target="_blank" rel="noopener noreferrer">Brown v. Board of Education, 347 U.S. 483 (CourtListener)</a> · <a href="https://www.govinfo.gov/content/pkg/USCODE-2024-title8/html/USCODE-2024-title8-chap12-subchapII-partI-sec1158.htm" target="_blank" rel="noopener noreferrer">INA § 208 = 8 U.S.C. § 1158 (govinfo)</a> · <a href="https://www.justice.gov/eoir/vll/intdec/vol19/2986.pdf" target="_blank" rel="noopener noreferrer">Matter of Acosta, 19 I&amp;N Dec. 211 (EOIR)</a></p>
       <p class="field-hint" id="paste-word-pdf">Paste text copied from Word or PDF. The upload button accepts a plain-text .txt file only.</p>
-      <p class="browser-mode-prenote" data-i18n="extractPreNote">Browser mode only extracts citation formats. Every row is NOT_CHECKED. It does not check cases online. Open a source link to check by hand. The CLI below checks CourtListener case existence and case name only.</p>
       <p class="results-guide"><a href="#immigration" data-i18n="immCheckerLink">Immigration brief? See how each citation type is routed (partial coverage) →</a></p>
       <p id="file-status" class="file-status" aria-live="polite"></p>
       <div id="check-feedback" class="feedback-line" role="status" aria-live="polite" hidden></div>
@@ -129,19 +127,22 @@
             <tbody id="results"></tbody>
           </table>
         </div>
-        <div class="not-checked-note"><span class="note-dot" aria-hidden="true"></span><span data-copy="browserModeNotePrefix">Every result in browser mode is marked NOT_CHECKED. Use the links to verify manually, or </span><a href="#cli" data-copy="browserModeNoteLink">see the CLI guide</a><span data-copy="browserModeNoteSuffix"> for the full CourtListener check.</span></div>
         <p class="format-note" data-i18n="formatNote">Standard format is assembled from the extracted fields only. It is not a certified Bluebook citation, and it is not a verification result. California state courts follow the California Style Manual, not Bluebook.</p>
-        <p class="results-guide"><a href="#cli" data-i18n="resultsCliGuide">All NOT_CHECKED. The CLI checks CourtListener cases only — not statutes, regulations, or BIA/AAO →</a></p>
+        <p class="results-guide"><a href="#cli" data-i18n="resultsCliGuide">What the CLI check covers →</a></p>
         <div class="report-section" id="reportSection" hidden>
           <h3 data-i18n="reportHeading">Citation health report</h3>
           <p id="handCheckProgress" class="report-note">You have checked 0 of 0 rows by hand</p>
           <p class="report-note" id="handCheckPersistNote">Your marks are saved in this browser only. Paste the same text again to restore them.</p>
-          <button type="button" class="button button-quiet button-clear-marks" id="clearMarksBtn" onclick="clearHandMarks()">Clear my marks</button>
+          <button type="button" class="button button-quiet button-clear-marks" id="clearMarksBtn" onclick="clearHandMarks()" aria-controls="clearMarksConfirm" aria-expanded="false">Clear my marks</button>
+          <div id="clearMarksConfirm" class="confirm-bar" role="alertdialog" aria-modal="false" aria-labelledby="clearMarksConfirmText" aria-live="assertive" tabindex="-1" onkeydown="if (event.key === 'Escape') cancelClearHandMarks()" hidden>
+            <span id="clearMarksConfirmText">Clear marks?</span>
+            <button type="button" class="button button-small button-secondary" id="clearMarksYes" onclick="confirmClearHandMarks()">Yes</button>
+            <button type="button" class="button button-small button-quiet" id="clearMarksCancel" onclick="cancelClearHandMarks()">Cancel</button>
+          </div>
           <p id="reportSummary" class="report-summary" role="status" aria-live="polite"></p>
           <p id="reportBasis" class="report-note"></p>
           <p id="tier1Note" class="report-note"></p>
-          <p class="report-note" data-i18n="reportNotCheckedNote">Browser mode: every citation below is NOT_CHECKED. This report summarizes what was extracted; it does not verify any case. Check each case by hand using the links.</p>
-          <p class="report-note" data-i18n="reportScopeNote">This report does not check whether cases support your argument, whether quotes are accurate, or whether a case is still good law.</p>
+          <p class="report-note" id="reportLimitsPointer" data-i18n="reportLimitsPointer">Every row below is NOT_CHECKED. See Important limits at the top of this page.</p>
           <p class="report-note" data-i18n="reportFlagNote">In browser mode, only recognized reporters are extracted, so an unknown reporter usually means the citation was not extracted at all. These flags describe the extracted text only; they are not a judgment about quality.</p>
           <p class="report-note" data-i18n="reportHumanStorageNote">Human review marks are stored in this browser only (localStorage), scoped to this report. They do not change the machine result shown beside them.</p>
           <div class="export-actions">
@@ -161,8 +162,6 @@
           </div>
         </div>
       </div>
-      <p class="report-note" data-i18n="eligibilityNote">Full check: run the CLI with your own CourtListener token (membership-based access). Membership-based access is for personal, educational, research, journalistic, and exploratory use, solo practitioners and firms with five or fewer attorneys, small government bodies, and small pre-revenue unfunded organizations. Larger firms, revenue-positive commercial products, and tools built for organizations — even internal ones — need a separate Free Law Project agreement.</p>
-      <p><a class="source-link" href="https://free.law/membership/allowed-api-usage/" target="_blank" rel="noopener noreferrer" data-i18n="cliTermsLink">Free Law Project API usage details ↗</a></p>
     </section>
 
     <section class="utility-card" id="legal-news" aria-labelledby="legal-news-title">
@@ -209,7 +208,7 @@
       <details class="tool-disclosure">
         <summary class="tool-summary">
           <span class="section-number section-number-small" aria-hidden="true">02</span>
-          <span class="summary-copy"><span class="section-kicker" data-copy="advancedOption">Advanced option</span><span class="summary-title" data-i18n="howTo">What the CLI can check</span><span class="section-job">Command-line check (run on your own computer).</span><span class="summary-subtitle" data-i18n="howToText">The CLI needs Python and your own CourtListener token (membership-based access; see the README). It checks case existence and case-name match in CourtListener only. It does not check statutes, regulations, BIA or AAO decisions, the INA, or the C.F.R. It sends only the extracted citation strings by default, never your brief text.</span></span>
+          <span class="summary-copy"><span class="section-kicker" data-copy="advancedOption">CLI check</span><span class="summary-title" data-i18n="howTo">What the CLI check covers</span><span class="section-job" id="cli-applies-to">The CLI check applies to U.S. case citations only: it runs on your own computer and checks CourtListener for case existence and case-name match.</span><span class="summary-subtitle" data-i18n="howToText">The CLI check needs Python and your own CourtListener token (membership-based access; see the README). It does not check statutes, regulations, BIA or AAO decisions, the INA, or the C.F.R. It sends only the extracted citation strings by default, never your brief text.</span></span>
           <span class="summary-chevron" aria-hidden="true">⌄</span>
         </summary>
         <div class="disclosure-body cli-body">
@@ -222,7 +221,7 @@
           <div class="code-panel"><div class="code-panel-header"><span data-copy="cliCommandLabel">Run in a terminal</span><button class="copy-code-button" type="button" onclick="copyCli()" data-copy="copyCommand">Copy command</button></div><pre><code id="cli-command">pip install .
 python -m legalcite check brief.md --md report.md
 # with: COURTLISTENER_TOKEN set in your environment</code></pre></div>
-          <p><a class="source-link" href="https://github.com/szzxli/legal-cite-check#full-check-with-courtlistener-cli" target="_blank" rel="noopener noreferrer" data-copy="readFullGuide">Read the full CLI guide on GitHub ↗</a></p>
+          <p><a class="source-link" href="https://github.com/szzxli/legal-cite-check#full-check-with-courtlistener-cli" target="_blank" rel="noopener noreferrer" data-copy="readFullGuide">Read the CLI check instructions on GitHub ↗</a></p>
         </div>
       </details>
     </section>

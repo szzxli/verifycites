@@ -66,7 +66,8 @@ assert.ok(round.legacy["99 F.4th 1"]);
 
 const app = fs.readFileSync(path.join(__dirname, "..", "app.js"), "utf8");
 const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
-assert.ok(app.includes('confirm("Clear hand-check marks for this report?")'), "clear uses confirm()");
+assert.ok(!/window\.confirm\(/.test(app), "clear no longer uses native window.confirm()");
+assert.ok(html.includes('id="clearMarksConfirm"'), "clear uses the in-page confirm bar");
 assert.ok(html.includes('id="clearMarksBtn"'), "clear button is on the page");
 assert.ok(html.includes("button-quiet"), "clear button uses the quiet style");
 assert.ok(html.includes("You have checked"), "progress sentence is on the page or set from the same wording");
@@ -87,7 +88,15 @@ const mem2 = {
   getItem() { return this._v; },
   setItem(k, v) { this._v = v; }
 };
-const confirmCalls = [];
+// In-page confirm bar (replaces window.confirm): fake elements.
+function fakeEl(id, extra) {
+  return Object.assign({ id, hidden: id === "clearMarksConfirm", attrs: {}, focused: 0,
+    setAttribute(k, v) { this.attrs[k] = v; }, focus() { this.focused++; lastFocus = id; } }, extra || {});
+}
+let lastFocus = null;
+const els = { clearMarksConfirm: fakeEl("clearMarksConfirm"), clearMarksBtn: fakeEl("clearMarksBtn"),
+  clearMarksCancel: fakeEl("clearMarksCancel"), clearMarksYes: fakeEl("clearMarksYes") };
+const nativeConfirmCalls = [];
 global.localStorage = mem2;
 global.reviewLoadStore = R.reviewLoadStore;
 global.reviewClearReport = R.reviewClearReport;
@@ -101,29 +110,49 @@ global.document = {
   title: "",
   getElementById(id) {
     if (id === "input") return { value: briefA };
-    return null;
+    return els[id] || null;
   },
   querySelectorAll() { return []; }
 };
 global.window = {
-  confirm(msg) { confirmCalls.push(msg); return false; },
+  confirm(msg) { nativeConfirmCalls.push(msg); return true; },
   __lastResults: [{ text: "347 U.S. 483" }],
   __lastReport: { rows: [{ text: "347 U.S. 483" }] }
 };
 eval(fs.readFileSync(path.join(__dirname, "..", "app.js"), "utf8"));
+
+// Click "Clear my marks": bar opens, focus moves into it, nothing is cleared yet.
 clearHandMarks();
-assert.deepStrictEqual(confirmCalls, ["Clear hand-check marks for this report?"], "cancel path calls confirm()");
+assert.strictEqual(els.clearMarksConfirm.hidden, false, "confirm bar is shown");
+assert.strictEqual(lastFocus, "clearMarksCancel", "focus moves into the confirm bar (Cancel)");
+assert.strictEqual(els.clearMarksBtn.attrs["aria-expanded"], "true");
+assert.strictEqual(JSON.parse(mem2._v).reports[keyA].marks["347 U.S. 483"].status, "confirmed", "opening the bar clears nothing");
+
+// Cancel keeps the marks and closes the bar.
+cancelClearHandMarks();
+assert.strictEqual(els.clearMarksConfirm.hidden, true, "Cancel closes the bar");
+assert.strictEqual(lastFocus, "clearMarksBtn", "focus returns to the Clear my marks button");
 let afterCancel = JSON.parse(mem2._v);
 assert.strictEqual(afterCancel.reports[keyA].marks["347 U.S. 483"].status, "confirmed", "cancel keeps marks");
 assert.strictEqual(R.reviewCheckedCount([{ text: "347 U.S. 483" }], afterCancel.reports[keyA].marks).checked, 1);
 
-global.window.confirm = function (msg) { confirmCalls.push(msg); return true; };
+// Yes clears only the current report.
 clearHandMarks();
-assert.strictEqual(confirmCalls.length, 2, "OK path calls confirm() again");
+confirmClearHandMarks();
+assert.strictEqual(els.clearMarksConfirm.hidden, true, "Yes closes the bar");
+assert.deepStrictEqual(nativeConfirmCalls, [], "native confirm() is never called");
 const afterOk = JSON.parse(mem2._v);
 assert.deepStrictEqual(afterOk.reports[keyA].marks, {}, "OK clears only the current report");
 assert.strictEqual(afterOk.reports[keyB].marks["99 F.4th 1"].status, "recheck", "other report is kept");
 assert.strictEqual(R.reviewCheckedCount([{ text: "347 U.S. 483" }], afterOk.reports[keyA].marks).checked, 0, "X returns to 0");
 assert.ok(!JSON.stringify(afterOk).includes(briefA), "the brief text is not stored");
+
+const barAt = html.indexOf('id="clearMarksConfirm"');
+const barTag = html.slice(html.lastIndexOf("<div", barAt), html.indexOf(">", barAt) + 1);
+assert.ok(/role="alertdialog"/.test(barTag) && /aria-live="assertive"/.test(barTag), "bar has a role and aria-live");
+assert.ok(/aria-labelledby="clearMarksConfirmText"/.test(barTag) && /\bhidden\b/.test(barTag), "bar is labelled and hidden by default");
+assert.ok(html.includes('<span id="clearMarksConfirmText">Clear marks?</span>'), "bar text");
+assert.ok(html.includes('onclick="confirmClearHandMarks()">Yes</button>') && html.includes('onclick="cancelClearHandMarks()">Cancel</button>'), "Yes / Cancel buttons");
+assert.ok(/Escape/.test(barTag), "Escape cancels");
 
 console.log("legal review tests passed");
