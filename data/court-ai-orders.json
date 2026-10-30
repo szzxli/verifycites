@@ -1,0 +1,85 @@
+{
+  "_comment": "Federal court orders about AI use in filings, maintained by hand. last_reviewed is set by hand only, to the date a person actually re-checked every source link below. Never auto-advance it (no workflow, script or build step may change it). If reviews stop, the page shows the old date as-is and the table is collapsed (legal/court-orders.js collapses it once last_reviewed is more than 21 days old) rather than shown as fresh. A row needs an official court source (a .uscourts.gov site or the court's own page/PDF); no official source means no row. After editing, run: python3 scripts/build_court_ai_orders.py",
+  "last_reviewed": "2026-10-30",
+  "scope": "Federal courts only (selected orders, not a complete list)",
+  "note": "A list of court orders about AI use in filings, maintained by hand. It may be incomplete or out of date. Check the official source. Not legal advice.",
+  "rows": [
+    {
+      "court": "U.S. District Court, N.D. Texas",
+      "judge": "All district judges (Local Civil Rule 7.2(f))",
+      "effective": "2024-09-03",
+      "summary": "A brief prepared using generative AI must say so on its first page under the heading \"Use of Generative Artificial Intelligence\"; a brief without that heading certifies that no AI was used.",
+      "source": "https://www.txnd.uscourts.gov/sites/default/files/orders/2-97.pdf"
+    },
+    {
+      "court": "U.S. District Court, E.D. Pennsylvania",
+      "judge": "Judge Michael M. Baylson",
+      "effective": "2023-06-06",
+      "summary": "A filer who used AI to prepare any paper must disclose that use and certify that every citation to the law or the record has been verified as accurate.",
+      "source": "https://www.paed.uscourts.gov/sites/paed/files/documents/locrules/standord/Standing%20Order%20Re%20Artificial%20Intelligence%206.6.pdf"
+    },
+    {
+      "court": "U.S. District Court, D. Colorado",
+      "judge": "Magistrate Judge Susan Prose",
+      "effective": "2024-10-21",
+      "summary": "In consent cases, Rule 12 and Rule 56 motions, motions to amend, and opposed motions must include a certification on the use or non-use of generative AI; filings without it are stricken.",
+      "source": "https://www.cod.uscourts.gov/Portals/0/Documents/Judges/SP/SP_Standing_Order_AI_Filings.pdf"
+    },
+    {
+      "court": "U.S. District Court, D. Colorado",
+      "judge": "Judge Nina Y. Wang",
+      "effective": "2025-12-01",
+      "summary": "Every filing must contain a certification on the use or non-use of generative AI, stating that any AI-drafted language was reviewed by a person and that cited authority exists; noncompliant filings may be stricken.",
+      "source": "https://www.cod.uscourts.gov/Portals/0/Documents/Judges/NYW/NYW_Standing_Order_Regarding_AI_Certification.pdf"
+    },
+    {
+      "court": "U.S. District Court, M.D. Florida",
+      "judge": "Judge Wendy W. Berger",
+      "effective": "2026-04-02",
+      "summary": "Every filing must end with a certification that no generative AI was used, or that AI-drafted language was reviewed by a person and all citations are to real authority and reflect its contents.",
+      "source": "https://www.flmd.uscourts.gov/sites/flmd/files/documents/flmd-berger-standing-order-on-ai.pdf"
+    },
+    {
+      "court": "U.S. District Court, E.D. Texas",
+      "judge": "Magistrate Judge John D. Love",
+      "effective": "2025-04-09",
+      "summary": "All filings must include a \"Certificate of Generative Artificial Intelligence Usage\" stating whether AI was used, which tool, how it was used, and that the filer checked the accuracy of AI-assisted content.",
+      "source": "https://www.txed.uscourts.gov/sites/default/files/judgeFiles/JDL%20Standing%20Order%20on%20AI%204.9.25.pdf"
+    },
+    {
+      "court": "U.S. District Court, N.D. Ohio",
+      "judge": "Judge Christopher A. Boyko",
+      "effective": "Not stated in the order",
+      "summary": "Attorneys and pro se parties may not use AI to prepare any filing; the order says this does not cover legal or internet search engines such as Westlaw, LexisNexis, Google or Bing.",
+      "source": "https://www.ohnd.uscourts.gov/sites/ohnd/files/Boyko.StandingOrder.GenerativeAI.pdf"
+    },
+    {
+      "court": "U.S. District Court, D. New Mexico",
+      "judge": "Judge Margaret I. Strickland",
+      "effective": "Not stated in the order",
+      "summary": "A party who uses a generative AI tool to prepare a filing must disclose that use and the tool in the document and certify that AI-drafted portions, including citations, were checked for accuracy.",
+      "source": "https://www.nmd.uscourts.gov/sites/nmd/files/Standing%20Order%20Regarding%20Use%20of%20Generative%20AI.pdf"
+    },
+    {
+      "court": "U.S. Bankruptcy Court, N.D. Texas",
+      "judge": "Court-wide (General Order 2023-03)",
+      "effective": "2023-06-21",
+      "summary": "Filers must verify that any AI-generated language in a filing was checked for accuracy using print reporters, traditional legal databases, or other reliable means.",
+      "source": "https://www.txnb.uscourts.gov/sites/txnb/files/news/General%20Order%202023-03%20Pleadings%20Using%20Generative%20Artificial%20Intelligence-signed.pdf"
+    },
+    {
+      "court": "U.S. Bankruptcy Court, S.D. California",
+      "judge": "Court-wide (General Order 210)",
+      "effective": "2026-01-01",
+      "summary": "A filing prepared in any aspect with generative AI must come with a signed attestation that names the AI program and certifies that the document was checked for factual and legal accuracy.",
+      "source": "https://www.casb.uscourts.gov/sites/casb/files/documents/general-orders/General%20Order%20210_2025-11-18.pdf"
+    },
+    {
+      "court": "U.S. Bankruptcy Court, M.D. Pennsylvania",
+      "judge": "Court-wide (General Order 2026-02)",
+      "effective": "2026-06-17",
+      "summary": "Filers who use generative AI must ensure that citations and statements of fact are accurate and supported; the court may stop reviewing, deny, or dismiss a filing that contains a miscited or misrepresented citation or fact.",
+      "source": "https://www.pamb.uscourts.gov/sites/default/files/general-orders/Revised-AI-Order-final---executed.pdf"
+    }
+  ]
+}
