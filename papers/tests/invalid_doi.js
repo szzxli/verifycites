@@ -41,10 +41,10 @@ const notFound = async () => resp(404, {});
     }
     for (const x of ['10.1/x', 'doi:10.1/x', 'https://doi.org/10.12/ab']) {
       const h = await run(x);
-      ok('homepage ' + x + ' -> INVALID_DOI', /INVALID_DOI/.test(h) && !/FABRICATED/.test(h), h);
+      ok('homepage ' + x + ' -> INVALID_DOI', /INVALID_DOI/.test(h) && !/ID_NOT_FOUND/.test(h), h);
     }
     ok('homepage: invalid DOI not looked up', calls === 0, String(calls));
-    ok('homepage: valid DOI still checked', /FABRICATED/.test(await run('10.9999/invented.2024')));
+    ok('homepage: valid DOI still checked', /ID_NOT_FOUND/.test(await run('10.9999/invented.2024')));
   }
   done();
 })();

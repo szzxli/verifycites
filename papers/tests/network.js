@@ -1,18 +1,18 @@
 /* veripaper web regression: a network / HTTP failure is "not checked",
- * never "not found" — and so never FABRICATED.
+ * never "not found" — and so never ID_NOT_FOUND.
  *
  * Before this fix the registry checks in web/ground.js and the single-ID
  * checker in web/index.html returned null ("no such record") for anything
  * that was not HTTP 200 or 429: offline, CORS, a timeout, a 5xx, a bot-check
- * page. A real DOI then came out FABRICATED whenever the network failed.
+ * page. A real DOI then came out ID_NOT_FOUND whenever the network failed.
  * Only a genuine 404 (or an empty search result) is a miss now.
  *  1. verifyDoi / verifyArxiv: offline, 5xx, timeout, non-JSON, 429 -> limited
  *     (not checked); all-404 / empty EPMC result -> clean miss
  *  2. groundDraft: raw DOI / arXiv ID offline -> RATE_LIMITED with a
- *     "could not reach" note; all-404 -> still FABRICATED
+ *     "could not reach" note; all-404 -> still ID_NOT_FOUND
  *  3. reference entry without an identifier, offline -> RATE_LIMITED, not
  *     UNVERIFIED "no match"; not cached, so the next online run checks it
- *  4. .bib mode offline -> no FABRICATED
+ *  4. .bib mode offline -> no ID_NOT_FOUND
  *  5. the homepage single-identifier checker (inline script in index.html)
  */
 'use strict';
@@ -95,7 +95,7 @@ const crossrefRecord = (title) => resp(200, { message: { title: [title], author:
   {
     const ev = await makeSandbox(offline).groundDraft(md, {}, null);
     ok('two findings', ev.length === 2, String(ev.length));
-    ok('offline: no FABRICATED', ev.every(e => e.base !== 'FABRICATED'), JSON.stringify(ev.map(e => e.base)));
+    ok('offline: no ID_NOT_FOUND', ev.every(e => e.base !== 'ID_NOT_FOUND'), JSON.stringify(ev.map(e => e.base)));
     ok('offline: RATE_LIMITED (not checked)', ev.every(e => e.base === 'RATE_LIMITED'));
     ok('offline: note says could not reach / not checked / NOT proven fake',
       ev.every(e => /could not reach the registries/.test(e.note) && /not checked/.test(e.note) && /NOT proven fake/.test(e.note)), ev.map(e => e.note).join(' || '));
@@ -103,11 +103,11 @@ const crossrefRecord = (title) => resp(200, { message: { title: [title], author:
   }
   {
     const ev = await makeSandbox(async () => resp(500, {})).groundDraft(md, {}, null);
-    ok('5xx everywhere: no FABRICATED', ev.every(e => e.base === 'RATE_LIMITED'), JSON.stringify(ev.map(e => e.base)));
+    ok('5xx everywhere: no ID_NOT_FOUND', ev.every(e => e.base === 'RATE_LIMITED'), JSON.stringify(ev.map(e => e.base)));
   }
   {
     const ev = await makeSandbox(async () => resp(404, {})).groundDraft(md, {}, null);
-    ok('all 404: invented identifiers still FABRICATED', ev.every(e => e.base === 'FABRICATED'), JSON.stringify(ev.map(e => e.base)));
+    ok('all 404: invented identifiers still ID_NOT_FOUND', ev.every(e => e.base === 'ID_NOT_FOUND'), JSON.stringify(ev.map(e => e.base)));
   }
 
   console.log('— reference entry without an identifier —');
@@ -151,7 +151,7 @@ const crossrefRecord = (title) => resp(200, { message: { title: [title], author:
       '@misc{v2017, title={Attention Is All You Need}, author={Vaswani, Ashish}, year={2017}, eprint={1706.03762}, archivePrefix={arXiv}}';
     const dd = sb.bibToDraft(bib);
     const ev = sb.bibLabelEvidence(await sb.groundDraft(dd.draft, { bibMode: true }, null), dd.entries);
-    ok('.bib offline: 2 entries, none FABRICATED', ev.length === 2 && ev.every(e => e.base === 'RATE_LIMITED'), JSON.stringify(ev.map(e => e.label)));
+    ok('.bib offline: 2 entries, none ID_NOT_FOUND', ev.length === 2 && ev.every(e => e.base === 'RATE_LIMITED'), JSON.stringify(ev.map(e => e.label)));
   }
 
   console.log('— homepage single-identifier checker (index.html inline script) —');
@@ -172,16 +172,16 @@ const crossrefRecord = (title) => resp(200, { message: { title: [title], author:
       return el('verify-result').innerHTML;
     }
     const off = await runChecker('10.1109/CVPR.2016.90', offline);
-    ok('offline DOI: not FABRICATED', !/FABRICATED/.test(off), off);
+    ok('offline DOI: not ID_NOT_FOUND', !/ID_NOT_FOUND/.test(off), off);
     ok('offline DOI: says not checked', /not checked/i.test(off) && /NOT proven fake/.test(off), off);
     const offA = await runChecker('1706.03762', offline);
-    ok('offline arXiv ID: not FABRICATED, not checked', !/FABRICATED/.test(offA) && /not checked/i.test(offA), offA);
+    ok('offline arXiv ID: not ID_NOT_FOUND, not checked', !/ID_NOT_FOUND/.test(offA) && /not checked/i.test(offA), offA);
     const e5 = await runChecker('10.1109/CVPR.2016.90', async (u) => u.includes('crossref') ? resp(503, {}) : resp(404, {}));
-    ok('Crossref 503 + others 404: not FABRICATED', !/FABRICATED/.test(e5) && /not checked/i.test(e5), e5);
+    ok('Crossref 503 + others 404: not ID_NOT_FOUND', !/ID_NOT_FOUND/.test(e5) && /not checked/i.test(e5), e5);
     const e500 = await runChecker('10.1109/CVPR.2016.90', async (u) => u.includes('europepmc') ? resp(500, {}) : resp(404, {}));
-    ok('Europe PMC 500 + others 404: not FABRICATED', !/FABRICATED/.test(e500) && /Europe PMC \(HTTP 500\)/.test(e500), e500);
+    ok('Europe PMC 500 + others 404: not ID_NOT_FOUND', !/ID_NOT_FOUND/.test(e500) && /Europe PMC \(HTTP 500\)/.test(e500), e500);
     const fab = await runChecker('10.9999/invented.2024', async (u) => u.includes('europepmc') ? resp(200, { resultList: { result: [] } }) : resp(404, {}));
-    ok('genuine 404s + empty search: FABRICATED', /FABRICATED/.test(fab), fab);
+    ok('genuine 404s + empty search: ID_NOT_FOUND', /ID_NOT_FOUND/.test(fab), fab);
     const real = await runChecker('10.1109/CVPR.2016.90', async (u) => u.includes('crossref') ? crossrefRecord('Deep Residual Learning for Image Recognition') : resp(404, {}));
     ok('real DOI: CITED', /CITED/.test(real) && /Deep Residual Learning/.test(real), real);
   }

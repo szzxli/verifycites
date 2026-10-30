@@ -2,7 +2,7 @@
  * - parser: braces / quotes / @string / # concatenation / @comment / (…) entries
  * - entries → reference-list lines the existing parser resolves (DOI, arXiv, citekey)
  * - every entry goes through groundDraft with the same labels
- *   (CITED / FABRICATED / UNVERIFIED / RATE_LIMITED + [RETRACTED] / [CHIMERIC])
+ *   (CITED / ID_NOT_FOUND / UNVERIFIED / RATE_LIMITED + [RETRACTED] / [CHIMERIC])
  * - bib mode is existence-level: no abstract fetch, no LLM call, no [STALE] tags
  * - client-side only: the only fetches are registry lookups
  */
@@ -162,7 +162,7 @@ const BIB = String.raw`% exported from a reference manager
   ok('5 results, one per entry', ev.length === 5, JSON.stringify(lab));
   ok('real arXiv entry -> CITED', lab.vaswani2017attention === 'CITED', lab.vaswani2017attention);
   ok('retracted DOI -> CITED [RETRACTED]', lab.wakefield1998 === 'CITED [RETRACTED]', lab.wakefield1998);
-  ok('unregistered DOI -> FABRICATED', lab.fake2024 === 'FABRICATED', lab.fake2024);
+  ok('unregistered DOI -> ID_NOT_FOUND', lab.fake2024 === 'ID_NOT_FOUND', lab.fake2024);
   ok('real title + wrong authors -> [CHIMERIC]', /^CITED \[CHIMERIC:author-mismatch\]$/.test(lab.smith2017), lab.smith2017);
   ok('no identifier, no match -> UNVERIFIED', lab.noid2020 === 'UNVERIFIED', lab.noid2020);
   ok('no [STALE] tag in bib mode (entries carry old years)', ev.every(e => !/STALE/.test(e.label)));
@@ -185,7 +185,7 @@ const BIB = String.raw`% exported from a reference manager
   const sb429 = makeSandbox(async () => ({ ok: false, status: 429 }));
   const d4 = sb429.bibToDraft('@article{k, title={T}, doi={10.1234/abc}}');
   const e4 = await sb429.groundDraft(d4.draft, { bibMode: true }, null);
-  ok('429 -> RATE_LIMITED not FABRICATED', e4[0].base === 'RATE_LIMITED', e4[0].base);
+  ok('429 -> RATE_LIMITED not ID_NOT_FOUND', e4[0].base === 'RATE_LIMITED', e4[0].base);
 
   console.log('— wiring —');
   ok('upload accepts .bib', /name\.endsWith\('\.bib'\)/.test(groundSrc));

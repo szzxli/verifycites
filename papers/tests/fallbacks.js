@@ -9,7 +9,7 @@
  *    everything limited still -> RATE_LIMITED
  * 5. DBLP bot-check HTML = unavailable, not a clean miss
  * 6. index-record match without DOI -> CITED (+ chimeric check);
- *    lookup-derived DOI that fails to verify is never FABRICATED
+ *    lookup-derived DOI that fails to verify is never ID_NOT_FOUND
  * 7. cache: bib2 results served offline; rate-limited results not cached
  * 8. abstract source order: Crossref-embedded / OpenAlex before S2
  */
@@ -150,7 +150,7 @@ const { ok, done } = harness();
     ok('dblp HTML -> unavailable', r.status === 'unavailable', r.status);
   }
 
-  console.log('— index record without DOI; lookup DOIs are never FABRICATED —');
+  console.log('— index record without DOI; lookup DOIs are never ID_NOT_FOUND —');
   {
     const sb = makeSandbox(async (url) => {
       if (url.includes('api.crossref.org/works?')) return resp(200, { message: { items: [] } });
@@ -162,7 +162,7 @@ const { ok, done } = harness();
     });
     const ev = await sb.groundDraft('Microvascular networks restore function [1].\n\n## References\n[1] Okafor, C., & Lindqvist, M. Self-healing polymer composites via microvascular networks. Science 2022.', { keyless: false }, null);
     ok('OpenAlex record match -> CITED', ev[0].base === 'CITED', ev[0].base + ' | ' + ev[0].note);
-    ok('not FABRICATED although its DOI did not re-verify', ev[0].base !== 'FABRICATED');
+    ok('not ID_NOT_FOUND although its DOI did not re-verify', ev[0].base !== 'ID_NOT_FOUND');
     const md = 'X [1].\n\n## References\n[1] Okafor, C., & Lindqvist, M. Self-healing polymer composites via microvascular networks. Science 2022.';
     const n0 = sb.__calls.length;
     const rc = await sb.resolveCitation({ cite_type: 'numeric', cite_id: '1' }, sb.parseReferences(md), new Map());
