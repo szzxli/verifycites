@@ -3,6 +3,265 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Genetic and genomic medicine across the lung transplant continuum: inherited disease, pharmacogenomics, and molecular surveillance.",
+      "identifier": "10.1097/mot.0000000000001325",
+      "url": "https://europepmc.org/article/MED/42952325",
+      "date": "2026-10-30",
+      "doi": "10.1097/mot.0000000000001325",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Narrative group intervention for wellbeing and violence reduction among incarcerated women: a Sicilian qualitative study.",
+      "identifier": "10.1108/ijoph-03-2026-0034",
+      "url": "https://europepmc.org/article/MED/42952288",
+      "date": "2026-10-30",
+      "doi": "10.1108/ijoph-03-2026-0034",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Nrf2 Activation Induces Fibroblast Senescence and Promotes Melanosome Accumulation in a Fibroblast-Keratinocyte Co-Culture Model.",
+      "identifier": "10.4062/biomolther.2026.104",
+      "url": "https://europepmc.org/article/MED/42952218",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.104",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Adenine Promotes Osteogenic Differentiation and Suppresses Osteoclastogenesis.",
+      "identifier": "10.4062/biomolther.2026.201",
+      "url": "https://europepmc.org/article/MED/42952217",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.201",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "WNT5A-Associated Osteogenic Enhancement Contributes to the Protective Effects of OPG-Fc in Glucocorticoid-Associated Femoral Head Osteonecrosis.",
+      "identifier": "10.4062/biomolther.2026.087",
+      "url": "https://europepmc.org/article/MED/42952216",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.087",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "SD-2102, a Novel PDK1 Inhibitor, Suppresses Lung Cancer Growth by Targeting PDK1/Akt Signaling Pathway.",
+      "identifier": "10.4062/biomolther.2026.131",
+      "url": "https://europepmc.org/article/MED/42952215",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.131",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Acquired TRAIL Resistance Promotes Cancer Stemness and Malignant Behavior through CD44-SPHK1-STAT3 Signaling in Colorectal Cancer.",
+      "identifier": "10.4062/biomolther.2026.083",
+      "url": "https://europepmc.org/article/MED/42952214",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.083",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "6-Hydroxyrubiadin Regulates TNF-α-Induced MUC5AC Gene Expression via Affecting NF-κB and MAPK Signaling Pathways in Human Airway Epithelial Cells.",
+      "identifier": "10.4062/biomolther.2026.187",
+      "url": "https://europepmc.org/article/MED/42952213",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.187",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Emerging Roles of ETV4 in Tumor Microenvironment Remodeling: Mechanisms and Therapeutic Targeting.",
+      "identifier": "10.4062/biomolther.2026.180",
+      "url": "https://europepmc.org/article/MED/42952212",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.180",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "AI-Enabled Animal Behavior Analysis for Translational Pharmacology and Therapeutic Discovery.",
+      "identifier": "10.4062/biomolther.2026.157",
+      "url": "https://europepmc.org/article/MED/42952211",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.157",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The Brain-Tooth Axis as an Early Predictor of Alzheimer's Disease.",
+      "identifier": "10.4062/biomolther.2026.165",
+      "url": "https://europepmc.org/article/MED/42952210",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.165",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Mesenchymal Stem Cell Therapy for Multiple Sclerosis: Harnessing Immunological Properties.",
+      "identifier": "10.4062/biomolther.2026.141",
+      "url": "https://europepmc.org/article/MED/42952209",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.141",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beyond Receptor-Proximal Uncoupling: EGFR-PKC Signaling and Arrestin Deubiquitination-Coupled Nuclear Trafficking in GPCR Signaling Regulation.",
+      "identifier": "10.4062/biomolther.2026.132",
+      "url": "https://europepmc.org/article/MED/42952208",
+      "date": "2026-10-30",
+      "doi": "10.4062/biomolther.2026.132",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Recurrent convexity subarachnoid hemorrhage mimicking transient ischemic attack in cerebral amyloid angiopathy: A case report.",
+      "identifier": "10.7461/jcen.2026.e2026.07.007",
+      "url": "https://europepmc.org/article/MED/42952066",
+      "date": "2026-10-30",
+      "doi": "10.7461/jcen.2026.e2026.07.007",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Stent-assisted coiling versus simple coiling for ruptured intracranial aneurysms in the acute phase: A single-center retrospective cohort study.",
+      "identifier": "10.7461/jcen.2026.e2026.08.003",
+      "url": "https://europepmc.org/article/MED/42952065",
+      "date": "2026-10-30",
+      "doi": "10.7461/jcen.2026.e2026.08.003",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Delayed and prolonged hypotension and watershed cerebral infarction following coil embolization of an extracranial carotid artery aneurysm: A possible baroreceptor-mediated complication.",
+      "identifier": "10.7461/jcen.2026.e2026.08.006",
+      "url": "https://europepmc.org/article/MED/42952064",
+      "date": "2026-10-30",
+      "doi": "10.7461/jcen.2026.e2026.08.006",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Deals for delivery: Exploring consumer perceptions of price promotions and nutrition information on meal delivery apps.",
+      "identifier": "10.1016/j.anzjph.2026.100598",
+      "url": "https://europepmc.org/article/MED/42951743",
+      "date": "2026-10-30",
+      "doi": "10.1016/j.anzjph.2026.100598",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply: What Happens to Weight following Abdominoplasty: An Analysis of 188 Consecutive Cases.",
+      "identifier": "10.1097/prs.0000000000013201",
+      "url": "https://europepmc.org/article/MED/42950269",
+      "date": "2026-10-30",
+      "doi": "10.1097/prs.0000000000013201",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply: Serratus Anterior Plane Block with Methylene Blue and Ropivacaine for Analgesia in Prosthetic Breast Augmentation: A Randomized Controlled Trial.",
+      "identifier": "10.1097/prs.0000000000013215",
+      "url": "https://europepmc.org/article/MED/42950268",
+      "date": "2026-10-30",
+      "doi": "10.1097/prs.0000000000013215",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply: Over 10 Years' Follow-Up Experience after Inverted-T Superior Pedicle Breast Reduction with the Modified Ribeiro Flap.",
+      "identifier": "10.1097/prs.0000000000013325",
+      "url": "https://europepmc.org/article/MED/42950267",
+      "date": "2026-10-30",
+      "doi": "10.1097/prs.0000000000013325",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply: Does Laterality of the Caudal Septal Extension Graft Matter? A Photograph-Based Analysis of Symmetry in Rhinoplasty.",
+      "identifier": "10.1097/prs.0000000000013202",
+      "url": "https://europepmc.org/article/MED/42950266",
+      "date": "2026-10-30",
+      "doi": "10.1097/prs.0000000000013202",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply: Moving Toward the Outpatient DIEP Flap: Factors Influencing Early Discharge.",
+      "identifier": "10.1097/prs.0000000000013244",
+      "url": "https://europepmc.org/article/MED/42950265",
+      "date": "2026-10-30",
+      "doi": "10.1097/prs.0000000000013244",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Moving Toward the Outpatient DIEP Flap: Factors Influencing Early Discharge.",
+      "identifier": "10.1097/prs.0000000000012654",
+      "url": "https://europepmc.org/article/MED/42950264",
+      "date": "2026-10-30",
+      "doi": "10.1097/prs.0000000000012654",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply: Moving toward the Outpatient DIEP Flap: Factors Influencing Early Discharge.",
+      "identifier": "10.1097/prs.0000000000013241",
+      "url": "https://europepmc.org/article/MED/42950263",
+      "date": "2026-10-30",
+      "doi": "10.1097/prs.0000000000013241",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "PRS Journal Club: Beyond the Operation: Redefining Success in Pediatric Craniofacial Surgery.",
+      "identifier": "10.1097/prs.0000000000013354",
+      "url": "https://europepmc.org/article/MED/42950262",
+      "date": "2026-10-30",
+      "doi": "10.1097/prs.0000000000013354",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "RED EAGLE LAW, LC V. RUBIO",
+      "identifier": "26-6943",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/26-6943.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T04:44:46Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Low incidence, high stakes: BCMA CAR-T and parkinsonism.",
       "identifier": "10.3324/haematol.2026.302169",
       "url": "https://europepmc.org/article/MED/42952468",
@@ -1416,7 +1675,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-10-29T22:30:22Z",
+    "last_poll": "2026-10-30T04:44:46Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -1432,9 +1691,9 @@
       },
       {
         "name": "arXiv",
-        "status": "ok",
-        "items": 25,
-        "last_error": null
+        "status": "error",
+        "items": 0,
+        "last_error": "fetch failed after 3 attempts: HTTP Error 429: Unknown Error"
       },
       {
         "name": "Europe PMC",
