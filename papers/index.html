@@ -157,11 +157,16 @@ details.fold section.side{padding:26px 0 4px}
 .linkbtn{background:none;border:0;padding:0;color:var(--navy);font:inherit;text-decoration:underline;cursor:pointer}
 .progress{font-family:var(--sans);font-size:13px;color:var(--ink-soft);margin-top:10px}
 @media(max-width:640px){.wrap{padding:0 18px}.titleblock{padding:36px 0 6px}}
+.back-to-top{position:fixed;right:14px;bottom:14px;z-index:20;padding:7px 11px;background:#fff;border:1px solid var(--line);font-family:var(--sans);font-size:13px;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.vp-filter{cursor:pointer;border:0;font:inherit}
+.vp-filter[aria-pressed="true"]{outline:2px solid currentColor;outline-offset:1px}
+.vp-filter[disabled]{cursor:default;opacity:.55}
+.claim[hidden]{display:none}
 </style>
   <link rel="stylesheet" href="../site-nav.css">
 </head>
 <body>
-<header class="vc-nav">
+<header class="vc-nav" id="top">
   <div class="vc-nav-inner">
     <a class="vc-nav-brand" href="/">VerifyCites</a>
     <nav class="vc-nav-links" aria-label="Site">
@@ -205,6 +210,7 @@ details.fold section.side{padding:26px 0 4px}
       <input id="ground-file" type="file" accept=".docx,.pdf,.bib,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf" style="display:none">
       <span class="hint" style="margin:0">or paste your own markdown (or BibTeX) below</span>
     </div>
+    <label for="ground-input" id="ground-input-label" class="hint" style="display:block;margin:0 0 6px"><b>Your draft.</b> Paste plain text or markdown, or upload a .docx, .pdf or .bib file. Have a .doc file? Save it as .docx first, or paste its text. Have a .txt file? Open it and paste its text here.</label>
     <textarea id="ground-input" rows="9" placeholder="Paste your draft — claims with [@key], [1], (Author, 2020), DOI or arXiv citations, plus a References section…"></textarea>
     <div class="btnrow">
       <input id="ground-key" type="password" placeholder="OpenRouter key (optional — higher-accuracy LLM judgment)" style="flex:1;min-width:220px">
@@ -212,11 +218,16 @@ details.fold section.side{padding:26px 0 4px}
     </div>
     <label class="hint" style="display:flex;gap:8px;align-items:flex-start;margin:4px 0 0;cursor:pointer">
       <input id="ground-keyless" type="checkbox" checked style="margin-top:3px">
-      <span><b>Keyless claim check</b> (free, default): a small NLI model (nli-deberta-v3-xsmall, ~87&nbsp;MB, downloaded once on first use and cached by your browser) runs on this page and compares each claim with the cited paper's <i>abstract only</i>, plus exact checks that the claim's numbers, quoted phrases and named entities appear in that abstract. Smaller and less accurate than an LLM — results are tagged <code>[KEYLESS-NLI]</code>. The model runs in your browser, so this check sends no claims anywhere.</span>
+      <span id="keyless-default-line"><b>Keyless claim check</b> (free, default). Leave the box checked — the free check runs in your browser.</span>
     </label>
+    <details class="fold" id="keyless-explainer" style="margin:6px 0 0">
+      <summary>What is the keyless check?</summary>
+      <p class="hint" style="margin-top:8px"><b>The keyless check:</b> a small NLI model (nli-deberta-v3-xsmall, ~87&nbsp;MB, downloaded once on first use and cached by your browser) runs on this page and compares each claim with the cited paper's <i>abstract only</i>, plus exact checks that the claim's numbers, quoted phrases and named entities appear in that abstract. Smaller and less accurate than an LLM — results are tagged <code>[KEYLESS-NLI]</code>. The model runs in your browser, so this check sends no claims anywhere.</p>
+      <p class="hint" id="keyless-byok">Without a key, the keyless check above runs in your browser (abstract-only, smaller model); untick it to only check that sources exist. With an OpenRouter key, an LLM compares each abstract with its claim instead — the optional higher-accuracy path, expected to be more accurate but not yet scored in our benchmark. The keyless check is a <b>first-pass screen</b>, not a substitute for reading the sources — see <a href="#limits">what it can and cannot do</a>. Either way, partial or unclear cases downgrade to <i>cited</i>, never pretend.</p>
+      <p class="hint" id="keyless-registries">Lookups go to free public indexes (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP; Semantic Scholar only as a last resort), paced and cached in this browser so you hit fewer rate limits.</p>
+    </details>
     <div id="ground-progress" class="progress"></div>
     <div id="ground-result" style="margin-top:14px"></div>
-    <p class="hint">Without a key, the keyless check above runs in your browser (abstract-only, smaller model); untick it to only check that sources exist. With an OpenRouter key, an LLM compares each abstract with its claim instead — the optional higher-accuracy path. The keyless check is a <b>first-pass screen</b>, not a substitute for reading the sources — see <a href="#limits">what it can and cannot do</a>. Either way, partial or unclear cases downgrade to <i>cited</i>, never pretend. Lookups go to free public indexes (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP; Semantic Scholar only as a last resort), paced and cached locally so you hit fewer rate limits.</p>
   </div>
 </section>
 
@@ -365,6 +376,7 @@ details.fold section.side{padding:26px 0 4px}
     <button id="pj-rename" class="btn ghost" style="padding:9px 16px;font-size:13px">Rename</button>
     <button id="pj-del" class="btn ghost" style="padding:9px 16px;font-size:13px">Delete</button>
   </div>
+  <p class="hint" id="pj-purpose" style="margin-bottom:4px">One project keeps your idea, checklist, venues, rebuttal and submissions together. Everything stays in this browser.</p>
   <p class="hint" id="pj-hint" style="margin-bottom:0"></p>
   <p class="hint" id="grounded-definition">grounded ×N = number of citation checks completed in this project, saved in this browser.</p>
 </div>
@@ -488,8 +500,9 @@ details.fold section.side{padding:26px 0 4px}
 </section>
 </div>
 
+<a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top">↑ Top</a>
 <footer><div class="wrap">
-  <div class="colophon">VERIFYCITES · v0.1 · SET IN GEORGIA · MIT LICENSE · <a href="https://github.com/szzxli/veripaper">GITHUB</a> · <a href="mailto:info@verifycites.com">info@verifycites.com</a> · <a href="#" id="buglink">REPORT BUG</a></div>
+  <div class="colophon">VERIFYCITES · v0.1 · SET IN GEORGIA · MIT LICENSE · <a href="https://github.com/szzxli/veripaper">GITHUB</a> · <a href="mailto:info@verifycites.com">info@verifycites.com</a> · <a href="#" id="buglink">REPORT BUG</a> · <a href="#top" id="footer-top">BACK TO TOP</a></div>
   <p class="colophon" style="margin-top:8px;text-transform:none;letter-spacing:0">Privacy: we use <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a>, a privacy-friendly, cookie-free page-view counter (no personal data, no cookies; its small script loads from gc.zgo.at). Your drafts and keys are never sent to it. Your draft text stays in your browser (.docx / .pdf text is extracted here). Only citation identifiers and reference text are sent to the registries (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar); claims and abstracts go to OpenRouter only if you add your own key. The keyless claim-check model is downloaded from the Hugging Face hub and runs locally; claims are not sent anywhere.</p>
 </div></footer>
 
@@ -641,8 +654,16 @@ async function verify(){
     const isArxiv = /^(\d{4}\.\d{4,5}(v\d+)?|[a-z-]+\/\d{7}(v\d+)?)$/i.test(doi);
     const doiLike = /^doi:/i.test(doi) || /^10\./.test(doi) || /doi\.org\//i.test(raw);
     const bare = doi.replace(/^doi:\s*/i,'');
+    /* B5: echo what was entered plus its DOI / arXiv ID form. This is a copy
+       of the input for cross-checking, not a verification result. */
+    const arxivBare = isArxiv ? doi.replace(/v\d+$/i,'') : '';
+    const echo = `<p class="hint" id="verify-echo" style="margin:0 0 8px">You entered: <code>${esc(raw)}</code>` +
+      (isArxiv ? ` · arXiv ID: <code>${esc(doi)}</code> · DOI form: <code>10.48550/arXiv.${esc(arxivBare)}</code>`
+               : ` · DOI: <code>${esc(bare)}</code>`) +
+      ` <span style="color:var(--ink-soft)">(echo of your input, not a check result)</span></p>`;
+    const showE = h => show(echo + h);
     if(!isArxiv && doiLike && !/^10\.\d{4,9}\/[^\s"'<>]+$/i.test(bare)){
-      show(`<span class="label l-unverified">INVALID_DOI</span><b>DOI format invalid.</b> '${esc(bare)}' is not a well-formed DOI (10.&lt;4-9 digits&gt;/&lt;suffix&gt;) — likely mistyped. Not looked up. Next: copy the DOI again from the publisher page.`);
+      showE(`<span class="label l-unverified">INVALID_DOI</span><b>DOI format invalid.</b> '${esc(bare)}' is not a well-formed DOI (10.&lt;4-9 digits&gt;/&lt;suffix&gt;) — likely mistyped. Not looked up. Next: copy the DOI again from the publisher page.`);
       busy(false); return;
     }
     const failed = [];
@@ -658,16 +679,16 @@ async function verify(){
       : (await tryOne('Crossref', () => checkCrossRef(doi)) || await tryOne('DataCite', () => checkDataCite(doi)) || await tryOne('Europe PMC', () => checkEuropePMC(doi)));
     if(meta){
       const retr = meta.retracted ? `<br><span class="label l-unverified">RETRACTED</span> <b style="color:var(--crimson)">This paper has been retracted — do not cite it as support.</b><br>` : '';
-      show(`<span class="label l-cited">CITED</span><b>Source exists.</b> Content support not yet checked — this is honest downgrade, not verification.${retr}<br>
+      showE(`<span class="label l-cited">CITED</span><b>Source exists.</b> Content support not yet checked — this is honest downgrade, not verification.${retr}<br>
         <b>${esc(meta.title)}</b><br>
         <span style="color:var(--ink-soft)">${esc(meta.authors)}${meta.year?' · '+esc(meta.year):''}${meta.venue?' · <i>'+esc(meta.venue)+'</i>':''}</span>`);
     }else if(failed.length && failed.every(f => f.limited)){
-      show(`<span class="label l-stale">RATE_LIMITED</span><b>Sources were rate-limited (HTTP 429).</b> Not checked — NOT proven fake. Wait a minute and retry.`);
+      showE(`<span class="label l-stale">RATE_LIMITED</span><b>Sources were rate-limited (HTTP 429).</b> Not checked — NOT proven fake. Wait a minute and retry.`);
     }else if(failed.length){
       const which = failed.map(f => f.name + (f.why ? ' (' + f.why + ')' : '')).join(', ');
-      show(`<span class="label l-stale">RATE_LIMITED</span><b>Could not reach the registries</b> — ${esc(which)}. Not checked: could not verify, NOT proven fake. Check your connection and retry.`);
+      showE(`<span class="label l-stale">RATE_LIMITED</span><b>Could not reach the registries</b> — ${esc(which)}. Not checked: could not verify, NOT proven fake. Check your connection and retry.`);
     }else{
-      show(`<span class="label l-unverified">ID_NOT_FOUND</span><b>No record in any registry.</b> This ${isArxiv ? 'arXiv ID' : 'DOI'} was looked up and not found. Next: copy it again from the publisher or arXiv page; if you cannot find the work, do not cite it until you can.`);
+      showE(`<span class="label l-unverified">ID_NOT_FOUND</span><b>No record in any registry.</b> This ${isArxiv ? 'arXiv ID' : 'DOI'} was looked up and not found. Next: copy it again from the publisher or arXiv page; if you cannot find the work, do not cite it until you can.`);
     }
   }catch(err){
     if(err && err.message === 'arxiv-down'){
