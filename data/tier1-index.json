@@ -1,6 +1,232 @@
 {
   "items": [
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Variational wavefunctions for ideal anyon gas: superfluid and skyrmion Hall crystal",
+      "identifier": "2610.40657",
+      "url": "https://arxiv.org/abs/2610.40657",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The $δ$ Scuti instability strip and period-luminosity relation as seen by TESS and Gaia DR3",
+      "identifier": "2610.40656",
+      "url": "https://arxiv.org/abs/2610.40656",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Elucidating the Design Space of LM Data Attribution",
+      "identifier": "2610.40655",
+      "url": "https://arxiv.org/abs/2610.40655",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Propose-Filter-Release: Scaling Noise to Typical Sensitivity via Private Filtering",
+      "identifier": "2610.40654",
+      "url": "https://arxiv.org/abs/2610.40654",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Micro-Edits: Computational Support for Fine-Scale Edits in Film",
+      "identifier": "2610.40653",
+      "url": "https://arxiv.org/abs/2610.40653",
+      "date": "2026-10-29",
+      "doi": "10.1145/3830398.3830545",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Reconstructing hidden observables via quantum snapshot thermometry",
+      "identifier": "2610.40652",
+      "url": "https://arxiv.org/abs/2610.40652",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Renormalization for Robust Memory without Synchronization",
+      "identifier": "2610.40651",
+      "url": "https://arxiv.org/abs/2610.40651",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "When Does Storage Complement Solar? Investment and Cost Recovery under Advanced Net Metering",
+      "identifier": "2610.40650",
+      "url": "https://arxiv.org/abs/2610.40650",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Rethinking Neural Thickets Without Weight Perturbations",
+      "identifier": "2610.40649",
+      "url": "https://arxiv.org/abs/2610.40649",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Light-Cone Friedel Oscillations: a Window into van Hove Superconductivity",
+      "identifier": "2610.40648",
+      "url": "https://arxiv.org/abs/2610.40648",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Read, Allocate, Route: Role-Coupled Tokenization for Pixel-Space Generative Transformers",
+      "identifier": "2610.40647",
+      "url": "https://arxiv.org/abs/2610.40647",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing",
+      "identifier": "2610.40646",
+      "url": "https://arxiv.org/abs/2610.40646",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "JT gravity as a conformal scaling limit of random flat combinatorial disks",
+      "identifier": "2610.40645",
+      "url": "https://arxiv.org/abs/2610.40645",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Adaptive Scenario Generation for KL-DRO Around a Learned Density Model",
+      "identifier": "2610.40644",
+      "url": "https://arxiv.org/abs/2610.40644",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Luggage re-identification: A study of strategies towards a real-world application",
+      "identifier": "2610.40643",
+      "url": "https://arxiv.org/abs/2610.40643",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Comparison of entangling strategies for unitary synthesis",
+      "identifier": "2610.40642",
+      "url": "https://arxiv.org/abs/2610.40642",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "From extreme weather to agricultural consequences with agentic AI",
+      "identifier": "2610.40641",
+      "url": "https://arxiv.org/abs/2610.40641",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "SonoWorld4D: From One Video to a 4D Audio-Visual Scene via Diffusion Synchronization",
+      "identifier": "2610.40640",
+      "url": "https://arxiv.org/abs/2610.40640",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Multicomplexes in Action: Strong Formality of Compact Hyperkähler Manifolds",
+      "identifier": "2610.40639",
+      "url": "https://arxiv.org/abs/2610.40639",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Entanglement diagnostics of stochastic-resetting steady states: theory and measurement on superconducting qubits",
+      "identifier": "2610.40638",
+      "url": "https://arxiv.org/abs/2610.40638",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "world2vec: Mechanistic world models through latent dynamics learning",
+      "identifier": "2610.40637",
+      "url": "https://arxiv.org/abs/2610.40637",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Probing Spatial State Representations in Visual Foundation Models",
+      "identifier": "2610.40636",
+      "url": "https://arxiv.org/abs/2610.40636",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "How many mutations does it take to evolve a new function?",
+      "identifier": "2610.40635",
+      "url": "https://arxiv.org/abs/2610.40635",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hyaluronic acid over-expression drives tissue architecture in both healthy and diseased states",
+      "identifier": "2610.40634",
+      "url": "https://arxiv.org/abs/2610.40634",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "PRISMS GHZ8: Evidence for a Young Burst and Potential Merger Activity at z=10.23",
+      "identifier": "2610.40633",
+      "url": "https://arxiv.org/abs/2610.40633",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "Genetic and genomic medicine across the lung transplant continuum: inherited disease, pharmacogenomics, and molecular surveillance.",
@@ -1675,7 +1901,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-10-30T04:44:46Z",
+    "last_poll": "2026-10-30T12:17:26Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -1691,9 +1917,9 @@
       },
       {
         "name": "arXiv",
-        "status": "error",
-        "items": 0,
-        "last_error": "fetch failed after 3 attempts: HTTP Error 429: Unknown Error"
+        "status": "ok",
+        "items": 25,
+        "last_error": null
       },
       {
         "name": "Europe PMC",
