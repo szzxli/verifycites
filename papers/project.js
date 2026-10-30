@@ -169,7 +169,7 @@ function initProjectBar() {
     const cur = VP.active();
     sel.innerHTML = VP.list().map(p =>
       `<option value="${p.id}"${p.id === (cur && cur.id) ? ' selected' : ''}>${pjesc(p.name)}</option>`).join('');
-    if (hint && cur) hint.textContent = pjSummary(cur) + ' — one project carries idea → checklist → venues → grounding → reviews → acceptance. grounded ×N = number of citation checks completed in this project, saved in this browser.';
+    if (hint && cur) hint.textContent = pjSummary(cur);
     // notify dependent modules
     if (window.PJ_refresh) window.PJ_refresh();
   };

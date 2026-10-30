@@ -1793,6 +1793,22 @@ LeCun, Y., Bengio, Y., Hinton, G. Deep learning. Nature 521:436-444, 2015.
 
 Verizon. 2023 Data Breach Investigations Report. 2023.`;
 
+/* B4: summary label counts double as filters (display only, no events). */
+function vpFilterChip(base, n) {
+  return `<button type="button" class="label ${labelClass(base)} vp-filter" data-filter="${base}" aria-pressed="false"${n ? '' : ' disabled'}>${base} ${n}</button>`;
+}
+function vpFilterShows(blockBase, filter) {
+  return !filter || blockBase === filter;
+}
+function vpApplyFilter(container, filter) {
+  if (!container || !container.querySelectorAll) return;
+  container.querySelectorAll('[data-claim-base]').forEach(el => {
+    el.hidden = !vpFilterShows(el.getAttribute('data-claim-base'), filter);
+  });
+  container.querySelectorAll('[data-filter]').forEach(b => {
+    b.setAttribute('aria-pressed', String((b.getAttribute('data-filter') || '') === (filter || '')));
+  });
+}
 function labelClass(base) {
   return { 'ABSTRACT-SUPPORTED': 'l-verified', CITED: 'l-cited', UNVERIFIED: 'l-unverified',
     RATE_LIMITED: 'l-stale', INVALID_DOI: 'l-unverified', ID_NOT_FOUND: 'l-unverified',
@@ -1902,18 +1918,20 @@ function renderReport(evidence, ropts) {
   let html = `<p id="papers-handcheck-progress">You have checked ${hand.checked} of ${hand.total} claims by hand</p>` +
     `<div style="margin-bottom:18px;font-size:14.5px">` +
     `<b>${evidence.length}</b> ${unit} processed by the checker &nbsp;·&nbsp; ` +
-    `<span class="label l-verified">ABSTRACT-SUPPORTED ${counts['ABSTRACT-SUPPORTED']}</span> ` +
-    `<span class="label l-cited">CITED ${counts.CITED}</span> ` +
-    `<span class="label l-unverified">UNVERIFIED ${counts.UNVERIFIED}</span>` +
-    (counts.RATE_LIMITED ? ` <span class="label l-stale">RATE_LIMITED ${counts.RATE_LIMITED}</span>` : '') +
-    (counts.INVALID_DOI ? ` <span class="label l-unverified">INVALID_DOI ${counts.INVALID_DOI}</span>` : '') +
-    (counts.ID_NOT_FOUND ? ` <span class="label l-unverified">ID_NOT_FOUND ${counts.ID_NOT_FOUND}</span>` : '') +
-    (counts.ID_NOT_FOUND_TITLE_FOUND ? ` <span class="label l-unverified">ID_NOT_FOUND_TITLE_FOUND ${counts.ID_NOT_FOUND_TITLE_FOUND}</span>` : '') +
-    (counts.NOT_A_SCHOLARLY_RECORD ? ` <span class="label l-stale">NOT_A_SCHOLARLY_RECORD ${counts.NOT_A_SCHOLARLY_RECORD}</span>` : '') +
+    vpFilterChip('ABSTRACT-SUPPORTED', counts['ABSTRACT-SUPPORTED']) + ' ' +
+    vpFilterChip('CITED', counts.CITED) + ' ' +
+    vpFilterChip('UNVERIFIED', counts.UNVERIFIED) +
+    (counts.RATE_LIMITED ? ' ' + vpFilterChip('RATE_LIMITED', counts.RATE_LIMITED) : '') +
+    (counts.INVALID_DOI ? ' ' + vpFilterChip('INVALID_DOI', counts.INVALID_DOI) : '') +
+    (counts.ID_NOT_FOUND ? ' ' + vpFilterChip('ID_NOT_FOUND', counts.ID_NOT_FOUND) : '') +
+    (counts.ID_NOT_FOUND_TITLE_FOUND ? ' ' + vpFilterChip('ID_NOT_FOUND_TITLE_FOUND', counts.ID_NOT_FOUND_TITLE_FOUND) : '') +
+    (counts.NOT_A_SCHOLARLY_RECORD ? ' ' + vpFilterChip('NOT_A_SCHOLARLY_RECORD', counts.NOT_A_SCHOLARLY_RECORD) : '') +
+    ` <button type="button" class="linkbtn vp-filter-all" data-filter="" aria-pressed="true">Show all</button>` +
     (staleN ? ` <span class="label l-stale">STALE ×${staleN}</span>` : '') +
     (chimericN ? ` <span class="label l-unverified">CHIMERIC ×${chimericN}</span>` : '') +
     (retractedN ? ` <span class="label l-unverified">RETRACTED ×${retractedN}</span>` : '') +
-    (_vpCacheHits ? ` <span style="font-size:12px;color:var(--ink-soft)">· ${_vpCacheHits} served from local cache</span>` : '') +
+    `<div id="vp-filter-note" style="font-size:12.5px;color:var(--ink-soft);margin-top:4px">Click a label count to show only those results; "Show all" brings the rest back.</div>` +
+    (_vpCacheHits ? `<div id="vp-cache-line" style="font-size:12px;color:var(--ink-soft);margin-top:4px">${_vpCacheHits} lookups were reused from this browser's cache instead of asking the registries again. The cache is in this browser's localStorage (key <code>veripaper-cache-v1</code>): registry records, abstracts and check verdicts, kept 7–30 days, at most 800 entries. It stays in this browser and is never sent anywhere.</div>` : '') +
     `</div>` +
     `<div style="margin-bottom:18px;font-size:14.5px">Category: ` +
     `Matched ${catCounts.matched} · Field mismatch ${catCounts.fieldMismatch} · ` +
@@ -1976,7 +1994,7 @@ function renderReport(evidence, ropts) {
       : cat === 'retrievalFailed' ? 'Try again later.'
       : 'Check spelling, add a DOI or arXiv ID, or search the registries by hand.';
     if (isRetracted) action += ' Do not cite a retracted paper as support.';
-    html += `<div class="claim open" style="cursor:default">` +
+    html += `<div class="claim open" style="cursor:default" data-claim-base="${gesc(e.base)}">` +
       `<p><b>${i + 1}.</b> ${gesc(e.claim)}</p>` +
       `<div class="verdict" style="display:block">` +
       `<span class="label ${labelClass(e.base)}">${gesc(e.base)}</span>` +
@@ -2048,6 +2066,12 @@ function initGround() {
     const sec = document.getElementById('ground');
     if (sec && sec.scrollIntoView) sec.scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => btn.click(), 650);
+  });
+  if (out && out.addEventListener) out.addEventListener('click', ev => {
+    const b = ev.target && ev.target.closest ? ev.target.closest('[data-filter]') : null;
+    if (!b || b.disabled) return;
+    const f = b.getAttribute('data-filter') || '';
+    vpApplyFilter(out, b.getAttribute('aria-pressed') === 'true' && f ? '' : f);
   });
   btn.addEventListener('click', async () => {
     const text = ta.value.trim();
