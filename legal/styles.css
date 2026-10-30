@@ -53,6 +53,12 @@ button { color: inherit; }
 .footer-operator { color: var(--muted); font-size: 13px; }
 #legal-news-list { padding-left: 1.2em; }
 #legal-news-note { color: var(--ink-soft); }
+#court-ai-orders-note, #court-ai-orders-reviewed { color: var(--ink-soft); }
+.court-orders-scope { font-weight: 700; }
+.court-orders-table th:nth-child(1) { width: 18%; }
+.court-orders-table th:nth-child(2) { width: 17%; }
+.court-orders-table th:nth-child(3) { width: 11%; }
+.court-orders-table th:nth-child(5) { width: 11%; }
 .header-inner { width: min(var(--content), calc(100% - 48px)); min-height: 70px; margin: 0 auto; display: flex; align-items: center; gap: 30px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; flex: 0 0 auto; color: var(--navy); text-decoration: none; }
 .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: #e9f0f3; color: var(--navy); }
