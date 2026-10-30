@@ -107,10 +107,10 @@ assert.ok(!I18N.es.labelLegend.includes("VERIFIED"), "ES legend is NOT_CHECKED o
 assert.ok(!I18N.zh.labelLegend.includes("VERIFIED"), "ZH legend is NOT_CHECKED only");
 
 // --- 5. Eligibility paragraph below the results, with the agreement link.
-const eligAt = idx('data-i18n="eligibilityNote"');
-assert.ok(eligAt > idx('id="reportSection"'), "eligibility paragraph is below the report section");
-assert.ok(eligAt < idx('<section class="utility-card cli-card" id="cli"'), "eligibility paragraph is inside the checker section");
-assert.ok(html.includes("https://free.law/membership/allowed-api-usage/"), "agreement link present");
+// B6 (batch 2): one eligibility line only, in the CLI check section.
+assert.ok(!html.includes('data-i18n="eligibilityNote"'), "duplicate eligibility paragraph is removed from the checker");
+assert.ok(html.includes('data-i18n="cliTerms"') && idx('data-i18n="cliTerms"') > idx('id="cli"'), "single eligibility line sits in the CLI check section");
+assert.strictEqual(html.split("https://free.law/membership/allowed-api-usage/").length - 1, 1, "agreement link present exactly once");
 assert.ok(I18N.en.eligibilityNote.includes("five or fewer attorneys"), "eligibility: who may use");
 assert.ok(I18N.en.eligibilityNote.includes("separate Free Law Project agreement"), "eligibility: who needs agreement");
 assert.ok(I18N.en.eligibilityNote.includes("membership-based"), "eligibility says membership-based");
@@ -156,16 +156,13 @@ assert.ok(I18N.en.privacy.includes("GoatCounter"), "privacy names GoatCounter");
 assert.ok(!I18N.en.privacy.includes("translation endpoint"), "translation is not promoted in the privacy line");
 
 // --- 9. Checker-top limit line (for #checker deep-link landings).
-const topLimitAt = idx('data-i18n="checkerTopLimit"');
-assert.ok(topLimitAt > checkerAt && topLimitAt < idx('id="input"'), "checker-top limit inside checker, above input");
-assert.ok(I18N.en.checkerTopLimit.includes("not checked online"), "checker-top limit states the limit");
+// B4 (batch 2): the restated checker-top limit is removed; Important limits stays.
+assert.ok(!html.includes('data-i18n="checkerTopLimit"'), "restated checker-top limit removed");
 
 // --- 10. Results note: real #cli link in all three languages (split COPY keys).
-const noteStart = html.indexOf('<div class="not-checked-note"');
-const noteDiv = html.slice(noteStart, html.indexOf("</div>", noteStart) + 6);
-assert.ok(noteDiv.includes('<a href="#cli" data-copy="browserModeNoteLink">'), "note links to #cli");
-assert.ok(noteDiv.includes('data-copy="browserModeNotePrefix"'), "note prefix present");
-assert.ok(noteDiv.includes('data-copy="browserModeNoteSuffix"'), "note suffix present");
+// B4 (batch 2): the restated results note is removed from the page; its COPY
+// strings stay in the dictionary unchanged.
+assert.ok(!html.includes('<div class="not-checked-note"'), "restated results note removed");
 // Prefix + link + suffix reconstruct the original note exactly.
 const ORIG_NOTE = {
   en: "Every result in browser mode is marked NOT_CHECKED. Use the links to check by hand. The CLI checks CourtListener case existence and case name only. It does not check statutes, regulations, BIA, AAO, the INA, or the C.F.R.",

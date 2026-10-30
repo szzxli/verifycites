@@ -32,7 +32,7 @@ assert.ok(!I18N.en.briefingAudience.includes("Chinese-speaking"));
 assert.ok(I18N.zh.briefingAudience.includes("独立执业律师"));
 assert.ok(!I18N.zh.briefingAudience.includes("在美华人"));
 // Fix 2/3/6: HTML hooks present.
-assert.ok(html.includes('data-i18n="extractPreNote"'), "prenote under button");
+assert.ok(!html.includes('data-i18n="extractPreNote"'), "B4: restated prenote under the button is removed (Important limits covers it)");
 assert.ok(html.includes('data-i18n="labelLegend"'), "legend above table");
 assert.ok(html.includes('<a href="#cli" data-i18n="resultsCliGuide"'), "guide anchor to #cli");
 assert.ok(!html.includes('id="translation"'), "translation section is not promoted");

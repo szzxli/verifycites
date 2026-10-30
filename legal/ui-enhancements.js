@@ -5,9 +5,9 @@
 
   var COPY = {
     en: {
-      skipToContent: "Skip to content", languageLabel: "Language", brandHome: "VerifyCites home", navLabel: "Primary navigation", navCheck: "Citation checker", navBriefing: "Briefing", navTranslation: "Translate", navCli: "CLI guide", navImmigration: "Immigration guide", navBia: "BIA precedent search", navQuery: "Query translation",
+      skipToContent: "Skip to content", languageLabel: "Language", brandHome: "VerifyCites home", navLabel: "Primary navigation", navCheck: "Citation checker", navBriefing: "Briefing", navTranslation: "Translate", navCli: "CLI check", navImmigration: "Immigration guide", navBia: "BIA precedent search", navQuery: "Query translation",
       heroKicker: "A focused workspace for cited cases", factLocal: "Citation extraction runs in this browser",
-      factNoLookup: "Browser mode does not look up cases", factCli: "CLI checks CourtListener case existence and case name only",
+      factNoLookup: "Browser mode does not look up cases", factCli: "CLI check: CourtListener case existence and case name only",
       trustSummary: "Important limits — please read", primaryTask: "Primary task",
       checkerTitle: "Extract citations from a document",
       checkerDescription: "Paste legal text or upload a plain-text file. Review the extracted citations and open each source to check it yourself.",
@@ -25,21 +25,21 @@
       translationIntro: "Compare pasted opinion paragraphs with a machine translation from an endpoint you choose.",
       opinionLabel: "Opinion text", optionalDaily: "Optional · saved in this browser",
       briefingLocalNote: "Preferences are stored in this browser only. When you request today's briefing, saved state, topic and citation query strings are sent to CourtListener.",
-      advancedOption: "Advanced option", cliExplanation: "The browser page only extracts citation strings. The CLI can send those extracted strings to CourtListener when you provide your own token; by default it does not send the brief text.",
+      advancedOption: "CLI check", cliExplanation: "The browser page only extracts citation strings. The CLI can send those extracted strings to CourtListener when you provide your own token; by default it does not send the brief text.",
       cliCommandLabel: "Run in a terminal", copyCommand: "Copy command", copiedCommand: "Command copied.",
-      copyFailed: "Could not copy automatically. Select and copy the command manually.", readFullGuide: "Read the full CLI guide on GitHub ↗",
+      copyFailed: "Could not copy automatically. Select and copy the command manually.", readFullGuide: "Read the CLI check instructions on GitHub ↗",
       characters: "{n} characters", checking: "Extracting…", validationEmpty: "Paste text or choose a .txt file before extracting citations.",
       extractionDone: "Extraction complete. Review each citation and source link below.", noCitations: "No citation patterns were detected. Check that the text includes a reporter abbreviation and page number, or try the sample.",
       extractionError: "We could not extract citations from this text. Please try again or upload a plain-text file.",
-      sampleLoaded: "Sample citation loaded. Review the text, then extract citations.", cleared: "Input and results cleared.", fileLoaded: "Loaded {name}.",
+      sampleLoaded: "Sample loaded: three real citations (a federal case, an INA section, a BIA decision). Review the text, then extract citations.", cleared: "Input and results cleared.", fileLoaded: "Loaded {name}.",
       translating: "Translation request in progress…", translateNoText: "Paste opinion text first.",
       translateDone: "Translation view updated. Review the original before relying on any translation.",
       queryEmpty: "Enter an English query before extracting citation patterns.", queryCopied: "Copied."
     },
     es: {
-      skipToContent: "Saltar al contenido", languageLabel: "Idioma", brandHome: "Inicio de VerifyCites", navLabel: "Navegación principal", navCheck: "Verificador de citas", navBriefing: "Resumen", navTranslation: "Traducción", navCli: "Guía CLI", navImmigration: "Guía de inmigración", navBia: "Búsqueda de precedentes de la BIA", navQuery: "Traducción de consulta",
+      skipToContent: "Saltar al contenido", languageLabel: "Idioma", brandHome: "Inicio de VerifyCites", navLabel: "Navegación principal", navCheck: "Verificador de citas", navBriefing: "Resumen", navTranslation: "Traducción", navCli: "Verificación CLI", navImmigration: "Guía de inmigración", navBia: "Búsqueda de precedentes de la BIA", navQuery: "Traducción de consulta",
       heroKicker: "Un espacio de trabajo para citas judiciales", factLocal: "La extracción de citas se realiza en este navegador",
-      factNoLookup: "El modo navegador no busca casos", factCli: "La CLI solo comprueba en CourtListener si el caso existe y si el nombre coincide",
+      factNoLookup: "El modo navegador no busca casos", factCli: "Verificación CLI: solo si el caso existe en CourtListener y si el nombre coincide",
       trustSummary: "Límites importantes — léalos", primaryTask: "Tarea principal",
       checkerTitle: "Extraer citas de un documento", checkerDescription: "Pegue texto jurídico o cargue un archivo de texto plano. Revise las citas extraídas y abra cada fuente para comprobarla usted mismo.",
       inputLabel: "Texto del documento", inputMeta: "El texto se procesa en este navegador",
@@ -56,21 +56,21 @@
       translationIntro: "Compare párrafos pegados de una opinión con una traducción automática de un endpoint elegido por usted.",
       opinionLabel: "Texto de la opinión", optionalDaily: "Opcional · guardado en este navegador",
       briefingLocalNote: "Las preferencias se guardan solo en este navegador. Al solicitar el resumen de hoy, se envían a CourtListener cadenas de consulta con el estado, los temas y las citas guardadas.",
-      advancedOption: "Opción avanzada", cliExplanation: "La página del navegador solo extrae citas. La CLI puede enviar esas citas a CourtListener si usted proporciona su propio token; de forma predeterminada no envía el texto del escrito.",
+      advancedOption: "Verificación CLI", cliExplanation: "La página del navegador solo extrae citas. La CLI puede enviar esas citas a CourtListener si usted proporciona su propio token; de forma predeterminada no envía el texto del escrito.",
       cliCommandLabel: "Ejecutar en una terminal", copyCommand: "Copiar comando", copiedCommand: "Comando copiado.",
-      copyFailed: "No se pudo copiar automáticamente. Seleccione y copie el comando manualmente.", readFullGuide: "Leer la guía CLI completa en GitHub ↗",
+      copyFailed: "No se pudo copiar automáticamente. Seleccione y copie el comando manualmente.", readFullGuide: "Leer las instrucciones de la verificación CLI en GitHub ↗",
       characters: "{n} caracteres", checking: "Extrayendo…", validationEmpty: "Pegue texto o seleccione un archivo .txt antes de extraer las citas.",
       extractionDone: "Extracción completada. Revise cada cita y su enlace de origen.", noCitations: "No se detectaron patrones de citas. Compruebe que el texto incluya una abreviatura de repertorio y un número de página, o pruebe el ejemplo.",
       extractionError: "No se pudieron extraer citas de este texto. Inténtelo de nuevo o cargue un archivo de texto plano.",
-      sampleLoaded: "Ejemplo cargado. Revise el texto y luego extraiga las citas.", cleared: "Se borraron el texto y los resultados.", fileLoaded: "Se cargó {name}.",
+      sampleLoaded: "Ejemplo cargado: tres citas reales (un caso federal, una sección de la INA y una decisión de la BIA). Revise el texto y luego extraiga las citas.", cleared: "Se borraron el texto y los resultados.", fileLoaded: "Se cargó {name}.",
       translating: "Solicitud de traducción en curso…", translateNoText: "Pegue primero el texto de la opinión.",
       translateDone: "Vista de traducción actualizada. Revise el original antes de confiar en cualquier traducción.",
       queryEmpty: "Introduzca una consulta en inglés antes de extraer patrones de citas.", queryCopied: "Copiado."
     },
     zh: {
-      skipToContent: "跳转到正文", languageLabel: "语言", brandHome: "VerifyCites 首页", navLabel: "主导航", navCheck: "引文核验", navBriefing: "法律简报", navTranslation: "翻译", navCli: "CLI 说明", navImmigration: "移民指南", navBia: "BIA 先例检索", navQuery: "查询翻译",
+      skipToContent: "跳转到正文", languageLabel: "语言", brandHome: "VerifyCites 首页", navLabel: "主导航", navCheck: "引文核验", navBriefing: "法律简报", navTranslation: "翻译", navCli: "CLI 核查", navImmigration: "移民指南", navBia: "BIA 先例检索", navQuery: "查询翻译",
       heroKicker: "面向判例引文的研究工作台", factLocal: "引文提取在当前浏览器中完成",
-      factNoLookup: "浏览器模式不会联网查询案件", factCli: "CLI 只在 CourtListener 中核查判例是否存在以及案名是否一致",
+      factNoLookup: "浏览器模式不会联网查询案件", factCli: "CLI 核查：只在 CourtListener 中核查判例是否存在以及案名是否一致",
       trustSummary: "重要限制 — 请先阅读", primaryTask: "主要任务",
       checkerTitle: "从法律文书中提取引文", checkerDescription: "粘贴法律文本或上传纯文本文件。检查提取出的引文，并打开来源链接自行核对。",
       inputLabel: "文书文本", inputMeta: "文本在当前浏览器中处理",
@@ -87,13 +87,13 @@
       translationIntro: "将粘贴的判决意见段落与您指定端点返回的机器译文对照阅读。",
       opinionLabel: "判决意见文本", optionalDaily: "可选 · 仅保存在此浏览器",
       briefingLocalNote: "偏好仅存于此浏览器。请求今日简报时，已保存的州、主题和引文查询字符串会发送给 CourtListener。",
-      advancedOption: "进阶选项", cliExplanation: "浏览器页面只提取引文。提供您自己的 token 后，CLI 可将提取出的引文发送给 CourtListener；默认不会发送书状全文。",
+      advancedOption: "CLI 核查", cliExplanation: "浏览器页面只提取引文。提供您自己的 token 后，CLI 可将提取出的引文发送给 CourtListener；默认不会发送书状全文。",
       cliCommandLabel: "在终端中运行", copyCommand: "复制命令", copiedCommand: "命令已复制。",
-      copyFailed: "无法自动复制，请手动选中并复制命令。", readFullGuide: "在 GitHub 阅读完整 CLI 指南 ↗",
+      copyFailed: "无法自动复制，请手动选中并复制命令。", readFullGuide: "在 GitHub 阅读 CLI 核查说明 ↗",
       characters: "{n} 个字符", checking: "正在提取……", validationEmpty: "请先粘贴文本或选择 .txt 文件，再提取引文。",
       extractionDone: "提取完成。请逐条查看引文和来源链接。", noCitations: "未识别到引文格式。请确认文本含有判例汇编简称和页码，或试用示例。",
       extractionError: "无法从这段文本中提取引文。请重试或上传纯文本文件。",
-      sampleLoaded: "示例已载入。请检查文本，再提取引文。", cleared: "已清除输入和结果。", fileLoaded: "已载入 {name}。",
+      sampleLoaded: "示例已载入：三条真实引用（一个联邦判例、一条 INA 条款、一个 BIA 决定）。请检查文本，再提取引文。", cleared: "已清除输入和结果。", fileLoaded: "已载入 {name}。",
       translating: "正在请求翻译……", translateNoText: "请先粘贴判决意见文本。",
       translateDone: "对照视图已更新。依赖任何译文前，请先阅读原文。", queryEmpty: "请输入英文查询，再提取其中的引文格式。", queryCopied: "已复制。"
     }
@@ -239,7 +239,10 @@
   window.loadSample = function () {
     var input = document.getElementById("input");
     if (!input) return;
-    input.value = "Brown v. Board of Education, 347 U.S. 483 (1954).";
+    // B11: three real citations (federal case, INA section, BIA precedent); official links in #sample-sources.
+    input.value = "Brown v. Board of Education, 347 U.S. 483 (1954).\nINA § 208(a)(1).\nMatter of Acosta, 19 I&N Dec. 211 (BIA 1985).";
+    var sources = document.getElementById("sample-sources");
+    if (sources) sources.hidden = false;
     input.removeAttribute("aria-invalid");
     var error = document.getElementById("validation-error");
     if (error) error.hidden = true;
@@ -254,6 +257,8 @@
     if (file) file.value = "";
     var fileStatus = document.getElementById("file-status");
     if (fileStatus) fileStatus.textContent = "";
+    var sources = document.getElementById("sample-sources");
+    if (sources) sources.hidden = true;
     var error = document.getElementById("validation-error");
     if (error) error.hidden = true;
     var count = document.getElementById("count");
