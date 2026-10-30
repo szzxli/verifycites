@@ -166,11 +166,11 @@ const ok = (name, cond, extra) => {
   ok('parallel faster than sequential (6 claims x ~1050ms sequential -> well under 6300ms)', dt < 4000, dt + 'ms');
   // this sandbox has no URLSearchParams, so most lookups throw before any
   // request: that is "could not ask" (RATE_LIMITED / not checked), never a
-  // verdict about the reference — and never FABRICATED
-  ok('none FABRICATED, none CITED (no identifiers, lookups failed or 404)',
+  // verdict about the reference — and never ID_NOT_FOUND
+  ok('none ID_NOT_FOUND, none CITED (no identifiers, lookups failed or 404)',
     ev.every(e => e.base === 'UNVERIFIED' || e.base === 'RATE_LIMITED'), JSON.stringify(ev.map(e => e.base)));
 
-  console.log('— FABRICATED vs UNVERIFIED —');
+  console.log('— ID_NOT_FOUND vs UNVERIFIED —');
   // all registries answer 404: positive non-existence
   const sb404 = makeSandbox(async () => ({ ok: false, status: 404 }), { URLSearchParams });
   const fabMd = '# T\n\nFake paper arXiv:2401.99999. Fake DOI 10.9999/fake.doi.1234. ' +
@@ -179,20 +179,20 @@ const ok = (name, cond, extra) => {
   const evFab = await sb404.groundDraft(fabMd, {}, null);
   const byClaim = {};
   evFab.forEach(e => { byClaim[e.claim] = e.base; });
-  ok('fake arXiv -> FABRICATED', byClaim['Fake paper arXiv:2401.99999.'] === 'FABRICATED',
+  ok('fake arXiv -> ID_NOT_FOUND', byClaim['Fake paper arXiv:2401.99999.'] === 'ID_NOT_FOUND',
     JSON.stringify(byClaim));
-  ok('fake DOI -> FABRICATED', byClaim['Fake DOI 10.9999/fake.doi.1234.'] === 'FABRICATED');
-  ok('dangling marker -> UNVERIFIED not FABRICATED', byClaim['Dangling marker [9].'] === 'UNVERIFIED');
-  ok('entry without identifiers -> UNVERIFIED not FABRICATED',
+  ok('fake DOI -> ID_NOT_FOUND', byClaim['Fake DOI 10.9999/fake.doi.1234.'] === 'ID_NOT_FOUND');
+  ok('dangling marker -> UNVERIFIED not ID_NOT_FOUND', byClaim['Dangling marker [9].'] === 'UNVERIFIED');
+  ok('entry without identifiers -> UNVERIFIED not ID_NOT_FOUND',
     byClaim['Entry without identifiers [7].'] === 'UNVERIFIED');
   ok('fabricated note names the identifier',
-    evFab[0].note.includes('2401.99999') && /fabricated or mistyped/i.test(evFab[0].note));
-  // 429 stays RATE_LIMITED, never FABRICATED
+    evFab[0].note.includes('2401.99999') && /no record was found/i.test(evFab[0].note) && !/fabricat|fake|hallucinat/i.test(evFab[0].note));
+  // 429 stays RATE_LIMITED, never ID_NOT_FOUND
   const ev429 = await sb429.groundDraft('# T\n\nFake arXiv:2401.99999.\n', {}, null);
-  ok('429 -> RATE_LIMITED not FABRICATED', ev429[0].base === 'RATE_LIMITED', ev429[0].base);
+  ok('429 -> RATE_LIMITED not ID_NOT_FOUND', ev429[0].base === 'RATE_LIMITED', ev429[0].base);
   // report counts it
-  const htmlFab = renderReport([{ claim: 'x', base: 'FABRICATED', label: 'FABRICATED', note: 'n' }]);
-  ok('FABRICATED counted', /FABRICATED 1/.test(htmlFab));
+  const htmlFab = renderReport([{ claim: 'x', base: 'ID_NOT_FOUND', label: 'ID_NOT_FOUND', note: 'n' }]);
+  ok('ID_NOT_FOUND counted', /ID_NOT_FOUND 1/.test(htmlFab));
 
   console.log(`\n${pass} passed, ${fail} failed`);
   process.exit(fail ? 1 : 0);

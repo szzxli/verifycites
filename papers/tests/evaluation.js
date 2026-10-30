@@ -32,7 +32,7 @@ const items = [
   // 2 fieldMismatch (chimeric authors Differs)
   { claim: 'Wrong et al. (2017) Attention is all you need.', base: 'CITED', label: 'CITED [CHIMERIC:author-mismatch]', title: 'Attention Is All You Need', authors: ['Vaswani, Ashish'], venue: 'NeurIPS', year: '2017', doi: '10.48550/arXiv.1706.03762', arxiv_id: '1706.03762', note: '' },
   // 3 notFound (fabricated identifier, registry lookup found nothing)
-  { claim: 'See DOI 10.1234/fake999.', base: 'FABRICATED', label: 'FABRICATED', title: '', authors: [], venue: '', year: '', doi: '', arxiv_id: '', note: '' },
+  { claim: 'See DOI 10.1234/fake999.', base: 'ID_NOT_FOUND', label: 'ID_NOT_FOUND', title: '', authors: [], venue: '', year: '', doi: '', arxiv_id: '', note: '' },
   // 4 retrievalFailed (check failed -> identifier Not compared, not Missing)
   { claim: 'A paper, DOI 10.1234/edge1.', base: 'RATE_LIMITED', label: 'RATE_LIMITED', title: '', authors: [], venue: '', year: '', doi: '', arxiv_id: '', note: '' },
   // 5 fieldMismatch (invalid DOI, no lookup made)

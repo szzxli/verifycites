@@ -5,7 +5,7 @@
  * doi:… arXiv:…` line per entry plus one marker sentence per entry. That text
  * then goes through the exact same grounding pipeline as a draft
  * (groundDraft in ground.js), so every entry gets the same labels —
- * CITED / UNVERIFIED / FABRICATED / RATE_LIMITED + [CHIMERIC] / [RETRACTED] —
+ * CITED / UNVERIFIED / ID_NOT_FOUND / ID_NOT_FOUND_TITLE_FOUND / RATE_LIMITED + [CHIMERIC] / [RETRACTED] —
  * via the same DOI / arXiv / title lookups. Nothing is uploaded anywhere: the
  * only network traffic is the registry lookups the draft checker already makes.
  *

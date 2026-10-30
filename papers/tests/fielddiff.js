@@ -33,7 +33,7 @@ const chimeric = {
 };
 const fabricated = {
   claim: 'See the paper at DOI 10.1234/fake999 for details.',
-  base: 'FABRICATED', label: 'FABRICATED', title: '', authors: [], venue: '', year: '',
+  base: 'ID_NOT_FOUND', label: 'ID_NOT_FOUND', title: '', authors: [], venue: '', year: '',
   doi: '', arxiv_id: '', note: 'identifier not found',
 };
 const retracted = Object.assign({}, matched, {

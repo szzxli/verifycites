@@ -160,7 +160,15 @@ function findInvalidDois(text) {
   }
   return out;
 }
-const INVALID_DOI_NOTE = d => `DOI format invalid: '${d}' is not a well-formed DOI (10.<4-9 digits>/<suffix>) — likely mistyped or fabricated; not looked up. Fix or remove it.`;
+/* Non-scholarly references (web pages, software, model cards, standards)
+ * usually have no registry record. When no record is found and the
+ * reference text looks like one of these, the label is NOT_A_SCHOLARLY_RECORD
+ * (check by hand) instead of UNVERIFIED. Heuristic on the reference text only. */
+const VP_NON_SCHOLARLY_RE = /github\.com|gitlab\.com|huggingface\.co|pypi\.org|npmjs\.com|\bRFC\s?\d{3,5}\b|\bISO(?:\/IEC)?\s?\d{3,5}|\bANSI\/NISO\b|\bNISO\b|\bNIST\s+(?:SP|FIPS|IR)\b|\bW3C\b|model card|\[(?:software|online|computer software|dataset)\]|\b(?:Accessed|Retrieved)\b/i;
+function vpLooksNonScholarly(raw) {
+  return !!raw && VP_NON_SCHOLARLY_RE.test(String(raw));
+}
+const INVALID_DOI_NOTE = d => `DOI format invalid: '${d}' is not a well-formed DOI (10.<4-9 digits>/<suffix>) — likely mistyped; not looked up. Next: copy the DOI again from the publisher page, or remove it.`;
 function cleanDoi(raw) {
   let d = String(raw || '').replace(/[.,;:]+$/, '');
   const opens = s => (s.match(/\(/g) || []).length;
@@ -732,7 +740,7 @@ async function resolveMarker(type, id, refmap) {
     return { doi: null, arxiv_id: null, via: 'none', note: `no reference entry for [${id}]` };
   if (entry.doi || entry.arxiv_id)
     return { doi: entry.doi, arxiv_id: entry.arxiv_id, via: 'embedded',
-      entryRaw: entry.raw, note: 'identifier found in reference entry' };
+      entryRaw: entry.raw, entryYear: entry.year, note: 'identifier found in reference entry' };
   const bl = await bibliographicLookup(entry.raw, entry.year);
   const names = ks => (ks || []).map(k => BIB_SOURCE_NAME[k] || k).join(', ');
   if (bl.doi || bl.arxiv_id || bl.record) {
@@ -745,6 +753,7 @@ async function resolveMarker(type, id, refmap) {
   ].filter(Boolean).join('; ');
   const skippedNote = skipped ? ` (not consulted — ${skipped})` : '';
   return { doi: null, arxiv_id: null, via: 'none', limited: !!bl.limited, unreachable: !!bl.unreachable,
+    entryRaw: entry.raw,
     note: bl.limited
       ? `sources could not be asked while checking this entry (${skipped}) — not checked, not proven fake`
       : (bl.answered && bl.answered.length
@@ -798,7 +807,7 @@ function detectChimeric(entryRaw, authors) {
  *           other HTTP status, an unreadable body
  *   json  — the record
  * A failure is "not checked", never "not found": treating it as a miss used
- * to label a real DOI FABRICATED whenever the network or a registry failed. */
+ * to label a real DOI ID_NOT_FOUND whenever the network or a registry failed. */
 function vpUnavailable(why) { return { unavailable: true, why: why || 'request failed' }; }
 async function vpGetRecord(url, init) {
   let r;
@@ -1000,8 +1009,11 @@ async function resolveCitation(pair, refmap, cache) {
       chimeric: !!(extra && extra.chimeric),
       // only an identifier the AUTHOR wrote can be "fabricated"; one that a
       // lookup produced and then failed to verify proves nothing about the draft
+      // (internal flag name; the user-facing labels are ID_NOT_FOUND and
+      // ID_NOT_FOUND_TITLE_FOUND, which describe the registry finding only)
       fabricated: !res.exists && !res.limited && !!claimed && !(extra && extra.fromLookup),
       claimed,
+      titleRecord: (extra && extra.titleRecord) || null,
       abstract: res.abstract || null,
       note };
   };
@@ -1031,8 +1043,18 @@ async function resolveCitation(pair, refmap, cache) {
         v = recordRes(rm.record);
         note = viaNote + ' — identifier not re-verifiable, record taken from the index that matched';
       }
+      /* The identifier written in the reference entry is not in its registry:
+       * look the entry's title + year up once (the same bibliographic lookup
+       * used for entries without identifiers). A match means the work exists
+       * and the identifier is probably mistyped (ID_NOT_FOUND_TITLE_FOUND). */
+      let titleRecord = null;
+      if (!v.exists && !v.limited && !fromLookup && rm.entryRaw) {
+        const bl = await bibliographicLookup(rm.entryRaw, rm.entryYear);
+        if (bl && bl.record) titleRecord = { title: bl.record.title || '', year: bl.record.year || '', doi: bl.doi || '', arxiv_id: bl.arxiv_id || '' };
+        else if (bl && (bl.doi || bl.arxiv_id)) titleRecord = { title: '', year: '', doi: bl.doi || '', arxiv_id: bl.arxiv_id || '' };
+      }
       out = wrap(v, doi, isArxivDoi ? arxivId : null, note,
-        { chimeric: detectChimeric(rm.entryRaw, v.authors), fromLookup });
+        { chimeric: detectChimeric(rm.entryRaw, v.authors), fromLookup, titleRecord });
     } else if (rm.record) {
       const v = recordRes(rm.record);
       out = wrap(v, null, null, viaNote + ' (index record, no DOI)',
@@ -1040,11 +1062,13 @@ async function resolveCitation(pair, refmap, cache) {
     } else out = { exists: false, title: null, doi: null, arxiv_id: null,
       authors: [], venue: '', year: '', limited: !!rm.limited, unreachable: !!rm.unreachable,
       retracted: false, chimeric: false, fabricated: false, claimed: null,
+      entryRaw: rm.entryRaw || '',
       note: 'reference-list: ' + rm.note };
   } else {
     out = { exists: false, title: null, doi: null, arxiv_id: null,
       authors: [], venue: '', year: '', limited: false,
       retracted: false, chimeric: false, fabricated: false, claimed: null,
+      entryRaw: t === 'url' ? cid : '', nonScholarly: t === 'url',
       note: `marker type '${t}' is not resolvable` };
   }
   cache.set(key, out);
@@ -1671,12 +1695,24 @@ async function groundDraft(text, opts, onStep) {
         note = 'source(s) rate-limited (HTTP 429) while checking — not checked, NOT proven fake. Try again later.';
       }
     } else if (res.fabricated) {
-      base = 'FABRICATED';
       const id = res.claimed || '';
-      const what = /^10\./.test(id) ? 'DOI ' + id
-        : /^\d{4}\./.test(id) || /^arXiv:/i.test(id) ? 'arXiv ID ' + id.replace(/^10\.48550\/arXiv\./i, '')
-        : 'identifier ' + id;
-      note = `${what} checked against its registry and does not exist — fabricated or mistyped; do not cite.`;
+      const what = /^10\.48550\/arXiv\./i.test(id) || /^\d{4}\./.test(id) || /^arXiv:/i.test(id)
+        ? 'arXiv ID ' + id.replace(/^10\.48550\/arXiv\./i, '')
+        : /^10\./.test(id) ? 'DOI ' + id : 'identifier ' + id;
+      const tr = res.titleRecord;
+      if (tr) {
+        base = 'ID_NOT_FOUND_TITLE_FOUND';
+        const recId = tr.doi ? 'DOI ' + tr.doi : tr.arxiv_id ? 'arXiv ID ' + tr.arxiv_id : '';
+        note = `${what} was looked up in its registry and no record was found, but the reference's title and year match a record` +
+          (tr.title ? ` ("${tr.title}"${tr.year ? ', ' + tr.year : ''})` : '') + (recId ? ` with ${recId}` : '') +
+          ' — the identifier is probably mistyped. Next: compare the identifier with that record and correct it.';
+      } else {
+        base = 'ID_NOT_FOUND';
+        note = `${what} was looked up in its registry and no record was found. Next: copy the identifier again from the publisher or arXiv page; if you cannot find the work, do not cite it until you can.`;
+      }
+    } else if (res.nonScholarly || vpLooksNonScholarly(res.entryRaw)) {
+      base = 'NOT_A_SCHOLARLY_RECORD';
+      note = 'no scholarly record found, and the reference looks like a web page, software, a dataset or model card, or a standard — these usually have no registry record, so this is not counted as a problem. Next: open the source yourself and check that it says what you cite.';
     }
     const fr = opts.bibMode ? { stale: false } : checkFreshness(p.claim, opts.windowYears);
     const tags = [
@@ -1759,7 +1795,8 @@ Verizon. 2023 Data Breach Investigations Report. 2023.`;
 
 function labelClass(base) {
   return { 'ABSTRACT-SUPPORTED': 'l-verified', CITED: 'l-cited', UNVERIFIED: 'l-unverified',
-    RATE_LIMITED: 'l-stale', INVALID_DOI: 'l-unverified', FABRICATED: 'l-unverified' }[base] || 'l-cited';
+    RATE_LIMITED: 'l-stale', INVALID_DOI: 'l-unverified', ID_NOT_FOUND: 'l-unverified',
+    ID_NOT_FOUND_TITLE_FOUND: 'l-unverified', NOT_A_SCHOLARLY_RECORD: 'l-stale' }[base] || 'l-cited';
 }
 
 /* Display-only category derivation for renderReport. It reads only the
@@ -1772,7 +1809,9 @@ function vpDisplayCategory(e) {
   const tags = (e.label || '').split(' ').slice(1);
   const has = (re) => tags.some(t => re.test(t));
   if (e.base === 'RATE_LIMITED') return 'retrievalFailed';
-  if (e.base === 'FABRICATED') return 'notFound';
+  if (e.base === 'ID_NOT_FOUND') return 'notFound';
+  if (e.base === 'ID_NOT_FOUND_TITLE_FOUND') return 'fieldMismatch';
+  if (e.base === 'NOT_A_SCHOLARLY_RECORD') return 'cannotDetermine';
   if (e.base === 'INVALID_DOI') return 'fieldMismatch';
   if (has(/CHIMERIC/)) return 'fieldMismatch';
   if (e.base === 'UNVERIFIED') return 'cannotDetermine';
@@ -1847,7 +1886,8 @@ function vpFieldDiff(e) {
 
 function renderReport(evidence, ropts) {
   const unit = (ropts && ropts.unit) || 'claims';
-  const counts = { 'ABSTRACT-SUPPORTED': 0, CITED: 0, UNVERIFIED: 0, RATE_LIMITED: 0, INVALID_DOI: 0, FABRICATED: 0 };
+  const counts = { 'ABSTRACT-SUPPORTED': 0, CITED: 0, UNVERIFIED: 0, RATE_LIMITED: 0, INVALID_DOI: 0,
+    ID_NOT_FOUND: 0, ID_NOT_FOUND_TITLE_FOUND: 0, NOT_A_SCHOLARLY_RECORD: 0 };
   const catCounts = { matched: 0, fieldMismatch: 0, notFound: 0, cannotDetermine: 0, retrievalFailed: 0 };
   let staleN = 0, chimericN = 0, retractedN = 0;
   for (const e of evidence) {
@@ -1867,7 +1907,9 @@ function renderReport(evidence, ropts) {
     `<span class="label l-unverified">UNVERIFIED ${counts.UNVERIFIED}</span>` +
     (counts.RATE_LIMITED ? ` <span class="label l-stale">RATE_LIMITED ${counts.RATE_LIMITED}</span>` : '') +
     (counts.INVALID_DOI ? ` <span class="label l-unverified">INVALID_DOI ${counts.INVALID_DOI}</span>` : '') +
-    (counts.FABRICATED ? ` <span class="label l-unverified">FABRICATED ${counts.FABRICATED}</span>` : '') +
+    (counts.ID_NOT_FOUND ? ` <span class="label l-unverified">ID_NOT_FOUND ${counts.ID_NOT_FOUND}</span>` : '') +
+    (counts.ID_NOT_FOUND_TITLE_FOUND ? ` <span class="label l-unverified">ID_NOT_FOUND_TITLE_FOUND ${counts.ID_NOT_FOUND_TITLE_FOUND}</span>` : '') +
+    (counts.NOT_A_SCHOLARLY_RECORD ? ` <span class="label l-stale">NOT_A_SCHOLARLY_RECORD ${counts.NOT_A_SCHOLARLY_RECORD}</span>` : '') +
     (staleN ? ` <span class="label l-stale">STALE ×${staleN}</span>` : '') +
     (chimericN ? ` <span class="label l-unverified">CHIMERIC ×${chimericN}</span>` : '') +
     (retractedN ? ` <span class="label l-unverified">RETRACTED ×${retractedN}</span>` : '') +
@@ -1898,17 +1940,18 @@ function renderReport(evidence, ropts) {
     const isChimeric = /\[CHIMERIC/.test(e.label || '');
     const isRetracted = /\[RETRACTED\]/.test(e.label || '');
     const isStale = /\[STALE:/.test(e.label || '');
-    const existence = e.base === 'FABRICATED' ? 'Identifier not found in its registry'
+    const existence = e.base === 'ID_NOT_FOUND' ? 'Identifier not found in its registry'
+      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Identifier not found in its registry; a record with this title was found'
+      : e.base === 'NOT_A_SCHOLARLY_RECORD' ? 'No scholarly record (web page, software or standard)'
       : e.base === 'INVALID_DOI' ? 'Not checked — invalid identifier'
       : e.base === 'UNVERIFIED' ? 'Not confirmed'
       : e.base === 'RATE_LIMITED' ? 'Not checked'
       : 'Found';
     const support = e.base === 'ABSTRACT-SUPPORTED' ? 'Abstract-level support (full text not checked)'
       : e.base === 'CITED' ? 'Support not determined' : '—';
-    /* FABRICATED rows do not repeat the engine note verbatim: it says
-       "fabricated or mistyped". The display wording is the registry fact
-       only — the identifier was checked and was not found there. */
-    const anomaly = e.base === 'FABRICATED'
+    /* ID_NOT_FOUND rows state the registry fact only — the identifier was
+       checked and was not found there. */
+    const anomaly = e.base === 'ID_NOT_FOUND'
       ? 'The identifier for this citation was checked against its registry and was not found there.'
       : (e.note || '—');
     const evParts = [];
@@ -1927,7 +1970,9 @@ function renderReport(evidence, ropts) {
       ? 'Read the original before relying on it; for key claims, check the full text.'
       : cat === 'matched' ? 'Support is not determined — check the full text; author decides.'
       : cat === 'fieldMismatch' ? 'Compare the fields above with the record, correct the entry, then re-check.'
-      : cat === 'notFound' ? 'Recheck the identifier in its registry, correct it, or remove the citation.'
+      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Compare the identifier with the record that matches the title, correct it, then re-check.'
+      : e.base === 'NOT_A_SCHOLARLY_RECORD' ? 'Open the source yourself and check that it says what you cite.'
+      : cat === 'notFound' ? 'Copy the identifier again from the publisher or arXiv page and re-check; if you cannot find the work, do not cite it until you can.'
       : cat === 'retrievalFailed' ? 'Try again later.'
       : 'Check spelling, add a DOI or arXiv ID, or search the registries by hand.';
     if (isRetracted) action += ' Do not cite a retracted paper as support.';
@@ -1958,11 +2003,14 @@ function renderReport(evidence, ropts) {
       `</div></div>`;
   });
   html += `<p style="font-size:12.5px;color:var(--ink-soft);margin-top:14px">` +
-    `Labels: ABSTRACT-SUPPORTED = the abstract substantively supports the claim's key assertion (full text NOT checked — supporting evidence may live in the paper body); CITED = source found; whether it supports the claim was not checked (or only partly); ` +
-    `UNVERIFIED = no record found or marker not resolvable (absence of evidence, not evidence of fabrication); ` +
-    `FABRICATED = identifier checked against its registry and found not to exist (identifier not found in its registry); recheck the identifier, correct it, or remove the citation; ` +
-    `RATE_LIMITED = sources were rate-limited or could not be reached (offline, blocked, server error) while checking — not checked, NOT proven fake; ` +
-    `INVALID_DOI = DOI format invalid (not a well-formed DOI; likely mistyped); ` +
+    `Labels (each with a next step): ABSTRACT-SUPPORTED = the abstract substantively supports the claim's key assertion (full text NOT checked) — next: read the paper before relying on it; ` +
+    `CITED = source found; whether it supports the claim was not checked (or only partly) — next: check the full text yourself; ` +
+    `UNVERIFIED = no record found or marker not resolvable (absence of evidence, not a finding about the citation) — next: add a DOI or arXiv ID, or search the registries by hand; ` +
+    `ID_NOT_FOUND = the identifier was looked up in its registry and no record was found — next: copy the identifier again from the publisher or arXiv page; ` +
+    `ID_NOT_FOUND_TITLE_FOUND = the identifier was not found, but the reference's title and year match a record — next: compare the identifier with that record and correct it; ` +
+    `NOT_A_SCHOLARLY_RECORD = no scholarly record, and the reference looks like a web page, software, model card or standard; not counted as a problem — next: open the source and check it; ` +
+    `RATE_LIMITED = sources were rate-limited or could not be reached while checking — not checked, not a finding about the citation — next: try again later; ` +
+    `INVALID_DOI = DOI format invalid (not a well-formed DOI; likely mistyped) — next: copy the DOI again or remove it; ` +
     `[STALE:YYYY] = data older than the freshness window; ` +
     `[CHIMERIC:author-mismatch] = title matches a real paper but the listed authors do not; ` +
     `[RETRACTED] = the paper has been retracted — do not cite it as support; ` +
