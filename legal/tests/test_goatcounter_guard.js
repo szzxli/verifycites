@@ -28,7 +28,7 @@ for (const [q, flag, counted, after] of CASES) {
 console.log(`goatcounter guard: ${n}/${CASES.length} cases passed`);
 // Every page uses the identical loader; no static count.js tag; event senders respect it.
 const loader = m[0];
-for (const p of ['index.html', 'legal/index.html', 'papers/index.html']) {
+for (const p of ['index.html', 'legal/index.html', 'papers/index.html', 'about/index.html']) {
   const h = fs.readFileSync(path.join(ROOT, p), 'utf8');
   const all = h.match(/<script>\/\* GoatCounter loader:[\s\S]*?<\/script>/g) || [];
   assert.strictEqual(all.length, 1, p + ': exactly one GoatCounter loader');
