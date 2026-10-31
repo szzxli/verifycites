@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f8f4">
+  <meta name="description" content="About VerifyCites: free, open-source citation tools built by Li Jun, what each tool does and does not check, and how your data is handled.">
+  <title>About VerifyCites</title>
+  <link rel="icon" type="image/svg+xml" href="../verifycites-mark.svg">
+  <link rel="stylesheet" href="../home.css">
+  <link rel="stylesheet" href="../site-nav.css">
+  <style>
+    .about-main { width: min(760px, calc(100% - 48px)); margin: 0 auto; padding: 56px 0 72px; color: var(--ink); }
+    .about-main h1 { font-family: var(--serif); font-size: clamp(38px, 5vw, 54px); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; margin: 0 0 20px; }
+    .about-main h2 { font-family: var(--serif); font-size: 26px; font-weight: 500; letter-spacing: -.02em; margin: 40px 0 12px; }
+    .about-main p, .about-main li { color: var(--ink-soft); font-size: 16px; line-height: 1.75; }
+    .about-main ul { padding-left: 20px; margin: 0 0 12px; }
+    .about-main li { margin-bottom: 10px; }
+    .about-main a { color: var(--teal); text-decoration: underline; text-underline-offset: 2px; }
+    .about-main strong { color: var(--ink); }
+    .about-note { margin-top: 32px; padding: 14px 16px; border: 1px solid var(--line); background: var(--paper-strong); border-radius: 5px; }
+  </style>
+</head>
+<body>
+<div class="site-shell">
+  <header class="vc-nav">
+    <div class="vc-nav-inner">
+      <a class="vc-nav-brand" href="/">VerifyCites</a>
+      <nav class="vc-nav-links" aria-label="Site">
+        <a href="/">Home</a>
+        <a href="/papers/">Papers</a>
+        <a href="/legal/">Legal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="about-main">
+    <h1>About VerifyCites</h1>
+    <p>VerifyCites is a set of free, open-source citation tools built by founder <strong>Li Jun</strong>.</p>
+    <ul>
+      <li><strong><a href="/legal/">Legal</a></strong>, for U.S. lawyers, paralegals and law-school writing courses: paste a brief and get a checklist of the citations it contains, each marked NOT_CHECKED, with links to official sources so you can check each one yourself. The browser tool extracts citations only; it does not check whether a cited case exists. It also has a search of BIA precedent decisions (currently volume 30) and a hand-maintained table of selected federal court orders on AI use in filings.</li>
+      <li><strong><a href="/papers/">Papers</a></strong>, for researchers (formerly veripaper): checks whether each cited paper exists in public registries, whether the identifier matches the record, whether it is retracted, and, as a first-pass screen, whether the cited abstract supports the claim.</li>
+    </ul>
+
+    <h2>Why we build it</h2>
+    <p>A citation that exists does not by itself support an argument, and a citation that is missing from a database is not necessarily wrong. Where a tool checks existence, details match or claim support, VerifyCites shows each as a separate result. Every tool says what it does not check, and the final review is yours. VerifyCites is not a law firm and does not provide legal advice.</p>
+
+    <h2>How your data is handled</h2>
+    <ul>
+      <li><strong>Legal:</strong> citation extraction runs in your browser. The browser tool does not send your text to CourtListener. BIA precedent search runs in your browser against a static snapshot of the EOIR volume pages; your keywords are not sent anywhere and are not saved. Your review marks are stored in this browser only (localStorage). There is no hosted link for your brief, and nothing is stored on a server.</li>
+      <li><strong>Papers:</strong> your draft text stays in your browser (.docx and .pdf text is extracted there). Only citation identifiers and reference text are sent to public registries (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar). The default keyless claim check runs a small model in your browser and sends no claims anywhere. Claims and abstracts go to OpenRouter only if you add your own key.</li>
+      <li><strong>Analytics (GoatCounter):</strong> We record page views and anonymous usage events (for example, that Extract was clicked). Events carry only a fixed name, never what you paste.</li>
+      <li><strong>Source:</strong> the code for this site is open source under the MIT license, so you can read how it works: <a href="https://github.com/szzxli/verifycites" target="_blank" rel="noreferrer">github.com/szzxli/verifycites</a>.</li>
+    </ul>
+
+    <h2>Who answers your email</h2>
+    <p>Starting November 1, 2026, email to info@verifycites.com is triaged and drafted by Vera, Li Jun's AI assistant; replies are approved by Li Jun. Vera is an AI, not a person. Pricing, contracts, partnerships and other commitments are handled by Li Jun personally. If you would rather reach Li Jun directly, say so in your message.</p>
+
+    <h2>Contact</h2>
+    <p><a href="mailto:info@verifycites.com">info@verifycites.com</a></p>
+
+    <p class="about-note">Not legal advice. VerifyCites is not a law firm. Read every source you cite.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="brand footer-brand" href="/"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><rect x="2.5" y="2.5" width="27" height="27" rx="8" stroke="currentColor" stroke-width="1.8"/><path d="m9 16.3 4.5 4.4L23.5 11" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 7h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity=".45"/></svg></span><span class="brand-name">VerifyCites</span></a>
+      <div class="footer-links">
+        <a href="/papers/">Papers</a>
+        <a href="/legal/">Legal</a>
+        <a href="/about/" aria-current="page">About</a>
+        <a href="https://github.com/szzxli/verifycites" target="_blank" rel="noreferrer">Open source</a>
+        <a href="mailto:info@verifycites.com">info@verifycites.com</a>
+      </div>
+      <a class="back-top" href="#top" aria-label="Back to top"><span>Back to top</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg></a>
+    </div>
+    <p class="footer-note">VerifyCites is not a law firm and does not provide legal advice. Maintained by szzxli.</p>
+  </footer>
+</div>
+<!-- Privacy-friendly GoatCounter page-view counter; no personal data. -->
+<script>/* GoatCounter loader: test visits are never counted. ?nocount=1 turns counting off in this browser (localStorage skipgc=t, GoatCounter's own flag; ?nocount=0 turns it back on); URLs with v=, cb=, cachebust, _= or nocount are skipped too. */
+(function(w,d,l){var q=l.search,skip=/[?&](v|cb|_|nocount)=|[?&]cachebust/i.test(q);try{var s=w.localStorage;if(/[?&]nocount=1(&|$)/.test(q))s.setItem('skipgc','t');if(/[?&]nocount=0(&|$)/.test(q))s.removeItem('skipgc');if(s.getItem('skipgc')==='t')skip=true}catch(e){}w.gcSkip=skip;if(skip)return;var g=d.createElement('script');g.async=true;g.src='https://gc.zgo.at/count.js';g.setAttribute('data-goatcounter','https://szzxli.goatcounter.com/count');(d.head||d.documentElement).appendChild(g)})(window,document,location);</script>
+</body>
+</html>
