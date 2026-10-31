@@ -455,87 +455,6 @@
       "first_seen": "2026-10-31T04:29:18Z"
     },
     {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
-      "identifier": "24-5493",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5493.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
-      "identifier": "24-5691",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5691.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. ADA COUNTY PROSECUTING ATTORNEY, ET AL.",
-      "identifier": "26-5558",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5558.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NATIONAL TPS ALLIANCE, ET AL. V. MULLIN, ET AL.",
-      "identifier": "25-5724",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-5724.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "CALIFORNIA NURSES ASSOCIATION, ET AL. V. MULLIN, ET AL.",
-      "identifier": "26-7139",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
-      "identifier": "26-5360",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5360.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
-      "identifier": "26-6068",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-6068.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
-      "identifier": "26-7231",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7231.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SHARED PARTNERSHIP V. META PLATFORMS, INC.",
-      "identifier": "25-2612",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-2612.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "A Direct-to-Patient Alert for Glycated Hemoglobin Screening Using Prediction Modeling and Mobile Health (mHealth)",
@@ -757,6 +676,87 @@
       "title_or_case_name": "Primary Cutaneous Diffuse Large B-cell Lymphoma, Leg Type, With Rapid Systemic Progression in an Elderly Patient: A Case Report",
       "identifier": "europepmc:PMC13719235",
       "url": "https://europepmc.org/article/PMC/PMC13719235",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
+      "identifier": "24-5493",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5493.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
+      "identifier": "24-5691",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5691.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. ADA COUNTY PROSECUTING ATTORNEY, ET AL.",
+      "identifier": "26-5558",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5558.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NATIONAL TPS ALLIANCE, ET AL. V. MULLIN, ET AL.",
+      "identifier": "25-5724",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-5724.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "CALIFORNIA NURSES ASSOCIATION, ET AL. V. MULLIN, ET AL.",
+      "identifier": "26-7139",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
+      "identifier": "26-5360",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5360.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
+      "identifier": "26-6068",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-6068.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
+      "identifier": "26-7231",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7231.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SHARED PARTNERSHIP V. META PLATFORMS, INC.",
+      "identifier": "25-2612",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-2612.pdf",
       "date": "2026-10-30",
       "first_seen": "2026-10-30T21:59:49Z"
     },
@@ -985,15 +985,6 @@
       "url": "https://arxiv.org/abs/2610.40633",
       "date": "2026-10-29",
       "first_seen": "2026-10-30T12:17:26Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "RED EAGLE LAW, LC V. RUBIO",
-      "identifier": "26-6943",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/26-6943.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-30T04:44:46Z"
     },
     {
       "source": "Europe PMC",
@@ -1248,38 +1239,11 @@
     {
       "source": "Ninth Circuit",
       "kind": "legal",
-      "title_or_case_name": "COLVIN AND SON, LLC, ET AL. V. BURGUM, ET AL.",
-      "identifier": "25-1888",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-1888.pdf",
+      "title_or_case_name": "RED EAGLE LAW, LC V. RUBIO",
+      "identifier": "26-6943",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/26-6943.pdf",
       "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "CALIFORNIA CHAMBER OF COMMERCE, ET AL. V. BONTA, ET AL.",
-      "identifier": "25-6874",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-6874.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "UBER TECHNOLOGIES, INC., ET AL. V. CITY OF SEATTLE",
-      "identifier": "25-228",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-228.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "MAPLEBEAR INC., ET AL. V. CITY OF SEATTLE",
-      "identifier": "25-231",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-231.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
+      "first_seen": "2026-10-30T04:44:46Z"
     },
     {
       "source": "Europe PMC",
@@ -1529,6 +1493,42 @@
       "url": "https://europepmc.org/article/MED/42952440",
       "date": "2026-10-29",
       "doi": "10.3345/cep.2026.03202",
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "COLVIN AND SON, LLC, ET AL. V. BURGUM, ET AL.",
+      "identifier": "25-1888",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-1888.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "CALIFORNIA CHAMBER OF COMMERCE, ET AL. V. BONTA, ET AL.",
+      "identifier": "25-6874",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-6874.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "UBER TECHNOLOGIES, INC., ET AL. V. CITY OF SEATTLE",
+      "identifier": "25-228",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-228.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "MAPLEBEAR INC., ET AL. V. CITY OF SEATTLE",
+      "identifier": "25-231",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-231.pdf",
+      "date": "2026-10-29",
       "first_seen": "2026-10-29T22:30:22Z"
     },
     {
@@ -1976,231 +1976,6 @@
       "first_seen": "2026-10-28T04:28:13Z"
     },
     {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-842",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-842.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-2755",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2755.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-6177",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-6177.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "25-7341",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/25-7341.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
-      "identifier": "26-7070",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-7070.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-6170",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-6170.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-2820",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2820.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "PRADO, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-2823",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2823.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727_opinion.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727_opinion.pdf",
-      "date": "2026-10-23",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
-      "identifier": "25-3727",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727.pdf",
-      "date": "2026-10-23",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "A. M. V. BLANCHE",
-      "identifier": "25-5415",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-5415.pdf",
-      "date": "2026-10-23",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
-      "identifier": "25-7781",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-7781.pdf",
-      "date": "2026-10-23",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. MUMMA",
-      "identifier": "24-6987",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/20/24-6987.pdf",
-      "date": "2026-10-20",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. ANDERSON",
-      "identifier": "24-2385",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/19/24-2385.pdf",
-      "date": "2026-10-19",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "WHITFIELD V. MULLIN",
-      "identifier": "25-5220",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/16/25-5220.pdf",
-      "date": "2026-10-16",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. LE",
-      "identifier": "23-1814",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/15/23-1814.pdf",
-      "date": "2026-10-15",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
-      "identifier": "26-926",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/14/26-926.pdf",
-      "date": "2026-10-14",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. YOUNGBLOOD",
-      "identifier": "24-7629",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/13/24-7629.pdf",
-      "date": "2026-10-13",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "ALLIANCE FOR THE WILD ROCKIES V. UNITED STATES FOREST SERVICE, ET AL.",
-      "identifier": "25-3518",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/09/25-3518.pdf",
-      "date": "2026-10-09",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BLACK, ET AL. V. IEC GROUP, INC.",
-      "identifier": "25-5952",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/09/25-5952.pdf",
-      "date": "2026-10-09",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "ROE, ET AL. V. PETERSEN, ET AL.",
-      "identifier": "25-6980",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/06/25-6980.pdf",
-      "date": "2026-10-06",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "ROE, ET AL. V. JOHNSTON",
-      "identifier": "25-6970",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/06/25-6970.pdf",
-      "date": "2026-10-06",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. SO",
-      "identifier": "24-5085",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-5085.pdf",
-      "date": "2026-10-05",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SIMON AND SIMON, PC, ET AL. V. ALIGN TECHNOLOGY, INC.",
-      "identifier": "24-1703",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1703.pdf",
-      "date": "2026-10-05",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SNOW, ET AL. V. ALIGN TECHNOLOGY, INC.",
-      "identifier": "24-1783",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1783.pdf",
-      "date": "2026-10-05",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "Statistical Methods to Measure Treatment Effect Using Observational Data Versus Randomized Trials",
@@ -2423,6 +2198,231 @@
       "identifier": "europepmc:PMC13702370",
       "url": "https://europepmc.org/article/PMC/PMC13702370",
       "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-842",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-842.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-2755",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2755.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-6177",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-6177.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "25-7341",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/25-7341.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
+      "identifier": "26-7070",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-7070.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-6170",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-6170.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-2820",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2820.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "PRADO, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-2823",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2823.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727_opinion.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727_opinion.pdf",
+      "date": "2026-10-23",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
+      "identifier": "25-3727",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727.pdf",
+      "date": "2026-10-23",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "A. M. V. BLANCHE",
+      "identifier": "25-5415",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-5415.pdf",
+      "date": "2026-10-23",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
+      "identifier": "25-7781",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-7781.pdf",
+      "date": "2026-10-23",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. MUMMA",
+      "identifier": "24-6987",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/20/24-6987.pdf",
+      "date": "2026-10-20",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. ANDERSON",
+      "identifier": "24-2385",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/19/24-2385.pdf",
+      "date": "2026-10-19",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "WHITFIELD V. MULLIN",
+      "identifier": "25-5220",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/16/25-5220.pdf",
+      "date": "2026-10-16",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. LE",
+      "identifier": "23-1814",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/15/23-1814.pdf",
+      "date": "2026-10-15",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
+      "identifier": "26-926",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/14/26-926.pdf",
+      "date": "2026-10-14",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. YOUNGBLOOD",
+      "identifier": "24-7629",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/13/24-7629.pdf",
+      "date": "2026-10-13",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "ALLIANCE FOR THE WILD ROCKIES V. UNITED STATES FOREST SERVICE, ET AL.",
+      "identifier": "25-3518",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/09/25-3518.pdf",
+      "date": "2026-10-09",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BLACK, ET AL. V. IEC GROUP, INC.",
+      "identifier": "25-5952",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/09/25-5952.pdf",
+      "date": "2026-10-09",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "ROE, ET AL. V. PETERSEN, ET AL.",
+      "identifier": "25-6980",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/06/25-6980.pdf",
+      "date": "2026-10-06",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "ROE, ET AL. V. JOHNSTON",
+      "identifier": "25-6970",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/06/25-6970.pdf",
+      "date": "2026-10-06",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. SO",
+      "identifier": "24-5085",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-5085.pdf",
+      "date": "2026-10-05",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SIMON AND SIMON, PC, ET AL. V. ALIGN TECHNOLOGY, INC.",
+      "identifier": "24-1703",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1703.pdf",
+      "date": "2026-10-05",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SNOW, ET AL. V. ALIGN TECHNOLOGY, INC.",
+      "identifier": "24-1783",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1783.pdf",
+      "date": "2026-10-05",
       "first_seen": "2026-10-27T21:53:40Z"
     },
     {
@@ -2661,7 +2661,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-10-31T16:55:47Z",
+    "last_poll": "2026-10-31T21:06:37Z",
     "sources": [
       {
         "name": "Ninth Circuit",
