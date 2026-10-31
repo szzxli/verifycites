@@ -1,6 +1,231 @@
 {
   "items": [
     {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Advances in Aquatic Invertebrate Stem Cell Research",
+      "identifier": "europepmc:NBK625831",
+      "url": "https://europepmc.org/article/NBK/NBK625831",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Ninhydrin as a Covalent Warhead for Chemical Proteomic-Enabled Discovery and Selective Engagement of Reactive Arginines",
+      "identifier": "europepmc:PMC13720922",
+      "url": "https://europepmc.org/article/PMC/PMC13720922",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Near-Infrared Light-Responsive Nanosystems with Controlled l-Quebrachitol Release and Photothermal Effect for Synergistic Bone Defect Regeneration",
+      "identifier": "europepmc:PMC13720139",
+      "url": "https://europepmc.org/article/PMC/PMC13720139",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "MLH1 AND MSH2 PROTEIN EXPRESSION LOSS AND MICROSATELLITE INSTABILITY IN COLORECTAL ADENOMAS OF PATIENTS WITH LYNCH SYNDROME: A SYSTEMATIC REVIEW AND META-ANALYSIS Perda de expressão das proteínas MLH1 e MSH2 e instabilidade de microssatélites em adenomas colorretais de pacientes com Síndrome de Lynch: uma Revisão Sistemática e Meta-Análise",
+      "identifier": "europepmc:PMC13722409",
+      "url": "https://europepmc.org/article/PMC/PMC13722409",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Targeting the gut–tumor axis: probiotic therapy as an adjunct strategy in colorectal cancer treatment",
+      "identifier": "europepmc:PMC13719324",
+      "url": "https://europepmc.org/article/PMC/PMC13719324",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Experimental evidence for electroacupuncture in managing pain from chemotherapy-induced peripheral neuropathy: a systematic review and meta-analysis",
+      "identifier": "europepmc:PMC13722001",
+      "url": "https://europepmc.org/article/PMC/PMC13722001",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Commentary: Cat exposure and asthma outcomes in a cohort of children with asthma and allergy",
+      "identifier": "europepmc:PMC13719458",
+      "url": "https://europepmc.org/article/PMC/PMC13719458",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Manganese Deposition Encephalopathy Associated With Prolonged Total Parenteral Nutrition: A Case Report",
+      "identifier": "europepmc:PMC13722496",
+      "url": "https://europepmc.org/article/PMC/PMC13722496",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Choroid plexus volume in metabolic syndrome: a cross-sectional neuroimaging study",
+      "identifier": "europepmc:PMC13721072",
+      "url": "https://europepmc.org/article/PMC/PMC13721072",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Retraction: The AhR–TLR4 axis in non-IgE-mediated cow’s milk allergy: a systematic review with integrated multi-omics corroboration",
+      "identifier": "europepmc:PMC13720984",
+      "url": "https://europepmc.org/article/PMC/PMC13720984",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Correction: Association of baseline peripheral sex hormone profiles and metabolic parameters with recurrence after oral isotretinoin treatment in patients with severe acne",
+      "identifier": "europepmc:PMC13720911",
+      "url": "https://europepmc.org/article/PMC/PMC13720911",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Retraction: Muscle-derived stem cell exosomes with overexpressed miR-214 promote the regeneration and repair of rat sciatic nerve after crush injury to activate the JAK2/STAT3 pathway by targeting PTEN",
+      "identifier": "europepmc:PMC13720882",
+      "url": "https://europepmc.org/article/PMC/PMC13720882",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Conditional diffusion-based inverse kinematics for redundant 7-DOF manipulators with differentiable refinement",
+      "identifier": "europepmc:PMC13719613",
+      "url": "https://europepmc.org/article/PMC/PMC13719613",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "An automated EEG–ECG framework for CAP–HRV analysis: enabling brain–heart coupling studies in sleep disorders",
+      "identifier": "europepmc:PMC13719611",
+      "url": "https://europepmc.org/article/PMC/PMC13719611",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Psychological flourishing among young and middle-aged postoperative lung cancer patients: a latent profile analysis",
+      "identifier": "europepmc:PMC13719391",
+      "url": "https://europepmc.org/article/PMC/PMC13719391",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Governing brain-computer interfaces as embodied autonomous neural systems: an ethical framework for neurorobotic governance in education",
+      "identifier": "europepmc:PMC13719342",
+      "url": "https://europepmc.org/article/PMC/PMC13719342",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Respiratory viral triggers and pediatric acute necrotizing encephalopathy: a systematic review and meta-analysis of risk, clinical phenotype, and outcomes",
+      "identifier": "europepmc:PMC13719322",
+      "url": "https://europepmc.org/article/PMC/PMC13719322",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Commentary: Efgartigimod for generalized myasthenia gravis: a comprehensive review of clinical evidence and future perspectives",
+      "identifier": "europepmc:PMC13719333",
+      "url": "https://europepmc.org/article/PMC/PMC13719333",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The Effects of Negative Affect and Dispositional Pessimism on Decision-Making Under Ambiguity",
+      "identifier": "europepmc:PMC13722012",
+      "url": "https://europepmc.org/article/PMC/PMC13722012",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Barriers and Enablers to Guideline-Directed Prescribing for Heart Failure with Reduced Ejection Fraction: A Multi-Stakeholder Qualitative Study",
+      "identifier": "europepmc:PMC13722010",
+      "url": "https://europepmc.org/article/PMC/PMC13722010",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Changing predictive asymmetry: network agenda correspondence between state media and the user on China's fertility policy (2013–2025)",
+      "identifier": "europepmc:PMC13719576",
+      "url": "https://europepmc.org/article/PMC/PMC13719576",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Mental health literacy moderates the association between anxiety and depressive symptoms among Chinese young adults: a population-based cross-sectional study",
+      "identifier": "europepmc:PMC13721286",
+      "url": "https://europepmc.org/article/PMC/PMC13721286",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Research on the molecular mechanisms and therapeutic strategies of reactive oxygen species in nasopharyngeal carcinoma",
+      "identifier": "europepmc:PMC13720374",
+      "url": "https://europepmc.org/article/PMC/PMC13720374",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Mechanistic Insights into the Colloidal Synthesis of Monodisperse CoF2 Nanorods",
+      "identifier": "europepmc:PMC13722272",
+      "url": "https://europepmc.org/article/PMC/PMC13722272",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Digital health technologies for myopia care: a systematic review",
+      "identifier": "europepmc:PMC13719632",
+      "url": "https://europepmc.org/article/PMC/PMC13719632",
+      "date": "2026-10-31",
+      "first_seen": "2026-10-31T16:55:47Z"
+    },
+    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "CALIFORNIA NURSES ASSOCIATION, ET AL. V. MULLIN, ET AL.",
@@ -230,6 +455,87 @@
       "first_seen": "2026-10-31T04:29:18Z"
     },
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
+      "identifier": "24-5493",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5493.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
+      "identifier": "24-5691",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5691.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. ADA COUNTY PROSECUTING ATTORNEY, ET AL.",
+      "identifier": "26-5558",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5558.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NATIONAL TPS ALLIANCE, ET AL. V. MULLIN, ET AL.",
+      "identifier": "25-5724",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-5724.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "CALIFORNIA NURSES ASSOCIATION, ET AL. V. MULLIN, ET AL.",
+      "identifier": "26-7139",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
+      "identifier": "26-5360",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5360.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
+      "identifier": "26-6068",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-6068.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
+      "identifier": "26-7231",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7231.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SHARED PARTNERSHIP V. META PLATFORMS, INC.",
+      "identifier": "25-2612",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-2612.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "A Direct-to-Patient Alert for Glycated Hemoglobin Screening Using Prediction Modeling and Mobile Health (mHealth)",
@@ -451,87 +757,6 @@
       "title_or_case_name": "Primary Cutaneous Diffuse Large B-cell Lymphoma, Leg Type, With Rapid Systemic Progression in an Elderly Patient: A Case Report",
       "identifier": "europepmc:PMC13719235",
       "url": "https://europepmc.org/article/PMC/PMC13719235",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
-      "identifier": "24-5493",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5493.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
-      "identifier": "24-5691",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5691.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. ADA COUNTY PROSECUTING ATTORNEY, ET AL.",
-      "identifier": "26-5558",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5558.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NATIONAL TPS ALLIANCE, ET AL. V. MULLIN, ET AL.",
-      "identifier": "25-5724",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-5724.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "CALIFORNIA NURSES ASSOCIATION, ET AL. V. MULLIN, ET AL.",
-      "identifier": "26-7139",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
-      "identifier": "26-5360",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5360.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
-      "identifier": "26-6068",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-6068.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
-      "identifier": "26-7231",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7231.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SHARED PARTNERSHIP V. META PLATFORMS, INC.",
-      "identifier": "25-2612",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-2612.pdf",
       "date": "2026-10-30",
       "first_seen": "2026-10-30T21:59:49Z"
     },
@@ -760,6 +985,15 @@
       "url": "https://arxiv.org/abs/2610.40633",
       "date": "2026-10-29",
       "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "RED EAGLE LAW, LC V. RUBIO",
+      "identifier": "26-6943",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/26-6943.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T04:44:46Z"
     },
     {
       "source": "Europe PMC",
@@ -1014,11 +1248,38 @@
     {
       "source": "Ninth Circuit",
       "kind": "legal",
-      "title_or_case_name": "RED EAGLE LAW, LC V. RUBIO",
-      "identifier": "26-6943",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/26-6943.pdf",
+      "title_or_case_name": "COLVIN AND SON, LLC, ET AL. V. BURGUM, ET AL.",
+      "identifier": "25-1888",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-1888.pdf",
       "date": "2026-10-29",
-      "first_seen": "2026-10-30T04:44:46Z"
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "CALIFORNIA CHAMBER OF COMMERCE, ET AL. V. BONTA, ET AL.",
+      "identifier": "25-6874",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-6874.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "UBER TECHNOLOGIES, INC., ET AL. V. CITY OF SEATTLE",
+      "identifier": "25-228",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-228.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "MAPLEBEAR INC., ET AL. V. CITY OF SEATTLE",
+      "identifier": "25-231",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-231.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
     },
     {
       "source": "Europe PMC",
@@ -1268,42 +1529,6 @@
       "url": "https://europepmc.org/article/MED/42952440",
       "date": "2026-10-29",
       "doi": "10.3345/cep.2026.03202",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "COLVIN AND SON, LLC, ET AL. V. BURGUM, ET AL.",
-      "identifier": "25-1888",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-1888.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "CALIFORNIA CHAMBER OF COMMERCE, ET AL. V. BONTA, ET AL.",
-      "identifier": "25-6874",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-6874.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "UBER TECHNOLOGIES, INC., ET AL. V. CITY OF SEATTLE",
-      "identifier": "25-228",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-228.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "MAPLEBEAR INC., ET AL. V. CITY OF SEATTLE",
-      "identifier": "25-231",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-231.pdf",
-      "date": "2026-10-29",
       "first_seen": "2026-10-29T22:30:22Z"
     },
     {
@@ -1751,231 +1976,6 @@
       "first_seen": "2026-10-28T04:28:13Z"
     },
     {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Statistical Methods to Measure Treatment Effect Using Observational Data Versus Randomized Trials",
-      "identifier": "europepmc:NBK625567",
-      "url": "https://europepmc.org/article/NBK/NBK625567",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Do Reports That Capture the Age-Related Problems of Older Patients with Cancer Improve Doctor-Patient Conversations?—The COACH Study",
-      "identifier": "europepmc:NBK625571",
-      "url": "https://europepmc.org/article/NBK/NBK625571",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Managing Unhealthy Alcohol Use in Primary Care",
-      "identifier": "europepmc:NBK625638",
-      "url": "https://europepmc.org/article/NBK/NBK625638",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "assessment and management",
-      "identifier": "europepmc:NBK625649",
-      "url": "https://europepmc.org/article/NBK/NBK625649",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "CDS Connect",
-      "identifier": "europepmc:NBK625643",
-      "url": "https://europepmc.org/article/NBK/NBK625643",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Comparing Approaches to Improve Black Patients' Chances of Getting Live Donor Kidney Transplants",
-      "identifier": "europepmc:NBK625566",
-      "url": "https://europepmc.org/article/NBK/NBK625566",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Culturally Congruent Latino-Adapted Telemonitoring in Underrepresented Adults with Type 2 Diabetes: The CULTURA-DM2 Trial",
-      "identifier": "europepmc:NBK625569",
-      "url": "https://europepmc.org/article/NBK/NBK625569",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "A Noninferiority Randomized Clinical Trial Comparing the Effectiveness of Delivering Fatigue Self-Management Interventions for People With Multiple Sclerosis",
-      "identifier": "europepmc:NBK625570",
-      "url": "https://europepmc.org/article/NBK/NBK625570",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Brain Injury Rehabilitation: Improving the Transition Experience (BRITE)",
-      "identifier": "europepmc:NBK625568",
-      "url": "https://europepmc.org/article/NBK/NBK625568",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Urinary CXCL10 for detection of rejection and infection at 1-year posttransplant",
-      "identifier": "europepmc:PMC13696364",
-      "url": "https://europepmc.org/article/PMC/PMC13696364",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Differences in excess mortality by recipient sex after liver transplant",
-      "identifier": "europepmc:PMC13697205",
-      "url": "https://europepmc.org/article/PMC/PMC13697205",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Editorial: Europeans and xenotransplantation",
-      "identifier": "europepmc:PMC13702058",
-      "url": "https://europepmc.org/article/PMC/PMC13702058",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Synthesis, spectroscopic study, antioxidant, DNA-cleavage and enzyme-mimicking activities for metal(II/III) complexes with azo ligand–eugenol scaffold",
-      "identifier": "europepmc:PMC13701512",
-      "url": "https://europepmc.org/article/PMC/PMC13701512",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Associations between the development of severe acute pancreatitis and the risk scores on admission and inflammatory biomarkers in older patients: a retrospective cohort study",
-      "identifier": "europepmc:PMC13705630",
-      "url": "https://europepmc.org/article/PMC/PMC13705630",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Single-component dual emission and full-spectrum color tuning from through-space charge transfer in asymmetric [2.2]paracyclophanes",
-      "identifier": "europepmc:PMC13699521",
-      "url": "https://europepmc.org/article/PMC/PMC13699521",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Ultrasound-Activated Paclitaxel Prodrug Potentiates Suppression of Tumor Growth and Metastasis",
-      "identifier": "europepmc:PMC13697934",
-      "url": "https://europepmc.org/article/PMC/PMC13697934",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Evaluation of the morphometric characteristics of the talus bone-variations and their clinical significance: a descriptive anatomical study",
-      "identifier": "europepmc:PMC13706679",
-      "url": "https://europepmc.org/article/PMC/PMC13706679",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Energy offsets between the Er3+ 4f-states and the GaAs energy levels important for photon ratchet intermediate-band solar cells",
-      "identifier": "europepmc:PMC13700468",
-      "url": "https://europepmc.org/article/PMC/PMC13700468",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Tuning heterojunction pathways via transition metal oxides on fibrous silica iron for enhanced photoelectrochemical water splitting",
-      "identifier": "europepmc:PMC13698912",
-      "url": "https://europepmc.org/article/PMC/PMC13698912",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Fatores associados às transições no status da violência por parceiro íntimo em pessoas idosas: estudo longitudinal EpiFloripa Idoso Factors associated with transitions in the status of intimate partner violence in older adults: the EpiFloripa Idoso longitudinal study Factores asociados a las transiciones en el estatus de la violencia de pareja en adultos mayores: estudio longitudinal EpiFloripa Idoso",
-      "identifier": "europepmc:PMC13706637",
-      "url": "https://europepmc.org/article/PMC/PMC13706637",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Association between breastfeeding indicators and early childhood development: results from the Brazilian National Survey on Child Nutrition Associação entre indicadores de aleitamento materno e desenvolvimento infantil: resultados do Estudo Nacional de Alimentação e Nutrição Infantil Asociación entre los indicadores de lactancia materna y el desarrollo en la primera infancia: resultados del Estudio Nacional de Alimentación y Nutrición Infantil",
-      "identifier": "europepmc:PMC13706636",
-      "url": "https://europepmc.org/article/PMC/PMC13706636",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Recorrido y barreras en el acceso a diagnóstico y tratamiento de la enfermedad de Chagas en Argentina: un mapa desde la experiencia de las personas The journey and barriers to accessing diagnosis and treatment for Chagas disease in Argentina: a patient journey map based on people’s experiences Percurso e barreiras no acesso ao diagnóstico e ao tratamento da doença de Chagas na Argentina: um panorama a partir de experiências pessoais",
-      "identifier": "europepmc:PMC13706635",
-      "url": "https://europepmc.org/article/PMC/PMC13706635",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Topical Calcium Thioglycolate for Severe Plantar Hyperkeratosis in Atopic Dermatitis: A Case Report",
-      "identifier": "europepmc:PMC13703114",
-      "url": "https://europepmc.org/article/PMC/PMC13703114",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Convergent Validity and Exploratory Discrimination of Two-Dimensional Facial Photographic Measures for Clinician-Rated Facial Asymmetry in Young Mongolian Adults",
-      "identifier": "europepmc:PMC13700725",
-      "url": "https://europepmc.org/article/PMC/PMC13700725",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Improving the Quality of Operation Notes Without a Proforma: An Audit",
-      "identifier": "europepmc:PMC13702370",
-      "url": "https://europepmc.org/article/PMC/PMC13702370",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
@@ -2198,6 +2198,231 @@
       "identifier": "24-1783",
       "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1783.pdf",
       "date": "2026-10-05",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Statistical Methods to Measure Treatment Effect Using Observational Data Versus Randomized Trials",
+      "identifier": "europepmc:NBK625567",
+      "url": "https://europepmc.org/article/NBK/NBK625567",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Do Reports That Capture the Age-Related Problems of Older Patients with Cancer Improve Doctor-Patient Conversations?—The COACH Study",
+      "identifier": "europepmc:NBK625571",
+      "url": "https://europepmc.org/article/NBK/NBK625571",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Managing Unhealthy Alcohol Use in Primary Care",
+      "identifier": "europepmc:NBK625638",
+      "url": "https://europepmc.org/article/NBK/NBK625638",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "assessment and management",
+      "identifier": "europepmc:NBK625649",
+      "url": "https://europepmc.org/article/NBK/NBK625649",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "CDS Connect",
+      "identifier": "europepmc:NBK625643",
+      "url": "https://europepmc.org/article/NBK/NBK625643",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comparing Approaches to Improve Black Patients' Chances of Getting Live Donor Kidney Transplants",
+      "identifier": "europepmc:NBK625566",
+      "url": "https://europepmc.org/article/NBK/NBK625566",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Culturally Congruent Latino-Adapted Telemonitoring in Underrepresented Adults with Type 2 Diabetes: The CULTURA-DM2 Trial",
+      "identifier": "europepmc:NBK625569",
+      "url": "https://europepmc.org/article/NBK/NBK625569",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A Noninferiority Randomized Clinical Trial Comparing the Effectiveness of Delivering Fatigue Self-Management Interventions for People With Multiple Sclerosis",
+      "identifier": "europepmc:NBK625570",
+      "url": "https://europepmc.org/article/NBK/NBK625570",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Brain Injury Rehabilitation: Improving the Transition Experience (BRITE)",
+      "identifier": "europepmc:NBK625568",
+      "url": "https://europepmc.org/article/NBK/NBK625568",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Urinary CXCL10 for detection of rejection and infection at 1-year posttransplant",
+      "identifier": "europepmc:PMC13696364",
+      "url": "https://europepmc.org/article/PMC/PMC13696364",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Differences in excess mortality by recipient sex after liver transplant",
+      "identifier": "europepmc:PMC13697205",
+      "url": "https://europepmc.org/article/PMC/PMC13697205",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Editorial: Europeans and xenotransplantation",
+      "identifier": "europepmc:PMC13702058",
+      "url": "https://europepmc.org/article/PMC/PMC13702058",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Synthesis, spectroscopic study, antioxidant, DNA-cleavage and enzyme-mimicking activities for metal(II/III) complexes with azo ligand–eugenol scaffold",
+      "identifier": "europepmc:PMC13701512",
+      "url": "https://europepmc.org/article/PMC/PMC13701512",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Associations between the development of severe acute pancreatitis and the risk scores on admission and inflammatory biomarkers in older patients: a retrospective cohort study",
+      "identifier": "europepmc:PMC13705630",
+      "url": "https://europepmc.org/article/PMC/PMC13705630",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Single-component dual emission and full-spectrum color tuning from through-space charge transfer in asymmetric [2.2]paracyclophanes",
+      "identifier": "europepmc:PMC13699521",
+      "url": "https://europepmc.org/article/PMC/PMC13699521",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Ultrasound-Activated Paclitaxel Prodrug Potentiates Suppression of Tumor Growth and Metastasis",
+      "identifier": "europepmc:PMC13697934",
+      "url": "https://europepmc.org/article/PMC/PMC13697934",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Evaluation of the morphometric characteristics of the talus bone-variations and their clinical significance: a descriptive anatomical study",
+      "identifier": "europepmc:PMC13706679",
+      "url": "https://europepmc.org/article/PMC/PMC13706679",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Energy offsets between the Er3+ 4f-states and the GaAs energy levels important for photon ratchet intermediate-band solar cells",
+      "identifier": "europepmc:PMC13700468",
+      "url": "https://europepmc.org/article/PMC/PMC13700468",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Tuning heterojunction pathways via transition metal oxides on fibrous silica iron for enhanced photoelectrochemical water splitting",
+      "identifier": "europepmc:PMC13698912",
+      "url": "https://europepmc.org/article/PMC/PMC13698912",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Fatores associados às transições no status da violência por parceiro íntimo em pessoas idosas: estudo longitudinal EpiFloripa Idoso Factors associated with transitions in the status of intimate partner violence in older adults: the EpiFloripa Idoso longitudinal study Factores asociados a las transiciones en el estatus de la violencia de pareja en adultos mayores: estudio longitudinal EpiFloripa Idoso",
+      "identifier": "europepmc:PMC13706637",
+      "url": "https://europepmc.org/article/PMC/PMC13706637",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Association between breastfeeding indicators and early childhood development: results from the Brazilian National Survey on Child Nutrition Associação entre indicadores de aleitamento materno e desenvolvimento infantil: resultados do Estudo Nacional de Alimentação e Nutrição Infantil Asociación entre los indicadores de lactancia materna y el desarrollo en la primera infancia: resultados del Estudio Nacional de Alimentación y Nutrición Infantil",
+      "identifier": "europepmc:PMC13706636",
+      "url": "https://europepmc.org/article/PMC/PMC13706636",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Recorrido y barreras en el acceso a diagnóstico y tratamiento de la enfermedad de Chagas en Argentina: un mapa desde la experiencia de las personas The journey and barriers to accessing diagnosis and treatment for Chagas disease in Argentina: a patient journey map based on people’s experiences Percurso e barreiras no acesso ao diagnóstico e ao tratamento da doença de Chagas na Argentina: um panorama a partir de experiências pessoais",
+      "identifier": "europepmc:PMC13706635",
+      "url": "https://europepmc.org/article/PMC/PMC13706635",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Topical Calcium Thioglycolate for Severe Plantar Hyperkeratosis in Atopic Dermatitis: A Case Report",
+      "identifier": "europepmc:PMC13703114",
+      "url": "https://europepmc.org/article/PMC/PMC13703114",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Convergent Validity and Exploratory Discrimination of Two-Dimensional Facial Photographic Measures for Clinician-Rated Facial Asymmetry in Young Mongolian Adults",
+      "identifier": "europepmc:PMC13700725",
+      "url": "https://europepmc.org/article/PMC/PMC13700725",
+      "date": "2026-10-27",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Improving the Quality of Operation Notes Without a Proforma: An Audit",
+      "identifier": "europepmc:PMC13702370",
+      "url": "https://europepmc.org/article/PMC/PMC13702370",
+      "date": "2026-10-27",
       "first_seen": "2026-10-27T21:53:40Z"
     },
     {
@@ -2436,7 +2661,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-10-31T11:49:27Z",
+    "last_poll": "2026-10-31T16:55:47Z",
     "sources": [
       {
         "name": "Ninth Circuit",
