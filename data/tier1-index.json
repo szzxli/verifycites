@@ -1,6 +1,15 @@
 {
   "items": [
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "CALIFORNIA NURSES ASSOCIATION, ET AL. V. MULLIN, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139_en_banc_order.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139_en_banc_order.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-31T11:49:27Z"
+    },
+    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "APH-1A and CDK5 Expression Correlates with Tau Hyperphosphorylation and Its Attenuation by Brahmi and Donep-M in STZ induced Alzheimer’s Disease Model",
@@ -2427,7 +2436,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-10-31T04:29:18Z",
+    "last_poll": "2026-10-31T11:49:27Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -2443,9 +2452,9 @@
       },
       {
         "name": "arXiv",
-        "status": "error",
-        "items": 0,
-        "last_error": "fetch failed after 3 attempts: HTTP Error 429: Unknown Error"
+        "status": "ok",
+        "items": 25,
+        "last_error": null
       },
       {
         "name": "Europe PMC",
