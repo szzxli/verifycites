@@ -3,6 +3,256 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Macular OCTA Biomarkers of Ocular Involvement in Patients With Primary Central Nervous System Lymphoma.",
+      "identifier": "10.1002/hon.70289",
+      "url": "https://europepmc.org/article/MED/42963924",
+      "date": "2026-11-01",
+      "doi": "10.1002/hon.70289",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Peripheral and Placental KLRG1<sup>+</sup> Senescence-Associated T Cells in Placenta Accreta Spectrum: Diagnostic and Clinical Correlations.",
+      "identifier": "10.1111/aji.70339",
+      "url": "https://europepmc.org/article/MED/42963923",
+      "date": "2026-11-01",
+      "doi": "10.1111/aji.70339",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Eltrombopag during induction chemotherapy in older patients with newly diagnosed acute myeloid leukemia is safe and reduces platelet transfusion requirements: The EPAG-2015 French Innovative Leukemia Organization phase 2 randomized trial.",
+      "identifier": "10.1002/cncr.70669",
+      "url": "https://europepmc.org/article/MED/42963911",
+      "date": "2026-11-01",
+      "doi": "10.1002/cncr.70669",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Male mice are more susceptible than females to obesity-induced muscle atrophy when fed a high-fat, high-cholesterol diet.",
+      "identifier": "10.14814/phy2.71158",
+      "url": "https://europepmc.org/article/MED/42963909",
+      "date": "2026-11-01",
+      "doi": "10.14814/phy2.71158",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Intraoperative Indocyanine Green Fluorescence for Assessment of Suspected Venous Invasion in a Dog With Thyroid Carcinoma.",
+      "identifier": "10.1002/vms3.71273",
+      "url": "https://europepmc.org/article/MED/42963907",
+      "date": "2026-11-01",
+      "doi": "10.1002/vms3.71273",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Do Adverse Intrauterine Environments Affect Body Mass Index in Infants and Preschool Children?",
+      "identifier": "10.1002/ajhb.70359",
+      "url": "https://europepmc.org/article/MED/42963904",
+      "date": "2026-11-01",
+      "doi": "10.1002/ajhb.70359",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "No Silver Bullet for Rhythm Analysis.",
+      "identifier": "10.1111/nyas.70443",
+      "url": "https://europepmc.org/article/MED/42963898",
+      "date": "2026-11-01",
+      "doi": "10.1111/nyas.70443",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Four Novel HLA-DQB1 Alleles Characterised by Two Different Next-Generation Sequencing Reagent Kits.",
+      "identifier": "10.1111/tan.71065",
+      "url": "https://europepmc.org/article/MED/42963895",
+      "date": "2026-11-01",
+      "doi": "10.1111/tan.71065",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "ACPGBI: Strengthening our foundations and shaping our future.",
+      "identifier": "10.1111/codi.70663",
+      "url": "https://europepmc.org/article/MED/42963890",
+      "date": "2026-11-01",
+      "doi": "10.1111/codi.70663",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Longitudinal Facial Growth in Extant Humans: Examining the Association of BMI and Sex.",
+      "identifier": "10.1002/ajhb.70352",
+      "url": "https://europepmc.org/article/MED/42963888",
+      "date": "2026-11-01",
+      "doi": "10.1002/ajhb.70352",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A Large Language Model Framework for Seed Implant Brachytherapy: Adaptive Weight Optimization via Retrieval-Augmented Generation.",
+      "identifier": "10.1111/nyas.70448",
+      "url": "https://europepmc.org/article/MED/42963884",
+      "date": "2026-11-01",
+      "doi": "10.1111/nyas.70448",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "OsYchF1 suppresses OsEF1Bγ-mediated ER detoxification to co-involve the growth-maintenance trade-off in rice.",
+      "identifier": "10.1111/tpj.71185",
+      "url": "https://europepmc.org/article/MED/42963881",
+      "date": "2026-11-01",
+      "doi": "10.1111/tpj.71185",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "High Expression of ACKR4 in Thymic Epithelial Progenitors of Adult Mice.",
+      "identifier": "10.1002/eji.70305",
+      "url": "https://europepmc.org/article/MED/42963880",
+      "date": "2026-11-01",
+      "doi": "10.1002/eji.70305",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Is SARS-CoV-2 Infection (COVID-19) Associated With Congenital Anomalies? A Population Study of Congenital Anomaly Surveillance Data and Maternal SARS-CoV-2 Infection in Wales.",
+      "identifier": "10.1002/bdr2.70122",
+      "url": "https://europepmc.org/article/MED/42963848",
+      "date": "2026-11-01",
+      "doi": "10.1002/bdr2.70122",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Surfactant-Assisted Cascade Synthesis of Tetrahydroquinoline Cyanocarboxamides Through Intramolecular Hydride-Transfer Cyclization in Aqueous CTAB Media.",
+      "identifier": "10.1002/asia.71037",
+      "url": "https://europepmc.org/article/MED/42963847",
+      "date": "2026-11-01",
+      "doi": "10.1002/asia.71037",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "LED Light-Induced Modulation of the Anticancer Activity of a [(2-(6-Bromopyridin-2-yl)-1H-benzo[d]imidazol-6-yl)(phenyl)methanone]-Based Iridium(III) Complex.",
+      "identifier": "10.1002/asia.71034",
+      "url": "https://europepmc.org/article/MED/42963846",
+      "date": "2026-11-01",
+      "doi": "10.1002/asia.71034",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Long-Term Relugolix Monotherapy for Uterine Fibroids: Surgery Avoidance in a Single-Center Retrospective Cohort Study.",
+      "identifier": "10.1111/jog.70553",
+      "url": "https://europepmc.org/article/MED/42963842",
+      "date": "2026-11-01",
+      "doi": "10.1111/jog.70553",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Automated verification of source dwell position in lunar ovoid applicators.",
+      "identifier": "10.1002/acm2.70887",
+      "url": "https://europepmc.org/article/MED/42963831",
+      "date": "2026-11-01",
+      "doi": "10.1002/acm2.70887",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "DBT Modulates Copper-Dependent Cuproptosis-Related Injury in Experimental Alcoholic Cardiomyopathy.",
+      "identifier": "10.1111/jcmm.71421",
+      "url": "https://europepmc.org/article/MED/42963828",
+      "date": "2026-11-01",
+      "doi": "10.1111/jcmm.71421",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Pantethine Restores Epidermal Homeostasis and Modulates Vesicle-Associated Proteins in Psoriasis.",
+      "identifier": "10.1111/exd.70381",
+      "url": "https://europepmc.org/article/MED/42963826",
+      "date": "2026-11-01",
+      "doi": "10.1111/exd.70381",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Muscle Strength and Outcome Measures for Upper Limb Function in Adults With Myotonic Dystrophy Type 1: A Cross-Sectional Study.",
+      "identifier": "10.1111/ene.70799",
+      "url": "https://europepmc.org/article/MED/42963825",
+      "date": "2026-11-01",
+      "doi": "10.1111/ene.70799",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "AAPM Medical Physics Practice Guideline 18.a: Superficial radiation therapy using low-energy kilovoltage x-rays.",
+      "identifier": "10.1002/acm2.70857",
+      "url": "https://europepmc.org/article/MED/42963823",
+      "date": "2026-11-01",
+      "doi": "10.1002/acm2.70857",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Anxiety and Mindfulness in the Relationship Between Stress and Depression in Patients With Coronary Artery Disease: A Parallel Mediation Analysis.",
+      "identifier": "10.1002/nop2.70992",
+      "url": "https://europepmc.org/article/MED/42963779",
+      "date": "2026-11-01",
+      "doi": "10.1002/nop2.70992",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Person-Centred Climate Despite Unmet Fundamental Care Needs: Findings From inCHARGE Using a Convergent Parallel Mixed Methods Design.",
+      "identifier": "10.1002/nop2.70974",
+      "url": "https://europepmc.org/article/MED/42963596",
+      "date": "2026-11-01",
+      "doi": "10.1002/nop2.70974",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Barriers to Proactive Health Management Among Elderly Patients With Coronary Heart Disease in Rural Areas: A Qualitative Study.",
+      "identifier": "10.1002/nop2.70952",
+      "url": "https://europepmc.org/article/MED/42963579",
+      "date": "2026-11-01",
+      "doi": "10.1002/nop2.70952",
+      "first_seen": "2026-11-01T04:49:33Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Advances in Aquatic Invertebrate Stem Cell Research",
       "identifier": "europepmc:NBK625831",
       "url": "https://europepmc.org/article/NBK/NBK625831",
@@ -2661,7 +2911,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-10-31T21:06:37Z",
+    "last_poll": "2026-11-01T04:49:33Z",
     "sources": [
       {
         "name": "Ninth Circuit",
