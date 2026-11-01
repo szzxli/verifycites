@@ -1,7 +1,7 @@
 {
   "status": "ok",
-  "updated_utc": "2026-10-31T17:52:12Z",
-  "last_success_utc": "2026-10-31T17:52:12Z",
+  "updated_utc": "2026-11-01T18:28:41Z",
+  "last_success_utc": "2026-11-01T18:28:41Z",
   "query": "(\"fabricated citation\" OR \"fabricated citations\" OR \"fabricated case\" OR \"fabricated cases\" OR \"fictitious citation\" OR \"fictitious citations\" OR \"fictitious case\" OR \"fictitious cases\" OR \"hallucinated citation\" OR \"hallucinated citations\" OR \"hallucinated case\" OR \"hallucinated cases\" OR \"nonexistent citation\" OR \"nonexistent citations\" OR \"nonexistent case\" OR \"non-existent citation\" OR \"non-existent case\" OR \"AI-generated citation\" OR \"AI-generated citations\" OR \"artificial intelligence hallucination\" OR \"artificial intelligence hallucinations\") AND (\"artificial intelligence\" OR \"AI-generated\" OR ChatGPT OR \"generative AI\" OR \"generative artificial intelligence\" OR \"large language model\" OR GPT)",
   "error": null,
   "items": [
