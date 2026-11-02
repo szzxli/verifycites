@@ -69,9 +69,9 @@ var __biaData = null;
 function biaLoad() {
   if (__biaData) return __biaData;
   __biaData = Promise.all([
-    fetch("../data/bia-index.json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("bia index " + r.status); return r.json(); })
+    fetch("/data/bia-index.json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("bia index " + r.status); return r.json(); })
   ].concat(BIA_VOLUMES.map(function (v) {
-    return fetch("../data/bia-search/vol" + v + ".json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("bia vol " + r.status); return r.json(); });
+    return fetch("/data/bia-search/vol" + v + ".json", { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("bia vol " + r.status); return r.json(); });
   }))).then(function (all) { return { index: all[0], volumes: all.slice(1) }; });
   __biaData.catch(function () { __biaData = null; });
   return __biaData;
