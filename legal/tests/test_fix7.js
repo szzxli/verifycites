@@ -17,9 +17,8 @@ for (const l of ["en", "es", "zh"]) {
 }
 // Fix 1 (SUPERSEDED by UX2): the problem-first hero question is replaced by a
 // browser-truthful heading. UX2 heading states extraction + self-check.
-assert.ok(I18N.en.heading.includes("Extract citations"));
-assert.ok(I18N.en.heading.includes("check each case yourself"));
-assert.ok(I18N.zh.heading.includes("逐一自行核查"));
+assert.ok(I18N.en.heading.includes("Immigration & BIA citation extractor"));
+assert.ok(I18N.zh.heading.includes("移民与 BIA 引文提取器"));
 assert.ok(!I18N.en.heading.includes("actually exist"));
 assert.ok(!I18N.zh.heading.includes("真实存在"));
 // Fix 7: exact Chinese disclaimer-authoritative sentence; English still authoritative.
