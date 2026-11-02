@@ -230,7 +230,7 @@ function bibLabelEvidence(evidence, entries) {
     if (rawDoi && !_bibDoi({ doi: rawDoi })) {
       // a DOI field that is not a well-formed DOI: flag it, never silently ignore it
       return Object.assign({}, ev, { claim: `@${e.key} — ${t}`, bibkey: e.key, base: 'INVALID_DOI', label: 'INVALID_DOI',
-        doi: '', note: `DOI format invalid: '${rawDoi}' is not a well-formed DOI (10.<4-9 digits>/<suffix>) — likely mistyped or fabricated. Fix or remove it.` });
+        doi: '', note: `DOI format invalid: '${rawDoi}' is not a well-formed DOI (10.<4-9 digits>/<suffix>) — likely mistyped or incorrect. Fix or remove it.` });
     }
     return Object.assign({}, ev, { claim: `@${e.key} — ${t}`, bibkey: e.key });
   });
