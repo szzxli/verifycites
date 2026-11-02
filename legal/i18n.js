@@ -7,7 +7,7 @@
 var I18N = {
   en: {
     pageTitle: "VerifyCites \u2014 browser citation extraction",
-    heading: "Extract citations from your brief — then check each case yourself",
+      heading: "Immigration & BIA citation extractor",
     subtitle: "Paste your motion or brief. The tool pulls out every citation and shows you a link to check it yourself \u2014 in the extraction step, your text does not leave your browser.",
     disclaimer: "Not legal advice. In the browser, this page only extracts citations and gives you links. Every row is NOT_CHECKED. It does not check whether a cited case exists, whether the name matches, whether quotes or pin cites are accurate, whether a source supports an argument, or whether a case is still good law. A separate command-line tool can check CourtListener for case existence and case-name match only. That tool does not check statutes, regulations, BIA or AAO decisions, the INA, or the Code of Federal Regulations. CourtListener coverage is incomplete, so a CLI result is not a complete search. Read every source you cite.",
     disclaimerNote: "The English disclaimer above is authoritative.",
@@ -197,7 +197,7 @@ var I18N = {
   },
   es: {
     pageTitle: "VerifyCites — extracción de citas en el navegador",
-    heading: "Extraiga las citas de su escrito y verifique cada caso usted mismo",
+      heading: "Extractor de citas de inmigración y BIA",
     subtitle: "Pegue su moci\u00f3n o escrito. La herramienta extrae cada cita y le muestra un enlace para verificarla usted mismo; en el paso de extracci\u00f3n, su texto no sale de su navegador.",
     disclaimer: "No es asesoramiento jurídico. En el navegador, esta página solo extrae citas y le da enlaces. Cada fila es NOT_CHECKED. No comprueba si un caso citado existe, si el nombre coincide, si las citas textuales o las páginas son exactas, ni si un caso sigue siendo derecho vigente. Una CLI aparte puede comprobar en CourtListener si el caso existe y si el nombre coincide. Esa CLI no comprueba leyes, reglamentos, decisiones de BIA o AAO, la INA ni el Code of Federal Regulations. Lea cada fuente que cite.",
     disclaimerNote: "La exenci\u00f3n de responsabilidad en ingl\u00e9s anterior es la autorizada; esta es una traducci\u00f3n.",
@@ -387,7 +387,7 @@ var I18N = {
   },
   zh: {
     pageTitle: "VerifyCites — 浏览器端引文提取",
-    heading: "提取诉状中的引文，逐一自行核查",
+      heading: "移民与 BIA 引文提取器",
     subtitle: "\u7c98\u8d34\u60a8\u7684\u52a8\u8bae\u6216\u8bc9\u72b6\u3002\u672c\u5de5\u5177\u4f1a\u63d0\u53d6\u6bcf\u4e00\u4e2a\u5f15\u6587\uff0c\u5e76\u7ed9\u60a8\u4e00\u4e2a\u94fe\u63a5\u3001\u8ba9\u60a8\u81ea\u5df1\u6838\u67e5\u2014\u2014\u5728\u63d0\u53d6\u8fd9\u4e00\u6b65\uff0c\u60a8\u7684\u6587\u672c\u4e0d\u4f1a\u79bb\u5f00\u60a8\u7684\u6d4f\u89c8\u5668\u3002",
     disclaimer: "不是法律建议。在浏览器中，本页只提取引用并提供链接。每一行都是 NOT_CHECKED。它不核查所引判例是否存在、名称是否一致、引文或页码是否准确，也不核查判例是否仍为有效法律。另有命令行工具只能在 CourtListener 中核查判例是否存在以及案名是否一致。该工具不核查法规、BIA 或 AAO 决定、INA 或《联邦规章汇编》。请阅读您引用的每一项来源。",
     disclaimerNote: "如有歧义，以英文版免责声明为准。",
