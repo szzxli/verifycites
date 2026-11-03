@@ -3,6 +3,92 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Cell death in context: From mechanisms to interventions.",
+      "identifier": "10.1016/j.celrep.2026.118208",
+      "url": "https://europepmc.org/article/MED/42965867",
+      "date": "2026-11-03",
+      "doi": "10.1016/j.celrep.2026.118208",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "November 2026 Translations.",
+      "identifier": "10.1097/dcr.0000000000004481",
+      "url": "https://europepmc.org/article/MED/42962211",
+      "date": "2026-11-03",
+      "doi": "10.1097/dcr.0000000000004481",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Electroacupuncture for Postoperative Gastrointestinal Recovery After Laparoscopic Colorectal Cancer Resection: A Randomized Controlled Trial Electroacupuncture Fastens Recovery: Retraction.",
+      "identifier": "10.1097/dcr.0000000000004483",
+      "url": "https://europepmc.org/article/MED/42956380",
+      "date": "2026-11-03",
+      "doi": "10.1097/dcr.0000000000004483",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply.",
+      "identifier": "10.1097/dcr.0000000000004336",
+      "url": "https://europepmc.org/article/MED/42274012",
+      "date": "2026-11-03",
+      "doi": "10.1097/dcr.0000000000004336",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Duration of antibiotic therapy and erythrocyte sedimentation rate predict blood culture results in children with acute osteomyelitis.",
+      "identifier": "10.1097/bpb.0000000000001302",
+      "url": "https://europepmc.org/article/MED/41185433",
+      "date": "2026-11-03",
+      "doi": "10.1097/bpb.0000000000001302",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_02_opinion.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_02_opinion.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_02_opinion.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_02_opinion.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_01_order.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_01_order.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_01_order.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_01_order.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Structural and Esaki-Diode-like Electrical Properties of PLD-Grown 2D MoS2 Film on MBE Grown AlN/Si(111) Heterostructures.",
       "identifier": "10.1021/acsami.6c11190",
       "url": "https://europepmc.org/article/MED/42967222",
@@ -3612,7 +3698,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-02T14:57:29Z",
+    "last_poll": "2026-11-03T00:39:19Z",
     "sources": [
       {
         "name": "Ninth Circuit",
