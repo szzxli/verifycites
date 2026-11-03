@@ -3,6 +3,33 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "AHRQ CEDAR",
+      "identifier": "europepmc:NBK625790",
+      "url": "https://europepmc.org/article/NBK/NBK625790",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-03T22:58:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Patient Outcomes Reporting for Timely Assessments of Life with Depression: PORTAL-Depression",
+      "identifier": "europepmc:NBK625841",
+      "url": "https://europepmc.org/article/NBK/NBK625841",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-03T22:58:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "AHRQ Final Progress Report",
+      "identifier": "europepmc:NBK625842",
+      "url": "https://europepmc.org/article/NBK/NBK625842",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-03T22:58:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Knockdown of a regulatory barcode shifts macrophage polarization destination from M1 to M2 and increases pathogen burden upon S. aureus infection",
       "identifier": "europepmc:PMC13727075",
       "url": "https://europepmc.org/article/PMC/PMC13727075",
@@ -4166,7 +4193,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-03T13:45:12Z",
+    "last_poll": "2026-11-03T22:58:12Z",
     "sources": [
       {
         "name": "Ninth Circuit",
