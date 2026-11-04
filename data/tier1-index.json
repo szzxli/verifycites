@@ -3,6 +3,231 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Tandem ester hydrogenation-Guerbet catalysis: conversion of triglyceride esters to β-methylated alcohols for synthetic fuels",
+      "identifier": "europepmc:PMC13728491",
+      "url": "https://europepmc.org/article/PMC/PMC13728491",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Discovery of potential ALK inhibitors from Glycosmis phytochemicals via integrated machine learning and umbrella sampling approaches",
+      "identifier": "europepmc:PMC13730657",
+      "url": "https://europepmc.org/article/PMC/PMC13730657",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reactive molecular dynamics insights into oxidation-induced degradation of ofloxacin and toxicity assessment of its transformation products",
+      "identifier": "europepmc:PMC13729865",
+      "url": "https://europepmc.org/article/PMC/PMC13729865",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Phosphonic, arsonic, stibonic, and bismuthonic acids: a unified perspective on a fragmented family of group 15 oxyacids",
+      "identifier": "europepmc:PMC13728944",
+      "url": "https://europepmc.org/article/PMC/PMC13728944",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A comprehensive review of ultrasound in water treatment: multi-applications, mechanisms, and future perspectives",
+      "identifier": "europepmc:PMC13729015",
+      "url": "https://europepmc.org/article/PMC/PMC13729015",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Greener and more sustainable access to 6,7-dimethoxy-2-aryl-4-aminoquinazolines via microwave-assisted chemo-selective synthesis in bio-renewable solvents",
+      "identifier": "europepmc:PMC13729383",
+      "url": "https://europepmc.org/article/PMC/PMC13729383",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "C11-conjugated soft glucocorticoid antibody–drug conjugates for precision immunomodulation",
+      "identifier": "europepmc:PMC13728932",
+      "url": "https://europepmc.org/article/PMC/PMC13728932",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Regulation of endogenous dsRNA: strategies for self-tolerance",
+      "identifier": "europepmc:PMC13730806",
+      "url": "https://europepmc.org/article/PMC/PMC13730806",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "What drives the winter behaviour and ecology of the temperate coral Astrangia poculata? An examination of thermal and nutritional cues",
+      "identifier": "europepmc:PMC13730659",
+      "url": "https://europepmc.org/article/PMC/PMC13730659",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Drivers of zoonotic spillover at human–domestic animal–wildlife interfaces: a multi-species model incorporating wildlife chronic stress",
+      "identifier": "europepmc:PMC13730646",
+      "url": "https://europepmc.org/article/PMC/PMC13730646",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Decoding the dead: new combined application of strontium and lead isotope analysis to Romano-British cremations from Colchester (UK)",
+      "identifier": "europepmc:PMC13730631",
+      "url": "https://europepmc.org/article/PMC/PMC13730631",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beyond sperm competition: perspectives on sperm economy from external fertilizing fishes",
+      "identifier": "europepmc:PMC13730632",
+      "url": "https://europepmc.org/article/PMC/PMC13730632",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Membrane deformation supports ion conduction by the star of David [2]catenane",
+      "identifier": "europepmc:PMC13730457",
+      "url": "https://europepmc.org/article/PMC/PMC13730457",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Ruthenium-catalyzed C5–H activation of indole-4-carboxylic acids with alkynes: access to pyrano-indolone scaffolds",
+      "identifier": "europepmc:PMC13730535",
+      "url": "https://europepmc.org/article/PMC/PMC13730535",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Industry updates from the field of stem cell research and regenerative medicine in September 2025",
+      "identifier": "europepmc:PMC13011587",
+      "url": "https://europepmc.org/article/PMC/PMC13011587",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Artificial intelligence-enabled monitoring of pesticide contamination in agricultural water systems: a comprehensive review of intelligent sensing technologies for water quality surveillance and environmental risk assessment",
+      "identifier": "europepmc:PMC13730392",
+      "url": "https://europepmc.org/article/PMC/PMC13730392",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Estimation of ZIKV and DENV seroprevalence rates in Rio de Janeiro, Brazil, 2018",
+      "identifier": "europepmc:PMC13730518",
+      "url": "https://europepmc.org/article/PMC/PMC13730518",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Green synthesis of high quantum yield tyrosine-derived carbon quantum dots with intrinsic osteo-supportive bioactivity",
+      "identifier": "europepmc:PMC13728861",
+      "url": "https://europepmc.org/article/PMC/PMC13728861",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Drug–drug adsorption-based miniaturized solid phase extraction of amlodipine from biological samples before HPLC–PDA analysis",
+      "identifier": "europepmc:PMC13729127",
+      "url": "https://europepmc.org/article/PMC/PMC13729127",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "NT-proBNP levels and arrhythmias in adolescents with chronic upper gastrointestinal diseases Níveis de NT-proBNP e arritmias em adolescentes com doenças crônicas do trato gastrointestinal superior",
+      "identifier": "europepmc:PMC13730238",
+      "url": "https://europepmc.org/article/PMC/PMC13730238",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Design principles for natural SGLT2 modulators from multi-scale computation",
+      "identifier": "europepmc:PMC13730638",
+      "url": "https://europepmc.org/article/PMC/PMC13730638",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Mast fruiting in a large tropical African legume tree species and the mineral nutrient limitation hypothesis",
+      "identifier": "europepmc:PMC13730661",
+      "url": "https://europepmc.org/article/PMC/PMC13730661",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The repeated evolution of anti-bat bioacoustics in hawkmoths",
+      "identifier": "europepmc:PMC13730811",
+      "url": "https://europepmc.org/article/PMC/PMC13730811",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "First direct measurement of food transit time through the gastrointestinal tracts of plant-eating primates using isotopic tagging",
+      "identifier": "europepmc:PMC13730660",
+      "url": "https://europepmc.org/article/PMC/PMC13730660",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Generalized maximum entropy: when and why you need it",
+      "identifier": "europepmc:PMC13730642",
+      "url": "https://europepmc.org/article/PMC/PMC13730642",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Immune Checkpoint Inhibitors and Keratinocyte Neoplasm Risk.",
       "identifier": "10.1097/dss.0000000000005429",
       "url": "https://europepmc.org/article/MED/42975557",
@@ -4677,7 +4902,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-04T05:10:48Z",
+    "last_poll": "2026-11-04T13:54:14Z",
     "sources": [
       {
         "name": "Ninth Circuit",
