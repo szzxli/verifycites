@@ -755,7 +755,7 @@ async function resolveMarker(type, id, refmap) {
   return { doi: null, arxiv_id: null, via: 'none', limited: !!bl.limited, unreachable: !!bl.unreachable,
     entryRaw: entry.raw,
     note: bl.limited
-      ? `sources could not be asked while checking this entry (${skipped}) — not checked, not proven fake`
+      ? `sources could not be asked while checking this entry (${skipped}) — not checked, not shown to be missing`
       : (bl.answered && bl.answered.length
         ? `reference entry has no DOI/arXiv ID and no confident bibliographic match in ${names(bl.answered)}${skippedNote}`
         : 'reference entry has no DOI/arXiv ID and no confident bibliographic match' + skippedNote) };
@@ -1689,10 +1689,10 @@ async function groundDraft(text, opts, onStep) {
       if (res.unreachable) {
         const which = (res.failed || []).map(f => f.source + (f.why ? ' (' + f.why + ')' : '')).join(', ');
         note = 'could not reach the registries' + (which ? ': ' + which : '') +
-          ' — not checked, could not verify, NOT proven fake. Check your connection and try again.' +
+          ' — not checked, could not verify, not shown to be missing. Check your connection and try again.' +
           (!which && res.note ? ' [' + res.note + ']' : '');
       } else {
-        note = 'source(s) rate-limited (HTTP 429) while checking — not checked, NOT proven fake. Try again later.';
+        note = 'source(s) rate-limited (HTTP 429) while checking — not checked, not shown to be missing. Try again later.';
       }
     } else if (res.fabricated) {
       const id = res.claimed || '';
