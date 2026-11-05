@@ -175,7 +175,16 @@
       </details>
     </section>
 
-    <section class="utility-card" id="court-ai-orders" aria-labelledby="court-ai-orders-title">
+    <section class="utility-card" id="daily-brief" aria-labelledby="daily-brief-title">
+    <details id="daily-brief-details">
+      <summary id="daily-brief-title">Daily brief</summary>
+      <p id="daily-brief-note">New official-source items from the last 24 hours. Inclusion does not mean a court found misconduct. Not legal advice.</p>
+      <p id="daily-brief-updated"></p>
+      <p id="daily-brief-stale" class="news-stale" hidden></p>
+      <ol id="daily-brief-list"></ol>
+    </details>
+  </section>
+  <section class="utility-card" id="court-ai-orders" aria-labelledby="court-ai-orders-title">
       <details id="court-ai-orders-details" open>
         <summary id="court-ai-orders-title">Court orders on AI use in filings</summary>
         <!-- COURT-AI-ORDERS:START (generated from data/court-ai-orders.json) -->
@@ -282,6 +291,7 @@ python -m legalcite check brief.md --md report.md
   <script src="court-orders.js"></script>
   <script src="bia.js"></script>
   <script src="app.js"></script>
+  <script src="brief.js"></script>
   <script src="ui-enhancements.js"></script>
   <script src="../site-nav.js"></script>
   <!-- Privacy-friendly GoatCounter page-view counter; no personal data. -->
