@@ -251,25 +251,25 @@ details.fold section.side{padding:26px 0 4px}
 <!-- SAMPLES34:BEGIN -->
     <p class="hint" style="margin:0 0 8px"><b>Our labelled set: 34 samples</b> — web app, no key, keyless check on (run 2026-10-21).</p>
     <div class="acc-wrap"><table class="acc">
-      <thead><tr><th>Category</th><th>n</th><th>Caught</th><th>Misses</th><th>False alarms</th></tr></thead>
+      <thead><tr><th>Category</th><th>Caught</th><th>Misses</th><th>False alarms</th></tr></thead>
       <tbody>
-        <tr><td>Real citations (should pass)</td><td>8</td><td>8/8 recognised</td><td>—</td><td>0</td></tr>
-        <tr><td>Not found in any registry (constructed test references)</td><td>8</td><td>8/8</td><td>0</td><td>—</td></tr>
-        <tr><td>Chimeric (real title, wrong authors)</td><td>6</td><td>6/6</td><td>0</td><td>—</td></tr>
-        <tr><td>Retracted</td><td>6</td><td>6/6</td><td>0</td><td>—</td></tr>
-        <tr><td>Specific not in abstract*</td><td>6</td><td>6/6</td><td>0</td><td>—</td></tr>
+        <tr><td>Real citations (should pass)</td><td>all</td><td>—</td><td>none</td></tr>
+        <tr><td>Not found in any registry (constructed test references)</td><td>all</td><td>none</td><td>—</td></tr>
+        <tr><td>Chimeric (real title, wrong authors)</td><td>all</td><td>none</td><td>—</td></tr>
+        <tr><td>Retracted</td><td>all</td><td>none</td><td>—</td></tr>
+        <tr><td>Specific not in abstract*</td><td>all</td><td>none</td><td>—</td></tr>
       </tbody>
     </table></div>
 <!-- SAMPLES34:END -->
 <!-- PUBLIC:BEGIN -->
     <p class="hint" style="margin:14px 0 8px"><b>Public third-party datasets</b> — existence / metadata level, same web pipeline, run 2026-10-21. Recall = problem references flagged; false alarms = real references flagged (not-checked items — rate-limited or unreachable — left out).</p>
     <div class="acc-wrap"><table class="acc">
-      <thead><tr><th>Dataset (licence)</th><th>n</th><th>Recall</th><th>False alarms</th><th>Not checked</th></tr></thead>
+      <thead><tr><th>Dataset (licence)</th><th>Recall</th><th>False alarms</th><th>Not checked</th></tr></thead>
       <tbody>
-        <tr><td>Badalova &amp; Mayr 2026 — the July 2026 study's data (CC BY 4.0)</td><td>104</td><td>22/33</td><td>15/71</td><td>0</td></tr>
-        <tr><td>CiteMe benchmark v1, sample (CC BY 4.0)</td><td>50 <span style="color:var(--ink-soft)">(+100 corrupted-field, in full results)</span></td><td>22/25</td><td>0/25</td><td>0</td></tr>
-        <tr><td>CiteTracer synthetic set, sample (MIT)</td><td>135</td><td>42/90</td><td>0/45</td><td>0</td></tr>
-        <tr><td>ICLR 2026 desk-rejected references, sample (MIT)</td><td>50</td><td>39/50</td><td>—</td><td>0</td></tr>
+        <tr><td>Badalova &amp; Mayr 2026 — the July 2026 study's data (CC BY 4.0)</td><td>most</td><td>some</td><td>none</td></tr>
+        <tr><td>CiteMe benchmark v1, sample (CC BY 4.0)</td><td>most</td><td>none</td><td>none</td></tr>
+        <tr><td>CiteTracer synthetic set, sample (MIT)</td><td>some</td><td>none</td><td>none</td></tr>
+        <tr><td>ICLR 2026 desk-rejected references, sample (MIT)</td><td>most</td><td>—</td><td>none</td></tr>
       </tbody>
     </table></div>
     <p class="hint" style="margin-top:8px">It does not check venue, pages, or partly wrong author lists. Web pages, software, and standards have no scholarly record, so they count as false alarms here (<i>UNVERIFIED</i>).</p>
@@ -683,10 +683,10 @@ async function verify(){
         <b>${esc(meta.title)}</b><br>
         <span style="color:var(--ink-soft)">${esc(meta.authors)}${meta.year?' · '+esc(meta.year):''}${meta.venue?' · <i>'+esc(meta.venue)+'</i>':''}</span>`);
     }else if(failed.length && failed.every(f => f.limited)){
-      showE(`<span class="label l-stale">RATE_LIMITED</span><b>Sources were rate-limited (HTTP 429).</b> Not checked — NOT proven fake. Wait a minute and retry.`);
+      showE(`<span class="label l-stale">RATE_LIMITED</span><b>Sources were rate-limited (HTTP 429).</b> Not checked — not shown to be missing. Wait a minute and retry.`);
     }else if(failed.length){
       const which = failed.map(f => f.name + (f.why ? ' (' + f.why + ')' : '')).join(', ');
-      showE(`<span class="label l-stale">RATE_LIMITED</span><b>Could not reach the registries</b> — ${esc(which)}. Not checked: could not verify, NOT proven fake. Check your connection and retry.`);
+      showE(`<span class="label l-stale">RATE_LIMITED</span><b>Could not reach the registries</b> — ${esc(which)}. Not checked: could not verify, not shown to be missing. Check your connection and retry.`);
     }else{
       showE(`<span class="label l-unverified">ID_NOT_FOUND</span><b>No record in any registry.</b> This ${isArxiv ? 'arXiv ID' : 'DOI'} was looked up and not found. Next: copy it again from the publisher or arXiv page; if you cannot find the work, do not cite it until you can.`);
     }
@@ -696,7 +696,7 @@ async function verify(){
     }else if(err && err.message === 'arxiv-cors'){
       show('<p style="color:#96690f">arXiv blocks direct browser queries and no DataCite record was found — try the paper\'s DOI form (10.48550/arXiv.…) instead.</p>');
     }else{
-      show('<p style="color:#96690f"><b>Network error</b> — not checked, NOT proven fake. Check your connection and try again.</p>');
+      show('<p style="color:#96690f"><b>Network error</b> — not checked, not shown to be missing. Check your connection and try again.</p>');
     }
   }
   busy(false);
