@@ -1,6 +1,231 @@
 {
   "items": [
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "From Pixels to Actions - Towards Native Vision-Language-Action Policies",
+      "identifier": "2611.06918",
+      "url": "https://arxiv.org/abs/2611.06918",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Using topology to reveal all mutually unbiased bases in dimension six",
+      "identifier": "2611.06917",
+      "url": "https://arxiv.org/abs/2611.06917",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "ReveaLLAGN 3: Revealing the Infrared Spectral Energy Distributions of Low Luminosity AGN",
+      "identifier": "2611.06916",
+      "url": "https://arxiv.org/abs/2611.06916",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Preparing for the Gaia DR4 Epochalypse: Simulated Epoch Astrometry for Substellar Companion Orbit-Modeling Benchmarks",
+      "identifier": "2611.06915",
+      "url": "https://arxiv.org/abs/2611.06915",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A Framework for Context Enrichment and Selective Robustness in LLM Social Agents",
+      "identifier": "2611.06914",
+      "url": "https://arxiv.org/abs/2611.06914",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "cuRoboV2-Fast: Fast Torque-Limited Collision-Free Motion Planning",
+      "identifier": "2611.06913",
+      "url": "https://arxiv.org/abs/2611.06913",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FlowReconBench: Accuracy, calibration and cost of learned and classical flow reconstruction from sparse sensors",
+      "identifier": "2611.06912",
+      "url": "https://arxiv.org/abs/2611.06912",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "BEAKER: An Expert-Curated Benchmark for Embodied Brains in Self-Driving Chemical Laboratories",
+      "identifier": "2611.06911",
+      "url": "https://arxiv.org/abs/2611.06911",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FrontierPhysics: Evaluating Agents for End-to-End Physics Research",
+      "identifier": "2611.06910",
+      "url": "https://arxiv.org/abs/2611.06910",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Arithmetic Depth, Minimal Gate Alphabets, and Exact Program-State Resources for Single-Qubit Dyadic Programs",
+      "identifier": "2611.06909",
+      "url": "https://arxiv.org/abs/2611.06909",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Perceptive Humanoid Motion from Simulation",
+      "identifier": "2611.06908",
+      "url": "https://arxiv.org/abs/2611.06908",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Conformal field theory from automorphic forms on a quantum group",
+      "identifier": "2611.06907",
+      "url": "https://arxiv.org/abs/2611.06907",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A Simple Subquadratic Cut Query Protocol for Directed Reachability",
+      "identifier": "2611.06906",
+      "url": "https://arxiv.org/abs/2611.06906",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Reinforcement Learning Enables Scaling Generalist Robot Policy Improvement",
+      "identifier": "2611.06905",
+      "url": "https://arxiv.org/abs/2611.06905",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Sublinear multi-type preferential attachment",
+      "identifier": "2611.06904",
+      "url": "https://arxiv.org/abs/2611.06904",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Lifts of Brauer characters and vertex pairs for odd primes",
+      "identifier": "2611.06903",
+      "url": "https://arxiv.org/abs/2611.06903",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Gravitational-Wave Constraints on $R^2$ Gravity",
+      "identifier": "2611.06902",
+      "url": "https://arxiv.org/abs/2611.06902",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Motion-guided Contrastive Regularization For Latent World Models",
+      "identifier": "2611.06901",
+      "url": "https://arxiv.org/abs/2611.06901",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Human Mobility Sensing Using Wall-Reflected Beamformed Millimeter-Wave Communication Signals",
+      "identifier": "2611.06900",
+      "url": "https://arxiv.org/abs/2611.06900",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Occlusion for Free: Detecting Occlusion from the Disagreement Between Two Monocular Distance Cues",
+      "identifier": "2611.06899",
+      "url": "https://arxiv.org/abs/2611.06899",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "3D Printed Monolithic Optomechanical Chassis for an Unbalanced Field-Widened Interferometer",
+      "identifier": "2611.06898",
+      "url": "https://arxiv.org/abs/2611.06898",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "MCP-Eco: A Linked Dataset of MCP Servers, Consumers, and Development Activity",
+      "identifier": "2611.06897",
+      "url": "https://arxiv.org/abs/2611.06897",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Online Edge-Weighted Matching Beyond 0.55",
+      "identifier": "2611.06896",
+      "url": "https://arxiv.org/abs/2611.06896",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Learning Time-Varying Connectomes for Stable Behavior Across Development",
+      "identifier": "2611.06895",
+      "url": "https://arxiv.org/abs/2611.06895",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Nonuniform Buy-at-Bulk Network Design: Improved Approximation and LP Integrality Gap",
+      "identifier": "2611.06894",
+      "url": "https://arxiv.org/abs/2611.06894",
+      "date": "2026-11-04",
+      "first_seen": "2026-11-05T05:32:33Z"
+    },
+    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "Bulevirtide",
@@ -4947,7 +5172,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-04T23:18:35Z",
+    "last_poll": "2026-11-05T05:32:33Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -4969,9 +5194,9 @@
       },
       {
         "name": "Europe PMC",
-        "status": "ok",
-        "items": 25,
-        "last_error": null
+        "status": "error",
+        "items": 0,
+        "last_error": "fetch failed after 3 attempts: HTTP Error 503: "
       }
     ]
   }
