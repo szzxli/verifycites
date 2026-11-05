@@ -1214,7 +1214,7 @@ function heuristicSupportHint(claim, abstract) {
   if (r == null) return null;
   const pct = Math.round(r * 100);
   const band = r >= 0.45 ? 'strong' : r >= 0.25 ? 'partial' : 'weak';
-  return `heuristic: ${band} keyword overlap (${pct} in 100 claim keywords appear in the abstract) — a number, not a verdict; author decides`;
+  return `heuristic: ${band} keyword overlap — a signal, not a verdict; author decides`;
 }
 
 /* ---------------- specificity backstop (anti-paraphrase) ---------------- */
@@ -1556,7 +1556,7 @@ async function keylessSupport(claim, ab, res, opts, onStep) {
     try { nli = await nliJudge(claim, ab, onStep); }
     catch (e) { nliErr = e; }
   }
-  const scores = nli ? `model: entailment ${Math.round(nli.entail * 100)} in 100, contradiction ${Math.round(nli.maxContra * 100)} in 100` : '';
+  const scores = nli ? `model: entailment ${nli.entail>=0.8?'high':nli.entail>=0.5?'moderate':nli.entail>=0.2?'low':'very low'}, contradiction ${nli.maxContra>=0.8?'high':nli.maxContra>=0.5?'moderate':nli.maxContra>=0.2?'low':'very low'}` : '';
   if (missing.length) {
     const shown = missing.slice(0, 3).join('; ');
     const chainHit = await checkCitationChain(res, missing);
