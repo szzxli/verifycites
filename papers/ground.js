@@ -755,7 +755,7 @@ async function resolveMarker(type, id, refmap) {
   return { doi: null, arxiv_id: null, via: 'none', limited: !!bl.limited, unreachable: !!bl.unreachable,
     entryRaw: entry.raw,
     note: bl.limited
-      ? `sources could not be asked while checking this entry (${skipped}) — not checked, not proven fake`
+      ? `sources could not be asked while checking this entry (${skipped}) — not checked, not shown to be missing`
       : (bl.answered && bl.answered.length
         ? `reference entry has no DOI/arXiv ID and no confident bibliographic match in ${names(bl.answered)}${skippedNote}`
         : 'reference entry has no DOI/arXiv ID and no confident bibliographic match' + skippedNote) };
@@ -1214,7 +1214,7 @@ function heuristicSupportHint(claim, abstract) {
   if (r == null) return null;
   const pct = Math.round(r * 100);
   const band = r >= 0.45 ? 'strong' : r >= 0.25 ? 'partial' : 'weak';
-  return `heuristic: ${band} keyword overlap (${pct}% of claim keywords appear in the abstract) — a number, not a verdict; author decides`;
+  return `heuristic: ${band} keyword overlap — a signal, not a verdict; author decides`;
 }
 
 /* ---------------- specificity backstop (anti-paraphrase) ---------------- */
@@ -1556,7 +1556,7 @@ async function keylessSupport(claim, ab, res, opts, onStep) {
     try { nli = await nliJudge(claim, ab, onStep); }
     catch (e) { nliErr = e; }
   }
-  const scores = nli ? `model: entailment ${Math.round(nli.entail * 100)}%, contradiction ${Math.round(nli.maxContra * 100)}%` : '';
+  const scores = nli ? `model: entailment ${nli.entail>=0.8?'high':nli.entail>=0.5?'moderate':nli.entail>=0.2?'low':'very low'}, contradiction ${nli.maxContra>=0.8?'high':nli.maxContra>=0.5?'moderate':nli.maxContra>=0.2?'low':'very low'}` : '';
   if (missing.length) {
     const shown = missing.slice(0, 3).join('; ');
     const chainHit = await checkCitationChain(res, missing);
@@ -1689,10 +1689,10 @@ async function groundDraft(text, opts, onStep) {
       if (res.unreachable) {
         const which = (res.failed || []).map(f => f.source + (f.why ? ' (' + f.why + ')' : '')).join(', ');
         note = 'could not reach the registries' + (which ? ': ' + which : '') +
-          ' — not checked, could not verify, NOT proven fake. Check your connection and try again.' +
+          ' — not checked, could not verify, not shown to be missing. Check your connection and try again.' +
           (!which && res.note ? ' [' + res.note + ']' : '');
       } else {
-        note = 'source(s) rate-limited (HTTP 429) while checking — not checked, NOT proven fake. Try again later.';
+        note = 'source(s) rate-limited (HTTP 429) while checking — not checked, not shown to be missing. Try again later.';
       }
     } else if (res.fabricated) {
       const id = res.claimed || '';
