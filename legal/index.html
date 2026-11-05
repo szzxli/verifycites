@@ -240,6 +240,7 @@
 
     <section class="utility-card" id="court-alert-signup" aria-labelledby="court-alert-signup-title">
       <h2 id="court-alert-signup-title">Get email alerts</h2>
+      <p id="subscribed-notice" data-i18n="subscribed-notice" hidden>You're subscribed. Court-rule alert digests will arrive when the table gains a new official-source row.</p>p>
       <p>When the federal court AI-rules table on this page gains a new official-source row, we send one batched digest email to subscribers. No email when there is nothing new. Every email includes an unsubscribe link. Tick the box in the form to also join the Pro waitlist; we email you only when Pro opens.</p>
       <p>Inclusion does not mean a court found misconduct. Not legal advice.</p>
       <p>Your email address is stored separately in our mailing list; the citation-check tool itself stores nothing on our servers.</p>
@@ -430,5 +431,18 @@ python -m legalcite check brief.md --md report.md
     var AUTOHIDE = Boolean(0);
   </script>
   <script>(function(){var loaded=false;function loadBrevo(){if(loaded)return;loaded=true;var l=document.createElement("link");l.rel="stylesheet";l.href="https://sibforms.com/forms/end-form/build/sib-styles.css";document.head.appendChild(l);var s=document.createElement("script");s.src="https://sibforms.com/forms/end-form/build/main.js";document.body.appendChild(s);}var f=document.getElementById("sib-form");if(f){f.addEventListener("focusin",loadBrevo);f.addEventListener("submit",loadBrevo);}})();</script>
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get("subscribed") === "1") {
+      var notice = document.getElementById("subscribed-notice");
+      if (notice) notice.removeAttribute("hidden");
+      params.delete("subscribed");
+      var query = params.toString();
+window.history.replaceState(null, "", window.location.pathname + (query ? "?" + query : "") + window.location.hash);
+    }
+  })();
+      
+</script>
 </body>
 </html>
