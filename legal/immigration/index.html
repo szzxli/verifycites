@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#18324b">
+<meta name="description" content="Immigration citation routes and BIA precedent search (volume 30), reorganized from the /legal page. Runs in your browser; your keywords are not sent anywhere.">
+<title>VerifyCites — Immigration & BIA citation extractor</title>
+<link rel="icon" type="image/svg+xml" href="../logo.svg">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../site-nav.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="legal-sticky-nav">
+<header class="vc-nav">
+<div class="vc-nav-inner">
+<a class="vc-nav-brand" href="/">VerifyCites</a>
+<nav class="vc-nav-links" aria-label="Site">
+<a href="/">Home</a>
+<a href="/papers/">Papers</a>
+<a href="/legal/" aria-current="page">Legal</a>
+</nav>
+<div class="vc-nav-lang" role="group" aria-label="Language">
+<button type="button" data-vc-lang="en" aria-pressed="true">EN</button>
+<button type="button" data-vc-lang="es" aria-pressed="false">ES</button>
+<button type="button" data-vc-lang="zh" aria-pressed="false">中文</button>
+</div>
+</div>
+</header>
+<nav class="primary-nav" id="top" aria-label="On this page">
+<a href="#immigration">Immigration guide</a>
+<a href="#bia-search">BIA precedent search</a>
+</nav>
+</div>
+<main id="main" class="page-shell">
+<section class="hero" aria-labelledby="page-title">
+<div class="hero-copy">
+<h1 id="page-title" data-i18n="heading">Immigration & BIA citation extractor</h1>
+<p class="hero-lede">Search BIA precedent decisions and see where each immigration citation type is routed. Runs in your browser; your keywords are not sent anywhere and are not saved.</p>
+</div>
+</section>
+<section class="utility-card" id="immigration" aria-labelledby="immigration-title">
+<div class="section-heading">
+<span class="section-number section-number-small" aria-hidden="true">01</span>
+<span class="summary-copy"><span class="summary-title" id="immigration-title" data-i18n="immSectionTitle">Immigration guide</span></span>
+</div>
+<p class="section-job">Job: see where each immigration citation type is routed, and which official page to open.</p>
+<p data-i18n="immSectionIntro">An immigration brief mixes federal court cases, BIA precedent (Matter of), INA provisions, and 8 CFR provisions. This page classifies each extracted row and names its source line; immigration rows are not yet looked up live.</p>
+<p data-i18n="immSectionNotCovered">Not yet covered: no live BIA lookup in this page (8 CFR rows are matched against a static eCFR Title 8 index and INA / 8 U.S.C. rows are matched against a partial INA→8 U.S.C. mapping table built from OLRC Title 8 — see the row's source line; unmapped sections still need to be confirmed); no judgment on whether a case supports your argument or is still good law. A BIA precedent can be overruled, and circuit precedent controls; some Title 8 provisions may be enjoined, so eCFR text alone never proves a provision is currently in effect. The core statute and regulation text (INA, 8 CFR) changes rarely; what changes more often is policy guidance and new BIA precedent.</p>
+<p data-i18n="immSectionMemo">Memo-currency rule: a memo's currency is shown only when the official source itself states supersession, rescission, or replacement — never inferred from list presence or absence.</p>
+<p data-i18n="immSectionLinksIntro">Check by hand at the official sources:</p>
+<ul>
+<li><a href="https://www.justice.gov/eoir/ag-bia-decisions" target="_blank" rel="noopener" data-i18n="immLinkBiaDecisions">EOIR Agency Decisions (BIA precedent volumes)</a></li>
+<li><a href="https://www.justice.gov/eoir/virtual-law-library" target="_blank" rel="noopener" data-i18n="immLinkBiaLibrary">EOIR Virtual Law Library (recent decisions)</a></li>
+<li><a href="https://www.uscis.gov/administrative-appeals/aao-decisions/aao-non-precedent-decisions" target="_blank" rel="noopener" data-i18n="immLinkAaoSearch">USCIS AAO non-precedent decisions search</a></li>
+<li><a href="https://www.uscis.gov/policy-manual" target="_blank" rel="noopener" data-i18n="immLinkPolicyManual">USCIS Policy Manual</a></li>
+<li><a href="https://www.ecfr.gov/current/title-8" target="_blank" rel="noopener" data-i18n="immLinkEcfrTitle8">eCFR Title 8 (Aliens and Nationality)</a></li>
+<li><a href="https://www.law.cornell.edu/uscode/text/8" target="_blank" rel="noopener" data-i18n="immLinkOlrcTitle8">U.S. Code title 8 section</a></li>
+</ul>
+</section>
+<section class="utility-card" id="bia-search" aria-labelledby="bia-search-title">
+<div class="section-heading">
+<span class="section-number section-number-small" aria-hidden="true">02</span>
+<span class="summary-copy"><span class="summary-title" id="bia-search-title">BIA precedent search (volume 30)</span></span>
+</div>
+<p class="section-job">Job: find BIA precedent decisions that contain your keywords, then open the official PDF to read it yourself.</p>
+<p id="bia-scope">Scope: BIA precedent decisions only. Currently volume 30 only. Volumes 01–07 are a known gap and are not searchable here.</p>
+<p class="field-hint" id="bia-local-note">Search runs in this browser against a static snapshot of the EOIR volume pages. Your keywords are not sent anywhere and are not saved.</p>
+<form id="bia-form" class="input-block" role="search" autocomplete="off">
+<label for="bia-query" class="field-label">Keywords (every keyword must appear in the decision)</label>
+<input id="bia-query" type="search" maxlength="200" placeholder="e.g. asylum particular social group">
+<button class="button button-secondary" type="submit">Search volume 30</button>
+</form>
+<p id="bia-status" class="result-count" role="status" aria-live="polite"></p>
+<ol id="bia-results" class="bia-results"></ol>
+</section>
+</main>
+<footer class="site-footer">
+<p data-i18n="privacy">Privacy: citation extraction runs in this browser. GoatCounter records page views only. Credits: CourtListener / Free Law Project, eyecite (BSD-2). License: MIT.</p>
+<div class="footer-links"><a href="https://www.courtlistener.com/" target="_blank" rel="noopener noreferrer">CourtListener</a><a href="https://free.law/" target="_blank" rel="noopener noreferrer">Free Law Project</a><a href="https://github.com/szzxli/legal-cite-check" target="_blank" rel="noopener noreferrer">MIT License &amp; source</a><a href="/about/">About</a><a href="mailto:info@verifycites.com">info@verifycites.com</a><a class="back-top" href="#top">Back to top</a></div>
+<p class="footer-operator">VerifyCites is not a law firm and does not provide legal advice. Maintained by szzxli.</p>
+</footer>
+<script src="../i18n.js"></script>
+<script src="../bia.js"></script>
+<script>/* GoatCounter loader: test visits are never counted. ?nocount=1 turns counting off in this browser (localStorage skipgc=t, GoatCounter's own flag; ?nocount=0 turns it back on); URLs with v=, cb=, cachebust, _= or nocount are skipped too. */
+(function(w,d,l){var q=l.search,skip=/[?&](v|cb[_]|nocount)=|[?&]cachebust=/i.test(q);try{var s=w.localStorage;if(/[?&]nocount=1(&|$)/.test(q))s.setItem('skipgc','t');if(/[?&]nocount=0(&|$)/.test(q))s.removeItem('skipgc');if(s.getItem('skipgc')==='t')skip=true}catch(e){}if(skip)return;var g=d.createElement('script');g.async=true;g.src='https://gc.zgo.at/count.js';g.setAttribute('data-goatcounter','https://szzxli.goatcounter.com/count');(d.head||d.documentElement).appendChild(g)})(window,document,location);</script>
+<script>(function(){var lang="en";try{lang=localStorage.getItem("vc-lang")||"en";}catch(e){}if(!window.I18N||!window.I18N[lang])lang="en";var dict=window.I18N[lang];document.querySelectorAll("[data-i18n]").forEach(function(el){var key=el.getAttribute("data-i18n");if(dict[key]!=null)el.textContent=dict[key];});})();</script>
+<script>var VC_EVENTS=["legal-extract","legal-report-download","legal-human-review-set","legal-reverify","legal-news-click","legal-review-complete","legal-bia-search"];
+function vcCount(name){try{if(VC_EVENTS.indexOf(name)<0)return;var gc=(typeof window!=="undefined")?window.goatcounter:null;if(gc&&typeof gc.count==="function")gc.count({path:name,event:true});}catch(e){/* analytics must never break the tool */}}</script>
+</body>
+</html>

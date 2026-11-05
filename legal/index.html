@@ -32,6 +32,7 @@
     <a href="#checker" data-copy="navCheck">Citation checker</a>
     <a href="#cli" data-copy="navCli">CLI check</a>
     <a href="#immigration" data-copy="navImmigration">Immigration guide</a>
+    <a href="/legal/immigration/">Immigration & BIA page</a>
     <a href="#bia-search" data-copy="navBia">BIA precedent search</a>
   </nav>
   </div>
@@ -40,7 +41,7 @@
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-copy="heroKicker">A focused workspace for cited cases</span></p>
-        <h1 id="page-title" data-i18n="heading">Extract citations from your brief — then check each case yourself</h1>
+        <h1 id="page-title" data-i18n="heading">Immigration & BIA citation extractor</h1>
         <p class="hero-lede" data-i18n="subtitle">Paste your motion or brief. The tool pulls out every citation and shows you a link to check it yourself — in the extraction step, your text does not leave your browser.</p>
         <p class="hero-browser-note" data-i18n="browserModeFirstLine">Browser mode: this page extracts citation formats and gives you source links. Every row is NOT_CHECKED. It does not check whether a case exists or whether details match.</p>
         <p data-i18n="briefingAudience">For solo lawyers, small firms, paralegals, and law-school writing courses. This page extracts U.S. citations for you to check. It does not give legal advice.</p>
@@ -231,6 +232,7 @@ python -m legalcite check brief.md --md report.md
         <span class="section-number section-number-small" aria-hidden="true">03</span>
         <span class="summary-copy"><span class="summary-title" id="immigration-title" data-i18n="immSectionTitle">Immigration guide</span></span>
       </div>
+      <p><a href="/legal/immigration/">Open the standalone Immigration & BIA page.</a></p>
       <p class="section-job">Job: see where each immigration citation type is routed, and which official page to open.</p>
       <p data-i18n="immSectionIntro">An immigration brief mixes federal court cases, BIA precedent (Matter of), INA provisions, and 8 CFR provisions. This page classifies each extracted row and names its source line; immigration rows are not yet looked up live.</p>
       <p data-i18n="immSectionNotCovered">Not yet covered: no live BIA lookup in this page (8 CFR rows are matched against a static eCFR Title 8 index and INA / 8 U.S.C. rows are matched against a partial INA↔8 U.S.C. mapping table built from OLRC Title 8 — see the row's source line; unmapped sections still cannot be confirmed); no judgment on whether a case supports your argument or is still good law. A BIA precedent can be overruled, and circuit precedent controls; some Title 8 provisions may be enjoined, so eCFR text alone never proves a provision is currently in effect. The core statute and regulation text (INA, 8 CFR) changes rarely; what changes more often is policy guidance and new BIA precedent.</p>

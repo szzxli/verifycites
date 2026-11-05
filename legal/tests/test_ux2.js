@@ -30,9 +30,9 @@ for (const l of ["en", "es", "zh"]) {
   assert.ok(!/actually exist|realmente cada caso|真实存在/.test(I18N[l].heading),
     l + " heading has no existence question");
 }
-assert.ok(I18N.en.heading.includes("Extract citations"));
-assert.ok(I18N.es.heading.includes("Extraiga las citas"));
-assert.ok(I18N.zh.heading.includes("逐一自行核查"));
+assert.ok(I18N.en.heading.includes("Immigration & BIA citation extractor"));
+assert.ok(I18N.es.heading.includes("inmigración y BIA"));
+assert.ok(I18N.zh.heading.includes("移民与 BIA 引文提取器"));
 // document.title still comes from the (already truthful) pageTitle key.
 assert.ok(appSrc.includes("document.title = T().pageTitle"), "title set from pageTitle");
 assert.ok(I18N.en.pageTitle.includes("browser citation extraction"));
