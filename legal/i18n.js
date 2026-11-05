@@ -194,6 +194,7 @@ var I18N = {
     showAllColumns: "Show all columns",
     showFewerColumns: "Show fewer columns",
     columnsNote: "Section titles and INA to U.S. Code mappings stay visible. #, year, pin cite, structure flags, category, anomaly reason, check scope, suggested action, human review, and re-verify are under \u201cShow all columns\u201d.",
+     "subscribed-notice": "You're subscribed. Court-rule alert digests will arrive when the table gains a new official-source row.",
   },
   es: {
     pageTitle: "VerifyCites — extracción de citas en el navegador",
@@ -384,6 +385,7 @@ var I18N = {
     showAllColumns: "Mostrar todas las columnas",
     showFewerColumns: "Mostrar menos columnas",
     columnsNote: "El título de la sección y la correspondencia INA–Código de EE. UU. permanecen visibles. El #, el año, la pin cite, las marcas de estructura, la categoría, el motivo de anomalía, el alcance, la acción sugerida, la revisión humana y la nueva verificación están en “Mostrar todas las columnas”.",
+     "subscribed-notice": "Ya está suscrito. Los resúmenes de alertas de normas judiciales llegarán cuando la tabla gane una nueva fila de fuente oficial.",
   },
   zh: {
     pageTitle: "VerifyCites — 浏览器端引文提取",
@@ -574,6 +576,7 @@ var I18N = {
     showAllColumns: "\u663e\u793a\u5168\u90e8\u5217",
     showFewerColumns: "\u663e\u793a\u8f83\u5c11\u5217",
     columnsNote: "条文标题和 INA 与美国法典的对应关系保持可见。#、年份、页码、结构标记、分类、异常原因、核查范围、建议操作、人工复核和重新核验在“显示全部列”中。",
+     "subscribed-notice": "您已订阅。法院规则提醒摘要将在表格新增官方来源行时送达。",
   }
 };
 /* Label explanations per language. Codes stay the same; only text changes. */
