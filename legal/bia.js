@@ -8,7 +8,7 @@
    The note and scope text are English only and are never passed
    through the language switcher, like the news note. */
 var BIA_RESULT_NOTE = "Keyword matching only. This shows that the decision exists, its citation, and the official link. It does not say whether the decision is still good law. Not legal advice.";
-var BIA_SCOPE_NOTE = "Scope: BIA and Attorney General precedent decisions only. Currently volume 30 only. Volumes 01\u201307 are a known gap and are not searchable here.";
+var BIA_SCOPE_NOTE = "Scope: BIA precedent decisions only. Currently volume 30 only. Volumes 01\u201307 are a known gap and are not searchable here.";
 var BIA_VOLUMES = ["30"];
 var BIA_ZERO_RESULTS = "No decision in the snapshot contains every keyword. Only volume 30 is indexed.";
 var BIA_STOPWORDS = ("the and of to in a an is are was were be been being for with on at by from that this it as or not no has have had " +
