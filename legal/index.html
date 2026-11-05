@@ -11,23 +11,9 @@
   <link rel="stylesheet" href="../site-nav.css">
   <!-- Brevo court-alert form: head part -->
   <style>
-    @font-face {
-      font-display: block;
-      font-family: Roboto;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
-    }
-    @font-face {
-      font-display: fallback;
-      font-family: Roboto;
-      font-weight: 600;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
-    }
-    @font-face {
-      font-display: fallback;
-      font-family: Roboto;
-      font-weight: 700;
-      src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
-    }
+    
+    
+    
     :where(.sib-form-message-panel) {
       display: none;
     }
@@ -55,7 +41,7 @@
       color: #2BB2FC;
     }
   </style>
-  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+  
 </head>
 <body>
   <a class="skip-link" href="#main" data-copy="skipToContent">Skip to content</a>
@@ -268,7 +254,7 @@
           <div></div>
           <div id="success-message" class="sib-form-message-panel" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#085229; background-color:#e7faf0; border-color:#13ce66; border-radius:3px; max-width:540px;">
             <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-              <span class="sib-form-message-panel__inner-text">Your subscription has been successful.</span>
+              <span class="sib-form-message-panel__inner-text">Almost done — check your email and click the confirmation link to activate your subscription.</span>
             </div>
           </div>
           <div></div>
@@ -292,7 +278,7 @@
                     <div class="form__label-row ">
                       <label class="entry__label" style="font-weight: 700; text-align: left; font-family:Helvetica, sans-serif; font-size:16px; font-weight:700; text-align:left; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to subscribe</label>
                       <div class="entry__field">
-                        <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="EMAIL" data-required="true" required />
+                        <input class="input " type="email" id="EMAIL" name="EMAIL" autocomplete="email" value="" placeholder="EMAIL" data-required="true" required />
                       </div>
                     </div>
                     <label class="entry__error entry__error--primary" style="font-family:Helvetica, sans-serif; font-size:16px; text-align:left; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;">
@@ -443,6 +429,6 @@ python -m legalcite check brief.md --md report.md
     };
     var AUTOHIDE = Boolean(0);
   </script>
-  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+  <script>(function(){var loaded=false;function loadBrevo(){if(loaded)return;loaded=true;var l=document.createElement("link");l.rel="stylesheet";l.href="https://sibforms.com/forms/end-form/build/sib-styles.css";document.head.appendChild(l);var s=document.createElement("script");s.src="https://sibforms.com/forms/end-form/build/main.js";document.body.appendChild(s);}var f=document.getElementById("sib-form");if(f){f.addEventListener("focusin",loadBrevo);f.addEventListener("submit",loadBrevo);}})();</script>
 </body>
 </html>
