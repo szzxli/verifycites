@@ -28,7 +28,8 @@ name: bia-snapshot-poll
 
 on:
   schedule:
-    - cron: "45 14 * * *"
+    # Anchored to 07:45 local year-round (summer time): PST (UTC-8) -> 45 15, PDT (UTC-7) -> 45 14. Flip at each DST change.
+    - cron: "45 15 * * *"
   workflow_dispatch:
     inputs:
       mode:
