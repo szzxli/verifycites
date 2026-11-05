@@ -254,7 +254,7 @@ details.fold section.side{padding:26px 0 4px}
       <thead><tr><th>Category</th><th>n</th><th>Caught</th><th>Misses</th><th>False alarms</th></tr></thead>
       <tbody>
         <tr><td>Real citations (should pass)</td><td>8</td><td>8/8 recognised</td><td>—</td><td>0</td></tr>
-        <tr><td>Not found</td><td>8</td><td>8/8</td><td>0</td><td>—</td></tr>
+        <tr><td>Not found in any registry (constructed test references)</td><td>8</td><td>8/8</td><td>0</td><td>—</td></tr>
         <tr><td>Chimeric (real title, wrong authors)</td><td>6</td><td>6/6</td><td>0</td><td>—</td></tr>
         <tr><td>Retracted</td><td>6</td><td>6/6</td><td>0</td><td>—</td></tr>
         <tr><td>Specific not in abstract*</td><td>6</td><td>6/6</td><td>0</td><td>—</td></tr>
@@ -287,7 +287,7 @@ details.fold section.side{padding:26px 0 4px}
     <li><b>Keyless claim check: abstract only, small model.</b> Without a key, each claim is compared with the cited paper's <i>abstract</i> by a small in-browser model (nli-deberta-v3-xsmall), plus exact checks for numbers and names. It never reads the full text.</li>
     <li><b>Bring your own key for better claim judgments.</b> With your own OpenRouter key, an LLM judges each claim against the abstract instead. That is the more accurate path (a far larger model), though we have not scored it in our benchmark yet, and it is still abstract-only.</li>
     <li><b>"Not found" is not proof that a work does not exist.</b> A real paper can be missing from the free indexes. That is why a reference without an identifier gets <i>UNVERIFIED</i>, not <i>ID_NOT_FOUND</i>.</li>
-    <li><b>No tool of this kind is reliable unsupervised.</b> An independent July 2026 study of five citation checkers (Badalova &amp; Mayr, <a href="https://arxiv.org/abs/2607.22693">arXiv:2607.22693</a>) found all five limited by reference-extraction errors, incomplete metadata, database coverage and inconsistent results, and advised checking flagged references by hand. VerifyCites was not one of the tools tested, and we have no reason to think it is exempt.</li>
+    <li><b>No tool of this kind is reliable unsupervised.</b> An independent July 2026 study of five citation-existence checkers (Badalova &amp; Mayr, <a href="https://arxiv.org/abs/2607.22693">arXiv:2607.22693</a>) found all five limited by reference-extraction errors, incomplete metadata, database coverage and inconsistent results, and advised checking flagged references by hand. VerifyCites was not one of the tools tested, and we have no reason to think it is exempt.</li>
   </ol>
 </section>
 
@@ -297,7 +297,7 @@ details.fold section.side{padding:26px 0 4px}
   <dl class="contract">
     <dt><span class="label l-verified">ABSTRACT-SUPPORTED</span></dt>
     <dd>The source exists <i>and</i> its abstract substantively supports the claim's key assertion. Full text is <i>not</i> checked — supporting evidence may live in the paper body. <b>Next:</b> read the paper before relying on it.</dd>
-    <dd class="example">Example: "Nearly one in four citations in academic drafts is made up by LLMs" — matched against the cited paper's abstract.</dd>
+    <dd class="example">Example claim: 'Model X reports a new state-of-the-art score on benchmark Y' — matched against the cited paper's abstract.</dd>
     <dt><span class="label l-cited">CITED</span></dt>
     <dd>Source found; whether it supports the claim was not checked (or only partly). <b>Next:</b> check the full text yourself.</dd>
     <dd class="example">Example: "The dataset contains 1.2M annotated examples (Smith et al.)" — real source, content not yet compared.</dd>
