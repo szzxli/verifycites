@@ -1,6 +1,60 @@
 {
   "items": [
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NAVARRETE V. BLANCHE",
+      "identifier": "24-2776",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/06/24-2776.pdf",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-06T22:46:50Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. ABDUL KAREEM",
+      "identifier": "24-3202",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/06/24-3202.pdf",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-06T22:46:50Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. ABDUL ABDUL KAREEM",
+      "identifier": "20-10155",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/06/20-10155.pdf",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-06T22:46:50Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. RIDLEY-THOMAS",
+      "identifier": "23-2200",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/06/23-2200.pdf",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-06T22:46:50Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. ABDUL ABDUL KAREEM",
+      "identifier": "21-10315",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/06/21-10315.pdf",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-06T22:46:50Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_03_Order.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_03_Order.pdf",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-06T22:46:50Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "BeAR: The Bern Atmospheric Retrieval code - A GPU-accelerated framework for low-resolution, high-resolution, and joint retrievals of exoplanet atmospheres",
@@ -5445,7 +5499,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-06T13:51:22Z",
+    "last_poll": "2026-11-06T22:46:50Z",
     "sources": [
       {
         "name": "Ninth Circuit",
