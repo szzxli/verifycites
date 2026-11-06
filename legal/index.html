@@ -440,7 +440,7 @@ python -m legalcite check brief.md --md report.md
     };
     var AUTOHIDE = Boolean(0);
   </script>
-  <script>(function(){var f=document.getElementById("sib-form");if(!f)return;var ok=document.getElementById("success-message");var err=document.getElementById("error-message");var btn=f.querySelector('button[type="submit"]');function hide(el){if(el)el.style.display="none";}function show(el){if(el)el.style.display="";}hide(ok);hide(err);f.addEventListener("submit",function(e){e.preventDefault();hide(ok);hide(err);if(btn)btn.disabled=true;fetch(f.action,{method:"POST",body:new URLSearchParams(new FormData(f))}).then(function(r){return r.json();}).then(function(j){if(btn)btn.disabled=false;if(j&&j.success){show(ok);}else{show(err);}}).catch(function(){if(btn)btn.disabled=false;show(err);});});})();</script>
+  <script>(function(){var f=document.getElementById("sib-form");if(!f)return;var ok=document.getElementById("success-message");var err=document.getElementById("error-message");var btn=f.querySelector('button[type="submit"]');function hide(el){if(el)el.style.display="none";}function show(el){if(el)el.style.display="block";}hide(ok);hide(err);f.addEventListener("submit",function(e){e.preventDefault();hide(ok);hide(err);if(btn)btn.disabled=true;fetch(f.action,{method:"POST",body:new URLSearchParams(new FormData(f))}).then(function(r){return r.json();}).then(function(j){if(btn)btn.disabled=false;if(j&&j.success){show(ok);}else{show(err);}}).catch(function(){if(btn)btn.disabled=false;show(err);});});})();</script>
 <script>
   (function () {
     var params = new URLSearchParams(window.location.search);
