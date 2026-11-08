@@ -1136,17 +1136,20 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-01T19:21:25Z",
+    "last_poll": "2026-11-08T19:19:41Z",
     "source": "OLRC Title 8 bulk XML (uscode.house.gov)",
-    "status": "error",
-    "last_error": "fetch failed after 3 attempts: HTTP Error 404: Not Found",
-    "release_point": "Public Law 119-134",
-    "current_through_pl": "119-134",
-    "current_through_date": "2026-10-20",
-    "download_url": "https://uscode.house.gov/download/releasepoints/us/pl/119/134/xml_usc08@119-134.zip",
+    "status": "ok",
+    "last_error": null,
+    "release_point": "Public Law 119-138",
+    "current_through_pl": "119-138",
+    "current_through_date": "2026-11-03",
+    "download_url": "https://uscode.house.gov/download/releasepoints/us/pl/119/138/xml_usc08@119-138.zip",
     "entries": 162,
     "evidence_act": "Act of June 27, 1952, ch. 477, identified in the Code itself as the Immigration and Nationality Act (8 U.S.C. 1158 References in Text note).",
     "subsection_note": "Evidence establishes the section-level correspondence only; subsection suffixes in the browser line are carried from the row's own cited text.",
-    "partial": true
+    "partial": true,
+    "skipped_repealed": 32,
+    "skipped_no_evidence": 145,
+    "conflicts": []
   }
 }
