@@ -6435,11 +6435,11 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-01T19:26:21Z",
+    "last_poll": "2026-11-08T19:26:53Z",
     "source": "eCFR API (versioner)",
     "status": "ok",
     "last_error": null,
-    "up_to_date_as_of": "2026-10-29",
+    "up_to_date_as_of": "2026-11-05",
     "title_latest_amended_on": "2026-10-14",
     "sections": 919
   }
