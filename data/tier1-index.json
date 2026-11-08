@@ -5499,13 +5499,13 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-07T21:31:58Z",
+    "last_poll": "2026-11-08T04:52:20Z",
     "sources": [
       {
         "name": "Ninth Circuit",
-        "status": "ok",
-        "items": 25,
-        "last_error": null
+        "status": "error",
+        "items": 0,
+        "last_error": "fetch failed after 3 attempts: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1000)>"
       },
       {
         "name": "Supreme Court",
