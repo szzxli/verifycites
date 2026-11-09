@@ -13,7 +13,7 @@
    absent, and it never throws. The full event dictionary lives in
    docs/analytics.md; this list is the single enforcement point for
    the papers app. */
-const VP_EVENTS = ["papers-check", "papers-references-export", "papers-claim-mark", "papers-review-complete", "papers-tool-link"];
+const VP_EVENTS = ["papers-check", "papers-check-complete", "papers-references-export", "papers-report-download", "papers-claim-mark", "papers-review-complete", "papers-tool-link"];
 function handcheckHash(str) {
   let h = 0x811c9dc5;
   const s = String(str == null ? "" : str);
@@ -1900,6 +1900,171 @@ function vpFieldDiff(e) {
     `<div style="color:var(--ink-soft);font-size:12.5px">Cited title, authors, venue and year are not stored separately by this check, so they cannot be compared field by field here; only the identifier and flagged author mismatches are compared. "Missing" means the record returned no value for that field.</div>`;
 }
 
+/* Markdown version of the rendered report, for Download report (.md)
+   and Copy report. Built ONLY from the in-memory evidence object, the
+   run time of this browser, and the Tier-1 index object already loaded
+   for the rendered report — no fetch, no upload, works offline. Every
+   citation carries its full label (base + tags) and its next step, so
+   the file stands alone without the page. Mirrors renderReport's
+   wording; renderReport itself is untouched. */
+function vpMdLine(s) {
+  return String(s == null ? "" : s).replace(/\s*[\r\n]+\s*/g, " ").trim();
+}
+
+function vpFieldDiffText(e) {
+  const isChimeric = /\[CHIMERIC/.test(e.label || '');
+  const citedId = vpCitedIdentifier(e.claim);
+  const recordId = e.doi || (e.arxiv_id ? 'arXiv:' + String(e.arxiv_id).replace(/^arXiv:/i, '') : '');
+  let idStatus;
+  if (!recordId) {
+    if (e.base === 'RATE_LIMITED') idStatus = 'Not compared — check failed';
+    else if (e.base === 'INVALID_DOI') idStatus = 'Not compared';
+    else idStatus = 'Missing in record';
+  } else if (!citedId) idStatus = 'Not compared';
+  else if (vpNormId(citedId) === vpNormId(recordId)) idStatus = 'Matches';
+  else idStatus = 'Differs';
+  const rows = [
+    { field: 'Title', cited: 'Not recorded separately in this check', record: e.title || 'Missing',
+      status: e.title ? 'Not compared' : 'Missing in record' },
+    { field: 'Authors', cited: isChimeric ? 'Differs from the record (flagged by the check)' : 'Not recorded separately in this check',
+      record: (e.authors && e.authors.length) ? e.authors.join(', ') : 'Missing',
+      status: isChimeric ? 'Differs' : ((e.authors && e.authors.length) ? 'Not compared' : 'Missing in record') },
+    { field: 'Venue', cited: 'Not recorded separately in this check', record: e.venue || 'Missing',
+      status: e.venue ? 'Not compared' : 'Missing in record' },
+    { field: 'Year', cited: 'Not recorded separately in this check', record: e.year || 'Missing',
+      status: e.year ? 'Not compared' : 'Missing in record' },
+    { field: 'Identifier', cited: citedId || 'Not shown in the claim text', record: recordId || 'Missing',
+      status: idStatus },
+  ];
+  return rows.map(r =>
+    `${r.field}: cited ${vpMdLine(r.cited)} · record ${vpMdLine(r.record)} — ${r.status}`).join('; ');
+}
+
+function vpReportMarkdown(evidence, ropts) {
+  const list = evidence || [];
+  const opts = ropts || {};
+  const unit = opts.unit || 'claims';
+  const counts = { 'ABSTRACT-SUPPORTED': 0, CITED: 0, UNVERIFIED: 0, RATE_LIMITED: 0, INVALID_DOI: 0,
+    ID_NOT_FOUND: 0, ID_NOT_FOUND_TITLE_FOUND: 0, NOT_A_SCHOLARLY_RECORD: 0 };
+  const catCounts = { matched: 0, fieldMismatch: 0, notFound: 0, cannotDetermine: 0, retrievalFailed: 0 };
+  let staleN = 0, chimericN = 0, retractedN = 0;
+  for (const e of list) {
+    if (Object.prototype.hasOwnProperty.call(counts, e.base)) counts[e.base]++;
+    catCounts[vpDisplayCategory(e)]++;
+    if (/\[STALE:/.test(e.label || '')) staleN++;
+    if (/\[CHIMERIC/.test(e.label || '')) chimericN++;
+    if (/\[RETRACTED\]/.test(e.label || '')) retractedN++;
+  }
+  const handMarks = opts.handMarks || {};
+  const hand = handcheckCounts(list, handMarks);
+  const lines = [
+    '> **This is a first-pass screen, not a verdict. Read the original before relying on any citation.**',
+    '> Papers are checked in your browser: registry lookup (Crossref, DataCite, arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar as a last resort); any support judgment is abstract-level only — the full text was not checked.',
+    '',
+    '# VerifyCites — papers check report',
+    '',
+    '## Summary',
+    'Total ' + unit + ': ' + list.length,
+  ];
+  for (const base of ['ABSTRACT-SUPPORTED', 'CITED', 'UNVERIFIED', 'RATE_LIMITED', 'INVALID_DOI',
+    'ID_NOT_FOUND', 'ID_NOT_FOUND_TITLE_FOUND', 'NOT_A_SCHOLARLY_RECORD']) {
+    if (counts[base]) lines.push('- ' + base + ': ' + counts[base]);
+  }
+  lines.push('- Category: Matched ' + catCounts.matched + ' · Field mismatch ' + catCounts.fieldMismatch +
+    ' · Not found ' + catCounts.notFound + ' · Cannot be determined ' + catCounts.cannotDetermine +
+    ' · Retrieval failed ' + catCounts.retrievalFailed);
+  if (staleN) lines.push('- STALE: ' + staleN);
+  if (chimericN) lines.push('- CHIMERIC: ' + chimericN);
+  if (retractedN) lines.push('- RETRACTED: ' + retractedN);
+  lines.push('- Checked by hand: ' + hand.checked + ' of ' + hand.total + ' claims',
+    '',
+    '## Check basis',
+    'Each claim was looked up in the registries above and, where a record was found, its abstract was screened for support.',
+    'Sources: Crossref, DataCite, arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar (last resort).',
+    'This check ran in your browser at ' + new Date().toLocaleString() + " (your browser's local run time, not a registry timestamp).",
+    'Per-item check time: not recorded in this report.');
+  if (opts.tier1 && opts.tier1.meta) {
+    lines.push('Tier-1 first-seen index: direct sources in this index: ' +
+      (opts.tier1.meta.sources || []).map(x => x.name).join(', ') +
+      '. Index last polled ' + (opts.tier1.meta.last_poll || '') +
+      ' (index time, not a registry timestamp). First-seen dates below are when this index first observed the item, not publication dates.');
+  } else {
+    lines.push('Tier-1 first-seen index unavailable.');
+  }
+  lines.push('', '## Citations');
+  list.forEach((e, i) => {
+    const cat = vpDisplayCategory(e);
+    const isChimeric = /\[CHIMERIC/.test(e.label || '');
+    const isRetracted = /\[RETRACTED\]/.test(e.label || '');
+    const isStale = /\[STALE:/.test(e.label || '');
+    const existence = e.base === 'ID_NOT_FOUND' ? 'Identifier not found in its registry'
+      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Identifier not found in its registry; a record with this title was found'
+      : e.base === 'NOT_A_SCHOLARLY_RECORD' ? 'No scholarly record (web page, software or standard)'
+      : e.base === 'INVALID_DOI' ? 'Not checked — invalid identifier'
+      : e.base === 'UNVERIFIED' ? 'Not confirmed'
+      : e.base === 'RATE_LIMITED' ? 'Not checked'
+      : 'Found';
+    const support = e.base === 'ABSTRACT-SUPPORTED' ? 'Abstract-level support (full text not checked)'
+      : e.base === 'CITED' ? 'Support not determined' : '—';
+    const anomaly = e.base === 'ID_NOT_FOUND'
+      ? 'The identifier for this citation was checked against its registry and was not found there.'
+      : (e.note || '—');
+    let action = cat === 'matched' && e.base === 'ABSTRACT-SUPPORTED'
+      ? 'Read the original before relying on it; for key claims, check the full text.'
+      : cat === 'matched' ? 'Support is not determined — check the full text; author decides.'
+      : cat === 'fieldMismatch' ? 'Compare the fields above with the record, correct the entry, then re-check.'
+      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Compare the identifier with the record that matches the title, correct it, then re-check.'
+      : e.base === 'NOT_A_SCHOLARLY_RECORD' ? 'Open the source yourself and check that it says what you cite.'
+      : cat === 'notFound' ? 'Copy the identifier again from the publisher or arXiv page and re-check; if you cannot find the work, do not cite it until you can.'
+      : cat === 'retrievalFailed' ? 'Try again later.'
+      : 'Check spelling, add a DOI or arXiv ID, or search the registries by hand.';
+    if (isRetracted) action += ' Do not cite a retracted paper as support.';
+    const parts = [];
+    if (e.authors && e.authors.length) {
+      parts.push('Authors: ' + vpMdLine(e.authors.join(', ')) +
+        (isChimeric ? ' (listed authors do not match the record)' : ''));
+    }
+    if (e.venue) parts.push('Venue: ' + vpMdLine(e.venue));
+    if (e.year) parts.push('Year: ' + vpMdLine(e.year));
+    if (e.doi) parts.push('DOI: ' + vpMdLine(e.doi) + ' (https://doi.org/' + vpMdLine(e.doi) + ')');
+    const arxivId = e.arxiv_id ? String(e.arxiv_id).replace(/^arXiv:/i, '') : '';
+    if (arxivId) parts.push('arXiv: ' + vpMdLine(arxivId) + ' (https://arxiv.org/abs/' + vpMdLine(arxivId) + ')');
+    let firstSeen = '';
+    if (opts.tier1) {
+      const hit = vpTier1FindPaper(opts.tier1, e);
+      if (hit) firstSeen = ' — First seen at ' + vpMdLine(hit.source) + ' on ' + String(hit.first_seen).slice(0, 10);
+    }
+    const marked = !!handMarks[handcheckClaimId(i, e.claim)];
+    const retractedNote = isRetracted ? ' — Retracted warning: this paper has been retracted — do not cite it as support.' : '';
+    const staleNote = isStale ? ' — Freshness reminder: the data for this record may be out of date — re-confirm against the original source.' : '';
+    lines.push('- [ ] **' + vpMdLine(e.label || e.base) + '** — ' + vpMdLine(e.claim) +
+      ' — Category: ' + VP_CATEGORY_LABEL[cat] + ' — Existence: ' + existence + ' — Support: ' + support +
+      (e.title ? ' — Record title: ' + vpMdLine(e.title) : '') +
+      ' — Matching evidence: ' + (parts.length ? parts.join(' · ') : '—') +
+      ' — Field comparison (cited vs. record): ' + vpFieldDiffText(e) + firstSeen +
+      ' — Anomaly reason: ' + vpMdLine(anomaly) +
+      ' — Check scope: registry lookup; support judgments are abstract-level only — the full text was not checked. Item check time: not recorded.' +
+      ' — Suggested action: ' + vpMdLine(action) + retractedNote + staleNote +
+      ' — Checked by hand: ' + (marked ? 'yes' : 'no'));
+  });
+  lines.push('', '## Labels (each with a next step)',
+    "Labels (each with a next step): ABSTRACT-SUPPORTED = the abstract substantively supports the claim's key assertion (full text NOT checked) — next: read the paper before relying on it; " +
+    'CITED = source found; whether it supports the claim was not checked (or only partly) — next: check the full text yourself; ' +
+    'UNVERIFIED = no record found or marker not resolvable (absence of evidence, not a finding about the citation) — next: add a DOI or arXiv ID, or search the registries by hand; ' +
+    'ID_NOT_FOUND = the identifier was looked up in its registry and no record was found — next: copy the identifier again from the publisher or arXiv page; ' +
+    "ID_NOT_FOUND_TITLE_FOUND = the identifier was not found, but the reference's title and year match a record — next: compare the identifier with that record and correct it; " +
+    'NOT_A_SCHOLARLY_RECORD = no scholarly record, and the reference looks like a web page, software, model card or standard; not counted as a problem — next: open the source and check it; ' +
+    'RATE_LIMITED = sources were rate-limited or could not be reached while checking — not checked, not a finding about the citation — next: try again later; ' +
+    'INVALID_DOI = DOI format invalid (not a well-formed DOI; likely mistyped) — next: copy the DOI again or remove it; ' +
+    '[STALE:YYYY] = data older than the freshness window; ' +
+    '[CHIMERIC:author-mismatch] = title matches a real paper but the listed authors do not; ' +
+    '[RETRACTED] = the paper has been retracted — do not cite it as support; ' +
+    '[SPECIFIC-NOT-IN-ABSTRACT] = the claim leans on hard specifics (numbers, quoted phrases) absent from the abstract — check the full text; ' +
+    '[POSSIBLE-MISATTRIBUTION] = a missing specific appears in a paper this work cites — the finding may originate there; ' +
+    '[KEYLESS-NLI] = judged without an LLM key by a small in-browser NLI model reading the abstract only (lower accuracy than the LLM mode).');
+  return lines.join('\n') + '\n';
+}
+
 function renderReport(evidence, ropts) {
   const unit = (ropts && ropts.unit) || 'claims';
   const counts = { 'ABSTRACT-SUPPORTED': 0, CITED: 0, UNVERIFIED: 0, RATE_LIMITED: 0, INVALID_DOI: 0,
@@ -2106,6 +2271,8 @@ function initGround() {
       bar.id = 'expbar';
       bar.innerHTML = `<button id="exp-bib" class="btn ghost">Export BibTeX (.bib)</button>
         <button id="exp-doi" class="btn ghost">Copy DOI list</button>
+        <button id="exp-report" class="btn ghost">Download report (.md)</button>
+        <button id="exp-report-copy" class="btn ghost">Copy report</button>
         <span class="hint" style="margin:0">.bib imports directly into Zotero / Mendeley / JabRef</span>`;
       out.innerHTML = '';
       out.appendChild(bar);
@@ -2121,6 +2288,7 @@ function initGround() {
       out.appendChild(rep);
       bindPapersHandcheck(rep, evidence);
       vpCount("papers-check");
+      if (evidence.length) vpCount("papers-check-complete");
       if (window.VP) {
         let countedRun = false;
         try { VP.recordGround(evidence); countedRun = true; } catch (e) { /* project bar is optional */ }
@@ -2155,6 +2323,31 @@ function initGround() {
           navigator.clipboard.writeText(dois.join('\n')).then(
             () => { document.getElementById('exp-doi').textContent = 'Copied'; },
             () => { document.getElementById('exp-doi').textContent = 'Copy failed'; });
+        });
+        document.getElementById('exp-report').addEventListener('click', () => {
+          if (!evidence.length) { document.getElementById('exp-report').textContent = 'Nothing to report'; return; }
+          let marks;
+          try { marks = handcheckLoad(localStorage, handcheckProjectId()); } catch (e) { marks = {}; }
+          const md = vpReportMarkdown(evidence, { unit, tier1, handMarks: marks });
+          const blob = new Blob([md], { type: 'text/markdown' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'veripaper-report.md';
+          document.body.appendChild(a);
+          a.click();
+          vpCount("papers-report-download");
+          setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+        });
+        document.getElementById('exp-report-copy').addEventListener('click', () => {
+          if (!evidence.length) { document.getElementById('exp-report-copy').textContent = 'Nothing to report'; return; }
+          let marks;
+          try { marks = handcheckLoad(localStorage, handcheckProjectId()); } catch (e) { marks = {}; }
+          const md = vpReportMarkdown(evidence, { unit, tier1, handMarks: marks });
+          navigator.clipboard.writeText(md).then(() => {
+            document.getElementById('exp-report-copy').textContent = 'Copied';
+          }, () => {
+            document.getElementById('exp-report-copy').textContent = 'Copy failed';
+          });
         });
       } catch { /* export is best-effort */ }
     } catch (err) {
