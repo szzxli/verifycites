@@ -19,6 +19,7 @@
         <a href="/" aria-current="page" data-i18n="navHome">Home</a>
         <a href="/papers/" data-i18n="navPapers">Papers</a>
         <a href="/legal/" data-i18n="navLegal">Legal</a>
+        <a href="https://case.verifycites.com/index-en?ref=vc-hub" data-i18n="navCase">Case</a>
       </nav>
       <div class="vc-nav-lang" role="group" aria-label="Language">
         <button type="button" data-vc-lang="en" aria-pressed="true">EN</button>
@@ -140,6 +141,17 @@
             <a class="text-link" href="/legal/"><span data-i18n="legalCardLink">Extract citations from a brief →</span></a>
           </div>
         </article>
+        <article class="tool-card">
+          <div class="tool-card-top">
+            <span class="tool-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
+          </div>
+          <h3 data-i18n="caseCardTitle">Case organizer</h3>
+          <p class="tool-description" data-i18n="caseCardDesc">Organize the facts of a case into a clear packet before you talk to a lawyer. It organizes only — it does not give legal advice and does not choose arbitration or court for you.</p>
+          <p class="tool-disclaimer" data-i18n="caseDisclaimer">Organize only. Not legal advice.</p>
+          <div class="tool-card-bottom">
+            <a class="text-link" href="https://case.verifycites.com/index-en?ref=vc-hub"><span data-i18n="caseCardLink">Organize your case →</span></a>
+          </div>
+        </article>
       </div>
     </section>
   </main>
@@ -166,7 +178,7 @@
 <script>
 var VC_I18N = {
   "en": {
-    "navHome": "Home", "navPapers": "Papers", "navLegal": "Legal",
+    "navHome": "Home", "navPapers": "Papers", "navLegal": "Legal", "navCase": "Case",
     "headerCta": "Check a paper draft",
     "heroTitle": "Check whether a citation exists — or get a checklist to verify it yourself.",
     "heroLede1": "Free tools that check citations the way you actually use them: does it exist, do its details match the record, and — for papers — does its abstract support your claim?",
@@ -189,12 +201,12 @@ var VC_I18N = {
     "legalCardTitle": "Legal citation check",
     "legalCardDesc": "The browser extracts citations from a brief and marks every row NOT_CHECKED. It does not check whether a case exists or whether details match. A separate CLI can check CourtListener case existence and case name only. It does not check statutes, regulations, BIA or AAO decisions, quotes, or pin cites.",
     "legalDisclaimer": "Not legal advice.",
-    "legalCardLink": "Extract citations from a brief →",
+    "legalCardLink": "Extract citations from a brief →", "caseCardTitle": "Case organizer", "caseCardDesc": "Organize the facts of a case into a clear packet before you talk to a lawyer. It organizes only — it does not give legal advice and does not choose arbitration or court for you.", "caseDisclaimer": "Organize only. Not legal advice.", "caseCardLink": "Organize your case →",
     "footerPapers": "Papers", "footerLegal": "Legal", "footerAbout": "About", "footerOpenSource": "Open source", "footerBackTop": "Back to top",
     "footerOperator": "VerifyCites is not a law firm and does not provide legal advice. Maintained by szzxli."
   },
   "es": {
-    "navHome": "Inicio", "navPapers": "Artículos", "navLegal": "Legal",
+    "navHome": "Inicio", "navPapers": "Artículos", "navLegal": "Legal", "navCase": "Caso",
     "headerCta": "Revisar un borrador de artículo",
     "heroTitle": "Comprueba si una cita existe — o recibe una lista para verificarla tú mismo.",
     "heroLede1": "Herramientas gratuitas que revisan las citas como realmente las usas: ¿existe?, ¿coinciden sus datos con el registro y — solo para artículos — ¿su resumen respalda tu afirmación?",
@@ -217,12 +229,12 @@ var VC_I18N = {
     "legalCardTitle": "Verificación de citas legales",
     "legalCardDesc": "El navegador extrae las citas de un escrito y marca cada fila NOT_CHECKED. No comprueba si un caso existe ni si los datos coinciden. Una CLI aparte puede comprobar en CourtListener si el caso existe y si el nombre coincide. No comprueba leyes, reglamentos, decisiones de BIA o AAO, citas textuales ni páginas precisas.",
     "legalDisclaimer": "No es asesoramiento jurídico.",
-    "legalCardLink": "Extraer citas de un escrito →",
+    "legalCardLink": "Extraer citas de un escrito →", "caseCardTitle": "Organizador de casos", "caseCardDesc": "Organiza los hechos de un caso en un paquete claro antes de hablar con un abogado. Solo organiza: no ofrece asesoramiento jurídico ni elige entre arbitraje y tribunales por ti.", "caseDisclaimer": "Solo organización. No es asesoramiento jurídico.", "caseCardLink": "Organizar mi caso →",
     "footerPapers": "Artículos", "footerLegal": "Legal", "footerAbout": "Acerca de", "footerOpenSource": "Código abierto", "footerBackTop": "Volver arriba",
     "footerOperator": "VerifyCites no es un bufete de abogados y no ofrece asesoramiento jurídico. Mantenido por szzxli."
   },
   "zh": {
-    "navHome": "首页", "navPapers": "论文", "navLegal": "法律",
+    "navHome": "首页", "navPapers": "论文", "navLegal": "法律", "navCase": "案件",
     "headerCta": "查论文草稿",
     "heroTitle": "检查引用是否真实存在——或得到一份可自行核对的清单。",
     "heroLede1": "免费工具，按你实际使用的方式核查引用：它存在吗？细节与记录一致吗？——对论文而言，摘要是否支持你的论点？",
@@ -245,7 +257,7 @@ var VC_I18N = {
     "legalCardTitle": "法律引用核查",
     "legalCardDesc": "浏览器从文书中提取引用，并把每一行标为 NOT_CHECKED。它不核查判例是否存在，也不核查细节是否一致。另有命令行只能在 CourtListener 中核查判例是否存在以及案名是否一致。它不核查法规、BIA 或 AAO 决定、引文或页码。",
     "legalDisclaimer": "不是法律建议。",
-    "legalCardLink": "从法律文书中提取引用 →",
+    "legalCardLink": "从法律文书中提取引用 →", "caseCardTitle": "案件整理", "caseCardDesc": "在咨询律师之前，把案件事实整理成一份清晰的整理包。它只做整理，不提供法律建议，也不替你选择仲裁还是法院。", "caseDisclaimer": "只做整理，不是法律建议。", "caseCardLink": "整理我的案件 →",
     "footerPapers": "论文", "footerLegal": "法律", "footerAbout": "关于", "footerOpenSource": "开源", "footerBackTop": "回到顶部",
     "footerOperator": "本站不是律所，不提供法律建议。维护者：szzxli。"
   }
