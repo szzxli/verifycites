@@ -1,6 +1,241 @@
 {
   "items": [
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Video-Coder: Reinforcing Agentic Coding for Video Generation",
+      "identifier": "2611.09894",
+      "url": "https://arxiv.org/abs/2611.09894",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Challenges for minimal warm inflation in the Standard Model and beyond",
+      "identifier": "2611.09893",
+      "url": "https://arxiv.org/abs/2611.09893",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On Agentic Manipulation Policies",
+      "identifier": "2611.09892",
+      "url": "https://arxiv.org/abs/2611.09892",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "CPU-ARC: Agentic Reasoning Caching for on-CPU Reasoning Reuse",
+      "identifier": "2611.09891",
+      "url": "https://arxiv.org/abs/2611.09891",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Global Two-Sided Estimates for Time-Fractional Diffusion Kernels on Hyperbolic Space",
+      "identifier": "2611.09890",
+      "url": "https://arxiv.org/abs/2611.09890",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "SciCheck: A Framework for Verifying the Integrity of Deep Learning Training",
+      "identifier": "2611.09889",
+      "url": "https://arxiv.org/abs/2611.09889",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Scenario Orchestration for Closed-loop Policy Evaluation of Autonomous Driving",
+      "identifier": "2611.09888",
+      "url": "https://arxiv.org/abs/2611.09888",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the (non-)closedness of the set of ReLU networks",
+      "identifier": "2611.09887",
+      "url": "https://arxiv.org/abs/2611.09887",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Directed systems of A-spaces and weak cores",
+      "identifier": "2611.09886",
+      "url": "https://arxiv.org/abs/2611.09886",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Unconditional Uniqueness of KdV and mKdV Green Solutions at Low Regularity",
+      "identifier": "2611.09885",
+      "url": "https://arxiv.org/abs/2611.09885",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "VLT and Keck recovery and characterisation of 2025 SC$_{79}$: linking 'Ayló'chaxnim and Atira asteroids",
+      "identifier": "2611.09884",
+      "url": "https://arxiv.org/abs/2611.09884",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Analytic information encoded in the Bernstein-Sato polynomial of genus-one plane branches",
+      "identifier": "2611.09883",
+      "url": "https://arxiv.org/abs/2611.09883",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FlowMoP: Stochastic Multi-Person Motion Prediction",
+      "identifier": "2611.09882",
+      "url": "https://arxiv.org/abs/2611.09882",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Unraveling square and kagome lattice frustrated magnetism by scalable tensor networks",
+      "identifier": "2611.09881",
+      "url": "https://arxiv.org/abs/2611.09881",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "ZeoBench: A Benchmark for Self-Supervised Learning on 3D Zeolite Representations",
+      "identifier": "2611.09880",
+      "url": "https://arxiv.org/abs/2611.09880",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "PhotoFinish: Portable Timerless Probing of Microarchitectural Latencies",
+      "identifier": "2611.09879",
+      "url": "https://arxiv.org/abs/2611.09879",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Graded convolutional networks: scale invariance without the scale and robustness to unknown blur",
+      "identifier": "2611.09878",
+      "url": "https://arxiv.org/abs/2611.09878",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Locating Contact on Tendon-Driven Continuum Robots From Tendon Measurements Alone via Constrained Moving Horizon Estimation",
+      "identifier": "2611.09877",
+      "url": "https://arxiv.org/abs/2611.09877",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Novikov-Magnus Master Equation for Driven Quantum Systems under Classical Correlated Noise",
+      "identifier": "2611.09876",
+      "url": "https://arxiv.org/abs/2611.09876",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "SN 2026ahvu in NGC 1433 May Be a Prompt Type Ia Supernova with a Delay Time Under 100 Myr",
+      "identifier": "2611.09875",
+      "url": "https://arxiv.org/abs/2611.09875",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Pure mapping class group fixed points in $\\mathrm{PU}(2,1)$",
+      "identifier": "2611.09874",
+      "url": "https://arxiv.org/abs/2611.09874",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Trajectory-Dependent Decoherence and Leakage During Shuttling of Multi-Spin Qubits",
+      "identifier": "2611.09873",
+      "url": "https://arxiv.org/abs/2611.09873",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the Reliability of Majority-Vote Pseudo-Labels in Test-Time Reinforcement Learning",
+      "identifier": "2611.09872",
+      "url": "https://arxiv.org/abs/2611.09872",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Multi-phase Carbon Structure and Dynamics in NGC 6334: Insights from CO, [C I], and [C II]",
+      "identifier": "2611.09871",
+      "url": "https://arxiv.org/abs/2611.09871",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "AI Exposure and the Changing Responsibilities in Job Postings",
+      "identifier": "2611.09870",
+      "url": "https://arxiv.org/abs/2611.09870",
+      "date": "2026-11-06",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comparison chart: Antiviral drugs for seasonal influenza.",
+      "identifier": "10.58347/tml.2026.1767c",
+      "url": "https://europepmc.org/article/MED/42955276",
+      "date": "2026-11-09",
+      "doi": "10.58347/tml.2026.1767c",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "NAVARRETE V. BLANCHE",
@@ -5499,7 +5734,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-08T21:46:43Z",
+    "last_poll": "2026-11-09T04:59:51Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -5522,7 +5757,7 @@
       {
         "name": "Europe PMC",
         "status": "ok",
-        "items": 3,
+        "items": 4,
         "last_error": null
       }
     ]
