@@ -52,6 +52,17 @@ a quoted literal from the list, and no direct
 | `papers-review-complete` | Every claim in the current papers report is marked checked by hand (the toggle that moves the count from below N to N, N > 0). | One completion of that report. | Claim text, project id. |
 | `papers-tool-link` | User clicks a hero tool link on the papers page (`a.hero-tool-link` in `initGround()`). | One hero-link click. | Which section, draft text. |
 
+### Local history (no events)
+
+The papers Recent checks section (`papers/history.js`) stores past checks
+in this browser's localStorage only (key `veripaper-history-v1`, at most
+50 records, newest first; the section shows the latest 10) and sends
+nothing anywhere. A re-check re-runs verification on the stored citation
+rows and fires the existing `papers-check` event once on success; it adds
+no new event name, and history itself fires no event. Stored rows carry
+only registry-derived metadata (display citation, source origin, target
+URL, conclusion label) — never draft text, claim text, or notes.
+
 Deliberately NOT instrumented: clipboard copies (legal Markdown export,
 papers DOI list), the legal JSON export, language switches, sample
 loading, and file-upload clicks as separate events (upload counts only

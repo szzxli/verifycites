@@ -66,7 +66,16 @@ const src = fs.readFileSync(path.join(__dirname, '..', 'ground.js'), 'utf8');
 
   console.log('— privacy wording and honest recall —');
   {
-    ok('no "nothing is uploaded" / "never leaves the page"', !/nothing is uploaded|never leaves the page/i.test(html));
+    /* The history subtitle (#84) says "nothing is uploaded" about the
+       SAVED RECORDS only — they live in localStorage and never leave the
+       browser, which is true. The check itself still sends identifiers
+       to registries (disclosed in §1), so the ban below is scoped to the
+       rest of the page: the subtitle's true, scoped claim is not a
+       page-wide privacy promise. */
+    const htmlNoHistory = html.replace(/<section id="history">[\s\S]*?<\/section>/, '');
+    ok('no "nothing is uploaded" / "never leaves the page"', !/nothing is uploaded|never leaves the page/i.test(htmlNoHistory));
+    ok('history subtitle keeps the exact local-only wording',
+      /Your last 10 checks are saved in this browser only — nothing is uploaded\./.test(html));
     const priv = 'Only citation identifiers and reference text are sent to the registries';
     ok('privacy line in section 1 and footer match', html.split(priv).length - 1 === 2);
     ok('recall stated with rank and date', /22\/33 \(67%\), 5th of the 6 tools/.test(html) && /15\/71 \(21%\), is the lowest of the six/.test(html) && /have not been re-scored/.test(html));
