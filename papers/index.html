@@ -162,6 +162,13 @@ details.fold section.side{padding:26px 0 4px}
 .vp-filter[aria-pressed="true"]{outline:2px solid currentColor;outline-offset:1px}
 .vp-filter[disabled]{cursor:default;opacity:.55}
 .claim[hidden]{display:none}
+/* ---------- recent checks (local history, #84) ---------- */
+.vp-history-card{margin-bottom:12px}
+.vp-history-btn{padding:9px 16px;font-size:13px}
+.vp-history-cites{margin-top:12px;border-top:1px dotted var(--line);padding-top:10px}
+.vp-history-cite{font-family:var(--sans);font-size:13.5px;color:var(--ink);margin-bottom:8px;line-height:1.6}
+.vp-history-cite a{color:var(--navy);word-break:break-all}
+.vp-history-cite .label{margin-right:4px}
 </style>
   <link rel="stylesheet" href="../site-nav.css">
 </head>
@@ -228,6 +235,14 @@ details.fold section.side{padding:26px 0 4px}
     </details>
     <div id="ground-progress" class="progress"></div>
     <div id="ground-result" style="margin-top:14px"></div>
+  </div>
+</section>
+
+<section id="history">
+  <div class="sec-head"><h2>Recent checks</h2></div>
+  <p class="sec-lede">Your last 10 checks are saved in this browser only — nothing is uploaded.</p>
+  <div id="vp-history-list">
+    <p class="hint" id="vp-history-empty">When you check something for the first time, you'll see it here.</p>
   </div>
 </section>
 
@@ -532,6 +547,7 @@ document.getElementById("buglink").addEventListener("click", function (e) {
 <script src="project.js"></script>
 <script src="bibtex.js"></script>
 <script src="ground.js"></script>
+<script src="history.js"></script>
 <script src="idea.js"></script>
 <script src="datasets.js"></script>
 <script src="venues.js"></script>

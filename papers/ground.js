@@ -1619,7 +1619,7 @@ async function groundDraft(text, opts, onStep) {
     const p = pairs[i];
     if (p.cite_type === 'invalid_doi') {
       evidence[i] = { claim: p.claim, base: 'INVALID_DOI', label: 'INVALID_DOI', doi: '', arxiv_id: '', title: '',
-        note: INVALID_DOI_NOTE(p.cite_id), authors: [], venue: '', year: '' };
+        note: INVALID_DOI_NOTE(p.cite_id), authors: [], venue: '', year: '', claimed_id: '' };
       done++;
       return;
     }
@@ -1725,7 +1725,7 @@ async function groundDraft(text, opts, onStep) {
       claim: p.claim, base,
       label: base + (tags.length ? ' ' + tags.join(' ') : ''),
       doi: res.doi || '', arxiv_id: res.arxiv_id || '', title: res.title || '', note,
-      authors: res.authors || [], venue: res.venue || '', year: res.year || '',
+      authors: res.authors || [], venue: res.venue || '', year: res.year || '', claimed_id: res.claimed || '',
     };
     done++;
     if (onStep) onStep(`Checking claim ${done}/${pairs.length}…`);
@@ -2289,6 +2289,7 @@ function initGround() {
       bindPapersHandcheck(rep, evidence);
       vpCount("papers-check");
       if (evidence.length) vpCount("papers-check-complete");
+      if (typeof vpHistorySave === 'function') { try { vpHistorySave(evidence, { unit: unit }); } catch (e) { /* history is best-effort */ } }
       if (window.VP) {
         let countedRun = false;
         try { VP.recordGround(evidence); countedRun = true; } catch (e) { /* project bar is optional */ }
