@@ -1,6 +1,231 @@
 {
   "items": [
     {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Pectoralis muscle features assessed by chest CT and their associations with clinical and functional outcomes in children and adolescents with cystic fibrosis: a cross-sectional study",
+      "identifier": "europepmc:PMC13754191",
+      "url": "https://europepmc.org/article/PMC/PMC13754191",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Mark A. Ratner (1942–2026): Founded molecular electronics while spearheading the growth of science at Northwestern University",
+      "identifier": "europepmc:PMC13751652",
+      "url": "https://europepmc.org/article/PMC/PMC13751652",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Hydrogen peroxide-responsive fluorescent probes based on aromatic imidazole derivatives: design, optimization and biomedical applications",
+      "identifier": "europepmc:PMC13752914",
+      "url": "https://europepmc.org/article/PMC/PMC13752914",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Paired single-cell profiling reveals epithelial–stromal remodeling after ablative fractional carbon dioxide laser treatment in keloids",
+      "identifier": "europepmc:PMC13751414",
+      "url": "https://europepmc.org/article/PMC/PMC13751414",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Likes, lies, and oversight: problematic social media use, concealment, parental monitoring, and adolescent cyberbullying",
+      "identifier": "europepmc:PMC13751968",
+      "url": "https://europepmc.org/article/PMC/PMC13751968",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Context-dependent immunoregulation by BAFF: reconciling its pro-tumorigenic, anti-tumor, and autoimmune roles through a multi-factorial lens",
+      "identifier": "europepmc:PMC13752573",
+      "url": "https://europepmc.org/article/PMC/PMC13752573",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Immunoglobulins and Efgartigimod reduce neuronal activity in primary rat cortical neuron cultures",
+      "identifier": "europepmc:PMC13751231",
+      "url": "https://europepmc.org/article/PMC/PMC13751231",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Family physicians’ acceptability, perceived value, and barriers of pharmacist-led medication management in primary care—a theory-based qualitative study",
+      "identifier": "europepmc:PMC13752058",
+      "url": "https://europepmc.org/article/PMC/PMC13752058",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Indoor radon monitoring through citizen science in Catalan schools: environmental assessment and educational outcomes",
+      "identifier": "europepmc:PMC13752855",
+      "url": "https://europepmc.org/article/PMC/PMC13752855",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Fusion-independent virus-like particles enable rapid detection of antibody-mediated inhibition of ligand-receptor interactions",
+      "identifier": "europepmc:PMC13752075",
+      "url": "https://europepmc.org/article/PMC/PMC13752075",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Prevalence of the F508del variant in patients with cystic fibrosis in northeastern Brazil: clinical and laboratory factors",
+      "identifier": "europepmc:PMC13754189",
+      "url": "https://europepmc.org/article/PMC/PMC13754189",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Ultrasound-guided infraclavicular axillary vein access for central venous catheterization: an evidence-informed narrative review",
+      "identifier": "europepmc:PMC13753970",
+      "url": "https://europepmc.org/article/PMC/PMC13753970",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Tobacco–barley rotation reshapes soil microbial communities and enriches culturable bacteria with plant growth-promoting potential",
+      "identifier": "europepmc:PMC13751933",
+      "url": "https://europepmc.org/article/PMC/PMC13751933",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "CD161 expression in tuberculosis and functional effects of CD161–LLT1 blockade",
+      "identifier": "europepmc:PMC13751381",
+      "url": "https://europepmc.org/article/PMC/PMC13751381",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beyond platinum sensitivity: immune-engaging therapies and multidimensional treatment stratification in relapsed small-cell lung cancer",
+      "identifier": "europepmc:PMC13752699",
+      "url": "https://europepmc.org/article/PMC/PMC13752699",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Sexually transmitted co-infections as biological modifiers of HPV-driven cervical carcinogenesis: a systematic integrative review",
+      "identifier": "europepmc:PMC13751401",
+      "url": "https://europepmc.org/article/PMC/PMC13751401",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Siamese banana peel-mediated synthesis of silver nanoparticles and their broad-spectrum antibacterial activity",
+      "identifier": "europepmc:PMC13754042",
+      "url": "https://europepmc.org/article/PMC/PMC13754042",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Molecular mechanisms of mast cells in mediating heart failure",
+      "identifier": "europepmc:PMC13752570",
+      "url": "https://europepmc.org/article/PMC/PMC13752570",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Strengthening health quality management for cardiovascular disease, diabetes, and obesity in the United Arab Emirates: an integrated evidence synthesis",
+      "identifier": "europepmc:PMC13752134",
+      "url": "https://europepmc.org/article/PMC/PMC13752134",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Quinazoline derivatives with dual EGFR and VEGFR-2 inhibition: insights from docking, molecular dynamics, and in vivo studies",
+      "identifier": "europepmc:PMC13752819",
+      "url": "https://europepmc.org/article/PMC/PMC13752819",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Editorial: Innovations in uniportal lung resection",
+      "identifier": "europepmc:PMC13752208",
+      "url": "https://europepmc.org/article/PMC/PMC13752208",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "What drives polymer adsorption into MOF nanopores? Insights into the role of solvents from titration calorimetry",
+      "identifier": "europepmc:PMC13752725",
+      "url": "https://europepmc.org/article/PMC/PMC13752725",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Cyberlogic-enabled Thinking Space: a closed-loop human-cyber cognitive architecture in CPST",
+      "identifier": "europepmc:PMC13752051",
+      "url": "https://europepmc.org/article/PMC/PMC13752051",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The developmental, genetic, and epigenetic basis of polyendocrine metabolic ovarian syndrome",
+      "identifier": "europepmc:PMC13752541",
+      "url": "https://europepmc.org/article/PMC/PMC13752541",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "ENO1 functional plasticity linking metabolism with gene regulation and immunity at the host–pathogen interface",
+      "identifier": "europepmc:PMC13752563",
+      "url": "https://europepmc.org/article/PMC/PMC13752563",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-12T14:45:28Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "Medical Image Segmentation: Foundation Model Adaptation versus Task-Specific Training",
@@ -6568,7 +6793,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-12T00:09:17Z",
+    "last_poll": "2026-11-12T14:45:28Z",
     "sources": [
       {
         "name": "Ninth Circuit",
