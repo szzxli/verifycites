@@ -7,7 +7,7 @@ const path = require("path");
 const { BIA_ZERO_RESULTS, BIA_RESULT_NOTE, BIA_SCOPE_NOTE, BIA_VOLUMES, biaTokenize, biaHref, biaSearch } = require("../bia.js");
 
 assert.strictEqual(BIA_RESULT_NOTE, "Keyword matching only. This shows that the decision exists, its citation, and the official link. It does not say whether the decision is still good law. Not legal advice.");
-assert.ok(BIA_SCOPE_NOTE.includes("BIA and Attorney General precedent decisions only"));
+assert.ok(BIA_SCOPE_NOTE.includes("BIA precedent decisions only"));
 assert.ok(BIA_SCOPE_NOTE.includes("volume 30 only"));
 assert.ok(BIA_SCOPE_NOTE.includes("01\u201307"));
 assert.deepStrictEqual(BIA_VOLUMES, ["30"]);
@@ -21,8 +21,8 @@ assert.ok(html.indexOf('<script src="bia.js"></script>') > 0, "bia.js loaded");
 assert.ok(!/%|success rate|win rate|pro se|good law\b(?! )/i.test(sec.replace(/still good law/g, "")), "no rates, no pro se targeting");
 
 const src = fs.readFileSync(path.join(__dirname, "..", "bia.js"), "utf8");
-assert.ok(src.includes('fetch("../data/bia-index.json"'), "reads same-origin index");
-assert.ok(src.includes('"../data/bia-search/vol" + v + ".json"'), "reads same-origin volume index");
+assert.ok(src.includes('fetch("/data/bia-index.json"'), "reads same-origin index");
+assert.ok(src.includes('"/data/bia-search/vol" + v + ".json"'), "reads same-origin volume index");
 assert.ok(!/fetch\(\s*["']https?:/.test(src), "no third-party fetch");
 assert.ok(!/localStorage|sessionStorage|indexedDB|document\.cookie/.test(src), "query is not stored");
 assert.ok(!/innerHTML/.test(src), "results rendered as text nodes");
