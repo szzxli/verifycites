@@ -14,4 +14,4 @@ Details: [docs/analytics.md](docs/analytics.md). Test: `node legal/tests/test_go
 
 ## Links to the other sites
 
-Links from these pages to li jun's other sites (soc-skills, soc-home-lab) carry `?ref=verifycites` (before any `#fragment`). Links to third-party sites and to GitHub are not tagged.
+Links from these pages to David Lee's other sites (soc-skills, soc-home-lab) carry `?ref=verifycites` (before any `#fragment`). Links to third-party sites and to GitHub are not tagged.
