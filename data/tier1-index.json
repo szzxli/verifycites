@@ -1,6 +1,471 @@
 {
   "items": [
     {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "ENPP1 deficiency in siblings with apparently discordant phenotypes: case report and a review of the literature.",
+      "identifier": "10.1515/jpem-2026-0664",
+      "url": "https://europepmc.org/article/MED/43018541",
+      "date": "2026-11-13",
+      "doi": "10.1515/jpem-2026-0664",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Somatic Symptom Disorder Improved With Lamotrigine.",
+      "identifier": "10.1097/jcp.0000000000002287",
+      "url": "https://europepmc.org/article/MED/43018468",
+      "date": "2026-11-13",
+      "doi": "10.1097/jcp.0000000000002287",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Concurrent Urticaria/Angioedema and Acute Accommodation Dysfunction With Visual Acuity Loss Associated With Oral Methylphenidate in a Child With ADHD: Case Report.",
+      "identifier": "10.1097/jcp.0000000000002289",
+      "url": "https://europepmc.org/article/MED/43018460",
+      "date": "2026-11-13",
+      "doi": "10.1097/jcp.0000000000002289",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Optimization of PEG precipitation for macroprolactinemia screening.",
+      "identifier": "10.1515/cclm-2026-1812",
+      "url": "https://europepmc.org/article/MED/43018388",
+      "date": "2026-11-13",
+      "doi": "10.1515/cclm-2026-1812",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Predictors of cervical lymphatic spread in papillary thyroid microcarcinoma: clinical and pathological determinants.",
+      "identifier": "10.1097/cad.0000000000001853",
+      "url": "https://europepmc.org/article/MED/43018248",
+      "date": "2026-11-13",
+      "doi": "10.1097/cad.0000000000001853",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Maternal psychological distress and child psychosocial functioning in girls with central precocious puberty: a prospective study before and after GnRH analogue treatment.",
+      "identifier": "10.1515/jpem-2026-0428",
+      "url": "https://europepmc.org/article/MED/43018165",
+      "date": "2026-11-13",
+      "doi": "10.1515/jpem-2026-0428",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Long-term outcomes of biodegradable- versus durable-polymer drug-eluting stents in patients with advanced chronic kidney disease undergoing percutaneous coronary intervention: a 7-year retrospective cohort study.",
+      "identifier": "10.1097/mca.0000000000001691",
+      "url": "https://europepmc.org/article/MED/43017910",
+      "date": "2026-11-13",
+      "doi": "10.1097/mca.0000000000001691",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Age-adjusted baseline D-dimer predicts thrombotic events during readmission in anticoagulated patients with non-valvular atrial fibrillation",
+      "identifier": "10.21203/rs.3.rs-11220651/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1365149",
+      "date": "2026-11-13",
+      "doi": "10.21203/rs.3.rs-11220651/v1",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Automated Intracranial Aneurysm Detection and Size Extraction from Imaging Reports Using a Dual-Model Transformer Framework",
+      "identifier": "10.21203/rs.3.rs-11435195/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1365148",
+      "date": "2026-11-13",
+      "doi": "10.21203/rs.3.rs-11435195/v1",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Performance evaluation and microstructural characterization of multi-scale hybrid fiber-reinforced high-content solid waste-based repair materials",
+      "identifier": "10.21203/rs.3.rs-11412626/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1365147",
+      "date": "2026-11-13",
+      "doi": "10.21203/rs.3.rs-11412626/v1",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Development and acceptability of a structured postoperative feedback tool for cataract surgery training (cataRANT)",
+      "identifier": "10.21203/rs.3.rs-11451209/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1365146",
+      "date": "2026-11-13",
+      "doi": "10.21203/rs.3.rs-11451209/v1",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Calcium Signaling Enhances Bostrycin Biosynthesis in Nigrospora sphaerica HCH285: Transcriptomic Insights into Metabolic Regulation",
+      "identifier": "10.21203/rs.3.rs-11147586/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1365145",
+      "date": "2026-11-13",
+      "doi": "10.21203/rs.3.rs-11147586/v1",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The Managerial Success of Principals in Improving School Quality in Peripheral Areas",
+      "identifier": "10.21203/rs.3.rs-10095927/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1365144",
+      "date": "2026-11-13",
+      "doi": "10.21203/rs.3.rs-10095927/v1",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Multimodal switches exploiting electromechanical snap-through for versatile robotic information processing",
+      "identifier": "europepmc:PMC13754008",
+      "url": "https://europepmc.org/article/PMC/PMC13754008",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The transcription factors OsIDD and OsSHR jointly regulate ground tissue patterning and differentiation in rice roots",
+      "identifier": "europepmc:PMC13754006",
+      "url": "https://europepmc.org/article/PMC/PMC13754006",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Structural insights into light harvesting and photosystem II evolution in the basal streptophyte Mesostigma viride",
+      "identifier": "europepmc:PMC13754017",
+      "url": "https://europepmc.org/article/PMC/PMC13754017",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Dynamic plasmonic imaging of electromechanically driven nano-oscillators for charge-resolved multiplex biosensing",
+      "identifier": "europepmc:PMC13754015",
+      "url": "https://europepmc.org/article/PMC/PMC13754015",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reprogramming electron transfer at single-atom Pt sites to break the interference barrier in uric acid detection",
+      "identifier": "europepmc:PMC13754021",
+      "url": "https://europepmc.org/article/PMC/PMC13754021",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "STAT3 controls IL-6–induced epigenomic remodeling and restrains a latent STAT1-associated interferon program in human macrophages",
+      "identifier": "europepmc:PMC13753998",
+      "url": "https://europepmc.org/article/PMC/PMC13753998",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Segmented projection image translation for large-area, high-resolution vat photopolymerization",
+      "identifier": "europepmc:PMC13753993",
+      "url": "https://europepmc.org/article/PMC/PMC13753993",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A TROP2-targeting aptamer enables selective drug delivery and potent antitumor activity in pancreatic cancer",
+      "identifier": "europepmc:PMC13754016",
+      "url": "https://europepmc.org/article/PMC/PMC13754016",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Superoxide dismutase shapes manganese stoichiometry in Southern Ocean diatoms",
+      "identifier": "europepmc:PMC13754022",
+      "url": "https://europepmc.org/article/PMC/PMC13754022",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Input-specific deployment of the active zone scaffold RIM tunes synaptic release probability and plasticity",
+      "identifier": "europepmc:PMC13754025",
+      "url": "https://europepmc.org/article/PMC/PMC13754025",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Cell adhesion molecule–related proteins signal to promote cytoneme elongation from Sonic Hedgehog–producing cells",
+      "identifier": "europepmc:PMC13754027",
+      "url": "https://europepmc.org/article/PMC/PMC13754027",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Piezoelectrically actuated magnetic dipole twisting resonators enable miniaturized low-frequency antennas",
+      "identifier": "europepmc:PMC13754013",
+      "url": "https://europepmc.org/article/PMC/PMC13754013",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Efficient Standard Siren Cosmological Inference with Posterior Reuse",
+      "identifier": "2611.16697",
+      "url": "https://arxiv.org/abs/2611.16697",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Discrete anomaly inflow from SymTFT of $U(1)$ global symmetry: the modified Villain resolution",
+      "identifier": "2611.16696",
+      "url": "https://arxiv.org/abs/2611.16696",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Free Gödel algebras over Gödel hoops",
+      "identifier": "2611.16695",
+      "url": "https://arxiv.org/abs/2611.16695",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "When Expert Disagreement Hurts: Prestige and Selectivity in LLM Decision Revision",
+      "identifier": "2611.16694",
+      "url": "https://arxiv.org/abs/2611.16694",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "MobileProbe: Adaptive Security Evaluation of Mobile Agents via Trajectory-Aware Injection",
+      "identifier": "2611.16693",
+      "url": "https://arxiv.org/abs/2611.16693",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Theory-Driven Network Backbones for Bipartite Projections",
+      "identifier": "2611.16692",
+      "url": "https://arxiv.org/abs/2611.16692",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Persistent-mediator architecture for universal fault-tolerant quantum computation with color codes",
+      "identifier": "2611.16691",
+      "url": "https://arxiv.org/abs/2611.16691",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hilbert's 17th problem for symmetric functions: undecidability and a counterexample",
+      "identifier": "2611.16690",
+      "url": "https://arxiv.org/abs/2611.16690",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Dark matter evolution in stellar objects: A Boltzmann transport approach",
+      "identifier": "2611.16689",
+      "url": "https://arxiv.org/abs/2611.16689",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "An Analytic Toroidal MHD Equilibrium with Trivial Euclidean Symmetry Group",
+      "identifier": "2611.16688",
+      "url": "https://arxiv.org/abs/2611.16688",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Satellite pairs in the Local Group: from spatial clustering to dynamical associations in observations and $Λ$CDM simulations",
+      "identifier": "2611.16687",
+      "url": "https://arxiv.org/abs/2611.16687",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Next-to-leading-order QCD corrections to prompt $Υ(1S)$ pair hadroproduction",
+      "identifier": "2611.16686",
+      "url": "https://arxiv.org/abs/2611.16686",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Fluctuations of Local Patterns in Non-Periodic Uniquely Ergodic Systems",
+      "identifier": "2611.16685",
+      "url": "https://arxiv.org/abs/2611.16685",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Is Spin Slow in Hot QCD?",
+      "identifier": "2611.16684",
+      "url": "https://arxiv.org/abs/2611.16684",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Geometric Theory of Quasiperiodically Driven Systems",
+      "identifier": "2611.16683",
+      "url": "https://arxiv.org/abs/2611.16683",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The coercivity conjecture for nonlocal energies",
+      "identifier": "2611.16682",
+      "url": "https://arxiv.org/abs/2611.16682",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Dislocation Arrays Hosting Topological Bound States in Epitaxial Tetragonal FeSe Films",
+      "identifier": "2611.16681",
+      "url": "https://arxiv.org/abs/2611.16681",
+      "date": "2026-11-12",
+      "doi": "10.1021/acsnano.6c11893",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Immaculate complexes and Strong Generation by Injectives",
+      "identifier": "2611.16680",
+      "url": "https://arxiv.org/abs/2611.16680",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Sign changing pairing in single layer FeSe/SrTiO3 revealed by nonmagnetic impurity bound states",
+      "identifier": "2611.16679",
+      "url": "https://arxiv.org/abs/2611.16679",
+      "date": "2026-11-12",
+      "doi": "10.1038/s42005-020-0351-1",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Edge-Gradient Augmentation under Reinforcement Learning for Temporal Graph",
+      "identifier": "2611.16678",
+      "url": "https://arxiv.org/abs/2611.16678",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Manifold Attracting Flow Matching: Physics-Constrained Sampling via Continuous Geometric Dynamics",
+      "identifier": "2611.16677",
+      "url": "https://arxiv.org/abs/2611.16677",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Time-changed Compound Poisson Process",
+      "identifier": "2611.16676",
+      "url": "https://arxiv.org/abs/2611.16676",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Infectious Disease Horizon in Emerging Infectious Diseases",
+      "identifier": "2611.16675",
+      "url": "https://arxiv.org/abs/2611.16675",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The External Path Length and Terminal Wiener Index in Random Trees",
+      "identifier": "2611.16674",
+      "url": "https://arxiv.org/abs/2611.16674",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "PIM: A Physical Intuition Model for Low-Latency Prediction of Object Interaction Outcomes",
+      "identifier": "2611.16673",
+      "url": "https://arxiv.org/abs/2611.16673",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "SABRINA BERAM V. CITY OF SEDONA",
@@ -1367,6 +1832,24 @@
       "first_seen": "2026-11-06T22:46:50Z"
     },
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "LINDSAY HECOX, ET AL V. MADISON KENYON, ET AL",
+      "identifier": "20-35815",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35815.pdf",
+      "date": "2026-11-05",
+      "first_seen": "2026-11-06T05:30:03Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "LINDSAY HECOX, ET AL V. BRADLEY LITTLE, ET AL",
+      "identifier": "20-35813",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35813.pdf",
+      "date": "2026-11-05",
+      "first_seen": "2026-11-06T05:30:03Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "BeAR: The Bern Atmospheric Retrieval code - A GPU-accelerated framework for low-resolution, high-resolution, and joint retrievals of exoplanet atmospheres",
@@ -1588,24 +2071,6 @@
       "title_or_case_name": "Towards interpreting any residual stream direction by scaling activation inversion",
       "identifier": "2611.08465",
       "url": "https://arxiv.org/abs/2611.08465",
-      "date": "2026-11-05",
-      "first_seen": "2026-11-06T05:30:03Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "LINDSAY HECOX, ET AL V. MADISON KENYON, ET AL",
-      "identifier": "20-35815",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35815.pdf",
-      "date": "2026-11-05",
-      "first_seen": "2026-11-06T05:30:03Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "LINDSAY HECOX, ET AL V. BRADLEY LITTLE, ET AL",
-      "identifier": "20-35813",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35813.pdf",
       "date": "2026-11-05",
       "first_seen": "2026-11-06T05:30:03Z"
     },
@@ -1865,15 +2330,6 @@
       "first_seen": "2026-11-05T05:32:33Z"
     },
     {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Bulevirtide",
-      "identifier": "europepmc:NBK625871",
-      "url": "https://europepmc.org/article/NBK/NBK625871",
-      "date": "2026-11-04",
-      "first_seen": "2026-11-04T23:18:35Z"
-    },
-    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "SRINIVASAN V. MILESTONE FINANCIAL, LLC",
@@ -1907,6 +2363,15 @@
       "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139_Order.pdf",
       "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139_Order.pdf",
       "date": "2026-10-30",
+      "first_seen": "2026-11-04T23:18:35Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Bulevirtide",
+      "identifier": "europepmc:NBK625871",
+      "url": "https://europepmc.org/article/NBK/NBK625871",
+      "date": "2026-11-04",
       "first_seen": "2026-11-04T23:18:35Z"
     },
     {
@@ -2133,6 +2598,15 @@
       "url": "https://europepmc.org/article/PMC/PMC13730642",
       "date": "2026-11-04",
       "first_seen": "2026-11-04T13:54:14Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_order_en_banc.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_order_en_banc.pdf",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
     },
     {
       "source": "Europe PMC",
@@ -2610,15 +3084,6 @@
       "first_seen": "2026-11-04T05:10:48Z"
     },
     {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_order_en_banc.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_order_en_banc.pdf",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "AHRQ CEDAR",
@@ -2644,6 +3109,24 @@
       "url": "https://europepmc.org/article/NBK/NBK625842",
       "date": "2026-11-03",
       "first_seen": "2026-11-03T22:58:12Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
+      "identifier": "26-7303",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303_31_order.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303_31_order.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
     },
     {
       "source": "Europe PMC",
@@ -3098,20 +3581,38 @@
     {
       "source": "Ninth Circuit",
       "kind": "legal",
-      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
-      "identifier": "26-7303",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303.pdf",
+      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_02_opinion.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_02_opinion.pdf",
       "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
+      "first_seen": "2026-11-03T00:39:19Z"
     },
     {
       "source": "Ninth Circuit",
       "kind": "legal",
-      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303_31_order.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303_31_order.pdf",
+      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_02_opinion.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_02_opinion.pdf",
       "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_01_order.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_01_order.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T00:39:19Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_01_order.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_01_order.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T00:39:19Z"
     },
     {
       "source": "Europe PMC",
@@ -3161,42 +3662,6 @@
       "url": "https://europepmc.org/article/MED/41185433",
       "date": "2026-11-03",
       "doi": "10.1097/bpb.0000000000001302",
-      "first_seen": "2026-11-03T00:39:19Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_02_opinion.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_02_opinion.pdf",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T00:39:19Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_02_opinion.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_02_opinion.pdf",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T00:39:19Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_01_order.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-5468_01_order.pdf",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T00:39:19Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "JOHNSON V. ADGAR, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_01_order.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_01_order.pdf",
-      "date": "2026-11-02",
       "first_seen": "2026-11-03T00:39:19Z"
     },
     {
@@ -4605,6 +5070,87 @@
       "first_seen": "2026-10-31T04:29:18Z"
     },
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
+      "identifier": "24-5493",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5493.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
+      "identifier": "24-5691",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5691.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. ADA COUNTY PROSECUTING ATTORNEY, ET AL.",
+      "identifier": "26-5558",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5558.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NATIONAL TPS ALLIANCE, ET AL. V. MULLIN, ET AL.",
+      "identifier": "25-5724",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/25-5724.pdf",
+      "date": "2026-11-03",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "CALIFORNIA NURSES ASSOCIATION, ET AL. V. MULLIN, ET AL.",
+      "identifier": "26-7139",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
+      "identifier": "26-5360",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5360.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
+      "identifier": "26-6068",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-6068.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
+      "identifier": "26-7231",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7231.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SHARED PARTNERSHIP V. META PLATFORMS, INC.",
+      "identifier": "25-2612",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-2612.pdf",
+      "date": "2026-10-30",
+      "first_seen": "2026-10-30T21:59:49Z"
+    },
+    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "A Direct-to-Patient Alert for Glycated Hemoglobin Screening Using Prediction Modeling and Mobile Health (mHealth)",
@@ -4826,87 +5372,6 @@
       "title_or_case_name": "Primary Cutaneous Diffuse Large B-cell Lymphoma, Leg Type, With Rapid Systemic Progression in an Elderly Patient: A Case Report",
       "identifier": "europepmc:PMC13719235",
       "url": "https://europepmc.org/article/PMC/PMC13719235",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
-      "identifier": "24-5493",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5493.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NINTH INNING INC., ET AL. V. NATIONAL FOOTBALL LEAGUE, INC, ET AL.",
-      "identifier": "24-5691",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/24-5691.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. ADA COUNTY PROSECUTING ATTORNEY, ET AL.",
-      "identifier": "26-5558",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5558.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NATIONAL TPS ALLIANCE, ET AL. V. MULLIN, ET AL.",
-      "identifier": "25-5724",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/25-5724.pdf",
-      "date": "2026-11-03",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "CALIFORNIA NURSES ASSOCIATION, ET AL. V. MULLIN, ET AL.",
-      "identifier": "26-7139",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7139.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
-      "identifier": "26-5360",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-5360.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SEYB V. LABRADOR, ET AL.",
-      "identifier": "26-6068",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-6068.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
-      "identifier": "26-7231",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/26-7231.pdf",
-      "date": "2026-10-30",
-      "first_seen": "2026-10-30T21:59:49Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SHARED PARTNERSHIP V. META PLATFORMS, INC.",
-      "identifier": "25-2612",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/30/25-2612.pdf",
       "date": "2026-10-30",
       "first_seen": "2026-10-30T21:59:49Z"
     },
@@ -5135,6 +5600,15 @@
       "url": "https://arxiv.org/abs/2610.40633",
       "date": "2026-10-29",
       "first_seen": "2026-10-30T12:17:26Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "RED EAGLE LAW, LC V. RUBIO",
+      "identifier": "26-6943",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/26-6943.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-30T04:44:46Z"
     },
     {
       "source": "Europe PMC",
@@ -5389,11 +5863,38 @@
     {
       "source": "Ninth Circuit",
       "kind": "legal",
-      "title_or_case_name": "RED EAGLE LAW, LC V. RUBIO",
-      "identifier": "26-6943",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/26-6943.pdf",
+      "title_or_case_name": "COLVIN AND SON, LLC, ET AL. V. BURGUM, ET AL.",
+      "identifier": "25-1888",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-1888.pdf",
       "date": "2026-10-29",
-      "first_seen": "2026-10-30T04:44:46Z"
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "CALIFORNIA CHAMBER OF COMMERCE, ET AL. V. BONTA, ET AL.",
+      "identifier": "25-6874",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-6874.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "UBER TECHNOLOGIES, INC., ET AL. V. CITY OF SEATTLE",
+      "identifier": "25-228",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-228.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "MAPLEBEAR INC., ET AL. V. CITY OF SEATTLE",
+      "identifier": "25-231",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-231.pdf",
+      "date": "2026-10-29",
+      "first_seen": "2026-10-29T22:30:22Z"
     },
     {
       "source": "Europe PMC",
@@ -5643,42 +6144,6 @@
       "url": "https://europepmc.org/article/MED/42952440",
       "date": "2026-10-29",
       "doi": "10.3345/cep.2026.03202",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "COLVIN AND SON, LLC, ET AL. V. BURGUM, ET AL.",
-      "identifier": "25-1888",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-1888.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "CALIFORNIA CHAMBER OF COMMERCE, ET AL. V. BONTA, ET AL.",
-      "identifier": "25-6874",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-6874.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "UBER TECHNOLOGIES, INC., ET AL. V. CITY OF SEATTLE",
-      "identifier": "25-228",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-228.pdf",
-      "date": "2026-10-29",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "MAPLEBEAR INC., ET AL. V. CITY OF SEATTLE",
-      "identifier": "25-231",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/25-231.pdf",
-      "date": "2026-10-29",
       "first_seen": "2026-10-29T22:30:22Z"
     },
     {
@@ -6124,6 +6589,231 @@
       "url": "https://arxiv.org/abs/2610.37644",
       "date": "2026-10-27",
       "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-842",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-842.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-2755",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2755.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-6177",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-6177.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "25-7341",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/25-7341.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
+      "identifier": "26-7070",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-7070.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-6170",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-6170.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-2820",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2820.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "PRADO, ET AL. V. CITY OF BERKELEY, ET AL.",
+      "identifier": "26-2823",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2823.pdf",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727_opinion.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727_opinion.pdf",
+      "date": "2026-10-23",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
+      "identifier": "25-3727",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727.pdf",
+      "date": "2026-10-23",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "A. M. V. BLANCHE",
+      "identifier": "25-5415",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-5415.pdf",
+      "date": "2026-10-23",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
+      "identifier": "25-7781",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-7781.pdf",
+      "date": "2026-10-23",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. MUMMA",
+      "identifier": "24-6987",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/20/24-6987.pdf",
+      "date": "2026-10-20",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. ANDERSON",
+      "identifier": "24-2385",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/19/24-2385.pdf",
+      "date": "2026-10-19",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "WHITFIELD V. MULLIN",
+      "identifier": "25-5220",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/16/25-5220.pdf",
+      "date": "2026-10-16",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. LE",
+      "identifier": "23-1814",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/15/23-1814.pdf",
+      "date": "2026-10-15",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
+      "identifier": "26-926",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/14/26-926.pdf",
+      "date": "2026-10-14",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. YOUNGBLOOD",
+      "identifier": "24-7629",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/13/24-7629.pdf",
+      "date": "2026-10-13",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "ALLIANCE FOR THE WILD ROCKIES V. UNITED STATES FOREST SERVICE, ET AL.",
+      "identifier": "25-3518",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/09/25-3518.pdf",
+      "date": "2026-10-09",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "BLACK, ET AL. V. IEC GROUP, INC.",
+      "identifier": "25-5952",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/09/25-5952.pdf",
+      "date": "2026-10-09",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "ROE, ET AL. V. PETERSEN, ET AL.",
+      "identifier": "25-6980",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/06/25-6980.pdf",
+      "date": "2026-10-06",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "ROE, ET AL. V. JOHNSTON",
+      "identifier": "25-6970",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/06/25-6970.pdf",
+      "date": "2026-10-06",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "USA V. SO",
+      "identifier": "24-5085",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-5085.pdf",
+      "date": "2026-10-05",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SIMON AND SIMON, PC, ET AL. V. ALIGN TECHNOLOGY, INC.",
+      "identifier": "24-1703",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1703.pdf",
+      "date": "2026-10-05",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SNOW, ET AL. V. ALIGN TECHNOLOGY, INC.",
+      "identifier": "24-1783",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1783.pdf",
+      "date": "2026-10-05",
+      "first_seen": "2026-10-27T21:53:40Z"
     },
     {
       "source": "Europe PMC",
@@ -6576,231 +7266,6 @@
       "first_seen": "2026-10-27T21:53:40Z"
     },
     {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-842",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-842.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-2755",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2755.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-6177",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-6177.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "25-7341",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/25-7341.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
-      "identifier": "26-7070",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-7070.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-6170",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-6170.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-2820",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2820.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "PRADO, ET AL. V. CITY OF BERKELEY, ET AL.",
-      "identifier": "26-2823",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/26/26-2823.pdf",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727_opinion.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727_opinion.pdf",
-      "date": "2026-10-23",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
-      "identifier": "25-3727",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-3727.pdf",
-      "date": "2026-10-23",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "A. M. V. BLANCHE",
-      "identifier": "25-5415",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-5415.pdf",
-      "date": "2026-10-23",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "NEWSOM, ET AL. V. TRUMP, ET AL.",
-      "identifier": "25-7781",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/23/25-7781.pdf",
-      "date": "2026-10-23",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. MUMMA",
-      "identifier": "24-6987",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/20/24-6987.pdf",
-      "date": "2026-10-20",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. ANDERSON",
-      "identifier": "24-2385",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/19/24-2385.pdf",
-      "date": "2026-10-19",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "WHITFIELD V. MULLIN",
-      "identifier": "25-5220",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/16/25-5220.pdf",
-      "date": "2026-10-16",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. LE",
-      "identifier": "23-1814",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/15/23-1814.pdf",
-      "date": "2026-10-15",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. STATE OF CALIFORNIA, ET AL.",
-      "identifier": "26-926",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/14/26-926.pdf",
-      "date": "2026-10-14",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. YOUNGBLOOD",
-      "identifier": "24-7629",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/13/24-7629.pdf",
-      "date": "2026-10-13",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "ALLIANCE FOR THE WILD ROCKIES V. UNITED STATES FOREST SERVICE, ET AL.",
-      "identifier": "25-3518",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/09/25-3518.pdf",
-      "date": "2026-10-09",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "BLACK, ET AL. V. IEC GROUP, INC.",
-      "identifier": "25-5952",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/09/25-5952.pdf",
-      "date": "2026-10-09",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "ROE, ET AL. V. PETERSEN, ET AL.",
-      "identifier": "25-6980",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/06/25-6980.pdf",
-      "date": "2026-10-06",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "ROE, ET AL. V. JOHNSTON",
-      "identifier": "25-6970",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/06/25-6970.pdf",
-      "date": "2026-10-06",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "USA V. SO",
-      "identifier": "24-5085",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-5085.pdf",
-      "date": "2026-10-05",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SIMON AND SIMON, PC, ET AL. V. ALIGN TECHNOLOGY, INC.",
-      "identifier": "24-1703",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1703.pdf",
-      "date": "2026-10-05",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SNOW, ET AL. V. ALIGN TECHNOLOGY, INC.",
-      "identifier": "24-1783",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/05/24-1783.pdf",
-      "date": "2026-10-05",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
       "source": "Supreme Court",
       "kind": "legal",
       "title_or_case_name": "FCC v. Brown",
@@ -6811,7 +7276,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-12T23:16:10Z",
+    "last_poll": "2026-11-13T05:29:05Z",
     "sources": [
       {
         "name": "Ninth Circuit",
