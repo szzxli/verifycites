@@ -3,6 +3,256 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Hemodynamic spectral signatures across vigilance states: a whole-night EEG/fNIRS investigation.",
+      "identifier": "10.1093/sleep/zsag301",
+      "url": "https://europepmc.org/article/MED/43026726",
+      "date": "2026-11-14",
+      "doi": "10.1093/sleep/zsag301",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Skin Graft Thickness Consistency: A Comparison of Traditional Dermatome and Rotating Circular Blade Technology.",
+      "identifier": "10.1093/jbcr/irag184",
+      "url": "https://europepmc.org/article/MED/43026724",
+      "date": "2026-11-14",
+      "doi": "10.1093/jbcr/irag184",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Apolipoprotein E4 (ApoE4) causes disruption of glypican-1 recycling and processing in ApoE4/4 fibroblasts and induced neurons.",
+      "identifier": "10.1093/glycob/cwag109",
+      "url": "https://europepmc.org/article/MED/43026723",
+      "date": "2026-11-14",
+      "doi": "10.1093/glycob/cwag109",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Wolbachia induces excess ecdysteroid production to enhance female reproduction in Laodelphax striatellus.",
+      "identifier": "10.1093/ismejo/wrag283",
+      "url": "https://europepmc.org/article/MED/43026720",
+      "date": "2026-11-14",
+      "doi": "10.1093/ismejo/wrag283",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Colocalization between bone loading and metabolic activity in the human tibia in response to acute exercise.",
+      "identifier": "10.1093/jbmr/zjag163",
+      "url": "https://europepmc.org/article/MED/43026716",
+      "date": "2026-11-14",
+      "doi": "10.1093/jbmr/zjag163",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The Wild West of Nomenclature, Definitions, and Methodologies in Rodent Sleep Scoring.",
+      "identifier": "10.1093/sleep/zsag302",
+      "url": "https://europepmc.org/article/MED/43026694",
+      "date": "2026-11-14",
+      "doi": "10.1093/sleep/zsag302",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Respiratory Infections at Mass Gatherings: A Travel-Medicine Review with Hajj and Umrah as a Longitudinal Case Study.",
+      "identifier": "10.1093/jtm/taag105",
+      "url": "https://europepmc.org/article/MED/43026685",
+      "date": "2026-11-14",
+      "doi": "10.1093/jtm/taag105",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Label-free imaging reveals lipid droplet dynamics during mouse preimplantation development.",
+      "identifier": "10.1093/biolre/ioag250",
+      "url": "https://europepmc.org/article/MED/43026682",
+      "date": "2026-11-14",
+      "doi": "10.1093/biolre/ioag250",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Sex, but not age, drives transcriptome-wide gene expression variation in a turtle with female-biased longevity.",
+      "identifier": "10.1093/jhered/esag092",
+      "url": "https://europepmc.org/article/MED/43026677",
+      "date": "2026-11-14",
+      "doi": "10.1093/jhered/esag092",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Predictors of in-hospital mortality, sepsis and prolonged length of stay in burn patients: a ten-year monocentric experience and comparison with the Baux and revised Baux scores.",
+      "identifier": "10.1093/jbcr/irag187",
+      "url": "https://europepmc.org/article/MED/43026671",
+      "date": "2026-11-14",
+      "doi": "10.1093/jbcr/irag187",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Needle phobia: confronting a neglected factor in travel vaccine hesitancy.",
+      "identifier": "10.1093/jtm/taag107",
+      "url": "https://europepmc.org/article/MED/43026665",
+      "date": "2026-11-14",
+      "doi": "10.1093/jtm/taag107",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Weekly Journal Scan: Less-than-OPTIMAl evidence for a shorter duration of dual antithrombotic therapy after percutaneous coronary intervention in patients with atrial fibrillation.",
+      "identifier": "10.1093/eurheartj/ehag760",
+      "url": "https://europepmc.org/article/MED/43026660",
+      "date": "2026-11-14",
+      "doi": "10.1093/eurheartj/ehag760",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "What constitutes healing after silent plaque rupture?",
+      "identifier": "10.1093/eurheartj/ehag806",
+      "url": "https://europepmc.org/article/MED/43026656",
+      "date": "2026-11-14",
+      "doi": "10.1093/eurheartj/ehag806",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Defining silent plaque rupture healing in vivo: a structural approach by OCT.",
+      "identifier": "10.1093/eurheartj/ehag808",
+      "url": "https://europepmc.org/article/MED/43026654",
+      "date": "2026-11-14",
+      "doi": "10.1093/eurheartj/ehag808",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Menopause hormone therapy, reproductive factors, and incident heart failure: reframing hormonal exposure in women's cardiovascular risk.",
+      "identifier": "10.1093/eurheartj/ehag745",
+      "url": "https://europepmc.org/article/MED/43026651",
+      "date": "2026-11-14",
+      "doi": "10.1093/eurheartj/ehag745",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Peri-aortic fat imaging: a window to vascular ageing.",
+      "identifier": "10.1093/eurheartj/ehag819",
+      "url": "https://europepmc.org/article/MED/43026647",
+      "date": "2026-11-14",
+      "doi": "10.1093/eurheartj/ehag819",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A specialized microbiome enriched in nitrification and halogen cycling potential resolved from multi-omics investigation of a Caribbean suboxic and acidic marine sinkhole.",
+      "identifier": "10.1186/s40168-026-02564-w",
+      "url": "https://europepmc.org/article/MED/43026629",
+      "date": "2026-11-14",
+      "doi": "10.1186/s40168-026-02564-w",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Xiao Chai Hu Decoction ameliorates doxorubicin-induced cardiotoxicity through an Akkermansia muciniphila-associated gut-heart mechanism.",
+      "identifier": "10.1186/s13020-026-01531-9",
+      "url": "https://europepmc.org/article/MED/43026582",
+      "date": "2026-11-14",
+      "doi": "10.1186/s13020-026-01531-9",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "How older adults express loneliness in everyday life: a qualitative content analysis.",
+      "identifier": "10.1186/s12889-026-30207-0",
+      "url": "https://europepmc.org/article/MED/43026495",
+      "date": "2026-11-14",
+      "doi": "10.1186/s12889-026-30207-0",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Hemodynamic effects of cycle ergometry versus dynamic unilateral arm exercise during right heart catheterization: a prospective observational study.",
+      "identifier": "10.1186/s12890-026-04848-1",
+      "url": "https://europepmc.org/article/MED/43026486",
+      "date": "2026-11-14",
+      "doi": "10.1186/s12890-026-04848-1",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Scientific Reviewers.",
+      "identifier": "10.1007/s10384-026-01448-8",
+      "url": "https://europepmc.org/article/MED/43026468",
+      "date": "2026-11-14",
+      "doi": "10.1007/s10384-026-01448-8",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Influence of intraluminal stent placement on 18-month outcomes of Preserflo MicroShunt in Japanese patients with open-angle glaucoma.",
+      "identifier": "10.1007/s10384-026-01426-0",
+      "url": "https://europepmc.org/article/MED/43026467",
+      "date": "2026-11-14",
+      "doi": "10.1007/s10384-026-01426-0",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Does the Bariatric Literature Follow Surgical Practice? A Procedure-Resolved Bibliometric Analysis Benchmarked Against IFSO Worldwide Activity, 1990-2026.",
+      "identifier": "10.1007/s11695-026-09040-2",
+      "url": "https://europepmc.org/article/MED/43026466",
+      "date": "2026-11-14",
+      "doi": "10.1007/s11695-026-09040-2",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Distinct Body Composition Responses Despite Similar Total Weight Loss After Metabolic and Bariatric Surgery: A Retrospective Cohort Study.",
+      "identifier": "10.1007/s11695-026-09038-w",
+      "url": "https://europepmc.org/article/MED/43026465",
+      "date": "2026-11-14",
+      "doi": "10.1007/s11695-026-09038-w",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Clinical outcomes following ultrasound-guided posterior tibial nerve pulsed radiofrequency combined with perineural injection in refractory restless legs syndrome.",
+      "identifier": "10.1007/s13760-026-03236-0",
+      "url": "https://europepmc.org/article/MED/43026464",
+      "date": "2026-11-14",
+      "doi": "10.1007/s13760-026-03236-0",
+      "first_seen": "2026-11-14T13:05:42Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Integrating genre-based writing pedagogy and systematic instructional design to foster learner autonomy in Arabic academic writing: a mixed-methods study in Indonesian universities",
       "identifier": "10.21203/rs.3.rs-11442494/v1",
       "url": "https://europepmc.org/article/PPR/PPR1366506",
@@ -8001,7 +8251,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-14T05:19:34Z",
+    "last_poll": "2026-11-14T13:05:42Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -8017,9 +8267,9 @@
       },
       {
         "name": "arXiv",
-        "status": "error",
-        "items": 0,
-        "last_error": "fetch failed after 3 attempts: HTTP Error 429: Unknown Error"
+        "status": "ok",
+        "items": 25,
+        "last_error": null
       },
       {
         "name": "Europe PMC",
