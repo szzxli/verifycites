@@ -3,6 +3,33 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Improving Healthcare Through AHRQ's Digital Healthcare Research Program",
+      "identifier": "europepmc:NBK625970",
+      "url": "https://europepmc.org/article/NBK/NBK625970",
+      "date": "2026-11-14",
+      "first_seen": "2026-11-14T22:02:48Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Evidence Map of Yoga for Various Adult Physical and Mental Health Issues: Update from 2014–2025",
+      "identifier": "europepmc:NBK625943",
+      "url": "https://europepmc.org/article/NBK/NBK625943",
+      "date": "2026-11-14",
+      "first_seen": "2026-11-14T22:02:48Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Prevalence of Paid Sick Leave Among Wage Earners, 2017",
+      "identifier": "europepmc:NBK625938",
+      "url": "https://europepmc.org/article/NBK/NBK625938",
+      "date": "2026-11-14",
+      "first_seen": "2026-11-14T22:02:48Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Hemodynamic spectral signatures across vigilance states: a whole-night EEG/fNIRS investigation.",
       "identifier": "10.1093/sleep/zsag301",
       "url": "https://europepmc.org/article/MED/43026726",
@@ -8251,7 +8278,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-14T13:05:42Z",
+    "last_poll": "2026-11-14T22:02:48Z",
     "sources": [
       {
         "name": "Ninth Circuit",
