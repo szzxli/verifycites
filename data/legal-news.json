@@ -1,10 +1,16 @@
 {
   "status": "ok",
-  "updated_utc": "2026-11-13T20:35:25Z",
-  "last_success_utc": "2026-11-13T20:35:25Z",
+  "updated_utc": "2026-11-14T18:47:33Z",
+  "last_success_utc": "2026-11-14T18:47:33Z",
   "query": "(\"fabricated citation\" OR \"fabricated citations\" OR \"fabricated case\" OR \"fabricated cases\" OR \"fictitious citation\" OR \"fictitious citations\" OR \"fictitious case\" OR \"fictitious cases\" OR \"hallucinated citation\" OR \"hallucinated citations\" OR \"hallucinated case\" OR \"hallucinated cases\" OR \"nonexistent citation\" OR \"nonexistent citations\" OR \"nonexistent case\" OR \"non-existent citation\" OR \"non-existent case\" OR \"AI-generated citation\" OR \"AI-generated citations\" OR \"artificial intelligence hallucination\" OR \"artificial intelligence hallucinations\") AND (\"artificial intelligence\" OR \"AI-generated\" OR ChatGPT OR \"generative AI\" OR \"generative artificial intelligence\" OR \"large language model\" OR GPT)",
   "error": null,
   "items": [
+    {
+      "date": "2026-11-13",
+      "court": "Court of Chancery of Delaware",
+      "case_name": "Kevin Leiske v. Robert Gregory Kidd",
+      "url": "https://www.courtlistener.com/opinion/11061197/kevin-leiske-v-robert-gregory-kidd/"
+    },
     {
       "date": "2026-10-29",
       "court": "Indiana Court of Appeals",
@@ -118,12 +124,6 @@
       "court": "Court of Appeals of Iowa",
       "case_name": "Brett Thomas Wilkinson v. Lacey Schmelzer",
       "url": "https://www.courtlistener.com/opinion/10953670/brett-thomas-wilkinson-v-lacey-schmelzer/"
-    },
-    {
-      "date": "2026-08-12",
-      "court": "District Court of Appeal of Florida",
-      "case_name": "JMOR Properties, LLC v. Artist Alley Townhomes, LLC",
-      "url": "https://www.courtlistener.com/opinion/10945803/jmor-properties-llc-v-artist-alley-townhomes-llc/"
     }
   ]
 }
