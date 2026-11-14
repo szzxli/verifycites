@@ -3,6 +3,256 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Integrating genre-based writing pedagogy and systematic instructional design to foster learner autonomy in Arabic academic writing: a mixed-methods study in Indonesian universities",
+      "identifier": "10.21203/rs.3.rs-11442494/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1366506",
+      "date": "2026-11-14",
+      "doi": "10.21203/rs.3.rs-11442494/v1",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Omani 10th Grade Students’ Conceptual Understanding of Material Recycling and Environmental Waste Management",
+      "identifier": "10.21203/rs.3.rs-11308846/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1366505",
+      "date": "2026-11-14",
+      "doi": "10.21203/rs.3.rs-11308846/v1",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Predictors of mortality in patients treated with ECMELLA after cardiac surgery – a single- center experience",
+      "identifier": "10.21203/rs.3.rs-11515982/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1366504",
+      "date": "2026-11-14",
+      "doi": "10.21203/rs.3.rs-11515982/v1",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Dasatinib Alleviates Sepsis by Restoring Regulatory T Cell Homeostasis through the SRC/ADAM10/CD25 Axis",
+      "identifier": "10.21203/rs.3.rs-11343447/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1366503",
+      "date": "2026-11-14",
+      "doi": "10.21203/rs.3.rs-11343447/v1",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Economic Complexity and Environmental Impact using a Neural-Network Embedded Semiparametric Mixture of Experts Model",
+      "identifier": "10.21203/rs.3.rs-10309415/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1366502",
+      "date": "2026-11-14",
+      "doi": "10.21203/rs.3.rs-10309415/v1",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "On the Cover.",
+      "identifier": "10.1097/01.j.pain.0001288792.76932.77",
+      "url": "https://europepmc.org/article/MED/42885658",
+      "date": "2026-11-14",
+      "doi": "10.1097/01.j.pain.0001288792.76932.77",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Flexible phosphorus allocation to the phosphoproteome underpins diatom regulatory adaptations to fluctuating phosphate supply",
+      "identifier": "10.64898/2026.11.11.763867",
+      "url": "https://europepmc.org/article/PPR/PPR1367598",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.763867",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Machine learning assisted multi-level differentiation of blood cells using multi-frequency electro-mechanical impedance cytometry",
+      "identifier": "10.64898/2026.11.12.766153",
+      "url": "https://europepmc.org/article/PPR/PPR1367597",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.12.766153",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Infection-dependent antibiotic response phenotypes emerge during chronic airway adaptation of  <i>Pseudomonas aeruginosa</i>",
+      "identifier": "10.64898/2026.11.11.765915",
+      "url": "https://europepmc.org/article/PPR/PPR1367596",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765915",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Combined heat and drought stress alters chromatin accessibility and primes potato abscisic acid biosynthesis",
+      "identifier": "10.64898/2026.11.11.765576",
+      "url": "https://europepmc.org/article/PPR/PPR1367595",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765576",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Affinity-guided design of PDZ-binding peptides in a shared latent space",
+      "identifier": "10.64898/2026.11.11.765864",
+      "url": "https://europepmc.org/article/PPR/PPR1367594",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765864",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Manuscript, raw data, and R code: Ziziphus spina-christi as a Refuge and Resource for Parasitoids in Arid Ecosystems",
+      "identifier": "10.64898/2026.11.12.766100",
+      "url": "https://europepmc.org/article/PPR/PPR1367593",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.12.766100",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Parallel enterocyte caspase and cytokine responses couple hypoxia to reoxygenation-dependent intestinal regeneration in Drosophila",
+      "identifier": "10.64898/2026.11.12.766219",
+      "url": "https://europepmc.org/article/PPR/PPR1367592",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.12.766219",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Characterizing the Prey Landscape of Endangered Cook Inlet Beluga Whales Using an eDNA Time Series",
+      "identifier": "10.64898/2026.11.12.766312",
+      "url": "https://europepmc.org/article/PPR/PPR1367591",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.12.766312",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Coupling Complementary Pathways in a Bacterial Co-culture Enables 4-Aminophenol Removal during Paracetamol Degradation",
+      "identifier": "10.64898/2026.11.11.765863",
+      "url": "https://europepmc.org/article/PPR/PPR1367590",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765863",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beaver Impacts Tool: A Graphical User Interface for Analyzing Ecosystem Impacts of Beaver Dams Using Remote Sensing Data",
+      "identifier": "10.64898/2026.11.12.766214",
+      "url": "https://europepmc.org/article/PPR/PPR1367589",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.12.766214",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Dietary Human HSP90 Promotes Longevity and Healthspan in Caenorhabditis elegans via a Multi-Branched Stress Signaling Pathway",
+      "identifier": "10.64898/2026.11.11.765805",
+      "url": "https://europepmc.org/article/PPR/PPR1367588",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765805",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Virucidal Star Polymer Disrupts Alphavirus Infection in Aedes Mosquitoes",
+      "identifier": "10.64898/2026.11.11.765866",
+      "url": "https://europepmc.org/article/PPR/PPR1367587",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765866",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "MicroDUET: a dual-headed genomic foundation model for pathogen surveillance",
+      "identifier": "10.64898/2026.11.11.765853",
+      "url": "https://europepmc.org/article/PPR/PPR1367586",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765853",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Assembly-independent measurement of human Yq12 heterochromatin reveals population-scale variation and Yq12-derived RNA in testis",
+      "identifier": "10.64898/2026.11.11.765874",
+      "url": "https://europepmc.org/article/PPR/PPR1367585",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765874",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A PI3K-RAC1 signaling axis downstream of mutant TIE2 promotes endothelial dysfunction in venous malformation",
+      "identifier": "10.64898/2026.11.12.766208",
+      "url": "https://europepmc.org/article/PPR/PPR1367584",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.12.766208",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Epigenomic circuits shaping cellular heterogeneity in pleural mesothelioma",
+      "identifier": "10.64898/2026.11.11.765995",
+      "url": "https://europepmc.org/article/PPR/PPR1367583",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765995",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Advancing AOPs for genotoxicity through quantifying KERs linking DNA alkylation to increase in mutations and chromosome aberrations",
+      "identifier": "10.64898/2026.11.11.765894",
+      "url": "https://europepmc.org/article/PPR/PPR1367582",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765894",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Rapid estimation of insect biodiversity using AI assisted image analysis: a cost-effective tool for monitoring and ecological assessmen",
+      "identifier": "10.64898/2026.11.11.765925",
+      "url": "https://europepmc.org/article/PPR/PPR1367581",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.11.765925",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Leaf ionomic stability shapes drought adaptation in pearl millet",
+      "identifier": "10.64898/2026.11.12.766145",
+      "url": "https://europepmc.org/article/PPR/PPR1367580",
+      "date": "2026-11-13",
+      "doi": "10.64898/2026.11.12.766145",
+      "first_seen": "2026-11-14T05:19:34Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Pharmacological management of severe plaque psoriasis in patients with cancer.",
       "identifier": "10.1080/14656566.2026.2764546",
       "url": "https://europepmc.org/article/MED/43021755",
@@ -7751,7 +8001,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-13T23:19:28Z",
+    "last_poll": "2026-11-14T05:19:34Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -7767,9 +8017,9 @@
       },
       {
         "name": "arXiv",
-        "status": "ok",
-        "items": 25,
-        "last_error": null
+        "status": "error",
+        "items": 0,
+        "last_error": "fetch failed after 3 attempts: HTTP Error 429: Unknown Error"
       },
       {
         "name": "Europe PMC",
