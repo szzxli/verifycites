@@ -31,8 +31,8 @@ for (const l of ["en", "es", "zh"]) {
 const heroLineAt = idx('data-i18n="browserModeFirstLine"');
 assert.ok(heroLineAt > 0 && heroLineAt < checkerAt,
   "browserModeFirstLine must sit in the hero, before the checker section");
-assert.ok(I18N.en.browserModeFirstLine.includes("NOT_CHECKED"));
-assert.ok(I18N.en.browserModeFirstLine.includes("does not check whether a case exists"));
+assert.ok(I18N.en.browserModeFirstLine.includes("Existence check"));
+assert.ok(I18N.en.browserModeFirstLine.includes("does not check good-law status"));
 for (const k of ["trustLimit1", "trustLimit2", "trustLimit3"]) {
   assert.ok(html.includes('data-i18n="' + k + '"'), k + " in trust panel");
 }
@@ -40,9 +40,9 @@ assert.ok(I18N.en.trustLimit1.includes("supports your argument"));
 assert.ok(I18N.en.trustLimit2.includes("pin cites"));
 assert.ok(I18N.en.trustLimit3.includes("still good law"));
 // Full disclaimer untouched + English-authoritative note untouched.
-assert.ok(html.includes("Every row is NOT_CHECKED"),
-  "disclaimer states browser rows are not checked");
-assert.ok(I18N.en.disclaimer.includes("does not check whether a cited case exists"));
+assert.ok(html.includes("NOT_FOUND means not found in the named source"),
+  "disclaimer states what NOT_FOUND means");
+assert.ok(I18N.en.disclaimer.includes("are never checked"));
 assert.ok(html.includes('data-i18n="disclaimerNote"'), "disclaimer note intact");
 // Hero "Not legal advice" chip merged away (disclaimer itself kept above).
 assert.ok(!html.includes('data-copy="factNoAdvice"'), "hero factNoAdvice chip removed");
@@ -100,11 +100,10 @@ for (const field of ["NOT_CHECKED", "Brown v. Board of Education", "1954", "pin 
 
 // --- 4. Legend leads with NOT_CHECKED; CLI-only statuses marked CLI-only.
 for (const l of ["en", "es", "zh"]) {
-  assert.ok(I18N[l].labelLegend.startsWith("NOT_CHECKED"), l + " legend leads with NOT_CHECKED");
+  assert.ok(I18N[l].labelLegend.startsWith("VERIFIED"), l + " legend starts with VERIFIED");
+  assert.ok(I18N[l].labelLegend.includes("NOT_CHECKED") && I18N[l].labelLegend.includes("NOT_FOUND"), l + " legend lists NOT_CHECKED and NOT_FOUND");
 }
-assert.ok(!I18N.en.labelLegend.includes("VERIFIED"), "EN legend is NOT_CHECKED only");
-assert.ok(!I18N.es.labelLegend.includes("VERIFIED"), "ES legend is NOT_CHECKED only");
-assert.ok(!I18N.zh.labelLegend.includes("VERIFIED"), "ZH legend is NOT_CHECKED only");
+assert.ok(/not good law/.test(I18N.en.labelLegend), "EN legend says verified is not good law");
 
 // --- 5. Eligibility paragraph below the results, with the agreement link.
 // B6 (batch 2): one eligibility line only, in the CLI check section.
@@ -146,12 +145,12 @@ assert.ok(I18N.en.immCheckerLink.includes("partial coverage"), "immigration link
 assert.ok(!html.includes("nothing leaves your browser"), "old absolute hero claim gone");
 assert.ok(!html.includes("text never leaves your browser"), "old absolute footer claim gone");
 const subtitleEl = html.slice(idx('data-i18n="subtitle"'), idx('data-i18n="subtitle"') + 400);
-assert.ok(subtitleEl.includes("extraction step"), "hero subtitle narrowed to extraction step");
+assert.ok(subtitleEl.includes("Your text stays in your browser"), "hero subtitle states where the text stays");
 const privacyEl = html.slice(idx('data-i18n="privacy"'), idx('data-i18n="privacy"') + 400);
-assert.ok(privacyEl.includes("citation extraction runs in this browser"), "footer privacy narrowed");
+assert.ok(privacyEl.includes("your pasted text is checked in this browser"), "footer privacy states what is sent");
 assert.ok(html.includes("goatcounter"), "GoatCounter snippet untouched");
 // Module disclosures intact.
-assert.ok(html.includes("does not send this text to CourtListener"), "input disclosure intact");
+assert.ok(html.includes("it does not send this text anywhere"), "input disclosure intact");
 assert.ok(I18N.en.privacy.includes("GoatCounter"), "privacy names GoatCounter");
 assert.ok(!I18N.en.privacy.includes("translation endpoint"), "translation is not promoted in the privacy line");
 
@@ -165,9 +164,9 @@ assert.ok(!html.includes('data-i18n="checkerTopLimit"'), "restated checker-top l
 assert.ok(!html.includes('<div class="not-checked-note"'), "restated results note removed");
 // Prefix + link + suffix reconstruct the original note exactly.
 const ORIG_NOTE = {
-  en: "Every result in browser mode is marked NOT_CHECKED. Use the links to check by hand. The CLI checks CourtListener case existence and case name only. It does not check statutes, regulations, BIA, AAO, the INA, or the C.F.R.",
-  es: "Todos los resultados del modo navegador se marcan NOT_CHECKED. Use los enlaces para comprobarlos a mano. La CLI solo comprueba en CourtListener si el caso existe y si el nombre coincide. No comprueba leyes, reglamentos, decisiones de BIA o AAO, la INA ni el C.F.R.",
-  zh: "浏览器模式下的结果均标为 NOT_CHECKED。请通过链接手动核对。CLI 只在 CourtListener 中核查判例是否存在以及案名是否一致，不核查法规、BIA、AAO、INA 或 C.F.R.。",
+  en: "Rows outside the lookup coverage are marked NOT_CHECKED. Use the links to check them by hand. The CLI checks CourtListener case existence and case name only. It does not check statutes, regulations, BIA, AAO, the INA, or the C.F.R.",
+  es: "Las filas fuera de la cobertura de búsqueda se marcan NOT_CHECKED. Use los enlaces para comprobarlas a mano. La CLI solo comprueba en CourtListener si el caso existe y si el nombre coincide. No comprueba leyes, reglamentos, decisiones de BIA o AAO, la INA ni el C.F.R.",
+  zh: "超出查找覆盖范围的行标为 NOT_CHECKED。请通过链接手动核对。CLI 只在 CourtListener 中核查判例是否存在以及案名是否一致，不核查法规、BIA、AAO、INA 或 C.F.R.。",
 };
 const copyOf = (lang, key) => {
   const block = copySrc.split("var COPY = {")[1];

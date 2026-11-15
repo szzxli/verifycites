@@ -381,3 +381,14 @@ textarea:focus, input:focus, select:focus { outline: none; border-color: #4d9692
 .bia-result { margin: 0 0 12px; }
 .bia-result-head { margin: 0; }
 .bia-result-note { margin: 4px 0 0; color: var(--ink-soft); font-size: 0.92em; }
+
+/* Existence-check status cell */
+.status-body { min-width: 0; }
+.result-label.is-verified { background: #e8f5ee; border-color: #9bcdb0; color: #1c5a37; }
+.result-label.is-cited { background: #eaf2fb; border-color: #a9c6e6; color: #1f4f82; }
+.result-label.is-mismatch, .result-label.is-not-found { background: #fdecea; border-color: #e6aaa3; color: #8a2a20; }
+.result-label.is-lookup-failed { background: #f1f1f1; border-color: #c9c9c9; color: #555; }
+.status-body .label-explanation { font-size: 11.5px; color: #4d5c66; line-height: 1.4; }
+.verify-link { font-size: 11.5px; margin-left: 2px; }
+.verify-progress:empty { display: none; }
+@media (max-width: 720px) { .status-body .label-explanation { font-size: 12px; } }

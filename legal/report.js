@@ -28,6 +28,7 @@ function reportDisplayCategory(label, caseName) {
     case "INVALID_REPORTER": return "fieldMismatch";
     case "NOT_FOUND": return "notFound";
     case "RATE_LIMITED": return "retrievalFailed";
+    case "LOOKUP_FAILED": return "retrievalFailed";
     case "CITED": return caseName ? "fieldMismatch" : "cannotDetermine";
     default: return "cannotDetermine";
   }
@@ -145,8 +146,8 @@ function immSourceLine(type, t, row, imm8cfr, immIna) {
       || "Source line: U.S. Code provision (8 U.S.C.) \u2014 this section is not in the partial INA\u2194U.S.C. mapping table, so it cannot be confirmed; check by hand below.";
   }
   var fallback = {
-    court: "Source line: Federal court case \u2014 CourtListener line (browser mode: no live lookup; check by hand with the links).",
-    bia: "Source line: BIA precedent \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.",
+    court: "Source line: court case \u2014 looked up by volume and page in the Caselaw Access Project (see the label and status). Links below to check by hand.",
+    bia: "Source line: BIA precedent \u2014 looked up in our BIA library (see the label and status). EOIR link below to check by hand.",
     statute: "Source line: INA provision \u2014 this section is not in the partial INA\u2194U.S.C. mapping table, so it cannot be confirmed; check by hand below.",
     regulation: "Source line: 8 CFR provision (eCFR) \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.",
     aao: "Source line: AAO non-precedent decision \u2014 manual check only. Non-precedent decisions bind only the parties and may not be cited as authority.",
@@ -385,6 +386,7 @@ function buildHealthReport(results) {
       caseName: r.caseName || null,
       year: r.year || null, label: label, category: category, flags: flags,
       manualUrl: r.manualUrl, scholarUrl: r.scholarUrl,
+      verify: r.verify || null,
       immType: immType
     });
   });
@@ -412,7 +414,7 @@ function _rowDisplay(row, t) {
   var evidence = parts.length ? parts.join("; ") : "";
   var scope = row.label === "NOT_CHECKED"
     ? f("scopeDisplay", "Browser format and completeness check only \u2014 no online lookup was made.")
-    : f("scopeUnknown", "Check scope not recorded in this report; see the original check.");
+    : f("scopeChecked", "Existence and case name checked against the source named in the row.");
   return {
     category: category,
     categoryLabel: f(REPORT_CATEGORY_KEYS[category], category),
@@ -435,17 +437,17 @@ function _rowDisplay(row, t) {
 function reportCheckBasis(report, t, runTime) {
   var f = function (k, d) { return (t && t[k]) || d; };
   var rows = (report && report.rows) || [];
-  var allBrowser = rows.every(function (row) { return (row.label || "NOT_CHECKED") === "NOT_CHECKED"; });
+  var allBrowser = rows.every(function (row) { return !row.label || row.label === "NOT_CHECKED" || !!row.verify; });
   var runText = runTime
     ? f("reportBasisRunTime", "Report generated in this browser at {t} (your browser's local run time, not a registry or database timestamp).").replace("{t}", runTime)
     : f("reportBasisItemTime", "Per-item check time: not recorded in this report.");
   return {
     heading: f("reportBasisHeading", "Check basis"),
     checked: allBrowser
-      ? f("reportBasisBrowserChecked", "What was checked: text extraction from the text you pasted, plus structure checks on the extracted citations (duplicates, missing year, no case name, unknown reporter). No online lookup was made in browser mode.")
-      : f("reportBasisMixed", "What was checked: this report mixes rows from different checks. Browser rows were checked by text extraction only; for rows from another check, the basis is not recorded in this report \u2014 see the original check."),
+      ? f("reportBasisBrowserChecked", "What was checked: text extraction, structure checks, and an existence lookup by volume and page for court cases and I&N Dec. citations. Rows marked NOT_CHECKED were outside that coverage.")
+      : f("reportBasisMixed", "What was checked: text extraction, structure checks, and an existence lookup by volume and page. Rows from another check keep their own basis, which is not recorded in this report."),
     source: allBrowser
-      ? f("reportBasisBrowserSource", "Data source: the text you pasted only. No external database was consulted.")
+      ? f("reportBasisBrowserSource", "Data sources: Caselaw Access Project static files (static.case.law) and the VerifyCites BIA library. Your pasted text is not sent anywhere.")
       : f("reportScopeUnknown", "Check scope not recorded in this report; see the original check."),
     runTime: runText,
     itemTime: f("reportBasisItemTime", "Per-item check time: not recorded in this report.")

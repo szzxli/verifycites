@@ -1,15 +1,18 @@
 /* Label definitions shared with the Python package (see legalcite/labels.py).
-   Browser mode labels every citation NOT_CHECKED: the page makes no API
-   calls, so nothing is verified here. */
+   The browser page (verify.js) checks court-case and I&N Dec. citations
+   for existence against the Caselaw Access Project static files and the
+   VerifyCites BIA library; every other row is NOT_CHECKED. No label says
+   a case is good law: subsequent history is never checked. */
 const LABELS = {
-  VERIFIED: "Found in CourtListener and the case name matches.",
-  CITED: "Found in CourtListener; name not compared or only partly matches.",
+  VERIFIED: "Found in the named source and the case name matches. Existence only; not good law.",
+  CITED: "Found in the named source; name not compared.",
   AMBIGUOUS: "This cite matches more than one case.",
-  MISMATCH: "A case exists at this cite, but it is a different case from the one named.",
-  NOT_FOUND: "Valid citation format, but CourtListener has no case at this cite.",
+  MISMATCH: "A different case or year is at this citation.",
+  NOT_FOUND: "Not found in the named source (that is not proof the case does not exist).",
   INVALID_REPORTER: "The reporter abbreviation is not a recognized reporter.",
   RATE_LIMITED: "Not checked: the lookup service asked us to slow down.",
-  NOT_CHECKED: "Not checked (browser mode \u2014 no lookup). Check by hand using the links.",
+  NOT_CHECKED: "Not checked: outside coverage, or not a case citation. Check by hand using the links.",
+  LOOKUP_FAILED: "Not checked: the lookup failed. Try again.",
 };
 const NEXT_ACTION = {
   VERIFIED: "Still read it: this does not mean it supports your point or is good law.",
@@ -20,6 +23,7 @@ const NEXT_ACTION = {
   INVALID_REPORTER: "Check the abbreviation; the cite may be mistyped or invalid.",
   RATE_LIMITED: "Re-run later.",
   NOT_CHECKED: "Check by hand using the links.",
+  LOOKUP_FAILED: "Run the check again.",
 };
 if (typeof module !== "undefined" && module.exports) {
   module.exports = { LABELS, NEXT_ACTION };
