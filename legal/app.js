@@ -119,6 +119,9 @@ function vfUpdateCells(results) {
 function vfCountText(results) {
   var sum = verifySummary(results);
   sum.n = results.length;
+  sum.verified = sum.verified + sum.cited;
+  sum.y = sum.not_found + sum.mismatch;
+  sum.not_checked = sum.not_checked + sum.failed;
   return T().vfSummary.replace(/\{(\w+)\}/g, function (_m, k) { return sum[k] != null ? sum[k] : ""; });
 }
 var __vfToken = 0;
