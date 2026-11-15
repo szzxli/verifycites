@@ -24,27 +24,27 @@ for (const k of Object.keys(I18N.es)) {
 
 // --- 2. Title + H1 are browser-truthful; old question wording is gone.
 assert.ok(!html.includes("does the case you cited exist?"), "static title question gone");
-assert.ok(html.includes("browser citation extraction"), "static title is browser-truthful");
+assert.ok(html.includes("citation check"), "static title states the existence check");
 assert.ok(!html.includes("Does every case in your brief actually exist?"), "old H1 gone from HTML");
 for (const l of ["en", "es", "zh"]) {
   assert.ok(!/actually exist|realmente cada caso|真实存在/.test(I18N[l].heading),
     l + " heading has no existence question");
 }
-assert.ok(I18N.en.heading.includes("Immigration & BIA citation extractor"));
+assert.ok(I18N.en.heading.includes("Immigration & BIA citation checker"));
 assert.ok(I18N.es.heading.includes("inmigración y BIA"));
-assert.ok(I18N.zh.heading.includes("移民与 BIA 引文提取器"));
+assert.ok(I18N.zh.heading.includes("移民与 BIA 引文核查器"));
 // document.title still comes from the (already truthful) pageTitle key.
 assert.ok(appSrc.includes("document.title = T().pageTitle"), "title set from pageTitle");
-assert.ok(I18N.en.pageTitle.includes("browser citation extraction"));
+assert.ok(I18N.en.pageTitle.includes("citation check"));
 
 // --- 3. Limits box leads with the browser-mode truth, before the disclaimer.
 const trustAt = html.indexOf('class="trust-content"');
 const leadAt = html.indexOf('data-i18n="trustLeadLine"', trustAt);
 const discAt = html.indexOf('data-i18n="disclaimer"', trustAt);
 assert.ok(trustAt > 0 && leadAt > trustAt && discAt > leadAt, "lead line precedes disclaimer");
-assert.ok(I18N.en.trustLeadLine.includes("extracts only"));
-assert.ok(I18N.es.trustLeadLine.includes("solo extrae"));
-assert.ok(I18N.zh.trustLeadLine.includes("只提取引文"));
+assert.ok(I18N.en.trustLeadLine.includes("checks that cited cases exist"));
+assert.ok(I18N.es.trustLeadLine.includes("comprueba que los casos citados existan"));
+assert.ok(I18N.zh.trustLeadLine.includes("核实所引案件是否存在"));
 // Disclaimer text and the three items are untouched.
 assert.ok(I18N.en.disclaimer.startsWith("Not legal advice."));
 assert.ok(I18N.en.trustLimit1 && I18N.en.trustLimit2 && I18N.en.trustLimit3);
@@ -62,10 +62,10 @@ for (const bad of ["nothing leaves your browser", "never leaves your browser",
 // text does not leave your browser" and its ZH equivalent "在提取这一步，您的文本
 // 不会离开您的浏览器" — both name the extraction step, so they are not absolute.
 // The only "leave(s) your browser" phrasing left is the scoped extraction-step form.
-assert.ok(visible.includes("in the extraction step, your text does not leave your browser"));
+assert.ok(visible.includes("Your text stays in your browser"));
 // Footer privacy line is present and scoped (extraction local; endpoint/query only; GoatCounter views).
 assert.ok(html.includes('data-i18n="privacy"'), "footer privacy hook");
-assert.ok(I18N.en.privacy.includes("citation extraction runs in this browser"));
+assert.ok(I18N.en.privacy.includes("your pasted text is checked in this browser"));
 assert.ok(I18N.en.privacy.includes("GoatCounter"));
 assert.ok(!I18N.en.privacy.includes("translation endpoint"), "translation is not promoted");
 assert.ok(!html.includes('id="query-translation"') && !html.includes('id="translation"') && !html.includes('id="briefing"'),
@@ -78,7 +78,7 @@ assert.ok(!/privacy/i.test(immSection), "no privacy claim inside immigration sec
 // --- 7. UX1 regressions (must all still hold).
 assert.ok(html.includes('class="table-wrap report-collapsed"'), "report table collapsed by default");
 assert.ok(html.includes('id="reportColumnsToggle"'), "columns toggle present");
-assert.ok(I18N.en.labelLegend.startsWith("NOT_CHECKED"), "legend leads with NOT_CHECKED");
+assert.ok(I18N.en.labelLegend.startsWith("VERIFIED"), "legend starts with VERIFIED");
 const order = ["id=\"checker\"", "id=\"cli\"", "id=\"immigration\""]
   .map((s) => html.indexOf(s));
 assert.ok(order.every((v) => v > 0) && order.every((v, i) => i === 0 || v > order[i - 1]),

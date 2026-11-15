@@ -6,17 +6,17 @@
   var COPY = {
     en: {
       skipToContent: "Skip to content", languageLabel: "Language", brandHome: "VerifyCites home", navLabel: "Primary navigation", navCheck: "Citation checker", navBriefing: "Briefing", navTranslation: "Translate", navCli: "CLI check", navImmigration: "Immigration guide", navBia: "BIA precedent search", navQuery: "Query translation",
-      heroKicker: "A focused workspace for cited cases", factLocal: "Citation extraction runs in this browser",
-      factNoLookup: "Browser mode does not look up cases", factCli: "CLI check: CourtListener case existence and case name only",
+      heroKicker: "A focused workspace for cited cases", factLocal: "Your pasted text stays in this browser",
+      factNoLookup: "Each case is looked up by volume and page", factCli: "Existence and case name only. Not good-law status",
       trustSummary: "Important limits — please read", primaryTask: "Primary task",
       checkerTitle: "Extract citations from a document",
       checkerDescription: "Paste legal text or upload a plain-text file. Review the extracted citations and open each source to check it yourself.",
       inputLabel: "Document text", inputMeta: "Text is processed in this browser",
-      inputHint: "The browser tool extracts citation patterns only. It does not send this text to CourtListener.",
+      inputHint: "This text stays in your browser. To check a citation, the page looks up only its reporter and volume (static.case.law or our BIA library); it does not send this text anywhere.",
       uploadFile: "Upload .txt file", trySample: "Try a sample", clearInput: "Clear text",
       resultsHeading: "Extracted citations", resultsPlaceholder: "Your extracted citations will appear here.",
       resultsPlaceholderHint: "Start by pasting text above or loading the sample.",
-      browserModeNotePrefix: "Every result in browser mode is marked NOT_CHECKED. Use the links to check by hand. ",
+      browserModeNotePrefix: "Rows outside the lookup coverage are marked NOT_CHECKED. Use the links to check them by hand. ",
       browserModeNoteLink: "The CLI",
       browserModeNoteSuffix: " checks CourtListener case existence and case name only. It does not check statutes, regulations, BIA, AAO, the INA, or the C.F.R.",
       utilityTool: "Optional tool", querySummary: "Translate a query to English before extracting citation patterns.",
@@ -25,7 +25,7 @@
       translationIntro: "Compare pasted opinion paragraphs with a machine translation from an endpoint you choose.",
       opinionLabel: "Opinion text", optionalDaily: "Optional · saved in this browser",
       briefingLocalNote: "Preferences are stored in this browser only. When you request today's briefing, saved state, topic and citation query strings are sent to CourtListener.",
-      advancedOption: "CLI check", cliExplanation: "The browser page only extracts citation strings. The CLI can send those extracted strings to CourtListener when you provide your own token; by default it does not send the brief text.",
+      advancedOption: "CLI check", cliExplanation: "The browser page checks citations against the Caselaw Access Project and our BIA library only. The CLI can also check CourtListener, which includes newer cases, when you provide your own token; by default it does not send the brief text.",
       cliCommandLabel: "Run in a terminal", copyCommand: "Copy command", copiedCommand: "Command copied.",
       copyFailed: "Could not copy automatically. Select and copy the command manually.", readFullGuide: "Read the CLI check instructions on GitHub ↗",
       characters: "{n} characters", checking: "Extracting…", validationEmpty: "Paste text or choose a .txt file before extracting citations.",
@@ -38,16 +38,16 @@
     },
     es: {
       skipToContent: "Saltar al contenido", languageLabel: "Idioma", brandHome: "Inicio de VerifyCites", navLabel: "Navegación principal", navCheck: "Verificador de citas", navBriefing: "Resumen", navTranslation: "Traducción", navCli: "Verificación CLI", navImmigration: "Guía de inmigración", navBia: "Búsqueda de precedentes de la BIA", navQuery: "Traducción de consulta",
-      heroKicker: "Un espacio de trabajo para citas judiciales", factLocal: "La extracción de citas se realiza en este navegador",
-      factNoLookup: "El modo navegador no busca casos", factCli: "Verificación CLI: solo si el caso existe en CourtListener y si el nombre coincide",
+      heroKicker: "Un espacio de trabajo para citas judiciales", factLocal: "Su texto pegado se queda en este navegador",
+      factNoLookup: "Cada caso se busca por volumen y página", factCli: "Solo existencia y nombre del caso. No la vigencia",
       trustSummary: "Límites importantes — léalos", primaryTask: "Tarea principal",
       checkerTitle: "Extraer citas de un documento", checkerDescription: "Pegue texto jurídico o cargue un archivo de texto plano. Revise las citas extraídas y abra cada fuente para comprobarla usted mismo.",
       inputLabel: "Texto del documento", inputMeta: "El texto se procesa en este navegador",
-      inputHint: "La herramienta del navegador solo extrae patrones de citas. No envía este texto a CourtListener.",
+      inputHint: "Este texto se queda en su navegador. Para comprobar una cita, la página consulta solo su repertorio y volumen (static.case.law o nuestra biblioteca de la BIA); no envía este texto a ningún sitio.",
       uploadFile: "Cargar archivo .txt", trySample: "Probar un ejemplo", clearInput: "Borrar texto",
       resultsHeading: "Citas extraídas", resultsPlaceholder: "Aquí aparecerán las citas extraídas.",
       resultsPlaceholderHint: "Pegue texto arriba o cargue el ejemplo para empezar.",
-      browserModeNotePrefix: "Todos los resultados del modo navegador se marcan NOT_CHECKED. Use los enlaces para comprobarlos a mano. ",
+      browserModeNotePrefix: "Las filas fuera de la cobertura de búsqueda se marcan NOT_CHECKED. Use los enlaces para comprobarlas a mano. ",
       browserModeNoteLink: "La CLI",
       browserModeNoteSuffix: " solo comprueba en CourtListener si el caso existe y si el nombre coincide. No comprueba leyes, reglamentos, decisiones de BIA o AAO, la INA ni el C.F.R.",
       utilityTool: "Herramienta opcional", querySummary: "Traduzca una consulta al inglés antes de extraer patrones de citas.",
@@ -56,7 +56,7 @@
       translationIntro: "Compare párrafos pegados de una opinión con una traducción automática de un endpoint elegido por usted.",
       opinionLabel: "Texto de la opinión", optionalDaily: "Opcional · guardado en este navegador",
       briefingLocalNote: "Las preferencias se guardan solo en este navegador. Al solicitar el resumen de hoy, se envían a CourtListener cadenas de consulta con el estado, los temas y las citas guardadas.",
-      advancedOption: "Verificación CLI", cliExplanation: "La página del navegador solo extrae citas. La CLI puede enviar esas citas a CourtListener si usted proporciona su propio token; de forma predeterminada no envía el texto del escrito.",
+      advancedOption: "Verificación CLI", cliExplanation: "La página del navegador comprueba las citas solo en el Caselaw Access Project y en nuestra biblioteca de la BIA. La CLI también puede consultar CourtListener, que incluye casos más recientes, si usted aporta su propio token; por defecto no envía el texto del escrito.",
       cliCommandLabel: "Ejecutar en una terminal", copyCommand: "Copiar comando", copiedCommand: "Comando copiado.",
       copyFailed: "No se pudo copiar automáticamente. Seleccione y copie el comando manualmente.", readFullGuide: "Leer las instrucciones de la verificación CLI en GitHub ↗",
       characters: "{n} caracteres", checking: "Extrayendo…", validationEmpty: "Pegue texto o seleccione un archivo .txt antes de extraer las citas.",
@@ -69,16 +69,16 @@
     },
     zh: {
       skipToContent: "跳转到正文", languageLabel: "语言", brandHome: "VerifyCites 首页", navLabel: "主导航", navCheck: "引文核验", navBriefing: "法律简报", navTranslation: "翻译", navCli: "CLI 核查", navImmigration: "移民指南", navBia: "BIA 先例检索", navQuery: "查询翻译",
-      heroKicker: "面向判例引文的研究工作台", factLocal: "引文提取在当前浏览器中完成",
-      factNoLookup: "浏览器模式不会联网查询案件", factCli: "CLI 核查：只在 CourtListener 中核查判例是否存在以及案名是否一致",
+      heroKicker: "面向判例引文的研究工作台", factLocal: "您粘贴的文本留在此浏览器中",
+      factNoLookup: "每个案件按卷和页查找", factCli: "只核实是否存在和案名，不核实是否仍为有效法律",
       trustSummary: "重要限制 — 请先阅读", primaryTask: "主要任务",
       checkerTitle: "从法律文书中提取引文", checkerDescription: "粘贴法律文本或上传纯文本文件。检查提取出的引文，并打开来源链接自行核对。",
       inputLabel: "文书文本", inputMeta: "文本在当前浏览器中处理",
-      inputHint: "浏览器工具仅提取引文格式，不会将这段文本发送给 CourtListener。",
+      inputHint: "这段文本留在您的浏览器中。核实引文时，本页只查询其出版物和卷号（static.case.law 或我们的 BIA 库），不会将这段文本发送到任何地方。",
       uploadFile: "上传 .txt 文件", trySample: "试用示例", clearInput: "清除文本",
       resultsHeading: "提取出的引文", resultsPlaceholder: "提取出的引文会显示在这里。",
       resultsPlaceholderHint: "先粘贴文本，或载入示例内容。",
-      browserModeNotePrefix: "浏览器模式下的结果均标为 NOT_CHECKED。请通过链接手动核对。",
+      browserModeNotePrefix: "超出查找覆盖范围的行标为 NOT_CHECKED。请通过链接手动核对。",
       browserModeNoteLink: "CLI",
       browserModeNoteSuffix: " 只在 CourtListener 中核查判例是否存在以及案名是否一致，不核查法规、BIA、AAO、INA 或 C.F.R.。",
       utilityTool: "辅助工具", querySummary: "先将查询词译为英文，再提取其中的引文格式。",
@@ -87,7 +87,7 @@
       translationIntro: "将粘贴的判决意见段落与您指定端点返回的机器译文对照阅读。",
       opinionLabel: "判决意见文本", optionalDaily: "可选 · 仅保存在此浏览器",
       briefingLocalNote: "偏好仅存于此浏览器。请求今日简报时，已保存的州、主题和引文查询字符串会发送给 CourtListener。",
-      advancedOption: "CLI 核查", cliExplanation: "浏览器页面只提取引文。提供您自己的 token 后，CLI 可将提取出的引文发送给 CourtListener；默认不会发送书状全文。",
+      advancedOption: "CLI 核查", cliExplanation: "浏览器页面只在 Caselaw Access Project 和我们的 BIA 库中核实引用。CLI 在您提供自己的令牌时还可以查询 CourtListener（包含较新的案件）；默认不发送文书文本。",
       cliCommandLabel: "在终端中运行", copyCommand: "复制命令", copiedCommand: "命令已复制。",
       copyFailed: "无法自动复制，请手动选中并复制命令。", readFullGuide: "在 GitHub 阅读 CLI 核查说明 ↗",
       characters: "{n} 个字符", checking: "正在提取……", validationEmpty: "请先粘贴文本或选择 .txt 文件，再提取引文。",
@@ -130,13 +130,12 @@
   }
   function updateResultLabels() {
     var headers = Array.prototype.map.call(document.querySelectorAll(".results-table thead th"), function (th) { return th.textContent.trim(); });
-    document.querySelectorAll("#results tr").forEach(function (tr) {
+    document.querySelectorAll("#results tr").forEach(function (tr, idx) {
       var cells = tr.querySelectorAll("td");
       cells.forEach(function (td, i) { if (headers[i]) td.setAttribute("data-label", headers[i]); });
       if (cells.length >= 5) {
-        var code = "NOT_CHECKED";
-        var explanation = (window.I18N_LABELS && I18N_LABELS[lang()] && I18N_LABELS[lang()][code]) || "";
-        cells[3].innerHTML = '<span class="result-label">' + window.esc(code) + '</span><small class="label-explanation">' + window.esc(explanation) + '</small>';
+        var res = (window.__lastResults || [])[idx];
+        if (res && typeof window.vfStatusHtml === "function") cells[3].innerHTML = window.vfStatusHtml(res);
       }
     });
     var trHeaders = [

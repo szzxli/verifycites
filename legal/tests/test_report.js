@@ -201,7 +201,7 @@ const cliRows = buildHealthReport([
   { text: "1 U.S. 1", volume: "1", reporter: "U.S.", page: "1", caseName: "A v. B", year: "1900", label: "MISMATCH" },
 ]);
 const cliMd = healthReportMarkdown(cliRows, t2, { "1 U.S. 1": { status: "corrected", note: "fixed name" } });
-assert.ok(cliMd.includes("Check scope not recorded in this report"),
+assert.ok(cliMd.includes("Existence and case name checked against the source named in the row"),
   "CLI row scope wording unchanged");
 assert.ok(cliMd.includes("Human review: Corrected (fixed name)"),
   "CLI row accepts a human status");
@@ -212,15 +212,15 @@ assert.ok(!/found name|record name/i.test(cliMd), "no invented cited-vs-found co
 // "not recorded". Mixed reports do not invent a basis for CLI rows.
 const basisBrowser = reportCheckBasis(rows, I18N.en, "2026-10-27, 1:00:00 PM");
 assert.strictEqual(basisBrowser.heading, "Check basis", "basis heading");
-assert.ok(basisBrowser.checked.includes("No online lookup was made"), "browser basis: no lookup");
-assert.ok(basisBrowser.source.includes("text you pasted only"), "browser basis source: pasted text");
+assert.ok(basisBrowser.checked.includes("existence lookup by volume and page"), "basis states the existence lookup");
+assert.ok(basisBrowser.source.includes("Caselaw Access Project") && basisBrowser.source.includes("not sent anywhere"), "basis source names the data sources");
 assert.ok(basisBrowser.runTime.includes("2026-10-27, 1:00:00 PM")
   && basisBrowser.runTime.includes("local run time"), "run time labelled as browser local time");
 assert.ok(!/registr|database timestamp/i.test(basisBrowser.runTime.split("not a")[0] || "")
   || basisBrowser.runTime.includes("not a registry"), "run time is not presented as a registry timestamp");
 assert.ok(basisBrowser.itemTime.includes("not recorded"), "per-item time not recorded");
 const basisMixed = reportCheckBasis(cliRows, I18N.en, "2026-10-27, 1:00:00 PM");
-assert.ok(basisMixed.checked.includes("not recorded in this report"), "mixed basis does not invent CLI basis");
+assert.ok(basisMixed.checked.includes("not recorded in this report"), "mixed basis does not invent another check's basis");
 const t3 = Object.assign({}, t, {
   reportBasisHeading: I18N.en.reportBasisHeading,
   reportBasisBrowserChecked: I18N.en.reportBasisBrowserChecked,
@@ -230,7 +230,7 @@ const t3 = Object.assign({}, t, {
   reportBasisItemTime: I18N.en.reportBasisItemTime });
 const mdBasis = healthReportMarkdown(rows, t3, null, "2026-10-27, 1:00:00 PM");
 const htmlBasis = healthReportHtml(rows, t3, null, "2026-10-27, 1:00:00 PM");
-assert.ok(mdBasis.includes("## Check basis") && mdBasis.includes("text you pasted only")
+assert.ok(mdBasis.includes("## Check basis") && mdBasis.includes("Caselaw Access Project")
   && mdBasis.includes("Per-item check time: not recorded"), "basis section in Markdown download");
 assert.ok(htmlBasis.includes("Check basis") && htmlBasis.includes("local run time"),
   "basis section in HTML download");

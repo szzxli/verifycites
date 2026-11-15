@@ -16,7 +16,7 @@ function esc(s) {
    blocked or absent, and it never throws. The full event dictionary
    lives in docs/analytics.md; this list is the single enforcement
    point for the legal app. */
-var VC_EVENTS = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify", "legal-news-click", "legal-review-complete", "legal-bia-search"];
+var VC_EVENTS = ["legal-extract", "legal-report-download", "legal-human-review-set", "legal-reverify", "legal-news-click", "legal-review-complete", "legal-bia-search", "legal-verify"];
 function vcCount(name) {
   try {
     if (VC_EVENTS.indexOf(name) < 0) return;
@@ -63,11 +63,11 @@ function render(results) {
       ? T().openSourcePage : T().openCourtListener;
     var flags = (report && report.rows[i]) ? report.rows[i].flags : [];
     var anomaly = anomalyText(flags);
-    tr.className = "row-not-checked" + (anomaly ? " row-anomaly" : "");
+    tr.className = "row-" + String(r.label || "pending").toLowerCase().replace(/_/g, "-") + (anomaly ? " row-anomaly" : "");
     tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + esc(r.text)
       + (anomaly ? "<div class=\"anomaly-pill\">" + esc(anomaly) + "</div>" : "")
       + "<div class=\"row-source\" data-source-row=\"" + i + "\"></div></td>"
-      + "<td>" + esc(r.caseName) + "</td><td>NOT_CHECKED</td>"
+      + "<td>" + esc(r.caseName) + "</td><td class=\"status-cell\" data-status-row=\"" + i + "\">" + vfStatusHtml(r) + "</td>"
       + "<td>" + esc(standardCitation(r))
       + "<br><button type=\"button\" onclick=\"copyStandardFormat(" + i + ")\">"
       + esc(T().copyFormat) + "</button></td>"
@@ -92,6 +92,60 @@ function render(results) {
     T().countFound.replace("{n}", results.length);
   window.__lastResults = results;
   renderReport(results);
+  startVerification(results);
+}
+
+/* ---- Existence check (verify.js): label cell, progress, summary ---- */
+function vfLang() { return (typeof currentLang === "string" && VERIFY_TEXT[currentLang]) ? currentLang : "en"; }
+function vfStatusHtml(r) {
+  var lang = vfLang();
+  if (!r || !r.verify) return "<div class=\"status-body\"><span class=\"result-label\">\u2026</span><small class=\"label-explanation\">" + esc(VERIFY_TEXT[lang].checking) + "</small></div>";
+  var label = r.label || "NOT_CHECKED";
+  var link = r.verify.url
+    ? " <a class=\"verify-link\" href=\"" + esc(r.verify.url) + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + esc(T().vfOpenRecord || "Open the record") + "</a>" : "";
+  return "<div class=\"status-body\"><span class=\"result-label is-" + esc(label.toLowerCase().replace(/_/g, "-")) + "\">" + esc(label) + "</span><small class=\"label-explanation\">"
+    + esc(verifyStatusSentence(r, lang)) + "</small>" + link + "</div>";
+}
+function vfUpdateCells(results) {
+  results.forEach(function (r, i) {
+    var cell = document.querySelector("[data-status-row=\"" + i + "\"]");
+    if (cell) {
+      cell.innerHTML = vfStatusHtml(r);
+      cell.parentNode.className = "row-" + String(r.label || "pending").toLowerCase().replace(/_/g, "-")
+        + (cell.parentNode.classList.contains("row-anomaly") ? " row-anomaly" : "");
+    }
+  });
+}
+function vfCountText(results) {
+  var sum = verifySummary(results);
+  sum.n = results.length;
+  return T().vfSummary.replace(/\{(\w+)\}/g, function (_m, k) { return sum[k] != null ? sum[k] : ""; });
+}
+var __vfToken = 0;
+window.__vfCache = window.__vfCache || {};
+function startVerification(results) {
+  var token = ++__vfToken;
+  var pending = results.filter(function (r) { return !r.verify || r.label === "LOOKUP_FAILED"; });
+  var progress = document.getElementById("verifyProgress");
+  if (!pending.length) {
+    if (progress) progress.textContent = "";
+    document.getElementById("count").textContent = vfCountText(results);
+    return;
+  }
+  vcCount("legal-verify");
+  verifyRows(pending, {
+    cache: window.__vfCache,
+    onProgress: function (done, total) {
+      if (token !== __vfToken) return;
+      if (progress) progress.textContent = T().vfProgress.replace("{done}", done).replace("{total}", total);
+    }
+  }).then(function () {
+    if (token !== __vfToken) return;
+    if (progress) progress.textContent = "";
+    vfUpdateCells(results);
+    document.getElementById("count").textContent = vfCountText(results);
+    renderReport(results);
+  });
 }
 
 /* Citation health report (v1): summary + structure checks only, from
@@ -113,7 +167,7 @@ function reportStrings() {
     thCategory: t.reportThCategory, thAnomaly: t.reportThAnomaly,
     thEvidence: t.reportThEvidence, thScope: t.reportThScope, thAction: t.reportThAction,
     noAnomaly: t.reportNoAnomaly, noEvidence: t.reportNoEvidence,
-    scopeDisplay: t.reportScopeDisplay, scopeUnknown: t.reportScopeUnknown,
+    scopeDisplay: t.reportScopeDisplay, scopeUnknown: t.reportScopeUnknown, scopeChecked: t.reportScopeChecked,
     reportCatMatched: t.reportCatMatched, reportCatFieldMismatch: t.reportCatFieldMismatch,
     reportCatNotFound: t.reportCatNotFound, reportCatCannotDetermine: t.reportCatCannotDetermine,
     reportCatRetrievalFailed: t.reportCatRetrievalFailed,
@@ -461,7 +515,7 @@ function renderReport(results) {
       + (typeof immLinkKeysFor === "function" ? immLinkKeysFor(immType, row).map(function (l) {
           return " <a href=\"" + esc(l.url) + "\" target=\"_blank\" rel=\"noopener\">" + esc(t[l.key] || l.key) + "</a>";
         }).join(" | ") : "");
-    var scope = row.label === "NOT_CHECKED" ? t.reportScopeDisplay : t.reportScopeUnknown;
+    var scope = (row.label === "NOT_CHECKED" || row.label === "LOOKUP_FAILED") ? t.reportScopeDisplay : t.reportScopeChecked;
     var human = humanReviewFor(humanMap, row.text);
     var humanOptions = [["", t.reportHumanNotSet], ["confirmed", t.reportHumanConfirmed],
       ["corrected", t.reportHumanCorrected], ["recheck", t.reportHumanRecheck]].map(function (o) {
@@ -472,7 +526,10 @@ function renderReport(results) {
     tr.innerHTML = "<td class=\"col-extra\">" + row.index + "</td><td>" + esc(row.text)
       + "<div class=\"hand-check-line\"><label><input type=\"checkbox\" data-hand=\"" + ri + "\""
       + (handChecked ? " checked" : "") + "> Checked by hand</label></div></td>"
-      + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.label) + "</td>"
+      + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.label)
+      + (row.verify ? "<br><small>" + esc(verifyStatusSentence(row, vfLang())) + "</small>"
+        + (row.verify.url ? " <a href=\"" + esc(row.verify.url) + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + esc(t.vfOpenRecord || "Open the record") + "</a>" : "") : "")
+      + "</td>"
       + "<td class=\"col-extra\">" + esc(row.year) + "</td>"
       + "<td class=\"col-extra\">" + esc(row.pinCite) + "</td><td class=\"col-extra\">" + esc(flagText) + "</td>"
       + "<td class=\"col-extra\">" + esc(catLabels[cat]) + "</td><td class=\"col-extra\">" + esc(anomaly) + "</td>"
@@ -639,8 +696,9 @@ function exportMarkdown() {
   if (currentLang !== "en") lines.push("> " + T().disclaimerNote);
   lines.push("");
   results.forEach(function (r) {
-    lines.push("- [ ] NOT_CHECKED \u2014 " + r.text
+    lines.push("- [ ] " + (r.label || "NOT_CHECKED") + " \u2014 " + r.text
       + (r.caseName ? " (" + r.caseName + ")" : "")
+      + (r.verify ? " \u2014 " + verifyStatusSentence(r, "en") + (r.verify.url ? " " + r.verify.url : "") : "")
       + " \u2014 " + r.manualUrl);
   });
   navigator.clipboard.writeText(lines.join("\n")).then(function () {

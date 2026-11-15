@@ -17,8 +17,8 @@ for (const l of ["en", "es", "zh"]) {
 }
 // Fix 1 (SUPERSEDED by UX2): the problem-first hero question is replaced by a
 // browser-truthful heading. UX2 heading states extraction + self-check.
-assert.ok(I18N.en.heading.includes("Immigration & BIA citation extractor"));
-assert.ok(I18N.zh.heading.includes("移民与 BIA 引文提取器"));
+assert.ok(I18N.en.heading.includes("Immigration & BIA citation checker"));
+assert.ok(I18N.zh.heading.includes("移民与 BIA 引文核查器"));
 assert.ok(!I18N.en.heading.includes("actually exist"));
 assert.ok(!I18N.zh.heading.includes("真实存在"));
 // Fix 7: exact Chinese disclaimer-authoritative sentence; English still authoritative.
@@ -40,7 +40,7 @@ assert.ok(!html.includes('id="query-translation"'), "query translation is not pr
 // Disclaimer: full disclaimer sentence must NOT sit inside any <details> block.
 // (Tag-depth scan at the marker position; the briefing warning also says
 // "Not legal advice" but is a different, shorter sentence.)
-const marker = "Every row is NOT_CHECKED";
+const marker = "Subsequent history and good-law status, quotes, pin cites";
 const idx = html.indexOf(marker);
 assert.ok(idx > 0, "disclaimer marker");
 let depth = 0;

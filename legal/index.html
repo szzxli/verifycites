@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#18324b">
-  <meta name="description" content="Extract case citations from legal text in your browser, then review source links. This tool does not provide legal advice or verify legal validity.">
-  <title>VerifyCites — browser citation extraction</title>
+  <meta name="description" content="Paste a brief: the tool extracts each citation and checks that court cases and BIA (I&amp;N Dec.) decisions exist, with the source and a link. Existence only; not legal advice, and good-law status is not checked.">
+  <title>VerifyCites — immigration and court citation check</title>
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../site-nav.css">
@@ -74,23 +74,23 @@
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-copy="heroKicker">A focused workspace for cited cases</span></p>
-        <h1 id="page-title" data-i18n="heading">Immigration & BIA citation extractor</h1>
-        <p class="hero-lede" data-i18n="subtitle">Paste your motion or brief. The tool pulls out every citation and shows you a link to check it yourself — in the extraction step, your text does not leave your browser.</p>
-        <p class="hero-browser-note" data-i18n="browserModeFirstLine">Browser mode: this page extracts citation formats and gives you source links. Every row is NOT_CHECKED. It does not check whether a case exists or whether details match.</p>
+        <h1 id="page-title" data-i18n="heading">Immigration &amp; BIA citation checker</h1>
+        <p class="hero-lede" data-i18n="subtitle">Paste your motion or brief. The tool extracts every citation and checks that each case exists: court cases against the Caselaw Access Project, I&amp;N Dec. decisions against our BIA library. Your text stays in your browser.</p>
+        <p class="hero-browser-note" data-i18n="browserModeFirstLine">Existence check: for each court-case and I&amp;N Dec. citation, this page looks for a case at that volume and page and compares the name. It does not check good-law status, quotes, pin cites, or whether a case supports your point.</p>
         <p data-i18n="briefingAudience">For solo lawyers, small firms, paralegals, and law-school writing courses. This page extracts U.S. citations for you to check. It does not give legal advice.</p>
       </div>
       <div class="hero-facts" aria-label="How the browser tool works">
-        <div class="fact-row"><span class="fact-icon fact-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-copy="factLocal">Citation extraction runs in this browser</span></div>
-        <div class="fact-row"><span class="fact-icon fact-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5v5l3.2 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factNoLookup">Browser mode does not look up cases</span></div>
-        <div class="fact-row"><span class="fact-icon fact-icon-amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 20 7v5.2c0 4.1-3.2 6.9-8 8.3-4.8-1.4-8-4.2-8-8.3V7l8-3.5Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12.1h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factCli">CLI check: CourtListener case existence and case name only</span></div>
+        <div class="fact-row"><span class="fact-icon fact-icon-teal" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5 9.2 17 19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-copy="factLocal">Your pasted text stays in this browser</span></div>
+        <div class="fact-row"><span class="fact-icon fact-icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5v5l3.2 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factNoLookup">Each case is looked up by volume and page</span></div>
+        <div class="fact-row"><span class="fact-icon fact-icon-amber" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3.5 20 7v5.2c0 4.1-3.2 6.9-8 8.3-4.8-1.4-8-4.2-8-8.3V7l8-3.5Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 12.1h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span data-copy="factCli">Existence and case name only. Not good-law status</span></div>
       </div>
     </section>
 
     <div class="trust-panel" id="disclaimer">
       <div class="trust-heading"><span class="trust-symbol" aria-hidden="true">i</span><span data-copy="trustSummary">Important limits — please read</span></div>
       <div class="trust-content">
-        <p class="trust-lead"><strong data-i18n="trustLeadLine">Browser mode: this page extracts only — it does not check cases online.</strong></p>
-        <p data-i18n="disclaimer">Not legal advice. In the browser, this page only extracts citations and gives you links. Every row is NOT_CHECKED. It does not check whether a cited case exists, whether the name matches, whether quotes or pin cites are accurate, whether a source supports an argument, or whether a case is still good law. A separate command-line tool can check CourtListener for case existence and case-name match only. That tool does not check statutes, regulations, BIA or AAO decisions, the INA, or the Code of Federal Regulations. CourtListener coverage is incomplete, so a CLI result is not a complete search. Read every source you cite.</p>
+        <p class="trust-lead"><strong data-i18n="trustLeadLine">This page checks that cited cases exist. It does not check that they are still good law.</strong></p>
+        <p data-i18n="disclaimer">Not legal advice. For each court-case citation, this page looks for a decision at that volume and page in the Caselaw Access Project (Harvard Law School Library Innovation Lab; published decisions up to about 2018–2020) and compares the case name and year. For I&amp;N Dec. citations it looks in our BIA library (coverage is listed in the BIA search section). Statutes, regulations, the Federal Register and AAO decisions are not checked. Newer cases and anything outside those sources show NOT_CHECKED, and NOT_FOUND means not found in the named source, not that the case does not exist. Subsequent history and good-law status, quotes, pin cites, and whether a source supports an argument are never checked. Your pasted text is not sent anywhere; the page downloads public volume lists. Read every source you cite.</p>
         <ul class="trust-limits">
           <li data-i18n="trustLimit1">Does not check whether the case supports your argument.</li>
           <li data-i18n="trustLimit2">Does not check quotes or pin cites.</li>
@@ -119,7 +119,7 @@
         <p class="field-hint" data-i18n="coverageLine">Coverage: U.S. federal and state cases (CourtListener). Not covered: non-U.S. law, live BIA lookup, full statute checks.</p>
         <textarea id="input" data-i18n-placeholder="inputPlaceholder" placeholder="Paste your brief, motion, or letter text here..." rows="9" aria-describedby="input-help validation-error"></textarea>
         <div class="input-footer">
-          <p id="input-help" class="field-hint" data-copy="inputHint">The browser tool extracts citation patterns only. It does not send this text to CourtListener.</p>
+          <p id="input-help" class="field-hint" data-copy="inputHint">This text stays in your browser. To check a citation, the page looks up only its reporter and volume (static.case.law or our BIA library); it does not send this text anywhere.</p>
           <span id="char-count" class="char-count" aria-live="polite">0 characters</span>
         </div>
         <p id="validation-error" class="validation-message" role="alert" hidden></p>
@@ -149,12 +149,13 @@
           </div>
         </div>
         <p id="count" class="result-count" role="status" aria-live="polite"></p>
+        <p id="verifyProgress" class="result-count verify-progress" role="status" aria-live="polite"></p>
         <p id="unrecognizedBox" class="unrecognized-box" role="status" hidden></p>
         <div id="resultsEmpty" class="empty-state">
           <span class="empty-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M9 5h9l6 6v16H9a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/><path d="M18 5v6h6M11 16h10M11 20h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           <div><strong data-copy="resultsPlaceholder">Your extracted citations will appear here.</strong><p data-copy="resultsPlaceholderHint">Start by pasting text above or loading the sample.</p></div>
         </div>
-        <p class="label-legend" data-i18n="labelLegend">NOT_CHECKED = browser mode: no online lookup was made; check by hand using the links.</p>
+        <p class="label-legend" data-i18n="labelLegend">VERIFIED = a decision exists at that citation and the name matches (existence only, not good law). CITED = a decision exists; name not compared. MISMATCH = a different case or year. NOT_FOUND = not found in the source named in the row. NOT_CHECKED = outside coverage or not a case citation; check by hand with the links.</p>
         <div class="table-wrap" id="resultsWrap" hidden>
           <table class="data-table results-table">
             <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="thLabel">Label</th><th scope="col" data-i18n="thStandardFormat">Standard format</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
@@ -176,7 +177,7 @@
           <p id="reportSummary" class="report-summary" role="status" aria-live="polite"></p>
           <p id="reportBasis" class="report-note"></p>
           <p id="tier1Note" class="report-note"></p>
-          <p class="report-note" id="reportLimitsPointer" data-i18n="reportLimitsPointer">Every row below is NOT_CHECKED. See Important limits at the top of this page.</p>
+          <p class="report-note" id="reportLimitsPointer" data-i18n="reportLimitsPointer">Each row says what was checked and where. See Important limits at the top of this page.</p>
           <p class="report-note" data-i18n="reportFlagNote">In browser mode, only recognized reporters are extracted, so an unknown reporter usually means the citation was not extracted at all. These flags describe the extracted text only; they are not a judgment about quality.</p>
           <p class="report-note" data-i18n="reportHumanStorageNote">Human review marks are stored in this browser only (localStorage), scoped to this report. They do not change the machine result shown beside them.</p>
           <div class="export-actions">
@@ -345,7 +346,7 @@
           <span class="summary-chevron" aria-hidden="true">⌄</span>
         </summary>
         <div class="disclosure-body cli-body">
-          <p class="cli-explainer" data-copy="cliExplanation">The browser page only extracts citation strings. The CLI can send those extracted strings to CourtListener when you provide your own token; by default it does not send the brief text.</p>
+          <p class="cli-explainer" data-copy="cliExplanation">The browser page checks citations against the Caselaw Access Project and our BIA library only. The CLI can also check CourtListener, which includes newer cases, when you provide your own token; by default it does not send the brief text.</p>
           <p data-i18n="cliSingle">Only checking one brief? The manual links above are enough — no CLI needed.</p>
           <p data-i18n="cliBatch">Batch checks or workflow use? Follow the CLI steps below. First-time setup takes longer than a single check, so allow about 10 minutes for first-time setup.</p>
           <p><a class="source-link" href="https://wiki.free.law/c/courtlistener/help/api/rest/v3/overview" target="_blank" rel="noopener noreferrer" data-i18n="cliTokenLink">CourtListener API documentation — sign in to see your token ↗</a></p>
@@ -399,7 +400,7 @@ python -m legalcite check brief.md --md report.md
     </section>
 
     <footer class="site-footer">
-      <p data-i18n="privacy">Privacy: citation extraction runs in this browser. GoatCounter records page views only. Credits: CourtListener / Free Law Project, eyecite (BSD-2). Your email address is sent to Brevo (the form provider) when you sign up, so Brevo can send court-rule alert digests and, if you choose it, add you to the optional Pro waitlist. No Brevo code loads on this page. Every email has an unsubscribe link, or email info@verifycites.com to be removed. License: MIT.</p>
+      <p data-i18n="privacy">Privacy: your pasted text is checked in this browser and is never sent anywhere. To look up citations, the page downloads public volume lists from static.case.law (Caselaw Access Project, Harvard Law School Library Innovation Lab) and from this site; those requests reveal only the reporter and volume. GoatCounter records page views only. Credits: Caselaw Access Project, EOIR, CourtListener / Free Law Project, eyecite (BSD-2). Your email address is sent to Brevo (the form provider) when you sign up, so Brevo can send court-rule alert digests and, if you choose it, add you to the optional Pro waitlist. No Brevo code loads on this page. Every email has an unsubscribe link, or email info@verifycites.com to be removed. License: MIT.</p>
       <div class="footer-links"><a href="https://www.courtlistener.com/" target="_blank" rel="noopener noreferrer">CourtListener</a><a href="https://free.law/" target="_blank" rel="noopener noreferrer">Free Law Project</a><a href="https://github.com/szzxli/legal-cite-check" target="_blank" rel="noopener noreferrer">MIT License &amp; source</a><a href="/about/">About</a><a href="mailto:info@verifycites.com">info@verifycites.com</a><a class="back-top" href="#top">Back to top</a></div>
       <p class="footer-operator">VerifyCites is not a law firm and does not provide legal advice. Maintained by szzxli.</p>
       <p class="footer-operator">Free, open-source tools by David Lee, with their limits stated up front. Contact: <a href="mailto:info@verifycites.com">info@verifycites.com</a></p>
@@ -408,6 +409,7 @@ python -m legalcite check brief.md --md report.md
 
   <script src="labels.js"></script>
   <script src="extract.js"></script>
+  <script src="verify.js"></script>
   <script src="report.js"></script>
   <script src="i18n.js"></script>
   <script src="translate.js"></script>

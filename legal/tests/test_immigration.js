@@ -54,8 +54,8 @@ assert.strictEqual(immClassifyRow(null), "unknown");
 const en = I18N.en;
 for (const type of ["bia", "regulation"]) {
   const line = immSourceLine(type, en);
-  assert.ok(line.includes("not yet connected"),
-    type + " line must say not yet connected, got: " + line);
+  assert.ok(type === "bia" ? line.includes("looked up in our BIA library") : line.includes("not yet connected"),
+    type + " line states its real status, got: " + line);
   assert.ok(!/was checked|has been verified|verified against/i.test(line),
     type + " line must never claim a check happened: " + line);
 }
@@ -67,7 +67,7 @@ assert.ok(!immSourceLine("statute", en).includes("does not yet map"),
 assert.ok(immSourceLine("aao", en).includes("manual check only"));
 assert.ok(immSourceLine("aao", en).includes("bind only the parties"));
 assert.ok(immSourceLine("aao", en).includes("may not be cited as authority"));
-assert.ok(immSourceLine("court", en).includes("no live lookup"));
+assert.ok(immSourceLine("court", en).includes("Caselaw Access Project"));
 assert.ok(immSourceLine("unknown", en).includes("Not identified"));
 
 // (c) Manual links: present, correct, and only for routed types.
@@ -116,7 +116,7 @@ const report = buildHealthReport([
 assert.deepStrictEqual(report.rows.map((r) => r.immType),
   ["court", "bia", "statute", "regulation"]);
 const md = healthReportMarkdown(report, en, null, "2026-10-27");
-assert.ok(md.includes("BIA precedent \u2014 not yet connected"));
+assert.ok(md.includes("BIA precedent \u2014 looked up in our BIA library"));
 assert.ok(md.includes("INA provision \u2014 this section is not in the partial"));
 assert.ok(md.includes("8 CFR provision (eCFR) \u2014 not yet connected"));
 assert.ok(md.includes("https://www.justice.gov/eoir/ag-bia-decisions"));
