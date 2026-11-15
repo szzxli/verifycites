@@ -3,6 +3,206 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Carotid CTA with automated plaque quantification for risk stratification of coexisting obstructive coronary artery disease.",
+      "identifier": "10.1186/s13244-026-02472-5",
+      "url": "https://europepmc.org/article/MED/43034193",
+      "date": "2026-11-15",
+      "doi": "10.1186/s13244-026-02472-5",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Preoperative prediction of lymphovascular space invasion in early-stage cervical cancer using a deep learning-based 3D super-resolution MRI radiomics model.",
+      "identifier": "10.1186/s12885-026-16557-3",
+      "url": "https://europepmc.org/article/MED/43034156",
+      "date": "2026-11-15",
+      "doi": "10.1186/s12885-026-16557-3",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A gap-free telomere-to-telomere pig reference genome provides insights into Eurasian pig diversity.",
+      "identifier": "10.1038/s41422-026-01319-4",
+      "url": "https://europepmc.org/article/MED/43034152",
+      "date": "2026-11-15",
+      "doi": "10.1038/s41422-026-01319-4",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Corrigendum to \"Impact of digital health interventions in improving pediatric immunization coverage and timeliness in low- and middle-income countries: a systematic review and meta-analysis\" [Vaccine 93 (2026) 129176].",
+      "identifier": "10.1016/j.vaccine.2026.129329",
+      "url": "https://europepmc.org/article/MED/43034111",
+      "date": "2026-11-15",
+      "doi": "10.1016/j.vaccine.2026.129329",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "SCIMP mediated innate and adaptive immunomodulation after subarachnoid hemorrhage.",
+      "identifier": "10.1016/j.neurot.2026.e00971",
+      "url": "https://europepmc.org/article/MED/43034102",
+      "date": "2026-11-15",
+      "doi": "10.1016/j.neurot.2026.e00971",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Should continuous glucose monitoring redefine prediabetes?",
+      "identifier": "10.1007/s00125-026-06925-w",
+      "url": "https://europepmc.org/article/MED/43034237",
+      "date": "2026-11-14",
+      "doi": "10.1007/s00125-026-06925-w",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comparative analysis of kidney adverse events associated with four commonly used proton pump inhibitors based on the PersADE database.",
+      "identifier": "10.1007/s11255-026-05471-z",
+      "url": "https://europepmc.org/article/MED/43034236",
+      "date": "2026-11-14",
+      "doi": "10.1007/s11255-026-05471-z",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply to \"Hot nights, cold nights, and hypnotic doses: weather as a hidden confounder in mirror-image deprescribing studies\".",
+      "identifier": "10.1007/s44470-026-00233-1",
+      "url": "https://europepmc.org/article/MED/43034235",
+      "date": "2026-11-14",
+      "doi": "10.1007/s44470-026-00233-1",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply to Letter to the Editor: Reconsidering the Mechanisms of Urinary Incontinence Improvement After Abdominal Body Contouring.",
+      "identifier": "10.1007/s00266-026-06309-w",
+      "url": "https://europepmc.org/article/MED/43034234",
+      "date": "2026-11-14",
+      "doi": "10.1007/s00266-026-06309-w",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reply to 'Conditional accuracy after lesion preselection'.",
+      "identifier": "10.1007/s00535-026-02538-7",
+      "url": "https://europepmc.org/article/MED/43034233",
+      "date": "2026-11-14",
+      "doi": "10.1007/s00535-026-02538-7",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Sequence-dependent real-world efficacy of anti-TNF antibodies and vedolizumab in ulcerative colitis: a propensity score-weighted cohort study.",
+      "identifier": "10.1186/s12876-026-05560-4",
+      "url": "https://europepmc.org/article/MED/43034232",
+      "date": "2026-11-14",
+      "doi": "10.1186/s12876-026-05560-4",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Diagnostic accuracy and reliability of susceptibility map-weighted imaging in patients with clinically uncertain parkinsonian syndromes.",
+      "identifier": "10.1186/s41747-026-00832-w",
+      "url": "https://europepmc.org/article/MED/43034231",
+      "date": "2026-11-14",
+      "doi": "10.1186/s41747-026-00832-w",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "AMP Challenge: towards a standardized, community-wide benchmark for AI-driven antimicrobial peptide design.",
+      "identifier": "10.1186/s13059-026-04316-3",
+      "url": "https://europepmc.org/article/MED/43034230",
+      "date": "2026-11-14",
+      "doi": "10.1186/s13059-026-04316-3",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Clinical and Radiographic Outcomes of Arthroscopic Free Bone Grafts Versus Latarjet Procedures for Anterior Shoulder Instability with Glenoid Bone Loss: A Systematic Review.",
+      "identifier": "10.1007/s12178-026-10069-0",
+      "url": "https://europepmc.org/article/MED/43034229",
+      "date": "2026-11-14",
+      "doi": "10.1007/s12178-026-10069-0",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Recent advances in fluorescent probes for diagnostics and targeted therapeutics at the biomedical frontier.",
+      "identifier": "10.1038/s44386-026-00082-1",
+      "url": "https://europepmc.org/article/MED/43034228",
+      "date": "2026-11-14",
+      "doi": "10.1038/s44386-026-00082-1",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Context-dependent efficacy of lemborexant in shift workers: beyond average treatment effects.",
+      "identifier": "10.1007/s44470-026-00236-y",
+      "url": "https://europepmc.org/article/MED/43034227",
+      "date": "2026-11-14",
+      "doi": "10.1007/s44470-026-00236-y",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "SQSTM1 promotes selective autophagic degradation of multiple PRRSV proteins by recruiting E3 ligase TRAF6 to inhibit viral replication.",
+      "identifier": "10.1186/s13567-026-01887-8",
+      "url": "https://europepmc.org/article/MED/43034226",
+      "date": "2026-11-14",
+      "doi": "10.1186/s13567-026-01887-8",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Correction: Metabolomics of cerebrospinal fluid in pediatric neuroborreliosis: unraveling candidate immunometabolic signatures and diagnostic potential.",
+      "identifier": "10.1007/s11306-026-02547-w",
+      "url": "https://europepmc.org/article/MED/43034225",
+      "date": "2026-11-14",
+      "doi": "10.1007/s11306-026-02547-w",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Global Splenic Burden Differentiates Sclerosing Angiomatoid Nodular Transformation from Solitary Mass-forming Primary Splenic Lymphoma.",
+      "identifier": "10.1245/s10434-026-20606-3",
+      "url": "https://europepmc.org/article/MED/43034222",
+      "date": "2026-11-14",
+      "doi": "10.1245/s10434-026-20606-3",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Limited Benefit of Adjuvant Chemotherapy in Pathological Stage II-III Non-small Cell Lung Cancer Lacking Lymphatic, Vascular, and Pleural Invasion.",
+      "identifier": "10.1245/s10434-026-20802-1",
+      "url": "https://europepmc.org/article/MED/43034221",
+      "date": "2026-11-14",
+      "doi": "10.1245/s10434-026-20802-1",
+      "first_seen": "2026-11-15T13:34:26Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Political Ingroup and Outgroup Cues Condition How Large Language Models Refute Conspiracy Theories",
       "identifier": "10.31234/osf.io/4yexj_v2",
       "url": "https://europepmc.org/article/PPR/PPR1367697",
@@ -8498,7 +8698,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-15T05:15:11Z",
+    "last_poll": "2026-11-15T13:34:26Z",
     "sources": [
       {
         "name": "Ninth Circuit",
