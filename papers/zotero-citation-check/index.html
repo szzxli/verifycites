@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Your Zotero Library for Broken or Missing Citations | VeriPaper</title>
+<meta name="description" content="Export a Zotero library as BibTeX or copy the bibliography into VeriPaper. It looks up whether each citation exists and whether its DOI resolves.">
+<link rel="canonical" href="https://verifycites.com/papers/zotero-citation-check/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VerifyCites">
+<meta property="og:title" content="Check Your Zotero Library for Broken or Missing Citations | VeriPaper">
+<meta property="og:description" content="Export a Zotero library as BibTeX or copy the bibliography into VeriPaper. It looks up whether each citation exists and whether its DOI resolves.">
+<meta property="og:url" content="https://verifycites.com/papers/zotero-citation-check/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Check Your Zotero Library for Broken or Missing Citations | VeriPaper">
+<meta name="twitter:description" content="Export a Zotero library as BibTeX or copy the bibliography into VeriPaper. It looks up whether each citation exists and whether its DOI resolves.">
+<meta name="theme-color" content="#16324f">
+<link rel="icon" type="image/svg+xml" href="../../verifycites-mark.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Check Your Zotero Library for Broken or Missing Citations | VeriPaper",
+  "headline": "Check a Zotero library for citations that don't exist",
+  "description": "Export a Zotero library as BibTeX or copy the bibliography into VeriPaper. It looks up whether each citation exists and whether its DOI resolves.",
+  "url": "https://verifycites.com/papers/zotero-citation-check/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "VerifyCites",
+    "url": "https://verifycites.com/"
+  },
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "David Lee"
+  }
+}
+</script>
+<style>
+:root{
+  --paper:#fbf9f3; --card:#fffdf8; --ink:#211d16; --ink-soft:#5c554a;
+  --navy:#16324f; --navy-soft:#2a4a6b; --crimson:#8c2f1b; --bronze:#8a6d1d;
+  --green:#2e6b46; --amber:#96690f; --grey:#6b7280;
+  --line:#ddd2ba; --line-soft:#e9e1cc;
+  --serif:Georgia,"Iowan Old Style","Times New Roman","Noto Serif",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+.skip-link{position:absolute;left:-999px;top:0;background:#fff;color:var(--navy);padding:8px 12px;z-index:100;font-family:var(--sans)}
+.skip-link:focus{left:8px;top:8px}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.masthead{border-bottom:4px double var(--navy);padding:26px 0 18px;text-align:center}
+.masthead .journal{font-size:12px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--navy);font-weight:700;font-family:var(--sans)}
+.masthead .journal span{color:var(--bronze)}
+.masthead .tagline{font-style:italic;color:var(--ink-soft);font-size:14px;margin-top:6px}
+.masthead .meta{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);
+  letter-spacing:.08em;margin-top:8px}
+.masthead .meta a{color:var(--navy)}
+.titleblock{padding:52px 0 10px;text-align:center}
+.titleblock h1{font-size:clamp(30px,5.4vw,44px);line-height:1.28;color:var(--navy);
+  font-weight:700;margin-bottom:14px}
+.titleblock .byline{font-size:16px;color:var(--ink-soft);font-style:italic}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center;justify-content:center}
+.btn{display:inline-block;padding:11px 26px;font-family:var(--sans);font-weight:600;
+  font-size:14px;cursor:pointer;border:1px solid var(--navy);text-decoration:none}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--navy-soft)}
+.hint{font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);margin-top:10px;line-height:1.6}
+section{padding:44px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--navy);
+  padding-bottom:8px;margin-bottom:6px}
+.sec-no{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--bronze);
+  letter-spacing:.1em}
+.sec-head h2{font-size:24px;color:var(--navy);font-weight:700}
+.sec-lede{font-style:italic;color:var(--ink-soft);font-size:15px;margin:10px 0 22px}
+.prose p{font-size:16px;margin:0 0 14px;color:var(--ink)}
+.prose a{color:var(--navy)}
+ol.tight,ul.tight{margin:8px 0 16px 22px;font-size:16px}
+ol.tight li,ul.tight li{margin-bottom:10px}
+ol.tight li::marker,ul.tight li::marker{color:var(--bronze);font-weight:700}
+.toolcard{background:var(--card);border:1px solid var(--line);padding:24px;margin:0 0 16px}
+footer{border-top:4px double var(--navy);margin-top:56px;padding:26px 0 40px;text-align:center}
+footer .colophon{font-family:var(--sans);font-size:12px;color:var(--ink-soft);letter-spacing:.06em}
+footer .colophon a{color:var(--navy)}
+@media(max-width:640px){.wrap{padding:0 18px}.titleblock{padding:36px 0 6px}}
+.back-to-top{position:fixed;right:14px;bottom:14px;z-index:20;padding:7px 11px;background:#fff;border:1px solid var(--line);font-family:var(--sans);font-size:13px;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.12);color:var(--navy)}
+</style>
+<link rel="stylesheet" href="../../site-nav.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="vc-nav" id="top">
+  <div class="vc-nav-inner">
+    <a class="vc-nav-brand" href="/">VerifyCites</a>
+    <nav class="vc-nav-links" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/papers/" aria-current="page">Papers</a>
+      <a href="/legal/">Legal</a>
+    </nav>
+  </div>
+</header>
+
+<header class="masthead"><div class="wrap">
+  <div class="journal">Verify<span>Cites</span></div>
+  <div class="tagline">A free, open-source citation checker for research drafts</div>
+  <div class="meta">VeriPaper &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; <a href="https://github.com/szzxli/veripaper">github.com/szzxli/veripaper</a></div>
+</div></header>
+
+<main id="main">
+<div class="wrap">
+<div class="titleblock">
+  <h1>Check a Zotero library for citations that don't exist</h1>
+  <p class="byline">Export from Zotero, then paste or upload the file into the free /papers checker.</p>
+  <div class="btnrow" style="margin:26px 0 4px">
+    <a class="btn primary" href="/papers/?ref=seo-zotero-check">Open the citation checker</a>
+  </div>
+</div>
+
+<section id="export" class="prose">
+  <div class="sec-head"><span class="sec-no">§1</span><h2>How to export from Zotero</h2></div>
+  <p class="sec-lede">There is no Zotero plugin yet. Export a BibTeX file, or copy the bibliography, and check it on the /papers page.</p>
+  <div class="toolcard">
+    <p><strong>Export a BibTeX file</strong> — the most reliable path, because the checker reads every entry:</p>
+    <ol class="tight">
+      <li>In Zotero, choose what to export: the whole library (<em>File → Export Library…</em>), one collection (right-click the collection → <em>Export Collection…</em>), or specific items (select them, right-click → <em>Export Items…</em>).</li>
+      <li>Set the format to <strong>BibTeX</strong> and save the <code>.bib</code> file.</li>
+      <li>Open the <a href="/papers/?ref=seo-zotero-check">/papers checker</a>. Use <em>Upload .docx / .pdf / .bib</em>, or paste the file's contents into the text box, then click <em>Check citations</em>.</li>
+    </ol>
+    <p><strong>Or copy the bibliography</strong> and paste it as plain text:</p>
+    <ol class="tight">
+      <li>Select the items in Zotero, then right-click and choose <em>Create Bibliography from Item(s)…</em> (or use <em>Edit → Copy Bibliography</em>).</li>
+      <li>Copy to the clipboard and paste into the <a href="/papers/?ref=seo-zotero-check">/papers</a> text box, then click <em>Check citations</em>.</li>
+    </ol>
+    <p class="hint" style="margin:0">The checker accepts a pasted draft (markdown or plain text), an uploaded .docx or .pdf, or a pasted or uploaded BibTeX <code>.bib</code> file. It does not accept other bibliography file types as uploads.</p>
+  </div>
+</section>
+
+<section id="checks" class="prose">
+  <div class="sec-head"><span class="sec-no">§2</span><h2>What this checks</h2></div>
+  <p>For each citation, the checker looks up:</p>
+  <ul class="tight">
+    <li>whether the citation can be found as an <strong>existing record</strong> in public registries (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP; Semantic Scholar as a last resort);</li>
+    <li>whether a <strong>DOI or other identifier</strong> in the entry resolves and matches that record;</li>
+    <li>whether the paper is <strong>retracted</strong>.</li>
+  </ul>
+  <p>A BibTeX file has no claims, so when you upload or paste a <code>.bib</code> the checker reports existence and identifier results only. Your draft or library file stays in your browser. Only citation identifiers and reference text are sent to the registries.</p>
+</section>
+
+<section id="limits" class="prose">
+  <div class="sec-head"><span class="sec-no">§3</span><h2>What this does not check</h2></div>
+  <ul class="tight">
+    <li>It does <strong>not compare title, author, or year fields</strong> field by field. That comparison is not available yet. An author mismatch is flagged only when the check detects one.</li>
+    <li>It does <strong>not check whether a source supports a claim</strong>. Finding a record, or a DOI that resolves, does not mean the source supports something you wrote. If you paste a full draft instead of a <code>.bib</code>, an optional screen can compare a claim with the cited paper's abstract only. It does not read the full text and is not a substitute for reading the source.</li>
+  </ul>
+  <p>“Not found” is not proof that a work does not exist. A real paper can be missing from the free indexes. Use the results to decide which references to open and check by hand.</p>
+  <div class="btnrow" style="justify-content:flex-start;margin-top:24px">
+    <a class="btn primary" href="/papers/?ref=seo-zotero-check">Open the citation checker</a>
+  </div>
+</section>
+</div>
+</main>
+
+<a href="#top" class="back-to-top" aria-label="Back to top">↑ Top</a>
+<footer><div class="wrap">
+  <div class="colophon">VERIFYCITES · VERIPAPER · MIT LICENSE · <a href="https://github.com/szzxli/veripaper">GITHUB</a> · <a href="/about/">ABOUT</a> · <a href="mailto:info@verifycites.com">info@verifycites.com</a> · <a href="#top">BACK TO TOP</a></div>
+  <p class="colophon" style="margin-top:8px;text-transform:none;letter-spacing:0">Privacy: we use <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a>, a privacy-friendly, cookie-free page-view counter. Your files are never sent to it.</p>
+  <p class="colophon" style="margin-top:8px;text-transform:none;letter-spacing:0">Free, open-source tools by David Lee, with their limits stated up front. Contact: <a href="mailto:info@verifycites.com">info@verifycites.com</a></p>
+</div></footer>
+
+<script src="../../site-nav.js"></script>
+<script>/* GoatCounter loader: test visits are never counted. ?nocount=1 turns counting off in this browser (localStorage skipgc=t, GoatCounter's own flag; ?nocount=0 turns it back on); URLs with v=, cb=, cachebust, _= or nocount are skipped too. */
+(function(w,d,l){var q=l.search,skip=/[?&](v|cb|_|nocount)=|[?&]cachebust/i.test(q);try{var s=w.localStorage;if(/[?&]nocount=1(&|$)/.test(q))s.setItem('skipgc','t');if(/[?&]nocount=0(&|$)/.test(q))s.removeItem('skipgc');if(s.getItem('skipgc')==='t')skip=true}catch(e){}w.gcSkip=skip;if(skip)return;var g=d.createElement('script');g.async=true;g.src='https://gc.zgo.at/count.js';g.setAttribute('data-goatcounter','https://szzxli.goatcounter.com/count');(d.head||d.documentElement).appendChild(g)})(window,document,location);</script>
+</body>
+</html>
