@@ -3,6 +3,256 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Dermatologist Underrepresentation on the National Comprehensive Cancer Network Penile and Vulvar Cancer Panels and the Case for Mohs Micrographic Surgery.",
+      "identifier": "10.1097/dss.0000000000005454",
+      "url": "https://europepmc.org/article/MED/43037567",
+      "date": "2026-11-17",
+      "doi": "10.1097/dss.0000000000005454",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comparison of cerebrospinal fluid-to-serum albumin and total protein ratios across automated analytical platforms: implications for subarachnoid haemorrhage diagnosis.",
+      "identifier": "10.1515/cclm-2026-1648",
+      "url": "https://europepmc.org/article/MED/43037516",
+      "date": "2026-11-17",
+      "doi": "10.1515/cclm-2026-1648",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Tentative identification of a labetalol metabolite in the investigation of a false-positive amphetamine immunoassay result using targeted and untargeted high-resolution mass spectrometry.",
+      "identifier": "10.1515/cclm-2026-1205",
+      "url": "https://europepmc.org/article/MED/43037497",
+      "date": "2026-11-17",
+      "doi": "10.1515/cclm-2026-1205",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Analytical performance evaluation of the new double-antibody sandwich Mindray total vitamin D assay and comparison vs. liquid chromatography tandem mass spectrometry.",
+      "identifier": "10.1515/cclm-2026-1593",
+      "url": "https://europepmc.org/article/MED/43037463",
+      "date": "2026-11-17",
+      "doi": "10.1515/cclm-2026-1593",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "State of the art: practical evaluation and management of malignant pleural effusion.",
+      "identifier": "10.1097/mcp.0000000000001323",
+      "url": "https://europepmc.org/article/MED/43037235",
+      "date": "2026-11-17",
+      "doi": "10.1097/mcp.0000000000001323",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Urine as a liquid allograft biopsy: emerging technologies for noninvasive monitoring in kidney transplantation.",
+      "identifier": "10.1097/mnh.0000000000001242",
+      "url": "https://europepmc.org/article/MED/43037224",
+      "date": "2026-11-17",
+      "doi": "10.1097/mnh.0000000000001242",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Prospective genotype-guided drug selection and dosing in alcohol withdrawal syndrome complicated by seizures: a randomized clinical trial.",
+      "identifier": "10.1515/dmpt-2026-0060",
+      "url": "https://europepmc.org/article/MED/43037191",
+      "date": "2026-11-17",
+      "doi": "10.1515/dmpt-2026-0060",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Validation of weight-based formulae for estimating paediatric epidural depth.",
+      "identifier": "10.4103/singaporemedj.smj-2025-304",
+      "url": "https://europepmc.org/article/MED/43037134",
+      "date": "2026-11-17",
+      "doi": "10.4103/singaporemedj.smj-2025-304",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Analysis of dishonesty cases in medical disciplinary proceedings: a comprehensive 15-year review.",
+      "identifier": "10.4103/singaporemedj.smj-2026-346",
+      "url": "https://europepmc.org/article/MED/43037129",
+      "date": "2026-11-17",
+      "doi": "10.4103/singaporemedj.smj-2026-346",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comments on: suboptimal response to ursodeoxycholic acid among patients with primary biliary cholangitis and fenofibrate as add-on therapy: a single-centre retrospective study.",
+      "identifier": "10.4103/singaporemedj.smj-2026-558",
+      "url": "https://europepmc.org/article/MED/43037122",
+      "date": "2026-11-17",
+      "doi": "10.4103/singaporemedj.smj-2026-558",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "From generalized to personalized treatments: the need for precision pharmacotherapy in addiction medicine.",
+      "identifier": "10.1515/dmpt-2026-0004",
+      "url": "https://europepmc.org/article/MED/43037075",
+      "date": "2026-11-17",
+      "doi": "10.1515/dmpt-2026-0004",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Personality change following psychological trauma: disentangling traits, personality functioning, and personality disorder.",
+      "identifier": "10.1097/yco.0000000000001135",
+      "url": "https://europepmc.org/article/MED/43037089",
+      "date": "2026-11-17",
+      "doi": "10.1097/yco.0000000000001135",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Naegele's rule is not a 280-day count: generative AI conflates two distinct pregnancy-dating algorithms.",
+      "identifier": "10.1515/jpm-2026-0477",
+      "url": "https://europepmc.org/article/MED/43036945",
+      "date": "2026-11-17",
+      "doi": "10.1515/jpm-2026-0477",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Coriaceolide A, a new calanolide-type coumarin isolated from the leaves of &lt;i&gt;Calophyllum coriaceum&lt;/i&gt; M.R. Hend. &amp; Wyatt-Sm. with antimicrobial, antibiofilm, and molecular docking studies.",
+      "identifier": "10.1515/znc-2026-0207",
+      "url": "https://europepmc.org/article/MED/43036234",
+      "date": "2026-11-17",
+      "doi": "10.1515/znc-2026-0207",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Prevalence and clinical correlates of elevated high-sensitivity C-reactive protein in patients presenting with acute coronary syndrome: a single-center retrospective study.",
+      "identifier": "10.1097/mca.0000000000001686",
+      "url": "https://europepmc.org/article/MED/43036104",
+      "date": "2026-11-17",
+      "doi": "10.1097/mca.0000000000001686",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Patterns, outcomes and predictors of severe hospital course among people in prison admitted for poisoning in northwest Iran: a retrospective analytical cross-sectional study.",
+      "identifier": "10.1108/ijoph-05-2026-0073",
+      "url": "https://europepmc.org/article/MED/43036047",
+      "date": "2026-11-17",
+      "doi": "10.1108/ijoph-05-2026-0073",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Diabetes care and self-management in correctional facilities and after return into the community: a qualitative investigation.",
+      "identifier": "10.1108/ijoph-06-2026-0077",
+      "url": "https://europepmc.org/article/MED/43036023",
+      "date": "2026-11-17",
+      "doi": "10.1108/ijoph-06-2026-0077",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Can the anesthetic management affect oncological outcome in lung cancer surgery?",
+      "identifier": "10.1097/aco.0000000000001722",
+      "url": "https://europepmc.org/article/MED/43033142",
+      "date": "2026-11-17",
+      "doi": "10.1097/aco.0000000000001722",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Postoperative acute kidney injury in thoracic noncardiac surgery: incidence, impact on outcomes, risk and protective factors, and evolving preventive strategies.",
+      "identifier": "10.1097/aco.0000000000001721",
+      "url": "https://europepmc.org/article/MED/43033141",
+      "date": "2026-11-17",
+      "doi": "10.1097/aco.0000000000001721",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Saddle pulmonary embolism and heparin-induced thrombocytopenia in acute pancreatitis: a case report.",
+      "identifier": "10.1097/mbc.0000000000001471",
+      "url": "https://europepmc.org/article/MED/42989844",
+      "date": "2026-11-17",
+      "doi": "10.1097/mbc.0000000000001471",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Cytopathologist Navigating Familial Thyroid Tumor Syndromes: From Fine-Needle Aspiration to Genetic Referral.",
+      "identifier": "10.1097/pap.0000000000000557",
+      "url": "https://europepmc.org/article/MED/42973062",
+      "date": "2026-11-17",
+      "doi": "10.1097/pap.0000000000000557",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Micromobility Injury Patterns and Resource Use in US Trauma Centers.",
+      "identifier": "10.1097/xcs.0000000000002203",
+      "url": "https://europepmc.org/article/MED/42949037",
+      "date": "2026-11-17",
+      "doi": "10.1097/xcs.0000000000002203",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Evolution of medical thoracoscopy - 100 years on.",
+      "identifier": "10.1097/mcp.0000000000001320",
+      "url": "https://europepmc.org/article/MED/42937014",
+      "date": "2026-11-17",
+      "doi": "10.1097/mcp.0000000000001320",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Do Putative Human Reticulospinal Tract Properties Adapt Following Short-Term Isometric Resistance Training?",
+      "identifier": "10.1249/mss.0000000000004188",
+      "url": "https://europepmc.org/article/MED/42868231",
+      "date": "2026-11-17",
+      "doi": "10.1249/mss.0000000000004188",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Availability of Toxicology Testing Results Among Drug Overdose Deaths, U.S., 2020-2024.",
+      "identifier": "10.1016/j.amepre.2026.108512",
+      "url": "https://europepmc.org/article/MED/42808941",
+      "date": "2026-11-17",
+      "doi": "10.1016/j.amepre.2026.108512",
+      "first_seen": "2026-11-17T01:40:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "\"Twisted Reality\": Covert Psychological Abuse in Intimate Partner Violence, A Framework for Understanding Tactics and Retaliatory Escalation.",
       "identifier": "10.1177/08862605261490534",
       "url": "https://europepmc.org/article/MED/43036892",
@@ -9584,7 +9834,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-16T15:02:06Z",
+    "last_poll": "2026-11-17T01:40:47Z",
     "sources": [
       {
         "name": "Ninth Circuit",
