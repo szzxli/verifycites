@@ -3,6 +3,481 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Diabetes care across the Islamic calendar: Ramadan fasting and Hajj pilgrimage.",
+      "identifier": "10.1097/med.0000000000000989",
+      "url": "https://europepmc.org/article/MED/43040788",
+      "date": "2026-11-17",
+      "doi": "10.1097/med.0000000000000989",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Sensitivity to Physical Activity Predicts Daily Physical Activity Levels in People with Chronic Musculoskeletal Pain.",
+      "identifier": "10.1097/ajp.0000000000001426",
+      "url": "https://europepmc.org/article/MED/43040630",
+      "date": "2026-11-17",
+      "doi": "10.1097/ajp.0000000000001426",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Dexmedetomidine Versus Propofol Induction for Sedated Radiologic Procedures in Patients With Trisomy 21.",
+      "identifier": "10.1097/pec.0000000000003750",
+      "url": "https://europepmc.org/article/MED/43040623",
+      "date": "2026-11-17",
+      "doi": "10.1097/pec.0000000000003750",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Biomarkers in Cardiology: A Critical Appraisal of Historical Successes, Pitfalls, and Emerging Uses.",
+      "identifier": "10.1097/crd.0000000000001546",
+      "url": "https://europepmc.org/article/MED/43040614",
+      "date": "2026-11-17",
+      "doi": "10.1097/crd.0000000000001546",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Ultrasonographic Assessment of Talar Cartilage Thickness and Its Clinical Correlates in Patients with Spinal Cord Injury: A Case-Control Study.",
+      "identifier": "10.1097/phm.0000000000003209",
+      "url": "https://europepmc.org/article/MED/43040613",
+      "date": "2026-11-17",
+      "doi": "10.1097/phm.0000000000003209",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Ex Vivo Lung Perfusion and Allograft Failure After Lung Transplantation: A National Target Trial Emulation.",
+      "identifier": "10.1097/sla.0000000000007203",
+      "url": "https://europepmc.org/article/MED/43040610",
+      "date": "2026-11-17",
+      "doi": "10.1097/sla.0000000000007203",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Association of Paid, Unpaid, and Total Working Hours with Sickness Absence and Presenteeism among Working Women: A Cross-Sectional Study in Japan.",
+      "identifier": "10.1097/jom.0000000000003936",
+      "url": "https://europepmc.org/article/MED/43040608",
+      "date": "2026-11-17",
+      "doi": "10.1097/jom.0000000000003936",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Ventricular Assist Devices Effectively Bridge Pediatric Patients to Heart Retransplantation: An ACTION Registry Study.",
+      "identifier": "10.1097/mat.0000000000002921",
+      "url": "https://europepmc.org/article/MED/43040606",
+      "date": "2026-11-17",
+      "doi": "10.1097/mat.0000000000002921",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Prospective Evidence of Concomitant Pancreatic Ductal Adenocarcinoma Risk Among Patients With Branch-duct Intraductal Papillary Mucinous Neoplasms Without Worrisome Features/High-risk Stigmata at Baseline.",
+      "identifier": "10.1097/sla.0000000000007255",
+      "url": "https://europepmc.org/article/MED/43040604",
+      "date": "2026-11-17",
+      "doi": "10.1097/sla.0000000000007255",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Topology-Dependent and Size-Controlled Singlet Oxygen Generation in Porphyrinic Coordination Frameworks for Antifungal Photodynamic Therapy.",
+      "identifier": "10.1021/acsami.6c16865",
+      "url": "https://europepmc.org/article/MED/43040602",
+      "date": "2026-11-17",
+      "doi": "10.1021/acsami.6c16865",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Pediatric Chagas Disease: Current Perspectives on Diagnosis, Treatment and Prevention of Congenital Transmission.",
+      "identifier": "10.1097/inf.0000000000005473",
+      "url": "https://europepmc.org/article/MED/43040600",
+      "date": "2026-11-17",
+      "doi": "10.1097/inf.0000000000005473",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Sex-Related Injury Patterns and Manner-of-Death Characteristics in Sharp-Force Fatalities: A 10-Year Medico-Legal Autopsy Study.",
+      "identifier": "10.1097/paf.0000000000001192",
+      "url": "https://europepmc.org/article/MED/43040598",
+      "date": "2026-11-17",
+      "doi": "10.1097/paf.0000000000001192",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A Sandwich-Structured Dual-Mode Fabric with Temperature-Adaptive Spectral Tunability for All-Season Outdoor Personal Thermal Management.",
+      "identifier": "10.1021/acsami.6c14688",
+      "url": "https://europepmc.org/article/MED/43040595",
+      "date": "2026-11-17",
+      "doi": "10.1021/acsami.6c14688",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Human Metapneumovirus-associated Infections Among American Indian and Alaska Native Children, 2019-2024.",
+      "identifier": "10.1097/inf.0000000000005469",
+      "url": "https://europepmc.org/article/MED/43040593",
+      "date": "2026-11-17",
+      "doi": "10.1097/inf.0000000000005469",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A Rare Case of Fatal Brainstem Encephalitis.",
+      "identifier": "10.1097/paf.0000000000001194",
+      "url": "https://europepmc.org/article/MED/43040590",
+      "date": "2026-11-17",
+      "doi": "10.1097/paf.0000000000001194",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Effects of Yoga on Stiffness, Walking Function, Muscle Strength, and Quality of Life in Patients With Knee Osteoarthritis: A Systematic Review and Three-Level Meta-Analysis.",
+      "identifier": "10.1097/phm.0000000000003207",
+      "url": "https://europepmc.org/article/MED/43040587",
+      "date": "2026-11-17",
+      "doi": "10.1097/phm.0000000000003207",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Characterization of the SsdA deaminase-family for improved cytosine base editors.",
+      "identifier": "10.1186/s12896-026-01247-6",
+      "url": "https://europepmc.org/article/MED/43040462",
+      "date": "2026-11-17",
+      "doi": "10.1186/s12896-026-01247-6",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Timing of transition from mechanical thrombectomy to intra-arterial alteplase and reperfusion quality in thrombectomy-refractory stroke.",
+      "identifier": "10.7461/jcen.2026.e2026.07.001",
+      "url": "https://europepmc.org/article/MED/43040453",
+      "date": "2026-11-17",
+      "doi": "10.7461/jcen.2026.e2026.07.001",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The follow-up results of partial clipping for unruptured intracranial aneurysms: The role of coil embolization after partial clipping.",
+      "identifier": "10.7461/jcen.2026.e2026.08.008",
+      "url": "https://europepmc.org/article/MED/43040452",
+      "date": "2026-11-17",
+      "doi": "10.7461/jcen.2026.e2026.08.008",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Gender differences regarding body image-related aspects in the general population during the COVID-19 pandemic: a systematic review.",
+      "identifier": "10.1186/s40359-026-05949-6",
+      "url": "https://europepmc.org/article/MED/43040381",
+      "date": "2026-11-17",
+      "doi": "10.1186/s40359-026-05949-6",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Genetic architecture and susceptibility mechanisms of multivariate mania: insights from genomic structural equation modeling.",
+      "identifier": "10.1186/s12888-026-08369-3",
+      "url": "https://europepmc.org/article/MED/43040300",
+      "date": "2026-11-17",
+      "doi": "10.1186/s12888-026-08369-3",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The hidden burden of insomnia in late pregnancy: prevalence and risk factors among Egyptian women.",
+      "identifier": "10.1186/s12884-026-10088-2",
+      "url": "https://europepmc.org/article/MED/43040284",
+      "date": "2026-11-17",
+      "doi": "10.1186/s12884-026-10088-2",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comparative real-world outcomes of LifeStream and Viabahn VBX balloon-expandable covered stents for iliac artery occlusive disease.",
+      "identifier": "10.1186/s42155-026-00802-8",
+      "url": "https://europepmc.org/article/MED/43040196",
+      "date": "2026-11-17",
+      "doi": "10.1186/s42155-026-00802-8",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Does the timing of postoperative denosumab administration affect fracture healing in intertrochanteric femoral fractures?",
+      "identifier": "10.1007/s41999-026-01591-y",
+      "url": "https://europepmc.org/article/MED/43040192",
+      "date": "2026-11-17",
+      "doi": "10.1007/s41999-026-01591-y",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Insulin Efsitora Alfa: First Approval.",
+      "identifier": "10.1007/s40265-026-02415-w",
+      "url": "https://europepmc.org/article/MED/43040187",
+      "date": "2026-11-17",
+      "doi": "10.1007/s40265-026-02415-w",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Limited-Memory First-Order Methods: Identification, Reconstruction, $H$-Duality and Application to Optimized Methods",
+      "identifier": "2611.21611",
+      "url": "https://arxiv.org/abs/2611.21611",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hyperkagome antiferromagnetism in the iron garnet Almandine Fe$_3$Al$_2$Si$_3$O$_{12}$",
+      "identifier": "2611.21610",
+      "url": "https://arxiv.org/abs/2611.21610",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Double quantum dots as dynamical impurities in one-dimensional transport",
+      "identifier": "2611.21609",
+      "url": "https://arxiv.org/abs/2611.21609",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Latent Lattice Language Models",
+      "identifier": "2611.21608",
+      "url": "https://arxiv.org/abs/2611.21608",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters",
+      "identifier": "2611.21607",
+      "url": "https://arxiv.org/abs/2611.21607",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Shape of the Strongly Coupled MQM Ground State",
+      "identifier": "2611.21606",
+      "url": "https://arxiv.org/abs/2611.21606",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "ViRA: Toward Ultra-High-Resolution Visual Agents via Cross-Input Relative Policy Optimization",
+      "identifier": "2611.21605",
+      "url": "https://arxiv.org/abs/2611.21605",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FaceJev: Direct Visual Decisions for Face Forgery Detection",
+      "identifier": "2611.21604",
+      "url": "https://arxiv.org/abs/2611.21604",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A separation criterion for chiral systems and its application to Plebański--Demiański perturbations",
+      "identifier": "2611.21603",
+      "url": "https://arxiv.org/abs/2611.21603",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Quantifying the added value of human forecaster discussions for tropical cyclone intensity prediction",
+      "identifier": "2611.21602",
+      "url": "https://arxiv.org/abs/2611.21602",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Open Heavy Flavor in Nuclear Collisions: From Lattice QCD to Observables",
+      "identifier": "2611.21601",
+      "url": "https://arxiv.org/abs/2611.21601",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "How VLMs Plan What's Next",
+      "identifier": "2611.21600",
+      "url": "https://arxiv.org/abs/2611.21600",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hyperlyve: Parallelized Enumeration and Exact Lyapunov Stability Certification for Deep ReLU Networks",
+      "identifier": "2611.21599",
+      "url": "https://arxiv.org/abs/2611.21599",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Mitigating Catastrophic Forgetting with Physics-Indexed Specialist Memory: the Evolutionary Neuroplastic Agent",
+      "identifier": "2611.21598",
+      "url": "https://arxiv.org/abs/2611.21598",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Optimal Autoregressive Chain-of-Thought Learning via Bagging",
+      "identifier": "2611.21597",
+      "url": "https://arxiv.org/abs/2611.21597",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "SADL: On the Demand-Supply Geometry of Representation Collapse",
+      "identifier": "2611.21596",
+      "url": "https://arxiv.org/abs/2611.21596",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Rest-frame annihilation lines of $\\sim70$ GeV WIMPs in 23,000 stacked galaxy clusters",
+      "identifier": "2611.21595",
+      "url": "https://arxiv.org/abs/2611.21595",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Surrogate-Assisted Compact-Model Extraction for SKY130 CMOS at 77 K",
+      "identifier": "2611.21594",
+      "url": "https://arxiv.org/abs/2611.21594",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Electrostatic and magnetic control of the anomalous Josephson phase in ferromagnetic hybrid junctions",
+      "identifier": "2611.21593",
+      "url": "https://arxiv.org/abs/2611.21593",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Connectivity from activity in spiking neural networks",
+      "identifier": "2611.21592",
+      "url": "https://arxiv.org/abs/2611.21592",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Separation of gravitational perturbations of Myers-Perry black holes",
+      "identifier": "2611.21591",
+      "url": "https://arxiv.org/abs/2611.21591",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Provenance-Privacy Paradox: Can Private Cloud Compute (PCC) Prove That Apple Reference Images Are Not Used for Learning?",
+      "identifier": "2611.21590",
+      "url": "https://arxiv.org/abs/2611.21590",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Exceptional cubics on 7-manifolds",
+      "identifier": "2611.21589",
+      "url": "https://arxiv.org/abs/2611.21589",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Recent Advances and Precision Measurements with the JYFLTRAP Double Penning Trap Mass Spectrometer",
+      "identifier": "2611.21588",
+      "url": "https://arxiv.org/abs/2611.21588",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Commissioning of GEM Detectors for the Super Bigbite Spectrometer",
+      "identifier": "2611.21587",
+      "url": "https://arxiv.org/abs/2611.21587",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Dermatologist Underrepresentation on the National Comprehensive Cancer Network Penile and Vulvar Cancer Panels and the Case for Mohs Micrographic Surgery.",
       "identifier": "10.1097/dss.0000000000005454",
       "url": "https://europepmc.org/article/MED/43037567",
@@ -9834,7 +10309,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-17T01:40:47Z",
+    "last_poll": "2026-11-17T15:37:55Z",
     "sources": [
       {
         "name": "Ninth Circuit",
