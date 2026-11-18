@@ -3,6 +3,265 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Co-creating a quality management system: development, implementation and lessons learned from a mixed-method action case study in a regional hospital.",
+      "identifier": "10.1108/ijhcqa-08-2025-0114",
+      "url": "https://europepmc.org/article/MED/43042687",
+      "date": "2026-11-18",
+      "doi": "10.1108/ijhcqa-08-2025-0114",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Steam Processing Improves the Suitability of Skipjack Tuna Bone Meal as a Source of Calcium and Phosphorus for Early-laying Hens.",
+      "identifier": "10.2141/jpsa.2026029",
+      "url": "https://europepmc.org/article/MED/43042175",
+      "date": "2026-11-18",
+      "doi": "10.2141/jpsa.2026029",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Clinical Characteristics and Outcomes of Cytomegalovirus Infection in a Pediatric Intensive Care Unit.",
+      "identifier": "10.65717/turkarchpediatr.2026.26551",
+      "url": "https://europepmc.org/article/MED/43041041",
+      "date": "2026-11-18",
+      "doi": "10.65717/turkarchpediatr.2026.26551",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A genomic approach using the &lt;i&gt;SEDA-Compi gene evolution&lt;/i&gt; pipeline to address &lt;i&gt;GULO&lt;/i&gt; pseudogenization in Caviidae and Afrotheria.",
+      "identifier": "10.1515/jib-2025-0065",
+      "url": "https://europepmc.org/article/MED/43040955",
+      "date": "2026-11-18",
+      "doi": "10.1515/jib-2025-0065",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "pegi3s bioinformatics Docker images project improved container selection.",
+      "identifier": "10.1515/jib-2025-0067",
+      "url": "https://europepmc.org/article/MED/43040952",
+      "date": "2026-11-18",
+      "doi": "10.1515/jib-2025-0067",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Cross-tonal and cross-generational variability of laryngeal contrasts in Shuangfeng Xiang Chinese.",
+      "identifier": "10.1515/phon-2025-0035",
+      "url": "https://europepmc.org/article/MED/43038504",
+      "date": "2026-11-18",
+      "doi": "10.1515/phon-2025-0035",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Against premature progress: what is genuine progress in ophthalmology.",
+      "identifier": "10.18240/ijo.2026.11.01",
+      "url": "https://europepmc.org/article/MED/42959692",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.01",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Contrasting filtering bleb formation following Preserflo MicroShunt implantation before and after anti-IL-4 receptor alpha antibody therapy in a patient with atopic dermatitis.",
+      "identifier": "10.18240/ijo.2026.11.24",
+      "url": "https://europepmc.org/article/MED/42959664",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.24",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Combining pars plana vitrectomy with insertion of scleral fixated IOL and penetrative keratoplasty-an alternative approach.",
+      "identifier": "10.18240/ijo.2026.11.25",
+      "url": "https://europepmc.org/article/MED/42959658",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.25",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Retinopathy of prematurity among infants in East Africa: a systematic review and Meta-analysis.",
+      "identifier": "10.18240/ijo.2026.11.18",
+      "url": "https://europepmc.org/article/MED/42959660",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.18",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Trends of delayed healthcare access in ocular injuries: a multicenter study in community hospitals, Central Thailand.",
+      "identifier": "10.18240/ijo.2026.11.16",
+      "url": "https://europepmc.org/article/MED/42959650",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.16",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A novel progressive defocus rigid gas permeable contact lenses for controlling axial elongation in myopic children: a retrospective study.",
+      "identifier": "10.18240/ijo.2026.11.13",
+      "url": "https://europepmc.org/article/MED/42959652",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.13",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A new pathological perspective on juvenile open angle glaucoma with chromatin decondensation and trabecular meshwork damage: a case report.",
+      "identifier": "10.18240/ijo.2026.11.23",
+      "url": "https://europepmc.org/article/MED/42959640",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.23",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Efficacy and satisfaction analysis of biodegradable amniotic lacrimal duct repair stent for acquired lacrimal obstruction.",
+      "identifier": "10.18240/ijo.2026.11.07",
+      "url": "https://europepmc.org/article/MED/42959648",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.07",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Distinct tear cytokine profile and ocular surface phenotype in primary biliary cholangitis patients with Sjögren's syndrome.",
+      "identifier": "10.18240/ijo.2026.11.14",
+      "url": "https://europepmc.org/article/MED/42959624",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.14",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Fundus autofluorescence patterns in highly myopic eyes received macular buckling surgery for myopic maculoschisis with macular detachment.",
+      "identifier": "10.18240/ijo.2026.11.10",
+      "url": "https://europepmc.org/article/MED/42959628",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.10",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Retina status at first ROP exam and the subsequent development of type 1 ROP.",
+      "identifier": "10.18240/ijo.2026.11.21",
+      "url": "https://europepmc.org/article/MED/42959634",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.21",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Corneal diameter distribution and its determinant factors in elderly population: Tehran Geriatric Eye Study.",
+      "identifier": "10.18240/ijo.2026.11.15",
+      "url": "https://europepmc.org/article/MED/42959632",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.15",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comparative analysis of wound healing effect induced by photo-crosslinked adhesive in cornea and conjunctival injuries.",
+      "identifier": "10.18240/ijo.2026.11.03",
+      "url": "https://europepmc.org/article/MED/42959622",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.03",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Efficacy and safety of intravitreal conbercept treat-and-extend regimens in neovascular age-related macular degeneration.",
+      "identifier": "10.18240/ijo.2026.11.09",
+      "url": "https://europepmc.org/article/MED/42959616",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.09",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A brain stem tumor with visual discomfort.",
+      "identifier": "10.18240/ijo.2026.11.26",
+      "url": "https://europepmc.org/article/MED/42959618",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.26",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Hypoxia-activated microglia promote pathological angiogenesis &lt;i&gt;via&lt;/i&gt; an FN/ITGB3/FAK/Akt pathway.",
+      "identifier": "10.18240/ijo.2026.11.02",
+      "url": "https://europepmc.org/article/MED/42959614",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.02",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Development and external validation of a prediction model for suboptimal orthokeratology control in adolescents.",
+      "identifier": "10.18240/ijo.2026.11.12",
+      "url": "https://europepmc.org/article/MED/42959449",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.12",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Clinical outcomes of scleral lenses in keratoconus: a systematic review and Meta-analysis.",
+      "identifier": "10.18240/ijo.2026.11.17",
+      "url": "https://europepmc.org/article/MED/42959447",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.17",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Compatibility of 24-2C central extra test points with OCT and OCTA parameters in early-stage glaucoma.",
+      "identifier": "10.18240/ijo.2026.11.08",
+      "url": "https://europepmc.org/article/MED/42959441",
+      "date": "2026-11-18",
+      "doi": "10.18240/ijo.2026.11.08",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "ELIZONDO URZUA V. BLANCHE",
+      "identifier": "25-604",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/17/25-604.pdf",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T00:39:22Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Diabetes care across the Islamic calendar: Ramadan fasting and Hajj pilgrimage.",
       "identifier": "10.1097/med.0000000000000989",
       "url": "https://europepmc.org/article/MED/43040788",
@@ -10309,7 +10568,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-17T15:37:55Z",
+    "last_poll": "2026-11-18T00:39:22Z",
     "sources": [
       {
         "name": "Ninth Circuit",
