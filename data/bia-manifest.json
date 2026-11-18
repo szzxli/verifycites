@@ -1,11 +1,11 @@
 {
   "status": "complete",
   "mode": "poll",
-  "updated_utc": "2026-11-17T23:08:55Z",
-  "last_success_utc": "2026-11-17T23:08:55Z",
+  "updated_utc": "2026-11-18T22:41:27Z",
+  "last_success_utc": "2026-11-18T22:41:27Z",
   "volumes": {
     "30": {
-      "found_on_page": 34,
+      "found_on_page": 35,
       "pairing_gaps": 6,
       "pairing_gap_sample": [
         "citation without a following PDF link: Matter of D-G-E-A- & N-G-G-E- (29 I&N Dec. 570)",
@@ -13,7 +13,7 @@
         "citation without a following PDF link: Matter of K- (7 I&N Dec. 594)"
       ],
       "expected_count": null,
-      "new_downloaded": 0,
+      "new_downloaded": 1,
       "failed": 0,
       "missing_ids": [],
       "extraction_short": 0
