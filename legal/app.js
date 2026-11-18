@@ -99,12 +99,15 @@ function render(results) {
 function vfLang() { return (typeof currentLang === "string" && VERIFY_TEXT[currentLang]) ? currentLang : "en"; }
 function vfStatusHtml(r) {
   var lang = vfLang();
-  if (!r || !r.verify) return "<div class=\"status-body\"><span class=\"result-label\">\u2026</span><small class=\"label-explanation\">" + esc(VERIFY_TEXT[lang].checking) + "</small></div>";
-  var label = r.label || "NOT_CHECKED";
+  if (!r || !r.verify) return "<div class=\"status-body\"><span class=\"result-label is-not-checked\">\u2026</span><small class=\"label-explanation\">" + esc(VERIFY_TEXT[lang].checking) + "</small></div>";
+  var status = verifyUserStatus(r, lang);
+  var sentence = verifyStatusSentence(r, lang);
+  var rest = sentence.indexOf(status) === 0 ? sentence.slice(status.length).replace(/^\.\s*/, "") : sentence;
+  var cls = r.label === "VERIFIED" ? "verified" : (r.label === "NOT_FOUND" ? "not-found" : (r.label === "RATE_LIMITED" ? "rate-limited" : "not-checked"));
   var link = r.verify.url
     ? " <a class=\"verify-link\" href=\"" + esc(r.verify.url) + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + esc(T().vfOpenRecord || "Open the record") + "</a>" : "";
-  return "<div class=\"status-body\"><span class=\"result-label is-" + esc(label.toLowerCase().replace(/_/g, "-")) + "\">" + esc(label) + "</span><small class=\"label-explanation\">"
-    + esc(verifyStatusSentence(r, lang)) + "</small>" + link + "</div>";
+  return "<div class=\"status-body\"><span class=\"result-label is-" + cls + "\">" + esc(status) + "</span>"
+    + (rest ? "<small class=\"label-explanation\">" + esc(rest) + "</small>" : "") + link + "</div>";
 }
 function vfUpdateCells(results) {
   results.forEach(function (r, i) {
@@ -119,8 +122,6 @@ function vfUpdateCells(results) {
 function vfCountText(results) {
   var sum = verifySummary(results);
   sum.n = results.length;
-  sum.verified = sum.verified + sum.cited;
-  sum.y = sum.not_found + sum.mismatch;
   sum.not_checked = sum.not_checked + sum.failed;
   return T().vfSummary.replace(/\{(\w+)\}/g, function (_m, k) { return sum[k] != null ? sum[k] : ""; });
 }
@@ -529,7 +530,7 @@ function renderReport(results) {
     tr.innerHTML = "<td class=\"col-extra\">" + row.index + "</td><td>" + esc(row.text)
       + "<div class=\"hand-check-line\"><label><input type=\"checkbox\" data-hand=\"" + ri + "\""
       + (handChecked ? " checked" : "") + "> Checked by hand</label></div></td>"
-      + "<td>" + esc(row.caseName) + "</td><td>" + esc(row.label)
+      + "<td>" + esc((typeof verifyUserStatus === "function" && row.verify) ? verifyUserStatus(row, vfLang()) : row.label)
       + (row.verify ? "<br><small>" + esc(verifyStatusSentence(row, vfLang())) + "</small>"
         + (row.verify.url ? " <a href=\"" + esc(row.verify.url) + "\" target=\"_blank\" rel=\"noopener noreferrer\">" + esc(t.vfOpenRecord || "Open the record") + "</a>" : "") : "")
       + "</td>"

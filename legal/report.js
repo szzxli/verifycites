@@ -146,7 +146,7 @@ function immSourceLine(type, t, row, imm8cfr, immIna) {
       || "Source line: U.S. Code provision (8 U.S.C.) \u2014 this section is not in the partial INA\u2194U.S.C. mapping table, so it cannot be confirmed; check by hand below.";
   }
   var fallback = {
-    court: "Source line: court case \u2014 looked up by volume and page in the Caselaw Access Project (see the label and status). Links below to check by hand.",
+    court: "Source line: court case \u2014 looked up by volume and page in CourtListener (see the status). Links below to check by hand.",
     bia: "Source line: BIA precedent \u2014 looked up in our BIA library (see the label and status). EOIR link below to check by hand.",
     statute: "Source line: INA provision \u2014 this section is not in the partial INA\u2194U.S.C. mapping table, so it cannot be confirmed; check by hand below.",
     regulation: "Source line: 8 CFR provision (eCFR) \u2014 not yet connected in this page; check by hand below. This row was not checked against any live source.",
@@ -434,6 +434,13 @@ function _rowDisplay(row, t) {
    another check (any label other than NOT_CHECKED), the original basis
    is not in this report, so the basis section says so instead of
    guessing it. */
+function reportStatusText(row) {
+  if (row && row.verify && typeof verifyUserStatus === "function") {
+    var lang = (typeof currentLang === "string") ? currentLang : "en";
+    return verifyUserStatus(row, lang);
+  }
+  return (row && row.label) || "NOT_CHECKED";
+}
 function reportCheckBasis(report, t, runTime) {
   var f = function (k, d) { return (t && t[k]) || d; };
   var rows = (report && report.rows) || [];
@@ -447,7 +454,7 @@ function reportCheckBasis(report, t, runTime) {
       ? f("reportBasisBrowserChecked", "What was checked: text extraction, structure checks, and an existence lookup by volume and page for court cases and I&N Dec. citations. Rows marked NOT_CHECKED were outside that coverage.")
       : f("reportBasisMixed", "What was checked: text extraction, structure checks, and an existence lookup by volume and page. Rows from another check keep their own basis, which is not recorded in this report."),
     source: allBrowser
-      ? f("reportBasisBrowserSource", "Data sources: Caselaw Access Project static files (static.case.law) and the VerifyCites BIA library. Your pasted text is not sent anywhere.")
+      ? f("reportBasisBrowserSource", "Data sources: CourtListener citation lookup and the VerifyCites BIA library (EOIR). Your document is not sent anywhere; only the extracted citation (volume, reporter, and page) is sent to CourtListener through this site.")
       : f("reportScopeUnknown", "Check scope not recorded in this report; see the original check."),
     runTime: runText,
     itemTime: f("reportBasisItemTime", "Per-item check time: not recorded in this report.")
@@ -611,7 +618,7 @@ function healthReportMarkdown(report, t, human, runTime, tier1Find, imm8cfrFindF
     var _immLinks = immLinkKeysFor(_immType, row).map(function (l) {
       return "[" + f(l.key, l.key) + "](" + l.url + ")";
     }).join(", ");
-    lines.push("- [ ] **" + row.label + "** \u2014 " + row.text
+    lines.push("- [ ] **" + reportStatusText(row) + "** \u2014 " + row.text
       + (row.caseName ? " (" + row.caseName + ")" : "")
       + (row.parenthetical ? " " + row.parenthetical : (row.year ? " (" + row.year + ")" : ""))
       + (row.pinCite ? " pin cite: " + row.pinCite : "")
@@ -652,7 +659,7 @@ function healthReportHtml(report, t, human, runTime, tier1Find, imm8cfrFindFn, i
     return "<tr><td>" + row.index + "</td><td>" + _escHtml(row.text) + "</td>"
       + "<td>" + _escHtml(row.caseName) + "</td><td>" + _escHtml(row.year) + "</td>"
       + "<td>" + _escHtml(row.pinCite) + "</td><td>" + flagText + "</td>"
-      + "<td>" + _escHtml(row.label) + "</td>"
+      + "<td>" + _escHtml(reportStatusText(row)) + "</td>"
       + "<td>" + _escHtml(d.categoryLabel) + "</td>"
       + "<td>" + _escHtml(d.anomaly) + "</td>"
       + "<td>" + _escHtml(d.evidence)

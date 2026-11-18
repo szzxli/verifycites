@@ -1,8 +1,9 @@
 /* Label definitions shared with the Python package (see legalcite/labels.py).
-   The browser page (verify.js) checks court-case and I&N Dec. citations
-   for existence against the Caselaw Access Project static files and the
-   VerifyCites BIA library; every other row is NOT_CHECKED. No label says
-   a case is good law: subsequent history is never checked. */
+   The browser page (verify.js) checks reported court citations with
+   CourtListener and I&N Dec. citations against the VerifyCites BIA
+   library. "Verified" is used only when a lookup matched a record.
+   Found means the citation exists. It does not mean the case is still
+   good law or that it supports the claim. */
 const LABELS = {
   VERIFIED: "Found in the named source and the case name matches. Existence only; not good law.",
   CITED: "Found in the named source; name not compared.",

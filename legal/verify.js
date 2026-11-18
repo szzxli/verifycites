@@ -1,24 +1,19 @@
-/* Citation existence check (browser). What this does, exactly:
-   - Court-reporter cites (U.S., F.3d, F. Supp. 2d, ...): looks the volume
-     up in the Caselaw Access Project static files (static.case.law,
-     Harvard Library Innovation Lab, free, no account) and compares the
-     case at that volume/first page with the case name in your text.
-   - I&N Dec. cites: looks the volume/page up in this site's own BIA
-     library file (data/bia-index.json, built from EOIR's decisions pages).
-   - Everything else (statutes, regulations, Federal Register, AAO):
-     not checked here.
-   Only the reporter, volume and page are ever requested. Your pasted
-   text and case names never leave the browser.
-   A "Verified" row means: a decision with that citation exists in that
-   source and its name matches. It says NOTHING about whether the case is
-   good law, whether later decisions overruled or limited it, or whether
-   it supports your argument: subsequent history is NOT checked. */
-var VERIFY_CAP_BASE = "https://static.case.law/";
-var VERIFY_TIMEOUT_MS = 12000;
-var VERIFY_CONCURRENCY = 4;
-var VERIFY_NOT_GOOD_LAW = "Subsequent history and good-law status are not checked.";
-var VERIFY_SRC_CAP = "Caselaw Access Project (Harvard, static.case.law)";
+/* Citation existence check (browser).
+   - Reported court cites (U.S., F.3d, F.4th, S. Ct., ...): POST only the
+     citation (volume, reporter, page) to this site's /api/verify, which
+     asks CourtListener. The rest of the pasted text stays in the browser.
+   - I&N Dec. cites: looked up in the static BIA library on this site
+     (data/bia-cite-index.json, built from EOIR Agency Decisions pages).
+   - Statutes, regulations, the Federal Register, AAO: not checked.
+   "Verified — found" is used only when a lookup returned a record.
+   Found means the citation exists. It does not mean the case is still
+   good law or that it supports the claim. */
+var VERIFY_LOOKUP_URL = "/api/verify";
+var VERIFY_CHUNK = 25;
+var VERIFY_TIMEOUT_MS = 20000;
+var VERIFY_SRC_CL = "CourtListener";
 var VERIFY_SRC_BIA = "VerifyCites BIA library (EOIR precedent decisions)";
+var VERIFY_FOUND_NOTE = "Found means this citation exists. It does not mean it is still good law or that it supports the claim.";
 
 function verifyNorm(s) {
   return String(s || "").toLowerCase().replace(/&/g, " and ").replace(/\bet\s*al\.?/g, " ")
@@ -29,10 +24,9 @@ var VERIFY_NAME_STOP = ["the", "of", "and", "inc", "llc", "corp", "co", "ltd", "
 function verifyPartyTokens(party) {
   return verifyNorm(party).split(" ").filter(function (t) { return t.length > 1; });
 }
-/* Case-name comparison. "A v. B" matches a record when the main word of
-   each side appears in the record name (stop words and corporate
-   suffixes ignored). "Matter of X" matches when every X token appears.
-   Returns "match", "mismatch", or "none" (no name in the text). */
+/* "match" when the main word of each side of "A v. B" (or every token
+   of "Matter of X") appears in the record name. Used only to tell the
+   reader when the name in the text is a different case. */
 function verifyNameCompare(textName, recordName) {
   if (!textName) return "none";
   var rec = " " + verifyNorm(recordName) + " ";
@@ -46,83 +40,113 @@ function verifyNameCompare(textName, recordName) {
   });
   return ok ? "match" : "mismatch";
 }
-function verifyAbbrKey(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
 
-/* Map an extracted reporter abbreviation to a CAP reporter slug using
-   CAP's own ReportersMetadata.json (short_name -> slug). */
-function verifySlugFor(reporters, abbreviation) {
-  var key = verifyAbbrKey(abbreviation);
-  for (var i = 0; i < (reporters || []).length; i++) {
-    if (verifyAbbrKey(reporters[i].short_name) === key) return reporters[i].slug;
-  }
-  return null;
+function verifyCiteKey(text) {
+  var s = String(text || "").replace(/\s+/g, " ").trim();
+  var m = /^(\d+)\s+(.+?)\s+(\d+)$/.exec(s);
+  if (!m) return "";
+  return String(parseInt(m[1], 10)) + "|" + m[2].toLowerCase().replace(/[^a-z0-9]+/g, "") + "|" + String(parseInt(m[3], 10));
 }
-function verifyCapHtmlUrl(slug, vol, c) {
-  return VERIFY_CAP_BASE + slug + "/" + vol + "/html/" + c.file_name + ".html";
+
+/* Pure: one court cite against one trimmed CourtListener lookup item
+   (or null when that cite was not in the response). */
+function verifyCourtFromLookup(row, item) {
+  var cite = row.volume + " " + row.reporter + " " + row.page;
+  if (!item) {
+    return { label: "NOT_CHECKED", sourceName: VERIFY_SRC_CL, code: "nc_unreturned", params: {} };
+  }
+  if (item.status === 429) {
+    return { label: "RATE_LIMITED", sourceName: VERIFY_SRC_CL, code: "nc_rate", params: {} };
+  }
+  if (item.status === 400) {
+    return { label: "NOT_CHECKED", sourceName: VERIFY_SRC_CL, code: "nc_reporter", params: { reporter: row.reporter || "" } };
+  }
+  var clusters = (item.clusters || []).filter(function (c) { return c && (c.caseName || c.url); });
+  if (item.status === 404) {
+    return { label: "NOT_FOUND", sourceName: VERIFY_SRC_CL, code: "nf_court", params: { cite: cite } };
+  }
+  if ((item.status === 200 || item.status === 300) && clusters.length) {
+    var first = clusters[0];
+    var names = clusters.map(function (c) { return c.caseName; }).filter(Boolean);
+    var year = first.dateFiled ? String(first.dateFiled).slice(0, 4) : "";
+    var st = verifyNameCompare(row.caseName, names.join(" "));
+    var code = "ok";
+    if (st === "mismatch") code = "ok_name_differs";
+    else if (clusters.length > 1) code = "ok_several";
+    return {
+      label: "VERIFIED", sourceName: VERIFY_SRC_CL, code: code,
+      url: first.url || "", recordName: first.caseName || "", recordYear: year,
+      params: { name: first.caseName || "", year: year, textName: row.caseName || "", also: names.slice(1).join("; "), cite: cite }
+    };
+  }
+  return { label: "NOT_CHECKED", sourceName: VERIFY_SRC_CL, code: "nc_empty", params: {} };
 }
-/* Pure: decide the result for one court cite given the volume's case list
-   (array, or null when the volume is not in CAP). */
-function verifyCourtRow(row, slug, cases) {
-  var out = { sourceName: VERIFY_SRC_CAP };
-  if (!slug) {
-    return { label: "NOT_CHECKED", sourceName: VERIFY_SRC_CAP, code: "nc_reporter", params: { reporter: row.reporter } };
-  }
-  if (cases === null) {
-    return { label: "NOT_CHECKED", sourceName: VERIFY_SRC_CAP, code: "nc_volume", params: { reporter: row.reporter, volume: row.volume } };
-  }
-  var page = String(parseInt(row.page, 10));
-  var hits = cases.filter(function (c) { return String(parseInt(c.first_page, 10)) === page; });
-  if (!hits.length) {
-    var inside = cases.filter(function (c) { return parseInt(c.first_page, 10) < +page && +page <= parseInt(c.last_page, 10); })[0];
-    return { label: "NOT_FOUND", sourceName: VERIFY_SRC_CAP,
-      code: inside ? "nf_court_inside" : "nf_court", params: { cite: row.volume + " " + row.reporter + " " + row.page,
-        inside: inside ? (inside.name_abbreviation || inside.name) : "", insidePage: inside ? inside.first_page : "" } };
-  }
-  var best = null, state = "none";
-  hits.forEach(function (c) {
-    var st = verifyNameCompare(row.caseName, c.name_abbreviation + " " + c.name);
-    if (st === "match" || (st === "none" && state !== "match") || !best) {
-      if (state !== "match") { best = c; state = st; }
-    }
+
+function biaEntryVolume(e) {
+  if (e.volume != null && e.volume !== "") return String(parseInt(e.volume, 10));
+  var m = /^(\d+)/.exec(e.citation || "");
+  return m ? String(parseInt(m[1], 10)) : "";
+}
+function biaEntryPage(e) {
+  if (e.page != null && e.page !== "") return parseInt(e.page, 10);
+  var m = /I&N Dec\.\s*(\d+)/.exec(e.citation || "");
+  return m ? parseInt(m[1], 10) : NaN;
+}
+function biaEntryName(e) { return e.name || e.display_name || ""; }
+function biaEntryUrl(e) { return e.url || e.pdf_url || ""; }
+
+function verifyBiaCoverage(volumes) {
+  var nums = [];
+  (volumes || []).forEach(function (v) {
+    var n = parseInt(v, 10);
+    if (!isNaN(n) && nums.indexOf(n) < 0) nums.push(n);
   });
-  var yr = best.decision_date ? best.decision_date.slice(0, 4) : null;
-  var url = verifyCapHtmlUrl(slug, row.volume, best);
-  var recordName = best.name_abbreviation || best.name;
-  var yearBad = !!(row.year && yr && Math.abs(parseInt(row.year, 10) - parseInt(yr, 10)) > 1);
-  var yearOff = !!(row.year && yr && parseInt(row.year, 10) !== parseInt(yr, 10));
-  out.url = url; out.recordName = recordName; out.recordYear = yr;
-  var p = { name: recordName, year: yr || "", textName: row.caseName || "", textYear: row.year || "" };
-  out.params = p;
-  if (state === "mismatch") { out.label = "MISMATCH"; out.code = "mismatch_name"; }
-  else if (state === "none") { out.label = "CITED"; out.code = "cited_noname"; }
-  else if (yearBad) { out.label = "MISMATCH"; out.code = "mismatch_year"; }
-  else { out.label = "VERIFIED"; out.code = yearOff ? "ok_year1" : "ok"; }
-  return out;
+  nums.sort(function (a, b) { return a - b; });
+  if (!nums.length) return { code: "nc_bia_empty", params: {} };
+  if (nums.length === 1) return { code: "nc_bia_one", params: { span: String(nums[0]) } };
+  var contig = nums.every(function (n, i) { return i === 0 || n === nums[i - 1] + 1; });
+  if (contig) return { code: "nc_bia_range", params: { span: nums[0] + "\u2013" + nums[nums.length - 1] } };
+  return { code: "nc_bia_list", params: { span: nums.join(", ") } };
 }
 
-/* Pure: BIA row against the library index (data/bia-index.json). */
+/* Pure: one I&N Dec. cite against the static library.
+   A volume listed in index.volumes (or, if that list is absent, any
+   volume that has entries) is complete: a miss is Not found. Any other
+   volume is Not checked, and the reason names the volumes we do have.
+   A hit is Verified — found even when the volume is not in the complete
+   list, because that one decision was in the file. */
 function verifyBiaRow(row, index) {
   var entries = (index && index.entries) || [];
-  var cite = row.volume + " I&N Dec. " + parseInt(row.page, 10);
-  var vols = {};
-  entries.forEach(function (e) { vols[String(e.volume)] = (vols[String(e.volume)] || 0) + 1; });
-  var volList = Object.keys(vols).sort(function (a, b) { return a - b; });
-  var hit = entries.filter(function (e) { return e.citation === cite; })[0];
+  var vol = String(parseInt(row.volume, 10));
+  var page = parseInt(row.page, 10);
+  if (!row || row.page == null || isNaN(page)) {
+    return { label: "NOT_CHECKED", sourceName: VERIFY_SRC_BIA, code: "nc_bia_nopage", params: {} };
+  }
+  var cite = vol + " I&N Dec. " + page;
+  var hit = null;
+  for (var i = 0; i < entries.length; i++) {
+    if (biaEntryVolume(entries[i]) === vol && biaEntryPage(entries[i]) === page) { hit = entries[i]; break; }
+  }
   if (hit) {
-    var st = verifyNameCompare(row.caseName, hit.display_name);
-    var base = { sourceName: VERIFY_SRC_BIA, url: hit.pdf_url, recordName: hit.display_name, recordYear: String(hit.year),
-      params: { name: hit.display_name, year: String(hit.year), textName: row.caseName || "", textYear: row.year || "" } };
-    if (st === "mismatch") { base.label = "MISMATCH"; base.code = "mismatch_name"; }
-    else if (st === "none") { base.label = "CITED"; base.code = "cited_noname"; }
-    else if (row.year && Math.abs(parseInt(row.year, 10) - hit.year) > 1) { base.label = "MISMATCH"; base.code = "mismatch_year"; }
-    else { base.label = "VERIFIED"; base.code = row.year && parseInt(row.year, 10) !== hit.year ? "ok_year1" : "ok"; }
-    return base;
+    var name = biaEntryName(hit);
+    var year = hit.year != null ? String(hit.year) : "";
+    var st = verifyNameCompare(row.caseName, name);
+    return {
+      label: "VERIFIED", sourceName: VERIFY_SRC_BIA, code: st === "mismatch" ? "ok_name_differs" : "ok",
+      url: biaEntryUrl(hit), recordName: name, recordYear: year,
+      params: { name: name, year: year, textName: row.caseName || "", also: "", cite: cite }
+    };
   }
-  var n = vols[String(parseInt(row.volume, 10))] || vols[String(row.volume)];
-  if (n) {
-    return { label: "NOT_FOUND", sourceName: VERIFY_SRC_BIA, code: "nf_bia", params: { cite: cite, n: String(n), volume: String(row.volume) } };
+  var complete = (index && index.volumes && index.volumes.length)
+    ? index.volumes.map(function (v) { return String(parseInt(v, 10)); })
+    : entries.map(biaEntryVolume).filter(Boolean);
+  var seen = {};
+  complete.forEach(function (v) { if (v && v !== "NaN") seen[v] = true; });
+  var cov = verifyBiaCoverage(Object.keys(seen));
+  if (seen[vol]) {
+    return { label: "NOT_FOUND", sourceName: VERIFY_SRC_BIA, code: "nf_bia", params: { cite: cite } };
   }
-  return { label: "NOT_CHECKED", sourceName: VERIFY_SRC_BIA, code: "nc_bia_outside", params: { vols: volList.join(", ") || "-" } };
+  return { label: "NOT_CHECKED", sourceName: VERIFY_SRC_BIA, code: cov.code, params: cov.params };
 }
 
 function verifyRowKind(row) {
@@ -135,169 +159,230 @@ function verifyRowKind(row) {
 }
 function verifyNotCheckedCode(kind) { return kind === "aao" ? "nc_aao" : "nc_statute"; }
 
-function verifyWithTimeout(fetchImpl, url, ms) {
-  var ctl = (typeof AbortController !== "undefined") ? new AbortController() : null;
-  var timer = null;
-  var timeout = new Promise(function (_res, rej) {
-    timer = setTimeout(function () { if (ctl) ctl.abort(); rej(new Error("timeout after " + Math.round(ms / 1000) + " s")); }, ms);
-  });
-  var req = fetchImpl(url, ctl ? { signal: ctl.signal } : {});
-  return Promise.race([req, timeout]).then(function (r) { clearTimeout(timer); return r; },
-    function (e) { clearTimeout(timer); throw e; });
+function verifyUnavailable(code) {
+  return {
+    label: code === "nc_rate" ? "RATE_LIMITED" : "NOT_CHECKED",
+    sourceName: VERIFY_SRC_CL, code: code, params: {}
+  };
 }
 
-/* deps: { fetch, onProgress(done,total), timeoutMs } . Mutates rows:
-   row.label, row.verify = {label, sourceName, url, reason, recordName,
-   recordYear}. Returns a summary object. */
+var VERIFY_TEXT = {
+  en: {
+    badge: { pending: "Not checked", found: "Verified \u2014 found", notFound: "Not found", notChecked: "Not checked ({reason})" },
+    ok: "Record: {name} ({year}).",
+    ok_name_differs: "Record: {name} ({year}). Your text names {textName}.",
+    ok_several: "Record: {name} ({year}). Other records at this citation: {also}.",
+    nf_court: "We checked CourtListener and no matching record exists. This citation may be wrong or fabricated.",
+    nf_bia: "We checked our BIA library and no decision is listed at {cite}. This citation may be wrong or fabricated.",
+    nc_lookup: "lookup unavailable",
+    nc_rate: "lookup rate limited",
+    nc_reporter: "this reporter is not in CourtListener",
+    nc_unreturned: "lookup did not return this citation",
+    nc_empty: "lookup returned no record",
+    nc_bia_one: "BIA library currently covers volume {span}",
+    nc_bia_range: "BIA library currently covers volumes {span}",
+    nc_bia_list: "BIA library currently covers volumes {span}",
+    nc_bia_nopage: "no starting page to look up",
+    nc_bia_empty: "BIA library is empty",
+    nc_bia_load: "BIA library could not be loaded",
+    nc_statute: "statutes, regulations, and the Federal Register are not looked up here",
+    nc_aao: "AAO decisions are not looked up here",
+    foundNote: "Found means this citation exists. It does not mean it is still good law or that it supports the claim.",
+    checking: "Checking\u2026"
+  },
+  es: {
+    badge: { pending: "No verificado", found: "Verificado \u2014 encontrado", notFound: "No encontrado", notChecked: "No verificado ({reason})" },
+    ok: "Registro: {name} ({year}).",
+    ok_name_differs: "Registro: {name} ({year}). Su texto nombra {textName}.",
+    ok_several: "Registro: {name} ({year}). Otros registros en esta cita: {also}.",
+    nf_court: "Consultamos CourtListener y no hay un registro que coincida. La cita puede estar mal o ser inventada.",
+    nf_bia: "Consultamos nuestra biblioteca de la BIA y no hay una decisi\u00f3n en {cite}. La cita puede estar mal o ser inventada.",
+    nc_lookup: "consulta no disponible",
+    nc_rate: "l\u00edmite de consultas",
+    nc_reporter: "este repertorio no est\u00e1 en CourtListener",
+    nc_unreturned: "la consulta no devolvi\u00f3 esta cita",
+    nc_empty: "la consulta no devolvi\u00f3 un registro",
+    nc_bia_one: "la biblioteca de la BIA ahora cubre el volumen {span}",
+    nc_bia_range: "la biblioteca de la BIA ahora cubre los vol\u00famenes {span}",
+    nc_bia_list: "la biblioteca de la BIA ahora cubre los vol\u00famenes {span}",
+    nc_bia_nopage: "no hay p\u00e1gina inicial para consultar",
+    nc_bia_empty: "la biblioteca de la BIA est\u00e1 vac\u00eda",
+    nc_bia_load: "no se pudo cargar la biblioteca de la BIA",
+    nc_statute: "aqu\u00ed no se consultan leyes, reglamentos ni el Federal Register",
+    nc_aao: "aqu\u00ed no se consultan decisiones del AAO",
+    foundNote: "Encontrado significa que la cita existe. No significa que siga siendo derecho vigente ni que respalde la afirmaci\u00f3n.",
+    checking: "Comprobando\u2026"
+  },
+  zh: {
+    badge: { pending: "\u672a\u6838\u5b9e", found: "\u5df2\u6838\u5b9e\u2014\u2014\u627e\u5230", notFound: "\u672a\u627e\u5230", notChecked: "\u672a\u6838\u5b9e\uff08{reason}\uff09" },
+    ok: "\u8bb0\u5f55\uff1a{name}\uff08{year}\uff09\u3002",
+    ok_name_differs: "\u8bb0\u5f55\uff1a{name}\uff08{year}\uff09\u3002\u60a8\u7684\u6587\u672c\u5199\u7684\u662f {textName}\u3002",
+    ok_several: "\u8bb0\u5f55\uff1a{name}\uff08{year}\uff09\u3002\u8be5\u5f15\u7528\u8fd8\u6709\u5176\u4ed6\u8bb0\u5f55\uff1a{also}\u3002",
+    nf_court: "\u5df2\u67e5\u8be2 CourtListener\uff0c\u6ca1\u6709\u5339\u914d\u8bb0\u5f55\u3002\u8be5\u5f15\u7528\u53ef\u80fd\u6709\u8bef\u6216\u7cfb\u865a\u6784\u3002",
+    nf_bia: "\u5df2\u67e5\u8be2\u6211\u4eec\u7684 BIA \u5e93\uff0c{cite} \u5904\u6ca1\u6709\u51b3\u5b9a\u3002\u8be5\u5f15\u7528\u53ef\u80fd\u6709\u8bef\u6216\u7cfb\u865a\u6784\u3002",
+    nc_lookup: "\u67e5\u8be2\u4e0d\u53ef\u7528",
+    nc_rate: "\u67e5\u8be2\u9891\u7387\u53d7\u9650",
+    nc_reporter: "CourtListener \u4e0d\u6536\u5f55\u8be5\u51fa\u7248\u7269",
+    nc_unreturned: "\u67e5\u8be2\u6ca1\u6709\u8fd4\u56de\u8be5\u5f15\u7528",
+    nc_empty: "\u67e5\u8be2\u6ca1\u6709\u8fd4\u56de\u8bb0\u5f55",
+    nc_bia_one: "BIA \u5e93\u76ee\u524d\u53ea\u8986\u76d6\u7b2c {span} \u5377",
+    nc_bia_range: "BIA \u5e93\u76ee\u524d\u8986\u76d6\u7b2c {span} \u5377",
+    nc_bia_list: "BIA \u5e93\u76ee\u524d\u8986\u76d6\u7b2c {span} \u5377",
+    nc_bia_nopage: "\u6ca1\u6709\u53ef\u67e5\u8be2\u7684\u8d77\u59cb\u9875",
+    nc_bia_empty: "BIA \u5e93\u4e3a\u7a7a",
+    nc_bia_load: "BIA \u5e93\u672a\u80fd\u52a0\u8f7d",
+    nc_statute: "\u6b64\u5904\u4e0d\u67e5\u8be2\u6cd5\u89c4\u3001\u6761\u4f8b\u548c Federal Register",
+    nc_aao: "\u6b64\u5904\u4e0d\u67e5\u8be2 AAO \u51b3\u5b9a",
+    foundNote: "\u201c\u627e\u5230\u201d\u53ea\u8868\u793a\u8be5\u5f15\u7528\u5b58\u5728\u3002\u4e0d\u8868\u793a\u5b83\u4ecd\u662f\u6709\u6548\u6cd5\u5f8b\uff0c\u4e5f\u4e0d\u8868\u793a\u5b83\u652f\u6301\u6240\u8ff0\u4e3b\u5f20\u3002",
+    checking: "\u6838\u5b9e\u4e2d\u2026"
+  }
+};
+
+function verifyFill(tpl, params) {
+  return String(tpl || "").replace(/\{(\w+)\}/g, function (_m, k) { return params && params[k] != null ? params[k] : ""; });
+}
+function verifyUserStatus(row, lang) {
+  var T = VERIFY_TEXT[lang] || VERIFY_TEXT.en;
+  var v = row && row.verify;
+  if (!v) return T.badge.pending;
+  if (v.label === "VERIFIED") return T.badge.found;
+  if (v.label === "NOT_FOUND") return T.badge.notFound;
+  var reason = verifyFill(T[v.code] || T.nc_lookup, v.params);
+  return verifyFill(T.badge.notChecked, { reason: reason });
+}
+function verifyStatusSentence(row, lang) {
+  var v = row && row.verify;
+  if (!v) return "";
+  var T = VERIFY_TEXT[lang] || VERIFY_TEXT.en;
+  if (v.label === "VERIFIED") {
+    return T.badge.found + ". " + verifyFill(T[v.code] || T.ok, v.params) + " " + T.foundNote;
+  }
+  if (v.label === "NOT_FOUND") {
+    return T.badge.notFound + ". " + verifyFill(T[v.code] || T.nf_court, v.params);
+  }
+  return verifyUserStatus(row, lang) + ".";
+}
+
+function verifySummary(rows) {
+  var s = { total: rows.length, verified: 0, cited: 0, mismatch: 0, not_found: 0, not_checked: 0, failed: 0 };
+  rows.forEach(function (r) {
+    if (r.label === "VERIFIED") s.verified++;
+    else if (r.label === "NOT_FOUND") s.not_found++;
+    else if (r.label === "RATE_LIMITED" || r.label === "LOOKUP_FAILED") s.failed++;
+    else s.not_checked++;
+  });
+  return s;
+}
+
+function verifyPostCitations(fetchImpl, url, citations, timeoutMs) {
+  var ctl = (typeof AbortController !== "undefined") ? new AbortController() : null;
+  var timer = setTimeout(function () { if (ctl) ctl.abort(); }, timeoutMs);
+  var opts = {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({ citations: citations })
+  };
+  if (ctl) opts.signal = ctl.signal;
+  return fetchImpl(url, opts).then(function (r) {
+    clearTimeout(timer);
+    if (!r || typeof r.json !== "function") return { http: 0, body: null };
+    return r.json().then(function (body) { return { http: r.status, body: body }; }, function () { return { http: r.status, body: null }; });
+  }, function () {
+    clearTimeout(timer);
+    return { http: 0, body: null };
+  });
+}
+
+/* deps: { fetch, onProgress(done,total), timeoutMs, lookupUrl, biaIndexUrl }.
+   Sets row.label and row.verify. "Verified" is set only from a match. */
 function verifyRows(rows, deps) {
   deps = deps || {};
   var fetchImpl = deps.fetch || (typeof fetch !== "undefined" ? fetch.bind(typeof window !== "undefined" ? window : globalThis) : null);
   var timeoutMs = deps.timeoutMs || VERIFY_TIMEOUT_MS;
-  var cache = deps.cache || {};
-  var total = rows.length, done = 0;
+  var lookupUrl = deps.lookupUrl || VERIFY_LOOKUP_URL;
+  var biaUrl = deps.biaIndexUrl || "/data/bia-cite-index.json";
+  var biaFallback = deps.biaFallbackUrl || "/data/bia-index.json";
+  var total = rows.length;
+  var done = 0;
   function tick() { done++; if (deps.onProgress) deps.onProgress(done, total); }
-  function getJson(url) {
-    if (!cache[url]) {
-      cache[url] = verifyWithTimeout(fetchImpl, url, timeoutMs).then(function (r) {
-        if (r.status === 404) return null;
-        if (!r.ok) throw new Error("HTTP " + r.status);
+  function apply(row, res) { row.verify = res; row.label = res.label; tick(); }
+  var court = [];
+  var bia = [];
+  rows.forEach(function (row) {
+    var kind = verifyRowKind(row);
+    if (kind === "court") court.push(row);
+    else if (kind === "bia") bia.push(row);
+    else apply(row, { label: "NOT_CHECKED", sourceName: null, code: verifyNotCheckedCode(kind), params: {} });
+  });
+  function biaJobClean() {
+    if (!bia.length) return Promise.resolve();
+    if (!fetchImpl) {
+      bia.forEach(function (row) { apply(row, { label: "NOT_CHECKED", sourceName: VERIFY_SRC_BIA, code: "nc_bia_load", params: {} }); });
+      return Promise.resolve();
+    }
+    function readIndex(url) {
+      return fetchImpl(url).then(function (r) {
+        if (!r || r.ok === false) throw new Error("bia");
         return r.json();
       });
     }
-    return cache[url];
+    return readIndex(biaUrl).catch(function () { return readIndex(biaFallback); }).then(function (idx) {
+      bia.forEach(function (row) { apply(row, verifyBiaRow(row, idx)); });
+    }).catch(function () {
+      bia.forEach(function (row) {
+        if (!row.verify) apply(row, { label: "NOT_CHECKED", sourceName: VERIFY_SRC_BIA, code: "nc_bia_load", params: {} });
+      });
+    });
   }
-  function failed(row, err) {
-    row.verify = { label: "LOOKUP_FAILED", sourceName: null, code: "failed", params: { err: (err && err.message) || "network error" } };
-    row.label = "LOOKUP_FAILED";
-  }
-  function apply(row, res) { row.verify = res; row.label = res.label; }
-  function one(row) {
-    var kind = verifyRowKind(row);
-    if (kind !== "bia" && kind !== "court") {
-      apply(row, { label: "NOT_CHECKED", sourceName: null, code: verifyNotCheckedCode(kind), params: {} });
+  function courtJob() {
+    if (!court.length) return Promise.resolve();
+    if (!fetchImpl) {
+      court.forEach(function (row) { apply(row, verifyUnavailable("nc_lookup")); });
       return Promise.resolve();
     }
-    if (!fetchImpl) { failed(row, new Error("no network access")); return Promise.resolve(); }
-    if (kind === "bia") {
-      return getJson(deps.biaIndexUrl || "/data/bia-index.json").then(function (idx) {
-        apply(row, verifyBiaRow(row, idx));
-      }).catch(function (e) { failed(row, e); });
-    }
-    return getJson(VERIFY_CAP_BASE + "ReportersMetadata.json").then(function (reps) {
-      var slug = verifySlugFor(reps, row.reporter);
-      if (!slug) { apply(row, verifyCourtRow(row, null, null)); return null; }
-      return getJson(VERIFY_CAP_BASE + slug + "/" + parseInt(row.volume, 10) + "/CasesMetadata.json").then(function (cases) {
-        apply(row, verifyCourtRow(row, slug, cases));
+    var chunks = [];
+    for (var i = 0; i < court.length; i += VERIFY_CHUNK) chunks.push(court.slice(i, i + VERIFY_CHUNK));
+    var stopped = null;
+    var chain = Promise.resolve();
+    chunks.forEach(function (chunk) {
+      chain = chain.then(function () {
+        if (stopped) {
+          chunk.forEach(function (row) { apply(row, verifyUnavailable(stopped)); });
+          return;
+        }
+        var citations = chunk.map(function (row) { return row.volume + " " + row.reporter + " " + row.page; });
+        return verifyPostCitations(fetchImpl, lookupUrl, citations, timeoutMs).then(function (res) {
+          var body = res && res.body;
+          if (!body || body.ok !== true || !Array.isArray(body.results)) {
+            stopped = body && body.reason === "rate_limited" ? "nc_rate" : "nc_lookup";
+            chunk.forEach(function (row) { apply(row, verifyUnavailable(stopped)); });
+            return;
+          }
+          chunk.forEach(function (row) {
+            var key = verifyCiteKey(row.volume + " " + row.reporter + " " + row.page);
+            var item = null;
+            body.results.forEach(function (it) {
+              if (item) return;
+              var keys = [verifyCiteKey(it.citation)].concat((it.normalized || []).map(verifyCiteKey));
+              if (keys.indexOf(key) >= 0) item = it;
+            });
+            var mapped = verifyCourtFromLookup(row, item);
+            if (mapped.label === "RATE_LIMITED") stopped = "nc_rate";
+            apply(row, mapped);
+          });
+        });
       });
-    }).catch(function (e) { failed(row, e); });
+    });
+    return chain;
   }
-  var queue = rows.slice();
-  var active = 0;
-  return new Promise(function (resolve) {
-    function pump() {
-      if (!queue.length && !active) { resolve(verifySummary(rows)); return; }
-      while (active < VERIFY_CONCURRENCY && queue.length) {
-        active++;
-        one(queue.shift()).then(function () { active--; tick(); pump(); });
-      }
-    }
-    if (!rows.length) resolve(verifySummary(rows)); else pump();
-  });
-}
-function verifySummary(rows) {
-  var s = { total: rows.length, verified: 0, cited: 0, mismatch: 0, not_found: 0, not_checked: 0, failed: 0 };
-  rows.forEach(function (r) {
-    switch (r.label) {
-      case "VERIFIED": s.verified++; break;
-      case "CITED": s.cited++; break;
-      case "MISMATCH": s.mismatch++; break;
-      case "NOT_FOUND": s.not_found++; break;
-      case "LOOKUP_FAILED": s.failed++; break;
-      default: s.not_checked++;
-    }
-  });
-  return s;
-}
-/* One plain sentence per row, in the fixed forms the page promises, in
-   the page language. Record names stay as the source prints them. */
-var VERIFY_TEXT = {
-  en: {
-    lead: { VERIFIED: "Verified: found in {src}.", CITED: "Found in {src}, name not compared.", MISMATCH: "Mismatch in {src}.",
-      NOT_FOUND: "Not found in {src}.", NOT_CHECKED: "Not checked:", LOOKUP_FAILED: "Not checked:" },
-    ok: "The citation exists and the case name matches: {name} ({year}).",
-    ok_year1: "The citation exists and the case name matches: {name} ({year}). Your text says {textYear}; reporter year can differ by one.",
-    cited_noname: "A decision exists at this citation: {name} ({year}). Your text has no case name to compare.",
-    mismatch_name: "A different case is at this citation: {name} ({year}). Your text names {textName}.",
-    mismatch_year: "The name matches {name}, but the year differs: your text says {textYear}, the record says {year}.",
-    nf_court: "No decision begins at {cite} in that volume.",
-    nf_court_inside: "No decision begins at {cite}; that page is inside {inside}, which begins at page {insidePage}.",
-    nf_bia: "No decision at {cite}. Our library holds {n} decisions of volume {volume} and may be incomplete; check EOIR directly.",
-    nc_reporter: "outside coverage. {reporter} is not a reporter in the Caselaw Access Project.",
-    nc_volume: "outside coverage. {reporter} volume {volume} is not in the Caselaw Access Project, which covers published decisions up to about 2018\u20132020.",
-    nc_bia_outside: "outside coverage. Our BIA library currently covers volume(s) {vols} only.",
-    nc_statute: "statutes, regulations and the Federal Register are not checked here. Use the source link.",
-    nc_aao: "AAO decisions are not checked here. Use the source link.",
-    failed: "the lookup failed ({err}). Try again.",
-    note: "This confirms a decision exists at that citation. Subsequent history and good-law status are not checked.",
-    checking: "Checking\u2026"
-  },
-  es: {
-    lead: { VERIFIED: "Verificado: encontrado en {src}.", CITED: "Encontrado en {src}, nombre sin comparar.", MISMATCH: "No coincide en {src}.",
-      NOT_FOUND: "No encontrado en {src}.", NOT_CHECKED: "No verificado:", LOOKUP_FAILED: "No verificado:" },
-    ok: "La cita existe y el nombre del caso coincide: {name} ({year}).",
-    ok_year1: "La cita existe y el nombre del caso coincide: {name} ({year}). Su texto dice {textYear}; el a\u00f1o del reporter puede diferir en uno.",
-    cited_noname: "Existe una decisi\u00f3n en esta cita: {name} ({year}). Su texto no incluye nombre del caso para comparar.",
-    mismatch_name: "Hay un caso distinto en esta cita: {name} ({year}). Su texto nombra {textName}.",
-    mismatch_year: "El nombre coincide con {name}, pero el a\u00f1o difiere: su texto dice {textYear}, el registro dice {year}.",
-    nf_court: "Ninguna decisi\u00f3n comienza en {cite} en ese volumen.",
-    nf_court_inside: "Ninguna decisi\u00f3n comienza en {cite}; esa p\u00e1gina est\u00e1 dentro de {inside}, que comienza en la p\u00e1gina {insidePage}.",
-    nf_bia: "No hay decisi\u00f3n en {cite}. Nuestra biblioteca tiene {n} decisiones del volumen {volume} y puede estar incompleta; consulte EOIR directamente.",
-    nc_reporter: "fuera de cobertura. {reporter} no es un reporter del Caselaw Access Project.",
-    nc_volume: "fuera de cobertura. {reporter} volumen {volume} no est\u00e1 en el Caselaw Access Project, que cubre decisiones publicadas hasta aproximadamente 2018\u20132020.",
-    nc_bia_outside: "fuera de cobertura. Nuestra biblioteca de la BIA cubre por ahora solo el/los volumen(es) {vols}.",
-    nc_statute: "aqu\u00ed no se comprueban leyes, reglamentos ni el Federal Register. Use el enlace de la fuente.",
-    nc_aao: "aqu\u00ed no se comprueban decisiones del AAO. Use el enlace de la fuente.",
-    failed: "fall\u00f3 la consulta ({err}). Int\u00e9ntelo de nuevo.",
-    note: "Esto confirma que existe una decisi\u00f3n en esa cita. No se comprueban el historial posterior ni si sigue siendo derecho vigente.",
-    checking: "Comprobando\u2026"
-  },
-  zh: {
-    lead: { VERIFIED: "\u5df2\u6838\u5b9e\uff1a\u5728 {src} \u4e2d\u627e\u5230\u3002", CITED: "\u5728 {src} \u4e2d\u627e\u5230\uff0c\u672a\u6bd4\u5bf9\u6848\u540d\u3002", MISMATCH: "\u5728 {src} \u4e2d\u4e0d\u4e00\u81f4\u3002",
-      NOT_FOUND: "\u5728 {src} \u4e2d\u672a\u627e\u5230\u3002", NOT_CHECKED: "\u672a\u6838\u5b9e\uff1a", LOOKUP_FAILED: "\u672a\u6838\u5b9e\uff1a" },
-    ok: "\u8be5\u5f15\u7528\u5b58\u5728\uff0c\u6848\u540d\u4e00\u81f4\uff1a{name}\uff08{year}\uff09\u3002",
-    ok_year1: "\u8be5\u5f15\u7528\u5b58\u5728\uff0c\u6848\u540d\u4e00\u81f4\uff1a{name}\uff08{year}\uff09\u3002\u60a8\u7684\u6587\u672c\u5199\u7684\u662f {textYear}\uff1b\u6c47\u7f16\u5e74\u4efd\u53ef\u80fd\u76f8\u5dee\u4e00\u5e74\u3002",
-    cited_noname: "\u8be5\u5f15\u7528\u5904\u6709\u4e00\u4e2a\u5224\u51b3\uff1a{name}\uff08{year}\uff09\u3002\u60a8\u7684\u6587\u672c\u6ca1\u6709\u6848\u540d\u53ef\u4f9b\u6bd4\u5bf9\u3002",
-    mismatch_name: "\u8be5\u5f15\u7528\u5904\u662f\u53e6\u4e00\u4e2a\u6848\u4ef6\uff1a{name}\uff08{year}\uff09\u3002\u60a8\u7684\u6587\u672c\u5199\u7684\u662f {textName}\u3002",
-    mismatch_year: "\u6848\u540d\u4e0e {name} \u4e00\u81f4\uff0c\u4f46\u5e74\u4efd\u4e0d\u540c\uff1a\u60a8\u7684\u6587\u672c\u5199 {textYear}\uff0c\u8bb0\u5f55\u4e3a {year}\u3002",
-    nf_court: "\u8be5\u5377\u4e2d\u6ca1\u6709\u4ece {cite} \u5f00\u59cb\u7684\u5224\u51b3\u3002",
-    nf_court_inside: "\u6ca1\u6709\u4ece {cite} \u5f00\u59cb\u7684\u5224\u51b3\uff1b\u8be5\u9875\u5728 {inside} \u4e4b\u5185\uff0c\u8be5\u6848\u4ece\u7b2c {insidePage} \u9875\u5f00\u59cb\u3002",
-    nf_bia: "{cite} \u5904\u6ca1\u6709\u51b3\u5b9a\u3002\u6211\u4eec\u7684\u5e93\u6536\u5f55\u4e86\u7b2c {volume} \u5377\u7684 {n} \u4e2a\u51b3\u5b9a\uff0c\u53ef\u80fd\u4e0d\u5b8c\u6574\uff1b\u8bf7\u76f4\u63a5\u5230 EOIR \u6838\u5bf9\u3002",
-    nc_reporter: "\u8d85\u51fa\u8986\u76d6\u8303\u56f4\u3002{reporter} \u4e0d\u5728 Caselaw Access Project \u7684\u6c47\u7f16\u4e2d\u3002",
-    nc_volume: "\u8d85\u51fa\u8986\u76d6\u8303\u56f4\u3002{reporter} \u7b2c {volume} \u5377\u4e0d\u5728 Caselaw Access Project \u4e2d\uff08\u5176\u8986\u76d6\u7ea6 2018\u20132020 \u5e74\u524d\u5df2\u51fa\u7248\u7684\u5224\u51b3\uff09\u3002",
-    nc_bia_outside: "\u8d85\u51fa\u8986\u76d6\u8303\u56f4\u3002\u6211\u4eec\u7684 BIA \u5e93\u76ee\u524d\u53ea\u8986\u76d6\u7b2c {vols} \u5377\u3002",
-    nc_statute: "\u6b64\u5904\u4e0d\u6838\u5b9e\u6cd5\u89c4\u3001\u6761\u4f8b\u548c Federal Register\u3002\u8bf7\u7528\u6765\u6e90\u94fe\u63a5\u3002",
-    nc_aao: "\u6b64\u5904\u4e0d\u6838\u5b9e AAO \u51b3\u5b9a\u3002\u8bf7\u7528\u6765\u6e90\u94fe\u63a5\u3002",
-    failed: "\u67e5\u8be2\u5931\u8d25\uff08{err}\uff09\u3002\u8bf7\u91cd\u8bd5\u3002",
-    note: "\u8fd9\u53ea\u8bc1\u660e\u8be5\u5f15\u7528\u5904\u5b58\u5728\u4e00\u4e2a\u5224\u51b3\u3002\u540e\u7eed\u5386\u53f2\u548c\u662f\u5426\u4ecd\u4e3a\u6709\u6548\u6cd5\u5f8b\u672a\u6838\u5b9e\u3002",
-    checking: "\u6838\u5b9e\u4e2d\u2026"
-  }
-};
-function verifyFill(tpl, params) {
-  return String(tpl || "").replace(/\{(\w+)\}/g, function (_m, k) { return params && params[k] != null ? params[k] : ""; });
-}
-function verifyStatusSentence(row, lang) {
-  var v = row.verify;
-  if (!v) return "";
-  var T = VERIFY_TEXT[lang] || VERIFY_TEXT.en;
-  var lead = verifyFill(T.lead[v.label] || T.lead.NOT_CHECKED, { src: v.sourceName });
-  var body = verifyFill(T[v.code] || "", v.params);
-  if (v.label === "VERIFIED" || v.label === "CITED" || v.label === "MISMATCH" || v.label === "NOT_FOUND") {
-    return lead + " " + body.charAt(0).toUpperCase() + body.slice(1);
-  }
-  return lead + " " + body;
+  return Promise.all([biaJobClean(), courtJob()]).then(function () { return verifySummary(rows); });
 }
 
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { VERIFY_TEXT, verifyRows, verifyCourtRow, verifyBiaRow, verifyNameCompare, verifySlugFor, verifyRowKind,
-    verifySummary, verifyStatusSentence, VERIFY_NOT_GOOD_LAW, VERIFY_SRC_CAP, VERIFY_SRC_BIA, verifyNorm };
+  module.exports = {
+    VERIFY_TEXT, VERIFY_FOUND_NOTE, VERIFY_SRC_CL, VERIFY_SRC_BIA,
+    verifyRows, verifyCourtFromLookup, verifyBiaRow, verifyBiaCoverage,
+    verifyCiteKey, verifyNameCompare, verifyRowKind, verifyUserStatus,
+    verifySummary, verifyStatusSentence, verifyNorm
+  };
 }

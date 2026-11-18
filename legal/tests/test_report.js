@@ -213,7 +213,7 @@ assert.ok(!/found name|record name/i.test(cliMd), "no invented cited-vs-found co
 const basisBrowser = reportCheckBasis(rows, I18N.en, "2026-10-27, 1:00:00 PM");
 assert.strictEqual(basisBrowser.heading, "Check basis", "basis heading");
 assert.ok(basisBrowser.checked.includes("existence lookup by volume and page"), "basis states the existence lookup");
-assert.ok(basisBrowser.source.includes("Caselaw Access Project") && basisBrowser.source.includes("not sent anywhere"), "basis source names the data sources");
+assert.ok(basisBrowser.source.includes("CourtListener") && basisBrowser.source.includes("not sent anywhere"), "basis source names the data sources");
 assert.ok(basisBrowser.runTime.includes("2026-10-27, 1:00:00 PM")
   && basisBrowser.runTime.includes("local run time"), "run time labelled as browser local time");
 assert.ok(!/registr|database timestamp/i.test(basisBrowser.runTime.split("not a")[0] || "")
@@ -230,7 +230,7 @@ const t3 = Object.assign({}, t, {
   reportBasisItemTime: I18N.en.reportBasisItemTime });
 const mdBasis = healthReportMarkdown(rows, t3, null, "2026-10-27, 1:00:00 PM");
 const htmlBasis = healthReportHtml(rows, t3, null, "2026-10-27, 1:00:00 PM");
-assert.ok(mdBasis.includes("## Check basis") && mdBasis.includes("Caselaw Access Project")
+assert.ok(mdBasis.includes("## Check basis") && mdBasis.includes("CourtListener")
   && mdBasis.includes("Per-item check time: not recorded"), "basis section in Markdown download");
 assert.ok(htmlBasis.includes("Check basis") && htmlBasis.includes("local run time"),
   "basis section in HTML download");

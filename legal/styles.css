@@ -387,8 +387,19 @@ textarea:focus, input:focus, select:focus { outline: none; border-color: #4d9692
 .result-label.is-verified { background: #e8f5ee; border-color: #9bcdb0; color: #1c5a37; }
 .result-label.is-cited { background: #eaf2fb; border-color: #a9c6e6; color: #1f4f82; }
 .result-label.is-mismatch, .result-label.is-not-found { background: #fdecea; border-color: #e6aaa3; color: #8a2a20; }
-.result-label.is-lookup-failed { background: #f1f1f1; border-color: #c9c9c9; color: #555; }
+.result-label.is-not-checked, .result-label.is-rate-limited, .result-label.is-lookup-failed { background: #f4f1ea; border-color: #d9d0c0; color: #5c5346; }
+.result-label { white-space: normal; max-width: 100%; line-height: 1.35; }
 .status-body .label-explanation { font-size: 11.5px; color: #4d5c66; line-height: 1.4; }
 .verify-link { font-size: 11.5px; margin-left: 2px; }
 .verify-progress:empty { display: none; }
 @media (max-width: 720px) { .status-body .label-explanation { font-size: 12px; } }
+@media (max-width: 400px) {
+  .page-shell { width: min(100% - 16px, var(--content)); }
+  h1 { font-size: 28px; }
+  .hero-facts { grid-template-columns: 1fr; }
+  .fact-row:last-child { grid-column: auto; }
+  .primary-actions { grid-template-columns: 1fr; }
+  .data-table td { grid-template-columns: minmax(68px, 38%) minmax(0, 1fr); gap: 6px; }
+  .status-body .result-label { display: inline-block; font-size: 12px; }
+  .workspace-card { padding: 14px 12px; }
+}

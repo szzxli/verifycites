@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#18324b">
-  <meta name="description" content="Paste a brief: the tool extracts each citation and checks that court cases and BIA (I&amp;N Dec.) decisions exist, with the source and a link. Existence only; not legal advice, and good-law status is not checked.">
+  <meta name="description" content="Paste a brief. Each citation is marked Verified — found, Not found, or Not checked. Found means the citation exists. It does not mean the case is still good law or that it supports the claim.">
   <title>VerifyCites — immigration and court citation check</title>
   <link rel="icon" type="image/svg+xml" href="logo.svg">
   <link rel="stylesheet" href="styles.css">
@@ -75,8 +75,8 @@
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-copy="heroKicker">A focused workspace for cited cases</span></p>
         <h1 id="page-title" data-i18n="heading">Immigration &amp; BIA citation checker</h1>
-        <p class="hero-lede" data-i18n="subtitle">Paste your motion or brief. The tool extracts every citation and checks that each case exists: court cases against the Caselaw Access Project, I&amp;N Dec. decisions against our BIA library. Your text stays in your browser.</p>
-        <p class="hero-browser-note" data-i18n="browserModeFirstLine">Existence check: for each court-case and I&amp;N Dec. citation, this page looks for a case at that volume and page and compares the name. It does not check good-law status, quotes, pin cites, or whether a case supports your point.</p>
+        <p class="hero-lede" data-i18n="subtitle">Paste your motion or brief. The tool extracts every citation and checks reported court cases with CourtListener and I&amp;N Dec. decisions against our BIA library. Your text stays in your browser; only the citation itself is sent for a court lookup.</p>
+        <p class="hero-browser-note" data-i18n="browserModeFirstLine">Existence check: each citation is marked Verified — found, Not found, or Not checked. Found means the citation exists. It does not mean it is still good law or that it supports the claim. It does not check good-law status, quotes, pin cites, or whether a case supports your point.</p>
         <p data-i18n="briefingAudience">For solo lawyers, small firms, paralegals, and law-school writing courses. This page extracts U.S. citations for you to check. It does not give legal advice.</p>
       </div>
       <div class="hero-facts" aria-label="How the browser tool works">
@@ -90,7 +90,7 @@
       <div class="trust-heading"><span class="trust-symbol" aria-hidden="true">i</span><span data-copy="trustSummary">Important limits — please read</span></div>
       <div class="trust-content">
         <p class="trust-lead"><strong data-i18n="trustLeadLine">This page checks that cited cases exist. It does not check that they are still good law.</strong></p>
-        <p data-i18n="disclaimer">Not legal advice. For each court-case citation, this page looks for a decision at that volume and page in the Caselaw Access Project (Harvard Law School Library Innovation Lab; published decisions up to about 2018–2020) and compares the case name and year. For I&amp;N Dec. citations it looks in our BIA library (coverage is listed in the BIA search section). Statutes, regulations, the Federal Register and AAO decisions are not checked. Newer cases and anything outside those sources show NOT_CHECKED, and NOT_FOUND means not found in the named source, not that the case does not exist. Subsequent history and good-law status, quotes, pin cites, and whether a source supports an argument are never checked. Your pasted text is not sent anywhere; the page downloads public volume lists. Read every source you cite.</p>
+        <p data-i18n="disclaimer">Not legal advice. For each reported court citation, this page asks CourtListener whether a record exists at that volume and page. For I&amp;N Dec. citations it looks in our BIA library. Verified — found means the citation exists. It does not mean the case is still good law or that it supports the claim. Not found means we checked and no matching record exists. Not checked means this page could not check it, and the row says why. Statutes, regulations, the Federal Register, and AAO decisions are not checked. Quotes, pin cites, and whether a source supports an argument are never checked. Your document stays in this browser. Only the extracted citation (volume, reporter, and page) is sent to this site, which asks CourtListener. Read every source you cite.</p>
         <ul class="trust-limits">
           <li data-i18n="trustLimit1">Does not check whether the case supports your argument.</li>
           <li data-i18n="trustLimit2">Does not check quotes or pin cites.</li>
@@ -105,9 +105,9 @@
         <div class="section-number" aria-hidden="true">01</div>
         <div>
           <p class="section-kicker" data-copy="primaryTask">Primary task</p>
-          <h2 id="checker-title" data-copy="checkerTitle">Extract citations from a document</h2>
-          <p class="section-job">Job: paste a brief and get a checklist of each citation with a link to open.</p>
-          <p class="section-description" data-copy="checkerDescription">Paste legal text or upload a plain-text file. Review the extracted citations and open each source to check it yourself.</p>
+          <h2 id="checker-title" data-copy="checkerTitle">Check citations in a document</h2>
+          <p class="section-job">Job: paste a brief and see Verified — found, Not found, or Not checked on each citation.</p>
+          <p class="section-description" data-copy="checkerDescription">Paste legal text or upload a plain-text file. Each citation is marked Verified — found, Not found, or Not checked.</p>
         </div>
       </div>
 
@@ -116,10 +116,10 @@
           <label for="input" class="field-label" data-copy="inputLabel">Document text</label>
           <span class="field-meta" data-copy="inputMeta">Text is processed in this browser</span>
         </div>
-        <p class="field-hint" data-i18n="coverageLine">Coverage: U.S. federal and state cases are checked against the Caselaw Access Project (published decisions up to about 2018–2020); I&N Dec. decisions are checked against our BIA library (coverage is listed in the BIA search section). Not checked: statutes, regulations (including 8 C.F.R.), the Federal Register, AAO decisions, cases outside those sources, quotes, pin cites, or good-law status. Those rows are marked NOT_CHECKED.</p>
+        <p class="field-hint" data-i18n="coverageLine">Coverage: reported U.S. federal and state cases are checked with CourtListener. I&amp;N Dec. decisions are checked against our BIA library; a volume we do not have is marked Not checked, and the row names the volumes we do have. Not checked: statutes, regulations (including 8 C.F.R.), the Federal Register, AAO decisions, quotes, pin cites, and whether a case is still good law.</p>
         <textarea id="input" data-i18n-placeholder="inputPlaceholder" placeholder="Paste your brief, motion, or letter text here..." rows="9" aria-describedby="input-help validation-error"></textarea>
         <div class="input-footer">
-          <p id="input-help" class="field-hint" data-copy="inputHint">This text stays in your browser. To check a citation, the page looks up only its reporter and volume (static.case.law or our BIA library); it does not send this text anywhere.</p>
+          <p id="input-help" class="field-hint" data-copy="inputHint">Your document stays in this browser. To check a court citation, this page sends only that citation (volume, reporter, and page) to this site, which asks CourtListener. It does not send the rest of this text anywhere.</p>
           <span id="char-count" class="char-count" aria-live="polite">0 characters</span>
         </div>
         <p id="validation-error" class="validation-message" role="alert" hidden></p>
@@ -127,7 +127,7 @@
 
       <div class="action-row">
         <div class="primary-actions">
-          <button class="button button-primary" id="checkBtn" onclick="check()" data-i18n="check">Extract citations</button>
+          <button class="button button-primary" id="checkBtn" onclick="check()" data-i18n="check">Check citations</button>
           <label class="button button-secondary upload-button" for="briefFile"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15V4m0 0L8 8m4-4 4 4M5 14v4.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-copy="uploadFile">Upload .txt file</span></label>
           <input class="visually-hidden" id="briefFile" type="file" accept=".txt,text/plain" onchange="openFile(this)">
           <button class="button button-quiet" type="button" onclick="loadSample()" data-copy="trySample">Try a sample</button>
@@ -142,7 +142,7 @@
 
       <div class="results-section" aria-labelledby="results-heading">
         <div class="results-heading-row">
-          <h3 id="results-heading" data-copy="resultsHeading">Extracted citations</h3>
+          <h3 id="results-heading" data-copy="resultsHeading">Citation check</h3>
           <div class="export-actions">
             <button class="button button-small button-secondary" id="copyMarkdownBtn" onclick="exportMarkdown()" data-i18n="copyMarkdown" disabled>Copy Markdown checklist</button>
             <button class="button button-small button-secondary" id="downloadJsonBtn" onclick="exportJson()" data-i18n="downloadJson" disabled>Download JSON</button>
@@ -155,7 +155,7 @@
           <span class="empty-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M9 5h9l6 6v16H9a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/><path d="M18 5v6h6M11 16h10M11 20h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           <div><strong data-copy="resultsPlaceholder">Your extracted citations will appear here.</strong><p data-copy="resultsPlaceholderHint">Start by pasting text above or loading the sample.</p></div>
         </div>
-        <p class="label-legend" data-i18n="labelLegend">VERIFIED = a decision exists at that citation and the name matches (existence only, not good law). CITED = a decision exists; name not compared. MISMATCH = a different case or year. NOT_FOUND = not found in the source named in the row. NOT_CHECKED = outside coverage or not a case citation; check by hand with the links.</p>
+        <p class="label-legend" data-i18n="labelLegend">Verified — found = a lookup matched a record. The matched case name and a link are shown. Found means the citation exists. It does not mean it is still good law or that it supports the claim. Not found = we checked and no matching record exists (it may be wrong or fabricated). Not checked = outside what this page can check; the reason is in parentheses.</p>
         <div class="table-wrap" id="resultsWrap" hidden>
           <table class="data-table results-table">
             <thead><tr><th scope="col" data-i18n="thIndex">#</th><th scope="col" data-i18n="thCitation">Citation</th><th scope="col" data-i18n="thCaseName">Case name in text</th><th scope="col" data-i18n="thLabel">Label</th><th scope="col" data-i18n="thStandardFormat">Standard format</th><th scope="col" data-i18n="thLinks">Manual-check links</th></tr></thead>
@@ -346,7 +346,7 @@
           <span class="summary-chevron" aria-hidden="true">⌄</span>
         </summary>
         <div class="disclosure-body cli-body">
-          <p class="cli-explainer" data-copy="cliExplanation">The browser page checks citations against the Caselaw Access Project and our BIA library only. The CLI can also check CourtListener, which includes newer cases, when you provide your own token; by default it does not send the brief text.</p>
+          <p class="cli-explainer" data-copy="cliExplanation">The browser page checks reported court citations with CourtListener (through this site) and I&amp;N Dec. citations against our BIA library. The CLI can run the same CourtListener check on your computer when you provide your own token; by default it does not send the brief text.</p>
           <p data-i18n="cliSingle">Only checking one brief? The manual links above are enough — no CLI needed.</p>
           <p data-i18n="cliBatch">Batch checks or workflow use? Follow the CLI steps below. First-time setup takes longer than a single check, so allow about 10 minutes for first-time setup.</p>
           <p><a class="source-link" href="https://wiki.free.law/c/courtlistener/help/api/rest/v3/overview" target="_blank" rel="noopener noreferrer" data-i18n="cliTokenLink">CourtListener API documentation — sign in to see your token ↗</a></p>
@@ -367,7 +367,7 @@ python -m legalcite check brief.md --md report.md
       </div>
       <p><a href="/legal/immigration/">Open the standalone Immigration & BIA page.</a></p>
       <p class="section-job">Job: see where each immigration citation type is routed, and which official page to open.</p>
-      <p data-i18n="immSectionIntro">An immigration brief mixes federal court cases, BIA precedent (Matter of), INA provisions, and 8 CFR provisions. This page classifies each extracted row and names its source line. Court cases are checked against the Caselaw Access Project. I&N Dec. citations are checked against our BIA library (coverage is listed in the BIA search section). INA and 8 CFR rows are matched against static tables, not a live official lookup.</p>
+      <p data-i18n="immSectionIntro">An immigration brief mixes federal court cases, BIA precedent (Matter of), INA provisions, and 8 CFR provisions. This page classifies each extracted row and names its source line. Court cases are checked with CourtListener. I&N Dec. citations are checked against our BIA library (a volume we do not have is marked Not checked, and the row names the volumes we have). INA and 8 CFR rows are matched against static tables, not a live official lookup.</p>
       <p data-i18n="immSectionNotCovered">I&N Dec. citations are checked against our BIA library (a static snapshot; coverage is listed in the BIA search section). 8 CFR rows are matched against a static eCFR Title 8 index and INA / 8 U.S.C. rows are matched against a partial INA↔8 U.S.C. mapping table built from OLRC Title 8 — see the row's source line; unmapped sections still cannot be confirmed. This page does not look up INA or 8 CFR in a live official database. No judgment on whether a case supports your argument or is still good law. A BIA precedent can be overruled, and circuit precedent controls; some Title 8 provisions may be enjoined, so eCFR text alone never proves a provision is currently in effect. The core statute and regulation text (INA, 8 CFR) changes rarely; what changes more often is policy guidance and new BIA precedent.</p>
       <p data-i18n="immSectionMemo">Memo-currency rule: a memo's currency is shown only when the official source itself states supersession, rescission, or replacement — never inferred from list presence or absence.</p>
       <p data-i18n="immSectionLinksIntro">Check by hand at the official sources:</p>
@@ -400,7 +400,7 @@ python -m legalcite check brief.md --md report.md
     </section>
 
     <footer class="site-footer">
-      <p data-i18n="privacy">Privacy: your pasted text is checked in this browser and is never sent anywhere. To look up citations, the page downloads public volume lists from static.case.law (Caselaw Access Project, Harvard Law School Library Innovation Lab) and from this site; those requests reveal only the reporter and volume. GoatCounter records page views only. Credits: Caselaw Access Project, EOIR, CourtListener / Free Law Project, eyecite (BSD-2). Your email address is sent to Brevo (the form provider) when you sign up, so Brevo can send court-rule alert digests and, if you choose it, add you to the optional Pro waitlist. No Brevo code loads on this page. Every email has an unsubscribe link, or email info@verifycites.com to be removed. License: MIT.</p>
+      <p data-i18n="privacy">Privacy: your pasted text is checked in this browser. Your document is not uploaded. To check a reported court citation, this page sends only that citation (volume, reporter, and page) to this site, which asks CourtListener. I&amp;N Dec. citations are checked against the BIA library on this site. GoatCounter records page views and fixed event names only. Credits: CourtListener / Free Law Project, EOIR, eyecite (BSD-2). Your email address is sent to Brevo (the form provider) when you sign up, so Brevo can send court-rule alert digests and, if you choose it, add you to the optional Pro waitlist. No Brevo code loads on this page. Every email has an unsubscribe link, or email info@verifycites.com to be removed. License: MIT.</p>
       <div class="footer-links"><a href="https://www.courtlistener.com/" target="_blank" rel="noopener noreferrer">CourtListener</a><a href="https://free.law/" target="_blank" rel="noopener noreferrer">Free Law Project</a><a href="https://github.com/szzxli/legal-cite-check" target="_blank" rel="noopener noreferrer">MIT License &amp; source</a><a href="/about/">About</a><a href="mailto:info@verifycites.com">info@verifycites.com</a><a class="back-top" href="#top">Back to top</a></div>
       <p class="footer-operator">VerifyCites is not a law firm and does not provide legal advice. Maintained by szzxli.</p>
       <p class="footer-operator">Free, open-source tools by David Lee, with their limits stated up front. Contact: <a href="mailto:info@verifycites.com">info@verifycites.com</a></p>
