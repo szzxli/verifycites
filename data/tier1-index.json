@@ -1,6 +1,231 @@
 {
   "items": [
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Emergent Attraction and Competing Orders near the Van Hove Singularity in Rhombohedral $n$-layer Graphene",
+      "identifier": "2611.23232",
+      "url": "https://arxiv.org/abs/2611.23232",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the multiplicity of crossing limit cycles of double diagonalizable piecewise linear vector fields",
+      "identifier": "2611.23230",
+      "url": "https://arxiv.org/abs/2611.23230",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "CFTs with Large Virasoro Primary Gaps",
+      "identifier": "2611.23231",
+      "url": "https://arxiv.org/abs/2611.23231",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Ambient LLMs: Data-Efficient Supervised Fine-tuning via Temperature Matching",
+      "identifier": "2611.23229",
+      "url": "https://arxiv.org/abs/2611.23229",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Spool: Low-Latency Streaming Inference for Hybrid Vision-Language Models",
+      "identifier": "2611.23228",
+      "url": "https://arxiv.org/abs/2611.23228",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Expressivity of two-dimensional Gaussian fermion tensor network states",
+      "identifier": "2611.23227",
+      "url": "https://arxiv.org/abs/2611.23227",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FastFrames: Video Generation at Interactive Latency",
+      "identifier": "2611.23226",
+      "url": "https://arxiv.org/abs/2611.23226",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "StringQFT: A Multiuse Textbook Resource for AI-Assisted Theoretical Physics",
+      "identifier": "2611.23225",
+      "url": "https://arxiv.org/abs/2611.23225",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "From nonlocal correlations to local symmetry breaking: Asymmetry dynamics of crosscap states",
+      "identifier": "2611.23224",
+      "url": "https://arxiv.org/abs/2611.23224",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Equilibrium Statistics and Stability in Random Two-Population and Three-Population Evolutionary Games",
+      "identifier": "2611.23223",
+      "url": "https://arxiv.org/abs/2611.23223",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Sidorenko Inequalities in Oriented Graphs",
+      "identifier": "2611.23222",
+      "url": "https://arxiv.org/abs/2611.23222",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "An inexact stochastic variance-reduced gradient method for constrained convex finite-sum optimization",
+      "identifier": "2611.23221",
+      "url": "https://arxiv.org/abs/2611.23221",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Complete Cosmological Collider Signatures from Right-handed Neutrino Loops",
+      "identifier": "2611.23220",
+      "url": "https://arxiv.org/abs/2611.23220",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Do LLM Agents Still Need to Be Told How to Self-Improve?",
+      "identifier": "2611.23219",
+      "url": "https://arxiv.org/abs/2611.23219",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "What Does a Bias Head Measure? Non-Identifiability in Head-Level Bias Attribution",
+      "identifier": "2611.23218",
+      "url": "https://arxiv.org/abs/2611.23218",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Near Resonance, Less Ordered: Radius and Mass Ordering in Compact Multi-planet Systems",
+      "identifier": "2611.23217",
+      "url": "https://arxiv.org/abs/2611.23217",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Higher-Scoring Coding Models Did Not Get More Work Done",
+      "identifier": "2611.23216",
+      "url": "https://arxiv.org/abs/2611.23216",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Feedback-Linearised Trajectory Tracking via Model-Informed Robust Geometric DDPC",
+      "identifier": "2611.23215",
+      "url": "https://arxiv.org/abs/2611.23215",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Asymptotics of Gibbs Posterior Measures on Infinite-Dimensional Hypothesis Spaces",
+      "identifier": "2611.23214",
+      "url": "https://arxiv.org/abs/2611.23214",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Modeling quantum information scrambling in realistic protein NMR experiments",
+      "identifier": "2611.23213",
+      "url": "https://arxiv.org/abs/2611.23213",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "EviSlide-MIL: Multi-Query Pooling and Shared Prediction for Class-Incremental Whole-Slide Image Classification",
+      "identifier": "2611.23212",
+      "url": "https://arxiv.org/abs/2611.23212",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Multimodal Masked Diffusion Autoencoder for Modeling Impaired Driving",
+      "identifier": "2611.23211",
+      "url": "https://arxiv.org/abs/2611.23211",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Non-homogeneous parabolic conormal boundary problem with singular-degenerate coefficients",
+      "identifier": "2611.23210",
+      "url": "https://arxiv.org/abs/2611.23210",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Learning Grounded Reasoning from Human Gaze",
+      "identifier": "2611.23209",
+      "url": "https://arxiv.org/abs/2611.23209",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Distortion-Free Semantic Watermarks for Black-Box Generative Models",
+      "identifier": "2611.23208",
+      "url": "https://arxiv.org/abs/2611.23208",
+      "date": "2026-11-17",
+      "first_seen": "2026-11-18T15:14:53Z"
+    },
+    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "Co-creating a quality management system: development, implementation and lessons learned from a mixed-method action case study in a regional hospital.",
@@ -5124,6 +5349,24 @@
       "first_seen": "2026-11-06T22:46:50Z"
     },
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "LINDSAY HECOX, ET AL V. MADISON KENYON, ET AL",
+      "identifier": "20-35815",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35815.pdf",
+      "date": "2026-11-05",
+      "first_seen": "2026-11-06T05:30:03Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "LINDSAY HECOX, ET AL V. BRADLEY LITTLE, ET AL",
+      "identifier": "20-35813",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35813.pdf",
+      "date": "2026-11-05",
+      "first_seen": "2026-11-06T05:30:03Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "BeAR: The Bern Atmospheric Retrieval code - A GPU-accelerated framework for low-resolution, high-resolution, and joint retrievals of exoplanet atmospheres",
@@ -5345,24 +5588,6 @@
       "title_or_case_name": "Towards interpreting any residual stream direction by scaling activation inversion",
       "identifier": "2611.08465",
       "url": "https://arxiv.org/abs/2611.08465",
-      "date": "2026-11-05",
-      "first_seen": "2026-11-06T05:30:03Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "LINDSAY HECOX, ET AL V. MADISON KENYON, ET AL",
-      "identifier": "20-35815",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35815.pdf",
-      "date": "2026-11-05",
-      "first_seen": "2026-11-06T05:30:03Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "LINDSAY HECOX, ET AL V. BRADLEY LITTLE, ET AL",
-      "identifier": "20-35813",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35813.pdf",
       "date": "2026-11-05",
       "first_seen": "2026-11-06T05:30:03Z"
     },
@@ -6142,6 +6367,15 @@
       "first_seen": "2026-11-04T05:10:48Z"
     },
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_order_en_banc.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_order_en_banc.pdf",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "Boundary $c\\leq1$ Liouville CFT from the Bootstrap",
@@ -6363,15 +6597,6 @@
       "title_or_case_name": "Interpretable Quantum Photonic Generative Models",
       "identifier": "2611.05354",
       "url": "https://arxiv.org/abs/2611.05354",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_order_en_banc.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_order_en_banc.pdf",
       "date": "2026-11-03",
       "first_seen": "2026-11-04T05:10:48Z"
     },
@@ -6628,6 +6853,24 @@
       "first_seen": "2026-11-03T13:45:12Z"
     },
     {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
+      "identifier": "26-7303",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
+      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303_31_order.pdf",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303_31_order.pdf",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "Pixel-UMI: Learning Environment-Aware Whole-Body Manipulation from Sensorized Human Demonstrations",
@@ -6849,24 +7092,6 @@
       "title_or_case_name": "Lee-Yang theorems for $q$-deformed oscillators and doubly-scaled SYK",
       "identifier": "2611.03624",
       "url": "https://arxiv.org/abs/2611.03624",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
-      "identifier": "26-7303",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303.pdf",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "SERVICE EMPLOYEES INTERNATIONAL UNION, ET AL. V. DOJ - UNITED STATES DEPARTMENT OF JUSTICE, ET AL.",
-      "identifier": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303_31_order.pdf",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/26-7303_31_order.pdf",
       "date": "2026-11-02",
       "first_seen": "2026-11-03T13:45:12Z"
     },
@@ -10108,231 +10333,6 @@
       "first_seen": "2026-10-27T21:53:40Z"
     },
     {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Retriever-Free Retrieval: Navigating Documents with Decision Models",
-      "identifier": "2610.35868",
-      "url": "https://arxiv.org/abs/2610.35868",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Quantum dynamics on the sparse Erdős-Rényi graph",
-      "identifier": "2610.35867",
-      "url": "https://arxiv.org/abs/2610.35867",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Center-of-Mass Interpretation of Evolution Strategies",
-      "identifier": "2610.35865",
-      "url": "https://arxiv.org/abs/2610.35865",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Auto-Research Arena: Benchmarking and Advancing Auto-Research in Language Modeling",
-      "identifier": "2610.35866",
-      "url": "https://arxiv.org/abs/2610.35866",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "VibeVideoBench:Evaluating Multimodal Agents on Code-Driven Video Generation",
-      "identifier": "2610.35864",
-      "url": "https://arxiv.org/abs/2610.35864",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Complete entropy contraction from conditional hyperboundedness",
-      "identifier": "2610.35863",
-      "url": "https://arxiv.org/abs/2610.35863",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Learning Force-Reactive Humanoid Loco-Manipulation",
-      "identifier": "2610.35862",
-      "url": "https://arxiv.org/abs/2610.35862",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Stable homotopy theory of higher categories with adjoints",
-      "identifier": "2610.35861",
-      "url": "https://arxiv.org/abs/2610.35861",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Direct measurement of the ${}^{23}\\mathrm{Mg}(p, γ){}^{24}\\mathrm{Al}$ reaction using the DRAGON recoil separator and a hybrid array of $γ$-ray detectors",
-      "identifier": "2610.35860",
-      "url": "https://arxiv.org/abs/2610.35860",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "An $O(n^{0.1537})$-Coloring Algorithm for 3-Colorable Graphs",
-      "identifier": "2610.35859",
-      "url": "https://arxiv.org/abs/2610.35859",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Optimal tradeoffs between variance and sensitivity, via Hellinger-Kantorovich geometry",
-      "identifier": "2610.35858",
-      "url": "https://arxiv.org/abs/2610.35858",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Do vision models know that three is three?",
-      "identifier": "2610.35857",
-      "url": "https://arxiv.org/abs/2610.35857",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "On the stability of learning",
-      "identifier": "2610.35856",
-      "url": "https://arxiv.org/abs/2610.35856",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Collinear and Coplanar Altermagnetism in a Penrose Quasicrystal",
-      "identifier": "2610.35855",
-      "url": "https://arxiv.org/abs/2610.35855",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "FL4N: Feed-forward Latent Model for 4D Novel View Synthesis",
-      "identifier": "2610.35854",
-      "url": "https://arxiv.org/abs/2610.35854",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Adequacy radii for stepped-wedge trials with time-varying effects",
-      "identifier": "2610.35853",
-      "url": "https://arxiv.org/abs/2610.35853",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Differentiable Contact Dynamics for Legged Locomotion: Policy Learning and Contact-Implicit Trajectory Optimization",
-      "identifier": "2610.35852",
-      "url": "https://arxiv.org/abs/2610.35852",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Nonprehensile Robotic Catching Using Virtual Constraints",
-      "identifier": "2610.35851",
-      "url": "https://arxiv.org/abs/2610.35851",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "OSWAM: An Effective World Action Model with One-Step Action Generation",
-      "identifier": "2610.35850",
-      "url": "https://arxiv.org/abs/2610.35850",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Interaction of Strong X-mode Waves with Magnetized Pair Plasmas",
-      "identifier": "2610.35849",
-      "url": "https://arxiv.org/abs/2610.35849",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Exploring the Tractability Frontier of Hylland-Zeckhauser Models",
-      "identifier": "2610.35848",
-      "url": "https://arxiv.org/abs/2610.35848",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Patient-specific rubric-based evaluation of large language models across longitudinal cancer care",
-      "identifier": "2610.35847",
-      "url": "https://arxiv.org/abs/2610.35847",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Preserve to Expand: Source-Aware Adaptation and Model Merging for Multilingual LLM-Based ASR",
-      "identifier": "2610.35846",
-      "url": "https://arxiv.org/abs/2610.35846",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Work Agents: Systems, Capabilities, and Optimization",
-      "identifier": "2610.35845",
-      "url": "https://arxiv.org/abs/2610.35845",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Bodyseismography (BSG): Theoretical Foundation and Numerical Modeling",
-      "identifier": "2610.35844",
-      "url": "https://arxiv.org/abs/2610.35844",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
@@ -10558,6 +10558,231 @@
       "first_seen": "2026-10-27T21:53:40Z"
     },
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Retriever-Free Retrieval: Navigating Documents with Decision Models",
+      "identifier": "2610.35868",
+      "url": "https://arxiv.org/abs/2610.35868",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Quantum dynamics on the sparse Erdős-Rényi graph",
+      "identifier": "2610.35867",
+      "url": "https://arxiv.org/abs/2610.35867",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Center-of-Mass Interpretation of Evolution Strategies",
+      "identifier": "2610.35865",
+      "url": "https://arxiv.org/abs/2610.35865",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Auto-Research Arena: Benchmarking and Advancing Auto-Research in Language Modeling",
+      "identifier": "2610.35866",
+      "url": "https://arxiv.org/abs/2610.35866",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "VibeVideoBench:Evaluating Multimodal Agents on Code-Driven Video Generation",
+      "identifier": "2610.35864",
+      "url": "https://arxiv.org/abs/2610.35864",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Complete entropy contraction from conditional hyperboundedness",
+      "identifier": "2610.35863",
+      "url": "https://arxiv.org/abs/2610.35863",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Learning Force-Reactive Humanoid Loco-Manipulation",
+      "identifier": "2610.35862",
+      "url": "https://arxiv.org/abs/2610.35862",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Stable homotopy theory of higher categories with adjoints",
+      "identifier": "2610.35861",
+      "url": "https://arxiv.org/abs/2610.35861",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Direct measurement of the ${}^{23}\\mathrm{Mg}(p, γ){}^{24}\\mathrm{Al}$ reaction using the DRAGON recoil separator and a hybrid array of $γ$-ray detectors",
+      "identifier": "2610.35860",
+      "url": "https://arxiv.org/abs/2610.35860",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "An $O(n^{0.1537})$-Coloring Algorithm for 3-Colorable Graphs",
+      "identifier": "2610.35859",
+      "url": "https://arxiv.org/abs/2610.35859",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Optimal tradeoffs between variance and sensitivity, via Hellinger-Kantorovich geometry",
+      "identifier": "2610.35858",
+      "url": "https://arxiv.org/abs/2610.35858",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Do vision models know that three is three?",
+      "identifier": "2610.35857",
+      "url": "https://arxiv.org/abs/2610.35857",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the stability of learning",
+      "identifier": "2610.35856",
+      "url": "https://arxiv.org/abs/2610.35856",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Collinear and Coplanar Altermagnetism in a Penrose Quasicrystal",
+      "identifier": "2610.35855",
+      "url": "https://arxiv.org/abs/2610.35855",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FL4N: Feed-forward Latent Model for 4D Novel View Synthesis",
+      "identifier": "2610.35854",
+      "url": "https://arxiv.org/abs/2610.35854",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Adequacy radii for stepped-wedge trials with time-varying effects",
+      "identifier": "2610.35853",
+      "url": "https://arxiv.org/abs/2610.35853",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Differentiable Contact Dynamics for Legged Locomotion: Policy Learning and Contact-Implicit Trajectory Optimization",
+      "identifier": "2610.35852",
+      "url": "https://arxiv.org/abs/2610.35852",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Nonprehensile Robotic Catching Using Virtual Constraints",
+      "identifier": "2610.35851",
+      "url": "https://arxiv.org/abs/2610.35851",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "OSWAM: An Effective World Action Model with One-Step Action Generation",
+      "identifier": "2610.35850",
+      "url": "https://arxiv.org/abs/2610.35850",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Interaction of Strong X-mode Waves with Magnetized Pair Plasmas",
+      "identifier": "2610.35849",
+      "url": "https://arxiv.org/abs/2610.35849",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Exploring the Tractability Frontier of Hylland-Zeckhauser Models",
+      "identifier": "2610.35848",
+      "url": "https://arxiv.org/abs/2610.35848",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Patient-specific rubric-based evaluation of large language models across longitudinal cancer care",
+      "identifier": "2610.35847",
+      "url": "https://arxiv.org/abs/2610.35847",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Preserve to Expand: Source-Aware Adaptation and Model Merging for Multilingual LLM-Based ASR",
+      "identifier": "2610.35846",
+      "url": "https://arxiv.org/abs/2610.35846",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Work Agents: Systems, Capabilities, and Optimization",
+      "identifier": "2610.35845",
+      "url": "https://arxiv.org/abs/2610.35845",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Bodyseismography (BSG): Theoretical Foundation and Numerical Modeling",
+      "identifier": "2610.35844",
+      "url": "https://arxiv.org/abs/2610.35844",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
       "source": "Supreme Court",
       "kind": "legal",
       "title_or_case_name": "FCC v. Brown",
@@ -10568,7 +10793,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-18T00:39:22Z",
+    "last_poll": "2026-11-18T15:14:53Z",
     "sources": [
       {
         "name": "Ninth Circuit",
