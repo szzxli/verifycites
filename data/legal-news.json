@@ -1,10 +1,22 @@
 {
   "status": "ok",
-  "updated_utc": "2026-11-17T21:51:07Z",
-  "last_success_utc": "2026-11-17T21:51:07Z",
+  "updated_utc": "2026-11-18T21:30:05Z",
+  "last_success_utc": "2026-11-18T21:30:05Z",
   "query": "(\"fabricated citation\" OR \"fabricated citations\" OR \"fabricated case\" OR \"fabricated cases\" OR \"fictitious citation\" OR \"fictitious citations\" OR \"fictitious case\" OR \"fictitious cases\" OR \"hallucinated citation\" OR \"hallucinated citations\" OR \"hallucinated case\" OR \"hallucinated cases\" OR \"nonexistent citation\" OR \"nonexistent citations\" OR \"nonexistent case\" OR \"non-existent citation\" OR \"non-existent case\" OR \"AI-generated citation\" OR \"AI-generated citations\" OR \"artificial intelligence hallucination\" OR \"artificial intelligence hallucinations\") AND (\"artificial intelligence\" OR \"AI-generated\" OR ChatGPT OR \"generative AI\" OR \"generative artificial intelligence\" OR \"large language model\" OR GPT)",
   "error": null,
   "items": [
+    {
+      "date": "2026-11-18",
+      "court": "District Court of Appeal of Florida",
+      "case_name": "Elie v. Elie",
+      "url": "https://www.courtlistener.com/opinion/11065117/elie-v-elie/"
+    },
+    {
+      "date": "2026-11-18",
+      "court": "District Court of Appeal of Florida",
+      "case_name": "Willie Joe Jones v. State of Florida",
+      "url": "https://www.courtlistener.com/opinion/11065190/willie-joe-jones-v-state-of-florida/"
+    },
     {
       "date": "2026-11-13",
       "court": "Court of Chancery of Delaware",
@@ -112,18 +124,6 @@
       "court": "District Court, District of Columbia",
       "case_name": "Hennepin County, Minnesota v. U.S. Department of Health and Human Services",
       "url": "https://www.courtlistener.com/opinion/10953562/hennepin-county-minnesota-v-us-department-of-health-and-human-services/"
-    },
-    {
-      "date": "2026-08-19",
-      "court": "Superior Court of Pennsylvania",
-      "case_name": "Kaspryak, Z. v. Stadarskyy, M.",
-      "url": "https://www.courtlistener.com/opinion/10953674/kaspryak-z-v-stadarskyy-m/"
-    },
-    {
-      "date": "2026-08-19",
-      "court": "Court of Appeals of Iowa",
-      "case_name": "Brett Thomas Wilkinson v. Lacey Schmelzer",
-      "url": "https://www.courtlistener.com/opinion/10953670/brett-thomas-wilkinson-v-lacey-schmelzer/"
     }
   ]
 }
