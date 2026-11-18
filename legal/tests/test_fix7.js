@@ -40,7 +40,7 @@ assert.ok(!html.includes('id="query-translation"'), "query translation is not pr
 // Disclaimer: full disclaimer sentence must NOT sit inside any <details> block.
 // (Tag-depth scan at the marker position; the briefing warning also says
 // "Not legal advice" but is a different, shorter sentence.)
-const marker = "Subsequent history and good-law status, quotes, pin cites";
+const marker = "Not found means we checked and no matching record exists";
 const idx = html.indexOf(marker);
 assert.ok(idx > 0, "disclaimer marker");
 let depth = 0;

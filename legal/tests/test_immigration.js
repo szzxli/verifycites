@@ -67,7 +67,7 @@ assert.ok(!immSourceLine("statute", en).includes("does not yet map"),
 assert.ok(immSourceLine("aao", en).includes("manual check only"));
 assert.ok(immSourceLine("aao", en).includes("bind only the parties"));
 assert.ok(immSourceLine("aao", en).includes("may not be cited as authority"));
-assert.ok(immSourceLine("court", en).includes("Caselaw Access Project"));
+assert.ok(immSourceLine("court", en).includes("CourtListener"));
 assert.ok(immSourceLine("unknown", en).includes("Not identified"));
 
 // (c) Manual links: present, correct, and only for routed types.

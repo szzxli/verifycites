@@ -40,8 +40,8 @@ assert.ok(I18N.en.trustLimit1.includes("supports your argument"));
 assert.ok(I18N.en.trustLimit2.includes("pin cites"));
 assert.ok(I18N.en.trustLimit3.includes("still good law"));
 // Full disclaimer untouched + English-authoritative note untouched.
-assert.ok(html.includes("NOT_FOUND means not found in the named source"),
-  "disclaimer states what NOT_FOUND means");
+assert.ok(html.includes("Not found means we checked and no matching record exists"),
+  "disclaimer states what Not found means");
 assert.ok(I18N.en.disclaimer.includes("are never checked"));
 assert.ok(html.includes('data-i18n="disclaimerNote"'), "disclaimer note intact");
 // Hero "Not legal advice" chip merged away (disclaimer itself kept above).
@@ -79,7 +79,7 @@ assert.ok(css.includes("display: none"), "collapsed rule hides extras");
 assert.ok(appSrc.includes("function toggleReportColumns()"), "toggle function in app.js");
 assert.ok(appSrc.includes("function applyReportColumns()"), "apply function in app.js");
 assert.ok(appSrc.includes('class=\\"col-extra\\"'), "report rows mark extra cells");
-assert.ok(appSrc.includes('esc(row.label)'), "report rows carry a Label cell");
+assert.ok(appSrc.includes("verifyUserStatus") || appSrc.includes("esc(row.label)"), "report rows carry a status cell");
 // Extraction table untouched: still 6 columns, no col-extra.
 const resultsThead = html.slice(idx('id="resultsWrap"'), idx('id="reportTableWrap"'));
 assert.strictEqual([...resultsThead.matchAll(/<th\s[^>]*>/g)].length, 6, "extraction table still 6 columns");
@@ -100,10 +100,10 @@ for (const field of ["NOT_CHECKED", "Brown v. Board of Education", "1954", "pin 
 
 // --- 4. Legend leads with NOT_CHECKED; CLI-only statuses marked CLI-only.
 for (const l of ["en", "es", "zh"]) {
-  assert.ok(I18N[l].labelLegend.startsWith("VERIFIED"), l + " legend starts with VERIFIED");
-  assert.ok(I18N[l].labelLegend.includes("NOT_CHECKED") && I18N[l].labelLegend.includes("NOT_FOUND"), l + " legend lists NOT_CHECKED and NOT_FOUND");
+  assert.ok(I18N[l].labelLegend.startsWith("Verified") || I18N[l].labelLegend.startsWith("Verificado") || I18N[l].labelLegend.startsWith("已核实"), l + " legend starts with the found status");
+  assert.ok(/Not found|No encontrado|未找到/.test(I18N[l].labelLegend) && /Not checked|No verificado|未核实/.test(I18N[l].labelLegend), l + " legend lists not-found and not-checked");
 }
-assert.ok(/not good law/.test(I18N.en.labelLegend), "EN legend says verified is not good law");
+assert.ok(/not mean it is still good law/.test(I18N.en.labelLegend), "EN legend says found is not good law");
 
 // --- 5. Eligibility paragraph below the results, with the agreement link.
 // B6 (batch 2): one eligibility line only, in the CLI check section.
@@ -136,7 +136,7 @@ assert.ok(idx('data-i18n="briefingAudience"') < checkerAt, "audience line is on 
 // --- 7. Coverage line beside the input.
 const covAt = idx('data-i18n="coverageLine"');
 assert.ok(covAt > checkerAt && covAt < idx('id="input"'), "coverage line sits above the checker input");
-assert.ok(I18N.en.coverageLine.includes("NOT_CHECKED") || I18N.en.coverageLine.includes("Not checked here"), "coverage: browser does not check");
+assert.ok(I18N.en.coverageLine.includes("Not checked"), "coverage names what is not checked");
 assert.ok(I18N.en.coverageLine.includes("8 C.F.R."), "coverage names regulations");
 assert.ok(I18N.en.coverageLine.includes("BIA"), "coverage names BIA");
 assert.ok(I18N.en.immCheckerLink.includes("partial coverage"), "immigration link reads partial coverage");
@@ -150,7 +150,7 @@ const privacyEl = html.slice(idx('data-i18n="privacy"'), idx('data-i18n="privacy
 assert.ok(privacyEl.includes("your pasted text is checked in this browser"), "footer privacy states what is sent");
 assert.ok(html.includes("goatcounter"), "GoatCounter snippet untouched");
 // Module disclosures intact.
-assert.ok(html.includes("it does not send this text anywhere"), "input disclosure intact");
+assert.ok(html.includes("It does not send the rest of this text anywhere."), "input disclosure says the rest of the text is not sent");
 assert.ok(I18N.en.privacy.includes("GoatCounter"), "privacy names GoatCounter");
 assert.ok(!I18N.en.privacy.includes("translation endpoint"), "translation is not promoted in the privacy line");
 

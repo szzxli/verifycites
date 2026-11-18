@@ -78,7 +78,7 @@ assert.ok(!/privacy/i.test(immSection), "no privacy claim inside immigration sec
 // --- 7. UX1 regressions (must all still hold).
 assert.ok(html.includes('class="table-wrap report-collapsed"'), "report table collapsed by default");
 assert.ok(html.includes('id="reportColumnsToggle"'), "columns toggle present");
-assert.ok(I18N.en.labelLegend.startsWith("VERIFIED"), "legend starts with VERIFIED");
+assert.ok(I18N.en.labelLegend.startsWith("Verified"), "legend starts with Verified");
 const order = ["id=\"checker\"", "id=\"cli\"", "id=\"immigration\""]
   .map((s) => html.indexOf(s));
 assert.ok(order.every((v) => v > 0) && order.every((v, i) => i === 0 || v > order[i - 1]),
