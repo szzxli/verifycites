@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VerifyCites — Papers</title>
-<meta name="description" content="Free, open-source citation checker for AI-written research drafts. Checks each cited source against CrossRef, arXiv, Semantic Scholar and more, and flags references that don&#x27;t resolve or match.">
+<meta name="description" content="Free, open-source citation checker for research drafts. Looks up each cited source in Crossref, arXiv, Semantic Scholar and more, and compares title, authors, and year when a record is found.">
 <link rel="canonical" href="https://verifycites.com/papers/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VerifyCites">
-<meta property="og:title" content="VerifyCites — Free Citation Checker for AI Drafts">
-<meta property="og:description" content="Free, open-source citation checker for AI-written research drafts. Checks each cited source against CrossRef, arXiv, Semantic Scholar and more, and flags references that don&#x27;t resolve or match.">
+<meta property="og:title" content="VerifyCites — Free Citation Checker">
+<meta property="og:description" content="Free, open-source citation checker for research drafts. Looks up each cited source in Crossref, arXiv, Semantic Scholar and more, and compares title, authors, and year when a record is found.">
 <meta property="og:url" content="https://verifycites.com/papers/">
 <meta property="og:image" content="https://opengraph.githubassets.com/1/szzxli/veripaper">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VerifyCites — Free Citation Checker for AI Drafts">
-<meta name="twitter:description" content="Free, open-source citation checker for AI-written research drafts. Checks each cited source against CrossRef, arXiv, Semantic Scholar and more, and flags references that don&#x27;t resolve or match.">
+<meta name="twitter:title" content="VerifyCites — Free Citation Checker">
+<meta name="twitter:description" content="Free, open-source citation checker for research drafts. Looks up each cited source in Crossref, arXiv, Semantic Scholar and more, and compares title, authors, and year when a record is found.">
 <meta name="twitter:image" content="https://opengraph.githubassets.com/1/szzxli/veripaper">
 <script type="application/ld+json">
 {
@@ -24,7 +24,7 @@
   "name": "VerifyCites",
   "applicationCategory": "ReferenceApplication",
   "applicationSubCategory": "Citation checker",
-  "description": "Open-source, browser-based workbench that checks whether the citations in a research draft exist (CrossRef, DataCite, arXiv, Semantic Scholar, Europe PMC, DBLP) and labels each claim honestly: verified, cited, unverified, or stale.",
+  "description": "Open-source, browser-based workbench that checks whether the citations in a research draft exist (CrossRef, DataCite, arXiv, Semantic Scholar, Europe PMC, DBLP), compares title, authors, and year when a record is found, and labels each claim honestly: abstract-supported, cited, unverified, or stale.",
   "operatingSystem": "Any (web browser)",
   "url": "https://verifycites.com/papers/",
   "image": "https://opengraph.githubassets.com/1/szzxli/veripaper",
@@ -162,6 +162,8 @@ details.fold section.side{padding:26px 0 4px}
 .vp-filter[aria-pressed="true"]{outline:2px solid currentColor;outline-offset:1px}
 .vp-filter[disabled]{cursor:default;opacity:.55}
 .claim[hidden]{display:none}
+.vp-fieldline{font-family:var(--sans);font-size:13.5px;line-height:1.55;margin-top:6px;overflow-wrap:anywhere;word-break:break-word}
+.vp-overall{font-family:var(--sans);font-size:14px;font-weight:700;line-height:1.45;margin-top:6px;color:var(--crimson);overflow-wrap:anywhere}
 /* ---------- recent checks (local history, #84) ---------- */
 .vp-history-card{margin-bottom:12px}
 .vp-history-btn{padding:9px 16px;font-size:13px}
@@ -197,7 +199,7 @@ details.fold section.side{padding:26px 0 4px}
 
 <div class="wrap">
 <div class="titleblock">
-  <h1>Your AI wrote the draft.<br>Did each citation resolve and match?</h1>
+  <h1>Did each citation resolve?</h1>
   <div class="byline">Paste a draft or a BibTeX file. VerifyCites checks every citation — free, in your browser.</div>
   <div class="btnrow" style="justify-content:center;margin:26px 0 4px">
     <a href="#ground" id="cta-check" class="btn primary hero-tool-link" style="padding:14px 38px;font-size:16px">Check citations</a>
@@ -209,7 +211,7 @@ details.fold section.side{padding:26px 0 4px}
 
 <section id="ground">
   <div class="sec-head"><span class="sec-no">§1</span><h2>Check citations</h2></div>
-  <p class="sec-lede">Paste a draft (markdown or plain text), upload a .docx / .pdf, or paste / upload a BibTeX <code>.bib</code>. For each citation the checker looks up whether the source <b>exists</b>, whether the <b>identifier</b> in the text matches the record, whether the paper is <b>retracted</b>, and whether the cited <b>abstract supports the claim</b>. Title, authors, venue, and year are not compared field by field; an author mismatch is flagged only when the check detects one. <span id="papers-privacy-line">Your draft text stays in your browser (.docx / .pdf text is extracted here). Only citation identifiers and reference text are sent to the registries (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar); claims and abstracts go to OpenRouter only if you add your own key.</span></p>
+  <p class="sec-lede">Paste a draft (markdown or plain text), upload a .docx / .pdf, or paste / upload a BibTeX <code>.bib</code>. For each citation the checker looks up whether the source <b>exists</b>, whether the <b>identifier</b> in the text matches the record, whether the paper is <b>retracted</b>, and whether the cited <b>abstract supports the claim</b>. When a record is found, it compares the reference's <b>title</b> (normalized similarity: match, close, or mismatch), <b>authors</b> (first-author surname, and overlap when several are listed: match, partial, or mismatch), and <b>year</b> (exact, off by 1 (preprint vs published), or mismatch). A field missing from the reference or the record is labeled <b>Not compared</b>, with the reason. If a record is found but the title or the authors mismatch, the status is <b>Found, but details don't match</b>, not a verified citation. Venue and pages are not compared. <span id="papers-privacy-line">Your draft text stays in your browser (.docx / .pdf text is extracted here). Only citation identifiers and reference text are sent to the registries (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar); claims and abstracts go to OpenRouter only if you add your own key.</span></p>
   <div class="toolcard">
     <div class="btnrow" style="margin:0 0 12px">
       <button id="ground-sample" class="btn ghost">Load sample</button>
@@ -255,7 +257,7 @@ details.fold section.side{padding:26px 0 4px}
       <button id="doi-btn" class="btn primary">Verify</button>
     </div>
     <div id="verify-result" style="margin-top:14px;font-size:14.5px"></div>
-    <p class="hint">Queries CrossRef / DataCite / arXiv live. A result of <i>cited</i> means the source exists — it does not mean the source supports your claim.<span id="fn1"></span></p>
+    <p class="hint">Queries CrossRef / DataCite / arXiv live. A result of <i>cited</i> means the source exists — it does not mean the source supports your claim. Title, authors, and year are not compared here: this box has only an identifier, so there is no reference text to compare them with.<span id="fn1"></span></p>
   </div>
 </section>
 
@@ -287,7 +289,7 @@ details.fold section.side{padding:26px 0 4px}
         <tr><td>ICLR 2026 desk-rejected references, sample (MIT)</td><td>most</td><td>—</td><td>none</td></tr>
       </tbody>
     </table></div>
-    <p class="hint" style="margin-top:8px">It does not check venue, pages, or partly wrong author lists. Web pages, software, and standards have no scholarly record, so they count as false alarms here (<i>UNVERIFIED</i>).</p>
+    <p class="hint" style="margin-top:8px">It does not check venue or pages. When several authors are listed, overlap is reported as match or partial. Web pages, software, and standards have no scholarly record, so they count as false alarms here (<i>UNVERIFIED</i>).</p>
 <!-- PUBLIC:END -->
     <p class="hint" id="recall-honest" style="margin-top:8px"><b>Where this stands:</b> on the Badalova &amp; Mayr set, it missed more references than most tools compared but raised the fewest false alarms. This is a conservative trade-off: fewer false alarms, more missed problems. The other tools' numbers come from the study's own runs. These figures were measured on 2026-10-21, before the NOT_A_SCHOLARLY_RECORD label was added, and have not been re-scored since.</p>
     <p class="hint" style="margin-top:10px"><b>The sample is small</b>, so read these as signals, not rates. The set is first-party (built and scored by us), registries change, and results vary with rate limits. *These six were built with the same deterministic check that flags them, so that row is not independent evidence of claim checking.</p>
@@ -314,7 +316,7 @@ details.fold section.side{padding:26px 0 4px}
     <dd>The source exists <i>and</i> its abstract substantively supports the claim's key assertion. Full text is <i>not</i> checked — supporting evidence may live in the paper body. <b>Next:</b> read the paper before relying on it.</dd>
     <dd class="example">Example claim: 'Model X reports a new state-of-the-art score on benchmark Y' — matched against the cited paper's abstract.</dd>
     <dt><span class="label l-cited">CITED</span></dt>
-    <dd>Source found; whether it supports the claim was not checked (or only partly). <b>Next:</b> check the full text yourself.</dd>
+    <dd>Source found; whether it supports the claim was not checked (or only partly). If the title or the authors mismatch the reference, the result says <b>Found, but details don't match</b> instead of treating the citation as verified. <b>Next:</b> check the full text yourself.</dd>
     <dd class="example">Example: "The dataset contains 1.2M annotated examples (Smith et al.)" — real source, content not yet compared.</dd>
     <dt><span class="label l-unverified">UNVERIFIED</span></dt>
     <dd>No record found, the marker cannot be resolved, or the match is ambiguous. <b>Next:</b> add a DOI or arXiv ID, or search the registries by hand; do not cite it as-is.</dd>
@@ -322,7 +324,7 @@ details.fold section.side{padding:26px 0 4px}
     <dt><span class="label l-unverified">ID_NOT_FOUND</span></dt>
     <dd>An explicit identifier (DOI / arXiv ID) was looked up in its registry and no record was found. <b>Next:</b> copy the identifier again from the publisher or arXiv page; if you cannot find the work, do not cite it until you can.</dd>
     <dt><span class="label l-unverified">ID_NOT_FOUND_TITLE_FOUND</span></dt>
-    <dd>The identifier was not found in its registry, but the reference's title and year match a record, so the identifier is probably mistyped. <b>Next:</b> compare the identifier with that record and correct it.</dd>
+    <dd>The identifier was not found in its registry. A search returned a record; the field line on that result is what was actually compared. The identifier is probably mistyped. <b>Next:</b> compare the identifier with that record and correct it.</dd>
     <dt><span class="label l-stale">NOT_A_SCHOLARLY_RECORD</span></dt>
     <dd>No scholarly record was found, and the reference looks like a web page, software, a model card or a standard, which usually have no registry record. Not counted as a problem. <b>Next:</b> open the source yourself and check that it says what you cite.</dd>
     <dt><span class="label l-unverified">INVALID_DOI</span></dt>
@@ -330,7 +332,7 @@ details.fold section.side{padding:26px 0 4px}
     <dt><span class="label l-stale">RATE_LIMITED</span></dt>
     <dd>Sources were rate-limited or could not be reached (offline, blocked, server error) while checking — not checked; this says nothing about the citation. <b>Next:</b> try again later.</dd>
     <dt><span class="label l-stale">[STALE:YYYY]</span> <span class="label l-unverified">[CHIMERIC:author-mismatch]</span> <span class="label l-unverified">[RETRACTED]</span></dt>
-    <dd>Tags, not labels: stale data, a real title carrying the wrong authors, a retracted paper. A retracted paper can never be ABSTRACT-SUPPORTED.</dd>
+    <dd>Tags, not labels: stale data, listed authors that do not match the record, a retracted paper. A retracted paper can never be ABSTRACT-SUPPORTED. A title or author mismatch on a found record is reported as <b>Found, but details don't match</b>, not as verified.</dd>
     <dt><span class="label l-stale">[SPECIFIC-NOT-IN-ABSTRACT]</span> <span class="label l-unverified">[POSSIBLE-MISATTRIBUTION]</span></dt>
     <dd>Anti-paraphrase tags: the claim leans on hard specifics (numbers, quoted phrases) absent from the abstract. For the second, the missing specific was found in a paper this work cites — the finding may originate there. Both cap the claim at CITED.</dd>
   </dl>
@@ -340,7 +342,7 @@ details.fold section.side{padding:26px 0 4px}
 <section id="about">
   <div class="abstract">
     <div class="ah">About</div>
-    <p>VerifyCites is an open-source citation checker for research drafts. It looks up whether each cited source exists (CrossRef, DataCite, arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar), resolves reference-list markers to identifiers, compares the authors you cited with the record, flags retractions, and screens whether the cited abstract supports the claim — with a small in-browser model by default, or an LLM with your own API key. Every citation receives an honest label from the contract above.</p>
+    <p>VerifyCites is an open-source citation checker for research drafts. It looks up whether each cited source exists (CrossRef, DataCite, arXiv, OpenAlex, Europe PMC, DBLP, Semantic Scholar), resolves reference-list markers to identifiers, compares title, authors, and year with the record when both sides have a value, flags retractions, and screens whether the cited abstract supports the claim — with a small in-browser model by default, or an LLM with your own API key. Every citation receives an honest label from the contract above.</p>
     <p>It never generates content and never pretends. When evidence is uncertain, it downgrades the label and leaves the judgment to the author.</p>
   </div>
 </section>
@@ -360,7 +362,7 @@ details.fold section.side{padding:26px 0 4px}
   <p class="sec-lede">Three horizons. Only <b>Now</b> is built; <b>Next</b> and <b>Later</b> are plans, not features.</p>
   <h3>Now</h3>
   <ul class="tight">
-    <li><b>Citation checker.</b> Per citation: does the work exist, does the identifier match the record, is it retracted, and does the cited abstract support the claim (abstract-level only — see <a href="#limits">limits</a>). Title, authors, venue, and year are not compared field by field. <i class="st-live">Built — §1 and §2 above.</i></li>
+    <li><b>Citation checker.</b> Per citation: does the work exist, does the identifier match the record, is it retracted, and does the cited abstract support the claim (abstract-level only — see <a href="#limits">limits</a>). Title, authors, and year are compared with the record when both sides have a value; venue and pages are not. A mismatch of title or authors is reported as Found, but details don't match. <i class="st-live">Built — §1 and §2 above.</i></li>
     <li><b>.bib CLI and GitHub Action.</b> Check bibliographies from the command line or as a CI gate (<a href="https://github.com/szzxli/veripaper#check-bib-files-in-ci-github-action--cli">how</a>). <i class="st-live">Built.</i></li>
     <li>Early, unvalidated side tools sit collapsed at the bottom of this page.</li>
   </ul>
@@ -369,7 +371,7 @@ details.fold section.side{padding:26px 0 4px}
     <h3>Next</h3>
     <ol class="tight">
       <li><b>Claim-level checks against open-access full text</b> (arXiv, PubMed Central): which parts of a claim the source supports, with quotes — never a flat yes/no. <i class="st-no">Planned, not built.</i></li>
-      <li><b>Close the gaps in the <a href="#limits">limits</a>:</b> compare year, venue and pages; catch a partly wrong author list. <i class="st-no">Planned, not built.</i></li>
+      <li><b>Close the gaps in the <a href="#limits">limits</a>:</b> compare venue and pages. <i class="st-no">Planned, not built.</i></li>
       <li><b>More free registries</b> (e.g. PubMed, DBLP) to cut UNVERIFIED. <i class="st-no">Planned, not built.</i></li>
       <li><b>Workflow integrations:</b> Zotero, Overleaf, and a batch mode for journal editors and writing centers. <i class="st-no">Planned, not built.</i></li>
       <li><b>A public citation-check benchmark.</b> Today's measurement is <a href="https://github.com/szzxli/veripaper/blob/main/benchmark/COMPARISON.md">benchmark/COMPARISON.md</a> (§3). <i class="st-no">Planned, not built.</i></li>
@@ -698,7 +700,8 @@ async function verify(){
       const retr = meta.retracted ? `<br><span class="label l-unverified">RETRACTED</span> <b style="color:var(--crimson)">This paper has been retracted — do not cite it as support.</b><br>` : '';
       showE(`<span class="label l-cited">CITED</span><b>Source exists.</b> Content support not yet checked — this is honest downgrade, not verification.${retr}<br>
         <b>${esc(meta.title)}</b><br>
-        <span style="color:var(--ink-soft)">${esc(meta.authors)}${meta.year?' · '+esc(meta.year):''}${meta.venue?' · <i>'+esc(meta.venue)+'</i>':''}</span>`);
+        <span style="color:var(--ink-soft)">${esc(meta.authors)}${meta.year?' · '+esc(meta.year):''}${meta.venue?' · <i>'+esc(meta.venue)+'</i>':''}</span>
+        <div class="vp-fieldline">Title Not compared — only an identifier was entered · Authors Not compared — only an identifier was entered · Year Not compared — only an identifier was entered</div>`);
     }else if(failed.length && failed.every(f => f.limited)){
       showE(`<span class="label l-stale">RATE_LIMITED</span><b>Sources were rate-limited (HTTP 429).</b> Not checked — not shown to be missing. Wait a minute and retry.`);
     }else if(failed.length){

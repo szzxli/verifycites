@@ -84,7 +84,7 @@ ok('rate-limited identifier stays Not compared', /Identifier: cited 10\.1234\/ed
 ok('invalid-doi identifier stays Not compared', /Identifier: cited Not shown in the claim text · record Missing — Not compared/.test(eParts[2]) && !/Identifier:[^<]*Missing in record/.test(eParts[2].split('Anomaly reason:')[0]));
 ok('record without identifier is Missing in record', /Identifier: cited Not shown in the claim text · record Missing — Missing in record/.test(eParts[3]));
 // (f) P0 fields and warnings stay intact alongside the new block.
-for (const f of ['Category:', 'Matching evidence:', 'Check scope:', 'Suggested action:']) {
+for (const f of ['Category:', 'Registry record:', 'Check scope:', 'Suggested action:']) {
   ok('P0 field intact: ' + f, html.includes(f));
 }
 ok('retracted warning intact', html.includes('Retracted warning:'));
