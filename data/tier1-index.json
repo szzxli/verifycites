@@ -3,6 +3,482 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Rising suicide mortality and premature mortality burden in northeastern Iran, 2013–2024: a registry-based repeated cross-sectional study",
+      "identifier": "10.21203/rs.3.rs-10934668/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370182",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-10934668/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "From Commitment to Institutionalization: Healthcare Organization Leaders’ Perspectives on Diversity, Equity, Inclusion, and Belonging in Southern California — A Qualitative Study",
+      "identifier": "10.21203/rs.3.rs-11272992/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370181",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11272992/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Latent profiles of subsequent fertility pressure and their association with intention to have another child among parous women in China: a cross-sectional study",
+      "identifier": "10.21203/rs.3.rs-11356047/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370180",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11356047/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Resilience, recent complications and preference-based health-related quality of life in specialist ostomy nursing follow-up: a cross-sectional study",
+      "identifier": "10.21203/rs.3.rs-11280638/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370179",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11280638/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "MelanoFusion: An Explainable and Uncertainty-Aware Hybrid CNN–Transformer Framework for Dermoscopic Melanoma Detection",
+      "identifier": "10.21203/rs.3.rs-11208377/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370178",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11208377/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Heterogeneous cost-control pathways of DRG payment reform and associated risks in stroke care: A multicentre quasi-experimental study",
+      "identifier": "10.21203/rs.3.rs-10052369/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370177",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-10052369/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Deep Learning Model Based on Transcranial Sonography for Detection of Acute Intracranial Hemorrhage in Adults: A Comparative Study With Sonologists of Different Experience Levels",
+      "identifier": "10.21203/rs.3.rs-11612041/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370176",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11612041/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Routine vs Selective Fortification of Preterm Human Milk in Extremely Preterm Infants",
+      "identifier": "10.21203/rs.3.rs-11472222/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370175",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11472222/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Parental Engagement in Cue-Based Feeding for Preterm Infants in the NICU: A Retrospective Cohort Study",
+      "identifier": "10.21203/rs.3.rs-11576753/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370174",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11576753/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The Predictive Value of Admission SIRS on Bile Duct Injury Outcome",
+      "identifier": "10.21203/rs.3.rs-10888309/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370173",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-10888309/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Optical channel patterns during preparation and performance of scored and improvised music in an exploratory fNIRS study",
+      "identifier": "10.21203/rs.3.rs-11456041/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370172",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11456041/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Quality, reliability, and readability of large language model responses to questions about immune checkpoint inhibitor-associated myocarditis: A cross-sectional study",
+      "identifier": "10.21203/rs.3.rs-11077152/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370171",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11077152/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Peripartum Cardiomyopathy in Pakistan: A Systematic Review of Clinical Outcomes, Maternal and Obstetric Characteristics",
+      "identifier": "10.21203/rs.3.rs-11304203/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1370170",
+      "date": "2026-11-19",
+      "doi": "10.21203/rs.3.rs-11304203/v1",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Monoclonal protein testing: past foundations, present challenges and future opportunities.",
+      "identifier": "10.1515/cclm-2026-1973",
+      "url": "https://europepmc.org/article/MED/43049761",
+      "date": "2026-11-19",
+      "doi": "10.1515/cclm-2026-1973",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Anti-Müllerian hormone as a potential marker of pubertal suppression in girls with central precocious puberty treated with GnRH agonists.",
+      "identifier": "10.1515/jpem-2026-0747",
+      "url": "https://europepmc.org/article/MED/43049704",
+      "date": "2026-11-19",
+      "doi": "10.1515/jpem-2026-0747",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "An acoustic description of the Frisian monophthongs and ingliding diphthongs.",
+      "identifier": "10.1515/phon-2026-0038",
+      "url": "https://europepmc.org/article/MED/43049701",
+      "date": "2026-11-19",
+      "doi": "10.1515/phon-2026-0038",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Interleukin-6 and the maternal-placental immune axis in preeclampsia: from implantation to postpartum cardiovascular disease.",
+      "identifier": "10.1515/jpm-2026-0497",
+      "url": "https://europepmc.org/article/MED/43049677",
+      "date": "2026-11-19",
+      "doi": "10.1515/jpm-2026-0497",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Clinical Factors Associated With Response and Outcomes in Intravenous Ketamine Treatment for Depression: Insights From a Real-World Retrospective Study.",
+      "identifier": "10.1097/jcp.0000000000002302",
+      "url": "https://europepmc.org/article/MED/43049600",
+      "date": "2026-11-19",
+      "doi": "10.1097/jcp.0000000000002302",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The Role of Droperidol in the Management of Acute Agitation: A Comprehensive Review.",
+      "identifier": "10.1097/jcp.0000000000002292",
+      "url": "https://europepmc.org/article/MED/43049443",
+      "date": "2026-11-19",
+      "doi": "10.1097/jcp.0000000000002292",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Severe Alprazolam Withdrawal Presenting as Hypertensive Emergency and Psychosis: A Case Report.",
+      "identifier": "10.1097/jcp.0000000000002290",
+      "url": "https://europepmc.org/article/MED/43049382",
+      "date": "2026-11-19",
+      "doi": "10.1097/jcp.0000000000002290",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Alcohol-Based Antiseptics for Nasal Decolonization: An Emerging Peri-Operative Strategy.",
+      "identifier": "10.1097/dss.0000000000005466",
+      "url": "https://europepmc.org/article/MED/43049356",
+      "date": "2026-11-19",
+      "doi": "10.1097/dss.0000000000005466",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The Modified Frailty Index (mFI-11) Predicts Adverse Outcomes After Surgery for Lower-Extremity Nonmelanoma Skin Cancer.",
+      "identifier": "10.1097/dss.0000000000005457",
+      "url": "https://europepmc.org/article/MED/43049357",
+      "date": "2026-11-19",
+      "doi": "10.1097/dss.0000000000005457",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reconstruction of a Full-Thickness Lower Lip Defect.",
+      "identifier": "10.1097/dss.0000000000005470",
+      "url": "https://europepmc.org/article/MED/43049346",
+      "date": "2026-11-19",
+      "doi": "10.1097/dss.0000000000005470",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The Sail-Shaped Modification for Reconstruction of Distal Nasal Defects.",
+      "identifier": "10.1097/dss.0000000000005456",
+      "url": "https://europepmc.org/article/MED/43049350",
+      "date": "2026-11-19",
+      "doi": "10.1097/dss.0000000000005456",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Mechanical Tension Reduction Therapies for the Management of Keloids and Hypertrophic Scars: A Systematic Review.",
+      "identifier": "10.1097/dss.0000000000005467",
+      "url": "https://europepmc.org/article/MED/43049347",
+      "date": "2026-11-19",
+      "doi": "10.1097/dss.0000000000005467",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "UltraTex: Aligning Physical Knowledge for High-Fidelity PBR Texture Generation",
+      "identifier": "2611.24941",
+      "url": "https://arxiv.org/abs/2611.24941",
+      "date": "2026-11-18",
+      "doi": "10.1145/3842583",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "$Z$-sight: Unifying Vision-Language-Action and Latent World Modeling",
+      "identifier": "2611.24940",
+      "url": "https://arxiv.org/abs/2611.24940",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Map-Level Inference of Primordial Gravitational Waves from the CMB with Spherical Neural Networks",
+      "identifier": "2611.24939",
+      "url": "https://arxiv.org/abs/2611.24939",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Phoenix: Learning Scene Structure Representations for Generalizable World-Action Models",
+      "identifier": "2611.24938",
+      "url": "https://arxiv.org/abs/2611.24938",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "LEMUR: A Searchable Web Archive of Deep Chandra Images of Galaxies and Galaxy Clusters",
+      "identifier": "2611.24937",
+      "url": "https://arxiv.org/abs/2611.24937",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Jailbreak Detection on Large Language Models via Contrastive Prototype Structures",
+      "identifier": "2611.24936",
+      "url": "https://arxiv.org/abs/2611.24936",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Exact Parent Hamiltonians for Partially Magnetized Chiral Spin Liquids",
+      "identifier": "2611.24935",
+      "url": "https://arxiv.org/abs/2611.24935",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Low Moments, Small Balls and Star Discrepancy",
+      "identifier": "2611.24934",
+      "url": "https://arxiv.org/abs/2611.24934",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the refined Kaneko--Zagier conjecture",
+      "identifier": "2611.24933",
+      "url": "https://arxiv.org/abs/2611.24933",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Knowing What You Know: A Trait Theory of Reviewer Value in Human-AI Cognitive Systems",
+      "identifier": "2611.24932",
+      "url": "https://arxiv.org/abs/2611.24932",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Sharp Complexity Thresholds for Network Cournot Competition",
+      "identifier": "2611.24931",
+      "url": "https://arxiv.org/abs/2611.24931",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A Weinstein manifold without any spherical Fukaya category",
+      "identifier": "2611.24930",
+      "url": "https://arxiv.org/abs/2611.24930",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Improving External Prediction in New Clusters with Mixed-Effects Models: Implications for Multicenter Studies",
+      "identifier": "2611.24929",
+      "url": "https://arxiv.org/abs/2611.24929",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Residual Allan Stability under Periodic Auxiliary Ramsey Sampling",
+      "identifier": "2611.24928",
+      "url": "https://arxiv.org/abs/2611.24928",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Mapping the AI Supply Chain: Dependencies, Vulnerabilities, and Market Concentration in the AI Ecosystem",
+      "identifier": "2611.24927",
+      "url": "https://arxiv.org/abs/2611.24927",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Grana: Compositional Reward Modeling for Long-Horizon Robot Manipulation",
+      "identifier": "2611.24926",
+      "url": "https://arxiv.org/abs/2611.24926",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Render the Robot, Generate the World: One Video World Model Across Embodiments",
+      "identifier": "2611.24925",
+      "url": "https://arxiv.org/abs/2611.24925",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Agentic Harness Engineering Beta: Requirement-Centered Evolution of Agent Harnesses",
+      "identifier": "2611.24924",
+      "url": "https://arxiv.org/abs/2611.24924",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Unique determination of ellipsoids by their intrinsic volumes",
+      "identifier": "2611.24923",
+      "url": "https://arxiv.org/abs/2611.24923",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Holomorphic Reduction of Pseudoconvex Homogeneous Manifolds",
+      "identifier": "2611.24922",
+      "url": "https://arxiv.org/abs/2611.24922",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Strong Epsilon-Near-Zero Confinement and Interface-Controlled Dynamics in Inverse-Designed Transparent Conducting Oxide Cavities",
+      "identifier": "2611.24921",
+      "url": "https://arxiv.org/abs/2611.24921",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Optimal Competitive Ratio for Subadditive Online Combinatorial Auctions is Less Than 1/2",
+      "identifier": "2611.24920",
+      "url": "https://arxiv.org/abs/2611.24920",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Zero-Temperature Energetics of a First-Order Surface Phase Transition from Diffraction",
+      "identifier": "2611.24919",
+      "url": "https://arxiv.org/abs/2611.24919",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hardness of \"Infinite Energy\" Puzzles",
+      "identifier": "2611.24918",
+      "url": "https://arxiv.org/abs/2611.24918",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Unified Law for Visual Tasks (The Four Laws of Computer Vision)",
+      "identifier": "2611.24917",
+      "url": "https://arxiv.org/abs/2611.24917",
+      "date": "2026-11-18",
+      "first_seen": "2026-11-19T07:08:12Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Understanding Veterans’ Healthcare Use and Experience, 2018–2019",
       "identifier": "europepmc:NBK626013",
       "url": "https://europepmc.org/article/NBK/NBK626013",
@@ -743,231 +1219,6 @@
       "first_seen": "2026-11-18T00:39:22Z"
     },
     {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Limited-Memory First-Order Methods: Identification, Reconstruction, $H$-Duality and Application to Optimized Methods",
-      "identifier": "2611.21611",
-      "url": "https://arxiv.org/abs/2611.21611",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Hyperkagome antiferromagnetism in the iron garnet Almandine Fe$_3$Al$_2$Si$_3$O$_{12}$",
-      "identifier": "2611.21610",
-      "url": "https://arxiv.org/abs/2611.21610",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Double quantum dots as dynamical impurities in one-dimensional transport",
-      "identifier": "2611.21609",
-      "url": "https://arxiv.org/abs/2611.21609",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Latent Lattice Language Models",
-      "identifier": "2611.21608",
-      "url": "https://arxiv.org/abs/2611.21608",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters",
-      "identifier": "2611.21607",
-      "url": "https://arxiv.org/abs/2611.21607",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "The Shape of the Strongly Coupled MQM Ground State",
-      "identifier": "2611.21606",
-      "url": "https://arxiv.org/abs/2611.21606",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "ViRA: Toward Ultra-High-Resolution Visual Agents via Cross-Input Relative Policy Optimization",
-      "identifier": "2611.21605",
-      "url": "https://arxiv.org/abs/2611.21605",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "FaceJev: Direct Visual Decisions for Face Forgery Detection",
-      "identifier": "2611.21604",
-      "url": "https://arxiv.org/abs/2611.21604",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A separation criterion for chiral systems and its application to Plebański--Demiański perturbations",
-      "identifier": "2611.21603",
-      "url": "https://arxiv.org/abs/2611.21603",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Quantifying the added value of human forecaster discussions for tropical cyclone intensity prediction",
-      "identifier": "2611.21602",
-      "url": "https://arxiv.org/abs/2611.21602",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Open Heavy Flavor in Nuclear Collisions: From Lattice QCD to Observables",
-      "identifier": "2611.21601",
-      "url": "https://arxiv.org/abs/2611.21601",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "How VLMs Plan What's Next",
-      "identifier": "2611.21600",
-      "url": "https://arxiv.org/abs/2611.21600",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Hyperlyve: Parallelized Enumeration and Exact Lyapunov Stability Certification for Deep ReLU Networks",
-      "identifier": "2611.21599",
-      "url": "https://arxiv.org/abs/2611.21599",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Mitigating Catastrophic Forgetting with Physics-Indexed Specialist Memory: the Evolutionary Neuroplastic Agent",
-      "identifier": "2611.21598",
-      "url": "https://arxiv.org/abs/2611.21598",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Optimal Autoregressive Chain-of-Thought Learning via Bagging",
-      "identifier": "2611.21597",
-      "url": "https://arxiv.org/abs/2611.21597",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "SADL: On the Demand-Supply Geometry of Representation Collapse",
-      "identifier": "2611.21596",
-      "url": "https://arxiv.org/abs/2611.21596",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Rest-frame annihilation lines of $\\sim70$ GeV WIMPs in 23,000 stacked galaxy clusters",
-      "identifier": "2611.21595",
-      "url": "https://arxiv.org/abs/2611.21595",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Surrogate-Assisted Compact-Model Extraction for SKY130 CMOS at 77 K",
-      "identifier": "2611.21594",
-      "url": "https://arxiv.org/abs/2611.21594",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Electrostatic and magnetic control of the anomalous Josephson phase in ferromagnetic hybrid junctions",
-      "identifier": "2611.21593",
-      "url": "https://arxiv.org/abs/2611.21593",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Connectivity from activity in spiking neural networks",
-      "identifier": "2611.21592",
-      "url": "https://arxiv.org/abs/2611.21592",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Separation of gravitational perturbations of Myers-Perry black holes",
-      "identifier": "2611.21591",
-      "url": "https://arxiv.org/abs/2611.21591",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "The Provenance-Privacy Paradox: Can Private Cloud Compute (PCC) Prove That Apple Reference Images Are Not Used for Learning?",
-      "identifier": "2611.21590",
-      "url": "https://arxiv.org/abs/2611.21590",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Exceptional cubics on 7-manifolds",
-      "identifier": "2611.21589",
-      "url": "https://arxiv.org/abs/2611.21589",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Recent Advances and Precision Measurements with the JYFLTRAP Double Penning Trap Mass Spectrometer",
-      "identifier": "2611.21588",
-      "url": "https://arxiv.org/abs/2611.21588",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Commissioning of GEM Detectors for the Super Bigbite Spectrometer",
-      "identifier": "2611.21587",
-      "url": "https://arxiv.org/abs/2611.21587",
-      "date": "2026-11-16",
-      "first_seen": "2026-11-17T15:37:55Z"
-    },
-    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "Diabetes care across the Islamic calendar: Ramadan fasting and Hajj pilgrimage.",
@@ -1215,6 +1466,231 @@
       "url": "https://europepmc.org/article/MED/43040187",
       "date": "2026-11-17",
       "doi": "10.1007/s40265-026-02415-w",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Limited-Memory First-Order Methods: Identification, Reconstruction, $H$-Duality and Application to Optimized Methods",
+      "identifier": "2611.21611",
+      "url": "https://arxiv.org/abs/2611.21611",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hyperkagome antiferromagnetism in the iron garnet Almandine Fe$_3$Al$_2$Si$_3$O$_{12}$",
+      "identifier": "2611.21610",
+      "url": "https://arxiv.org/abs/2611.21610",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Double quantum dots as dynamical impurities in one-dimensional transport",
+      "identifier": "2611.21609",
+      "url": "https://arxiv.org/abs/2611.21609",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Latent Lattice Language Models",
+      "identifier": "2611.21608",
+      "url": "https://arxiv.org/abs/2611.21608",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "ScaleVLA: Scaling Vision-Language-Action Models to 552 Billion Parameters",
+      "identifier": "2611.21607",
+      "url": "https://arxiv.org/abs/2611.21607",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Shape of the Strongly Coupled MQM Ground State",
+      "identifier": "2611.21606",
+      "url": "https://arxiv.org/abs/2611.21606",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "ViRA: Toward Ultra-High-Resolution Visual Agents via Cross-Input Relative Policy Optimization",
+      "identifier": "2611.21605",
+      "url": "https://arxiv.org/abs/2611.21605",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FaceJev: Direct Visual Decisions for Face Forgery Detection",
+      "identifier": "2611.21604",
+      "url": "https://arxiv.org/abs/2611.21604",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A separation criterion for chiral systems and its application to Plebański--Demiański perturbations",
+      "identifier": "2611.21603",
+      "url": "https://arxiv.org/abs/2611.21603",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Quantifying the added value of human forecaster discussions for tropical cyclone intensity prediction",
+      "identifier": "2611.21602",
+      "url": "https://arxiv.org/abs/2611.21602",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Open Heavy Flavor in Nuclear Collisions: From Lattice QCD to Observables",
+      "identifier": "2611.21601",
+      "url": "https://arxiv.org/abs/2611.21601",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "How VLMs Plan What's Next",
+      "identifier": "2611.21600",
+      "url": "https://arxiv.org/abs/2611.21600",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hyperlyve: Parallelized Enumeration and Exact Lyapunov Stability Certification for Deep ReLU Networks",
+      "identifier": "2611.21599",
+      "url": "https://arxiv.org/abs/2611.21599",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Mitigating Catastrophic Forgetting with Physics-Indexed Specialist Memory: the Evolutionary Neuroplastic Agent",
+      "identifier": "2611.21598",
+      "url": "https://arxiv.org/abs/2611.21598",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Optimal Autoregressive Chain-of-Thought Learning via Bagging",
+      "identifier": "2611.21597",
+      "url": "https://arxiv.org/abs/2611.21597",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "SADL: On the Demand-Supply Geometry of Representation Collapse",
+      "identifier": "2611.21596",
+      "url": "https://arxiv.org/abs/2611.21596",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Rest-frame annihilation lines of $\\sim70$ GeV WIMPs in 23,000 stacked galaxy clusters",
+      "identifier": "2611.21595",
+      "url": "https://arxiv.org/abs/2611.21595",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Surrogate-Assisted Compact-Model Extraction for SKY130 CMOS at 77 K",
+      "identifier": "2611.21594",
+      "url": "https://arxiv.org/abs/2611.21594",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Electrostatic and magnetic control of the anomalous Josephson phase in ferromagnetic hybrid junctions",
+      "identifier": "2611.21593",
+      "url": "https://arxiv.org/abs/2611.21593",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Connectivity from activity in spiking neural networks",
+      "identifier": "2611.21592",
+      "url": "https://arxiv.org/abs/2611.21592",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Separation of gravitational perturbations of Myers-Perry black holes",
+      "identifier": "2611.21591",
+      "url": "https://arxiv.org/abs/2611.21591",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Provenance-Privacy Paradox: Can Private Cloud Compute (PCC) Prove That Apple Reference Images Are Not Used for Learning?",
+      "identifier": "2611.21590",
+      "url": "https://arxiv.org/abs/2611.21590",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Exceptional cubics on 7-manifolds",
+      "identifier": "2611.21589",
+      "url": "https://arxiv.org/abs/2611.21589",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Recent Advances and Precision Measurements with the JYFLTRAP Double Penning Trap Mass Spectrometer",
+      "identifier": "2611.21588",
+      "url": "https://arxiv.org/abs/2611.21588",
+      "date": "2026-11-16",
+      "first_seen": "2026-11-17T15:37:55Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Commissioning of GEM Detectors for the Super Bigbite Spectrometer",
+      "identifier": "2611.21587",
+      "url": "https://arxiv.org/abs/2611.21587",
+      "date": "2026-11-16",
       "first_seen": "2026-11-17T15:37:55Z"
     },
     {
@@ -1468,232 +1944,6 @@
       "first_seen": "2026-11-17T01:40:47Z"
     },
     {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Pairing AIS with RF: Analysis of a Markovian Approach for Maritime Data Fusion",
-      "identifier": "2611.18563",
-      "url": "https://arxiv.org/abs/2611.18563",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "FETTUCCINE: Fast and efficient brain-to-text decoding on mobile devices",
-      "identifier": "2611.18561",
-      "url": "https://arxiv.org/abs/2611.18561",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Training Reasoning Models in Simulation to Natively Use Real Robots",
-      "identifier": "2611.18562",
-      "url": "https://arxiv.org/abs/2611.18562",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "On the pure part of the cohomology of character varieties",
-      "identifier": "2611.18560",
-      "url": "https://arxiv.org/abs/2611.18560",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations",
-      "identifier": "2611.18559",
-      "url": "https://arxiv.org/abs/2611.18559",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Reconstruction of Dynamical Dark Energy and Gravity from latest cosmological data",
-      "identifier": "2611.18558",
-      "url": "https://arxiv.org/abs/2611.18558",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Does Dark Energy Evolve $\\textit{and}$ Cluster?",
-      "identifier": "2611.18557",
-      "url": "https://arxiv.org/abs/2611.18557",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "From pure spinor modules to superspace superfields",
-      "identifier": "2611.18556",
-      "url": "https://arxiv.org/abs/2611.18556",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Towards invertibility of derived categories of sheaf-theoretic line operators",
-      "identifier": "2611.18555",
-      "url": "https://arxiv.org/abs/2611.18555",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Sharp nonuniqueness for the Vlasov--Navier--Stokes system",
-      "identifier": "2611.18554",
-      "url": "https://arxiv.org/abs/2611.18554",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
-      "identifier": "2611.18553",
-      "url": "https://arxiv.org/abs/2611.18553",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Real-time simulation of scattering in $φ^4$ theory: localized excitation, scalable wave packet preparation, and peak-generating artifacts",
-      "identifier": "2611.18552",
-      "url": "https://arxiv.org/abs/2611.18552",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "The Klein-Gordon equation in projective geometry",
-      "identifier": "2611.18551",
-      "url": "https://arxiv.org/abs/2611.18551",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Restoring Diversity in Distilled Image and Video Generators by Probing Activations",
-      "identifier": "2611.18550",
-      "url": "https://arxiv.org/abs/2611.18550",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "JVT: Just Video Transformer makes pixel-space video diffusion simple",
-      "identifier": "2611.18549",
-      "url": "https://arxiv.org/abs/2611.18549",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Limitations of nonreversible lifts for subgeometric diffusions",
-      "identifier": "2611.18548",
-      "url": "https://arxiv.org/abs/2611.18548",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Polynomial-Time Solvability of the Multi-Dimensional Slope Change Problem",
-      "identifier": "2611.18547",
-      "url": "https://arxiv.org/abs/2611.18547",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Modeling the Frictional Contact of Continuum Robots with Environments through Linear Complementarity Problem",
-      "identifier": "2611.18546",
-      "url": "https://arxiv.org/abs/2611.18546",
-      "date": "2026-11-13",
-      "doi": "10.1177/02783649261504037",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "From smoothed analysis to backward error: The power of adaptive perturbations",
-      "identifier": "2611.18545",
-      "url": "https://arxiv.org/abs/2611.18545",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Tight Bounds for k-Median++ and Improved Bounds for k-Means++",
-      "identifier": "2611.18544",
-      "url": "https://arxiv.org/abs/2611.18544",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Imitation Bootstrapped Multi-Agent Reinforcement Learning",
-      "identifier": "2611.18543",
-      "url": "https://arxiv.org/abs/2611.18543",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Elliptic Sampling: Optimal Interpolant Schedules for Gaussians and Beyond",
-      "identifier": "2611.18542",
-      "url": "https://arxiv.org/abs/2611.18542",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "No free lattice contains an infinite ascending chain of copies of FL(3)",
-      "identifier": "2611.18541",
-      "url": "https://arxiv.org/abs/2611.18541",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Internal diameter bounds for DLA on random planar maps under invariance principles",
-      "identifier": "2611.18540",
-      "url": "https://arxiv.org/abs/2611.18540",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Geometric Quantization of the Giant Graviton Master Moduli Space",
-      "identifier": "2611.18539",
-      "url": "https://arxiv.org/abs/2611.18539",
-      "date": "2026-11-13",
-      "first_seen": "2026-11-16T15:02:06Z"
-    },
-    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "\"Twisted Reality\": Covert Psychological Abuse in Intimate Partner Violence, A Framework for Understanding Tactics and Retaliatory Escalation.",
@@ -1941,6 +2191,232 @@
       "url": "https://europepmc.org/article/MED/43036856",
       "date": "2026-11-16",
       "doi": "10.1080/14786419.2026.2763129",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Pairing AIS with RF: Analysis of a Markovian Approach for Maritime Data Fusion",
+      "identifier": "2611.18563",
+      "url": "https://arxiv.org/abs/2611.18563",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FETTUCCINE: Fast and efficient brain-to-text decoding on mobile devices",
+      "identifier": "2611.18561",
+      "url": "https://arxiv.org/abs/2611.18561",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Training Reasoning Models in Simulation to Natively Use Real Robots",
+      "identifier": "2611.18562",
+      "url": "https://arxiv.org/abs/2611.18562",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the pure part of the cohomology of character varieties",
+      "identifier": "2611.18560",
+      "url": "https://arxiv.org/abs/2611.18560",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "BAL: Bidirectional Autoregression in Latent Space for Learning Human Movement Representations",
+      "identifier": "2611.18559",
+      "url": "https://arxiv.org/abs/2611.18559",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Reconstruction of Dynamical Dark Energy and Gravity from latest cosmological data",
+      "identifier": "2611.18558",
+      "url": "https://arxiv.org/abs/2611.18558",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Does Dark Energy Evolve $\\textit{and}$ Cluster?",
+      "identifier": "2611.18557",
+      "url": "https://arxiv.org/abs/2611.18557",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "From pure spinor modules to superspace superfields",
+      "identifier": "2611.18556",
+      "url": "https://arxiv.org/abs/2611.18556",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Towards invertibility of derived categories of sheaf-theoretic line operators",
+      "identifier": "2611.18555",
+      "url": "https://arxiv.org/abs/2611.18555",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Sharp nonuniqueness for the Vlasov--Navier--Stokes system",
+      "identifier": "2611.18554",
+      "url": "https://arxiv.org/abs/2611.18554",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "WeightBench: Evaluating Language Models as Weight-Space Programmers",
+      "identifier": "2611.18553",
+      "url": "https://arxiv.org/abs/2611.18553",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Real-time simulation of scattering in $φ^4$ theory: localized excitation, scalable wave packet preparation, and peak-generating artifacts",
+      "identifier": "2611.18552",
+      "url": "https://arxiv.org/abs/2611.18552",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Klein-Gordon equation in projective geometry",
+      "identifier": "2611.18551",
+      "url": "https://arxiv.org/abs/2611.18551",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Restoring Diversity in Distilled Image and Video Generators by Probing Activations",
+      "identifier": "2611.18550",
+      "url": "https://arxiv.org/abs/2611.18550",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "JVT: Just Video Transformer makes pixel-space video diffusion simple",
+      "identifier": "2611.18549",
+      "url": "https://arxiv.org/abs/2611.18549",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Limitations of nonreversible lifts for subgeometric diffusions",
+      "identifier": "2611.18548",
+      "url": "https://arxiv.org/abs/2611.18548",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Polynomial-Time Solvability of the Multi-Dimensional Slope Change Problem",
+      "identifier": "2611.18547",
+      "url": "https://arxiv.org/abs/2611.18547",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Modeling the Frictional Contact of Continuum Robots with Environments through Linear Complementarity Problem",
+      "identifier": "2611.18546",
+      "url": "https://arxiv.org/abs/2611.18546",
+      "date": "2026-11-13",
+      "doi": "10.1177/02783649261504037",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "From smoothed analysis to backward error: The power of adaptive perturbations",
+      "identifier": "2611.18545",
+      "url": "https://arxiv.org/abs/2611.18545",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Tight Bounds for k-Median++ and Improved Bounds for k-Means++",
+      "identifier": "2611.18544",
+      "url": "https://arxiv.org/abs/2611.18544",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Imitation Bootstrapped Multi-Agent Reinforcement Learning",
+      "identifier": "2611.18543",
+      "url": "https://arxiv.org/abs/2611.18543",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Elliptic Sampling: Optimal Interpolant Schedules for Gaussians and Beyond",
+      "identifier": "2611.18542",
+      "url": "https://arxiv.org/abs/2611.18542",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "No free lattice contains an infinite ascending chain of copies of FL(3)",
+      "identifier": "2611.18541",
+      "url": "https://arxiv.org/abs/2611.18541",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Internal diameter bounds for DLA on random planar maps under invariance principles",
+      "identifier": "2611.18540",
+      "url": "https://arxiv.org/abs/2611.18540",
+      "date": "2026-11-13",
+      "first_seen": "2026-11-16T15:02:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Geometric Quantization of the Giant Graviton Master Moduli Space",
+      "identifier": "2611.18539",
+      "url": "https://arxiv.org/abs/2611.18539",
+      "date": "2026-11-13",
       "first_seen": "2026-11-16T15:02:06Z"
     },
     {
@@ -3301,231 +3777,6 @@
       "first_seen": "2026-11-14T05:19:34Z"
     },
     {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "The full Gaia colour-magnitude diagram with white dwarfs reveals a declining Milky Way star formation history",
-      "identifier": "2611.17337",
-      "url": "https://arxiv.org/abs/2611.17337",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
-      "identifier": "2611.17336",
-      "url": "https://arxiv.org/abs/2611.17336",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Long-lived light-driven bimagnons at finite momentum in NiO",
-      "identifier": "2611.17335",
-      "url": "https://arxiv.org/abs/2611.17335",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Unbundling Multimodal Vision Encoding",
-      "identifier": "2611.17334",
-      "url": "https://arxiv.org/abs/2611.17334",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Discrete Time Crystals from Anti-Unitary Floquet Driving and Dynamical Freezing",
-      "identifier": "2611.17333",
-      "url": "https://arxiv.org/abs/2611.17333",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models",
-      "identifier": "2611.17331",
-      "url": "https://arxiv.org/abs/2611.17331",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "ArchSpace: Recording, Reviewing, and Referencing LLM Architecture Research",
-      "identifier": "2611.17332",
-      "url": "https://arxiv.org/abs/2611.17332",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "ProtoVis-Nav: Prototypical Visual Imagination for Visual-Spatial Aligned UAV Navigation",
-      "identifier": "2611.17330",
-      "url": "https://arxiv.org/abs/2611.17330",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Internalizing Investment Mandates: A Neurosymbolic RL Approach to Portfolio Allocation",
-      "identifier": "2611.17329",
-      "url": "https://arxiv.org/abs/2611.17329",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A Dark-Sector Mass Flip-Flop Mechanism for the ANITA-IV Events",
-      "identifier": "2611.17328",
-      "url": "https://arxiv.org/abs/2611.17328",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Decoupling Dynamics: A Tale of Two Limits",
-      "identifier": "2611.17327",
-      "url": "https://arxiv.org/abs/2611.17327",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A hyperbolic area proof of the Kahn-Lyubich Covering Lemma and its generalization",
-      "identifier": "2611.17326",
-      "url": "https://arxiv.org/abs/2611.17326",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Bound States of Two D0-Branes and the Three-Graviton Coupling",
-      "identifier": "2611.17325",
-      "url": "https://arxiv.org/abs/2611.17325",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "K2V: Generative Keyframing For Physically Plausible Video Generation",
-      "identifier": "2611.17324",
-      "url": "https://arxiv.org/abs/2611.17324",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "AgentSSL: Can MLE Agents Leverage Unlabeled Data?",
-      "identifier": "2611.17323",
-      "url": "https://arxiv.org/abs/2611.17323",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Ensemble phase transitions in measurement-unitary hybrid quantum circuits",
-      "identifier": "2611.17322",
-      "url": "https://arxiv.org/abs/2611.17322",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "BrickFlow: Connectivity-Guided Brick Reconstruction",
-      "identifier": "2611.17321",
-      "url": "https://arxiv.org/abs/2611.17321",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Learning When Diffusion Language Models Should Regenerate",
-      "identifier": "2611.17320",
-      "url": "https://arxiv.org/abs/2611.17320",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "The Cauchy problem for skew-torsion-parallel spinors with applications to supergravity",
-      "identifier": "2611.17319",
-      "url": "https://arxiv.org/abs/2611.17319",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Spatial Foundry: A Multimodal Dataset for Spatial Intelligence",
-      "identifier": "2611.17318",
-      "url": "https://arxiv.org/abs/2611.17318",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "$C^{1,α}$ Regularity of $W^{2,2}$ $Q$-Valued Maps with Small Laplacian",
-      "identifier": "2611.17317",
-      "url": "https://arxiv.org/abs/2611.17317",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation",
-      "identifier": "2611.17316",
-      "url": "https://arxiv.org/abs/2611.17316",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Countable dynamical systems with a dense orbit",
-      "identifier": "2611.17315",
-      "url": "https://arxiv.org/abs/2611.17315",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces",
-      "identifier": "2611.17314",
-      "url": "https://arxiv.org/abs/2611.17314",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Sketching Language Models for Context Attribution",
-      "identifier": "2611.17313",
-      "url": "https://arxiv.org/abs/2611.17313",
-      "date": "2026-11-12",
-      "first_seen": "2026-11-13T14:03:45Z"
-    },
-    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "Pharmacological management of severe plaque psoriasis in patients with cancer.",
@@ -3778,229 +4029,227 @@
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Efficient Standard Siren Cosmological Inference with Posterior Reuse",
-      "identifier": "2611.16697",
-      "url": "https://arxiv.org/abs/2611.16697",
+      "title_or_case_name": "The full Gaia colour-magnitude diagram with white dwarfs reveals a declining Milky Way star formation history",
+      "identifier": "2611.17337",
+      "url": "https://arxiv.org/abs/2611.17337",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Discrete anomaly inflow from SymTFT of $U(1)$ global symmetry: the modified Villain resolution",
-      "identifier": "2611.16696",
-      "url": "https://arxiv.org/abs/2611.16696",
+      "title_or_case_name": "Back to Pixels: Lifting Latent Video Diffusion into Pixel Space",
+      "identifier": "2611.17336",
+      "url": "https://arxiv.org/abs/2611.17336",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Free Gödel algebras over Gödel hoops",
-      "identifier": "2611.16695",
-      "url": "https://arxiv.org/abs/2611.16695",
+      "title_or_case_name": "Long-lived light-driven bimagnons at finite momentum in NiO",
+      "identifier": "2611.17335",
+      "url": "https://arxiv.org/abs/2611.17335",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "When Expert Disagreement Hurts: Prestige and Selectivity in LLM Decision Revision",
-      "identifier": "2611.16694",
-      "url": "https://arxiv.org/abs/2611.16694",
+      "title_or_case_name": "Unbundling Multimodal Vision Encoding",
+      "identifier": "2611.17334",
+      "url": "https://arxiv.org/abs/2611.17334",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "MobileProbe: Adaptive Security Evaluation of Mobile Agents via Trajectory-Aware Injection",
-      "identifier": "2611.16693",
-      "url": "https://arxiv.org/abs/2611.16693",
+      "title_or_case_name": "Discrete Time Crystals from Anti-Unitary Floquet Driving and Dynamical Freezing",
+      "identifier": "2611.17333",
+      "url": "https://arxiv.org/abs/2611.17333",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Theory-Driven Network Backbones for Bipartite Projections",
-      "identifier": "2611.16692",
-      "url": "https://arxiv.org/abs/2611.16692",
+      "title_or_case_name": "TTB: Test-time Baking for Efficient Rendering of Decoder-only View Synthesis Models",
+      "identifier": "2611.17331",
+      "url": "https://arxiv.org/abs/2611.17331",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Persistent-mediator architecture for universal fault-tolerant quantum computation with color codes",
-      "identifier": "2611.16691",
-      "url": "https://arxiv.org/abs/2611.16691",
+      "title_or_case_name": "ArchSpace: Recording, Reviewing, and Referencing LLM Architecture Research",
+      "identifier": "2611.17332",
+      "url": "https://arxiv.org/abs/2611.17332",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Hilbert's 17th problem for symmetric functions: undecidability and a counterexample",
-      "identifier": "2611.16690",
-      "url": "https://arxiv.org/abs/2611.16690",
+      "title_or_case_name": "ProtoVis-Nav: Prototypical Visual Imagination for Visual-Spatial Aligned UAV Navigation",
+      "identifier": "2611.17330",
+      "url": "https://arxiv.org/abs/2611.17330",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Dark matter evolution in stellar objects: A Boltzmann transport approach",
-      "identifier": "2611.16689",
-      "url": "https://arxiv.org/abs/2611.16689",
+      "title_or_case_name": "Internalizing Investment Mandates: A Neurosymbolic RL Approach to Portfolio Allocation",
+      "identifier": "2611.17329",
+      "url": "https://arxiv.org/abs/2611.17329",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "An Analytic Toroidal MHD Equilibrium with Trivial Euclidean Symmetry Group",
-      "identifier": "2611.16688",
-      "url": "https://arxiv.org/abs/2611.16688",
+      "title_or_case_name": "A Dark-Sector Mass Flip-Flop Mechanism for the ANITA-IV Events",
+      "identifier": "2611.17328",
+      "url": "https://arxiv.org/abs/2611.17328",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Satellite pairs in the Local Group: from spatial clustering to dynamical associations in observations and $Λ$CDM simulations",
-      "identifier": "2611.16687",
-      "url": "https://arxiv.org/abs/2611.16687",
+      "title_or_case_name": "Decoupling Dynamics: A Tale of Two Limits",
+      "identifier": "2611.17327",
+      "url": "https://arxiv.org/abs/2611.17327",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Next-to-leading-order QCD corrections to prompt $Υ(1S)$ pair hadroproduction",
-      "identifier": "2611.16686",
-      "url": "https://arxiv.org/abs/2611.16686",
+      "title_or_case_name": "A hyperbolic area proof of the Kahn-Lyubich Covering Lemma and its generalization",
+      "identifier": "2611.17326",
+      "url": "https://arxiv.org/abs/2611.17326",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Fluctuations of Local Patterns in Non-Periodic Uniquely Ergodic Systems",
-      "identifier": "2611.16685",
-      "url": "https://arxiv.org/abs/2611.16685",
+      "title_or_case_name": "Bound States of Two D0-Branes and the Three-Graviton Coupling",
+      "identifier": "2611.17325",
+      "url": "https://arxiv.org/abs/2611.17325",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Is Spin Slow in Hot QCD?",
-      "identifier": "2611.16684",
-      "url": "https://arxiv.org/abs/2611.16684",
+      "title_or_case_name": "K2V: Generative Keyframing For Physically Plausible Video Generation",
+      "identifier": "2611.17324",
+      "url": "https://arxiv.org/abs/2611.17324",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Geometric Theory of Quasiperiodically Driven Systems",
-      "identifier": "2611.16683",
-      "url": "https://arxiv.org/abs/2611.16683",
+      "title_or_case_name": "AgentSSL: Can MLE Agents Leverage Unlabeled Data?",
+      "identifier": "2611.17323",
+      "url": "https://arxiv.org/abs/2611.17323",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "The coercivity conjecture for nonlocal energies",
-      "identifier": "2611.16682",
-      "url": "https://arxiv.org/abs/2611.16682",
+      "title_or_case_name": "Ensemble phase transitions in measurement-unitary hybrid quantum circuits",
+      "identifier": "2611.17322",
+      "url": "https://arxiv.org/abs/2611.17322",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Dislocation Arrays Hosting Topological Bound States in Epitaxial Tetragonal FeSe Films",
-      "identifier": "2611.16681",
-      "url": "https://arxiv.org/abs/2611.16681",
+      "title_or_case_name": "BrickFlow: Connectivity-Guided Brick Reconstruction",
+      "identifier": "2611.17321",
+      "url": "https://arxiv.org/abs/2611.17321",
       "date": "2026-11-12",
-      "doi": "10.1021/acsnano.6c11893",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Immaculate complexes and Strong Generation by Injectives",
-      "identifier": "2611.16680",
-      "url": "https://arxiv.org/abs/2611.16680",
+      "title_or_case_name": "Learning When Diffusion Language Models Should Regenerate",
+      "identifier": "2611.17320",
+      "url": "https://arxiv.org/abs/2611.17320",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Sign changing pairing in single layer FeSe/SrTiO3 revealed by nonmagnetic impurity bound states",
-      "identifier": "2611.16679",
-      "url": "https://arxiv.org/abs/2611.16679",
+      "title_or_case_name": "The Cauchy problem for skew-torsion-parallel spinors with applications to supergravity",
+      "identifier": "2611.17319",
+      "url": "https://arxiv.org/abs/2611.17319",
       "date": "2026-11-12",
-      "doi": "10.1038/s42005-020-0351-1",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Edge-Gradient Augmentation under Reinforcement Learning for Temporal Graph",
-      "identifier": "2611.16678",
-      "url": "https://arxiv.org/abs/2611.16678",
+      "title_or_case_name": "Spatial Foundry: A Multimodal Dataset for Spatial Intelligence",
+      "identifier": "2611.17318",
+      "url": "https://arxiv.org/abs/2611.17318",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Manifold Attracting Flow Matching: Physics-Constrained Sampling via Continuous Geometric Dynamics",
-      "identifier": "2611.16677",
-      "url": "https://arxiv.org/abs/2611.16677",
+      "title_or_case_name": "$C^{1,α}$ Regularity of $W^{2,2}$ $Q$-Valued Maps with Small Laplacian",
+      "identifier": "2611.17317",
+      "url": "https://arxiv.org/abs/2611.17317",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Time-changed Compound Poisson Process",
-      "identifier": "2611.16676",
-      "url": "https://arxiv.org/abs/2611.16676",
+      "title_or_case_name": "CoReMem: Cost-Internalizing Memory for Successive Coding Tasks with Prospective Valuation",
+      "identifier": "2611.17316",
+      "url": "https://arxiv.org/abs/2611.17316",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "Infectious Disease Horizon in Emerging Infectious Diseases",
-      "identifier": "2611.16675",
-      "url": "https://arxiv.org/abs/2611.16675",
+      "title_or_case_name": "Countable dynamical systems with a dense orbit",
+      "identifier": "2611.17315",
+      "url": "https://arxiv.org/abs/2611.17315",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "The External Path Length and Terminal Wiener Index in Random Trees",
-      "identifier": "2611.16674",
-      "url": "https://arxiv.org/abs/2611.16674",
+      "title_or_case_name": "Linking Rapid Learning to Compositional Structure in Neural Networks: Evidence from Additive Analogies in Meta-Learned Parameter Spaces",
+      "identifier": "2611.17314",
+      "url": "https://arxiv.org/abs/2611.17314",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "arXiv",
       "kind": "paper",
-      "title_or_case_name": "PIM: A Physical Intuition Model for Low-Latency Prediction of Object Interaction Outcomes",
-      "identifier": "2611.16673",
-      "url": "https://arxiv.org/abs/2611.16673",
+      "title_or_case_name": "Sketching Language Models for Context Attribution",
+      "identifier": "2611.17313",
+      "url": "https://arxiv.org/abs/2611.17313",
       "date": "2026-11-12",
-      "first_seen": "2026-11-13T05:29:05Z"
+      "first_seen": "2026-11-13T14:03:45Z"
     },
     {
       "source": "Europe PMC",
@@ -4238,6 +4487,233 @@
       "identifier": "europepmc:PMC13754013",
       "url": "https://europepmc.org/article/PMC/PMC13754013",
       "date": "2026-11-13",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Efficient Standard Siren Cosmological Inference with Posterior Reuse",
+      "identifier": "2611.16697",
+      "url": "https://arxiv.org/abs/2611.16697",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Discrete anomaly inflow from SymTFT of $U(1)$ global symmetry: the modified Villain resolution",
+      "identifier": "2611.16696",
+      "url": "https://arxiv.org/abs/2611.16696",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Free Gödel algebras over Gödel hoops",
+      "identifier": "2611.16695",
+      "url": "https://arxiv.org/abs/2611.16695",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "When Expert Disagreement Hurts: Prestige and Selectivity in LLM Decision Revision",
+      "identifier": "2611.16694",
+      "url": "https://arxiv.org/abs/2611.16694",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "MobileProbe: Adaptive Security Evaluation of Mobile Agents via Trajectory-Aware Injection",
+      "identifier": "2611.16693",
+      "url": "https://arxiv.org/abs/2611.16693",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Theory-Driven Network Backbones for Bipartite Projections",
+      "identifier": "2611.16692",
+      "url": "https://arxiv.org/abs/2611.16692",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Persistent-mediator architecture for universal fault-tolerant quantum computation with color codes",
+      "identifier": "2611.16691",
+      "url": "https://arxiv.org/abs/2611.16691",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hilbert's 17th problem for symmetric functions: undecidability and a counterexample",
+      "identifier": "2611.16690",
+      "url": "https://arxiv.org/abs/2611.16690",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Dark matter evolution in stellar objects: A Boltzmann transport approach",
+      "identifier": "2611.16689",
+      "url": "https://arxiv.org/abs/2611.16689",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "An Analytic Toroidal MHD Equilibrium with Trivial Euclidean Symmetry Group",
+      "identifier": "2611.16688",
+      "url": "https://arxiv.org/abs/2611.16688",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Satellite pairs in the Local Group: from spatial clustering to dynamical associations in observations and $Λ$CDM simulations",
+      "identifier": "2611.16687",
+      "url": "https://arxiv.org/abs/2611.16687",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Next-to-leading-order QCD corrections to prompt $Υ(1S)$ pair hadroproduction",
+      "identifier": "2611.16686",
+      "url": "https://arxiv.org/abs/2611.16686",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Fluctuations of Local Patterns in Non-Periodic Uniquely Ergodic Systems",
+      "identifier": "2611.16685",
+      "url": "https://arxiv.org/abs/2611.16685",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Is Spin Slow in Hot QCD?",
+      "identifier": "2611.16684",
+      "url": "https://arxiv.org/abs/2611.16684",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Geometric Theory of Quasiperiodically Driven Systems",
+      "identifier": "2611.16683",
+      "url": "https://arxiv.org/abs/2611.16683",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The coercivity conjecture for nonlocal energies",
+      "identifier": "2611.16682",
+      "url": "https://arxiv.org/abs/2611.16682",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Dislocation Arrays Hosting Topological Bound States in Epitaxial Tetragonal FeSe Films",
+      "identifier": "2611.16681",
+      "url": "https://arxiv.org/abs/2611.16681",
+      "date": "2026-11-12",
+      "doi": "10.1021/acsnano.6c11893",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Immaculate complexes and Strong Generation by Injectives",
+      "identifier": "2611.16680",
+      "url": "https://arxiv.org/abs/2611.16680",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Sign changing pairing in single layer FeSe/SrTiO3 revealed by nonmagnetic impurity bound states",
+      "identifier": "2611.16679",
+      "url": "https://arxiv.org/abs/2611.16679",
+      "date": "2026-11-12",
+      "doi": "10.1038/s42005-020-0351-1",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Edge-Gradient Augmentation under Reinforcement Learning for Temporal Graph",
+      "identifier": "2611.16678",
+      "url": "https://arxiv.org/abs/2611.16678",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Manifold Attracting Flow Matching: Physics-Constrained Sampling via Continuous Geometric Dynamics",
+      "identifier": "2611.16677",
+      "url": "https://arxiv.org/abs/2611.16677",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Time-changed Compound Poisson Process",
+      "identifier": "2611.16676",
+      "url": "https://arxiv.org/abs/2611.16676",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Infectious Disease Horizon in Emerging Infectious Diseases",
+      "identifier": "2611.16675",
+      "url": "https://arxiv.org/abs/2611.16675",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The External Path Length and Terminal Wiener Index in Random Trees",
+      "identifier": "2611.16674",
+      "url": "https://arxiv.org/abs/2611.16674",
+      "date": "2026-11-12",
+      "first_seen": "2026-11-13T05:29:05Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "PIM: A Physical Intuition Model for Low-Latency Prediction of Object Interaction Outcomes",
+      "identifier": "2611.16673",
+      "url": "https://arxiv.org/abs/2611.16673",
+      "date": "2026-11-12",
       "first_seen": "2026-11-13T05:29:05Z"
     },
     {
@@ -5318,6 +5794,16 @@
       "first_seen": "2026-11-09T15:26:33Z"
     },
     {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comparison chart: Antiviral drugs for seasonal influenza.",
+      "identifier": "10.58347/tml.2026.1767c",
+      "url": "https://europepmc.org/article/MED/42955276",
+      "date": "2026-11-09",
+      "doi": "10.58347/tml.2026.1767c",
+      "first_seen": "2026-11-09T04:59:51Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "Video-Coder: Reinforcing Agentic Coding for Video Generation",
@@ -5543,16 +6029,6 @@
       "first_seen": "2026-11-09T04:59:51Z"
     },
     {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Comparison chart: Antiviral drugs for seasonal influenza.",
-      "identifier": "10.58347/tml.2026.1767c",
-      "url": "https://europepmc.org/article/MED/42955276",
-      "date": "2026-11-09",
-      "doi": "10.58347/tml.2026.1767c",
-      "first_seen": "2026-11-09T04:59:51Z"
-    },
-    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "NAVARRETE V. BLANCHE",
@@ -5605,6 +6081,24 @@
       "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/03/26-7303_03_Order.pdf",
       "date": "2026-11-03",
       "first_seen": "2026-11-06T22:46:50Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "LINDSAY HECOX, ET AL V. MADISON KENYON, ET AL",
+      "identifier": "20-35815",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35815.pdf",
+      "date": "2026-11-05",
+      "first_seen": "2026-11-06T05:30:03Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "LINDSAY HECOX, ET AL V. BRADLEY LITTLE, ET AL",
+      "identifier": "20-35813",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35813.pdf",
+      "date": "2026-11-05",
+      "first_seen": "2026-11-06T05:30:03Z"
     },
     {
       "source": "arXiv",
@@ -5828,24 +6322,6 @@
       "title_or_case_name": "Towards interpreting any residual stream direction by scaling activation inversion",
       "identifier": "2611.08465",
       "url": "https://arxiv.org/abs/2611.08465",
-      "date": "2026-11-05",
-      "first_seen": "2026-11-06T05:30:03Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "LINDSAY HECOX, ET AL V. MADISON KENYON, ET AL",
-      "identifier": "20-35815",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35815.pdf",
-      "date": "2026-11-05",
-      "first_seen": "2026-11-06T05:30:03Z"
-    },
-    {
-      "source": "Ninth Circuit",
-      "kind": "legal",
-      "title_or_case_name": "LINDSAY HECOX, ET AL V. BRADLEY LITTLE, ET AL",
-      "identifier": "20-35813",
-      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/05/20-35813.pdf",
       "date": "2026-11-05",
       "first_seen": "2026-11-06T05:30:03Z"
     },
@@ -6375,231 +6851,6 @@
       "first_seen": "2026-11-04T13:54:14Z"
     },
     {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Boundary $c\\leq1$ Liouville CFT from the Bootstrap",
-      "identifier": "2611.05378",
-      "url": "https://arxiv.org/abs/2611.05378",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "DreamX: Video Diffusion Model is a Universal Latent Action Learner",
-      "identifier": "2611.05377",
-      "url": "https://arxiv.org/abs/2611.05377",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "From Autonomous Agents to Cognitive Symbionts: Toward AI-Augmented Human Intelligence",
-      "identifier": "2611.05376",
-      "url": "https://arxiv.org/abs/2611.05376",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Quantum Error Correction in Nearly Critical Toric Codes",
-      "identifier": "2611.05375",
-      "url": "https://arxiv.org/abs/2611.05375",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A Bayesian Optimized Biquad Filter-Burg Model for Real-Time EEG Phase Estimation",
-      "identifier": "2611.05374",
-      "url": "https://arxiv.org/abs/2611.05374",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Aligning Language Models with General Preferences: An Empirical Study of Direct Nash Optimization",
-      "identifier": "2611.05373",
-      "url": "https://arxiv.org/abs/2611.05373",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "PolicyIK: High-Precision Inverse Kinematics for Robot Arms with Reinforcement Learning",
-      "identifier": "2611.05372",
-      "url": "https://arxiv.org/abs/2611.05372",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Iterative Methods for Solving Feedback-Type Linear Equations under Small Phase Condition",
-      "identifier": "2611.05371",
-      "url": "https://arxiv.org/abs/2611.05371",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Geometry of Spaces of Subrings",
-      "identifier": "2611.05370",
-      "url": "https://arxiv.org/abs/2611.05370",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Quantum Pointwise Dimension (QUPID): An algorithm for identifying classical chaos in quantum dynamics",
-      "identifier": "2611.05369",
-      "url": "https://arxiv.org/abs/2611.05369",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "GUILD: Guided Iterative Data Collection for Imitation Learning",
-      "identifier": "2611.05368",
-      "url": "https://arxiv.org/abs/2611.05368",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "SBi3PCF: cosmology with Dark Energy Survey Year 3 cosmic shear",
-      "identifier": "2611.05367",
-      "url": "https://arxiv.org/abs/2611.05367",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Transfer of Weisfeiler-Leman equivalence under graph operations",
-      "identifier": "2611.05366",
-      "url": "https://arxiv.org/abs/2611.05366",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A wider state, not wider arithmetic, for single-precision time integration",
-      "identifier": "2611.05365",
-      "url": "https://arxiv.org/abs/2611.05365",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Designing an Adaptive Robust and Evolutionary-Game Framework for Minimum Shipment Quotas in Capacity-Constrained Freight Markets",
-      "identifier": "2611.05364",
-      "url": "https://arxiv.org/abs/2611.05364",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A convolution inequality and the Krzyż conjecture",
-      "identifier": "2611.05363",
-      "url": "https://arxiv.org/abs/2611.05363",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Deconfinement Confined to the Heaviest Neutron Stars: Strange Quark Matter from a Flavor-Dressed Contact Interaction",
-      "identifier": "2611.05362",
-      "url": "https://arxiv.org/abs/2611.05362",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Visibility-Aware Reference Generation for Benchmarking Visual 3D Reconstruction in Vegetation-Rich Environments",
-      "identifier": "2611.05361",
-      "url": "https://arxiv.org/abs/2611.05361",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Almost-MMS allocations with small agent redundancy",
-      "identifier": "2611.05360",
-      "url": "https://arxiv.org/abs/2611.05360",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "GSCV++: Lightweight 3D Gaussian Splatting Sequence Compression via Standard Video Codecs",
-      "identifier": "2611.05359",
-      "url": "https://arxiv.org/abs/2611.05359",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Suppressing Misaligned Behaviors in Language Models, Durably",
-      "identifier": "2611.05358",
-      "url": "https://arxiv.org/abs/2611.05358",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "On the one-arm probability for the metric graph Gaussian free field in high dimensions",
-      "identifier": "2611.05357",
-      "url": "https://arxiv.org/abs/2611.05357",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Breaking the quantum barriers for Graph Collision",
-      "identifier": "2611.05356",
-      "url": "https://arxiv.org/abs/2611.05356",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Reading Why: Born-Measured Attention with Exact Word Evidence on Light and Qubits",
-      "identifier": "2611.05355",
-      "url": "https://arxiv.org/abs/2611.05355",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Interpretable Quantum Photonic Generative Models",
-      "identifier": "2611.05354",
-      "url": "https://arxiv.org/abs/2611.05354",
-      "date": "2026-11-03",
-      "first_seen": "2026-11-04T05:10:48Z"
-    },
-    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "Immune Checkpoint Inhibitors and Keratinocyte Neoplasm Risk.",
@@ -6859,6 +7110,231 @@
       "first_seen": "2026-11-04T05:10:48Z"
     },
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Boundary $c\\leq1$ Liouville CFT from the Bootstrap",
+      "identifier": "2611.05378",
+      "url": "https://arxiv.org/abs/2611.05378",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "DreamX: Video Diffusion Model is a Universal Latent Action Learner",
+      "identifier": "2611.05377",
+      "url": "https://arxiv.org/abs/2611.05377",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "From Autonomous Agents to Cognitive Symbionts: Toward AI-Augmented Human Intelligence",
+      "identifier": "2611.05376",
+      "url": "https://arxiv.org/abs/2611.05376",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Quantum Error Correction in Nearly Critical Toric Codes",
+      "identifier": "2611.05375",
+      "url": "https://arxiv.org/abs/2611.05375",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A Bayesian Optimized Biquad Filter-Burg Model for Real-Time EEG Phase Estimation",
+      "identifier": "2611.05374",
+      "url": "https://arxiv.org/abs/2611.05374",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Aligning Language Models with General Preferences: An Empirical Study of Direct Nash Optimization",
+      "identifier": "2611.05373",
+      "url": "https://arxiv.org/abs/2611.05373",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "PolicyIK: High-Precision Inverse Kinematics for Robot Arms with Reinforcement Learning",
+      "identifier": "2611.05372",
+      "url": "https://arxiv.org/abs/2611.05372",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Iterative Methods for Solving Feedback-Type Linear Equations under Small Phase Condition",
+      "identifier": "2611.05371",
+      "url": "https://arxiv.org/abs/2611.05371",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Geometry of Spaces of Subrings",
+      "identifier": "2611.05370",
+      "url": "https://arxiv.org/abs/2611.05370",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Quantum Pointwise Dimension (QUPID): An algorithm for identifying classical chaos in quantum dynamics",
+      "identifier": "2611.05369",
+      "url": "https://arxiv.org/abs/2611.05369",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "GUILD: Guided Iterative Data Collection for Imitation Learning",
+      "identifier": "2611.05368",
+      "url": "https://arxiv.org/abs/2611.05368",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "SBi3PCF: cosmology with Dark Energy Survey Year 3 cosmic shear",
+      "identifier": "2611.05367",
+      "url": "https://arxiv.org/abs/2611.05367",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Transfer of Weisfeiler-Leman equivalence under graph operations",
+      "identifier": "2611.05366",
+      "url": "https://arxiv.org/abs/2611.05366",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A wider state, not wider arithmetic, for single-precision time integration",
+      "identifier": "2611.05365",
+      "url": "https://arxiv.org/abs/2611.05365",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Designing an Adaptive Robust and Evolutionary-Game Framework for Minimum Shipment Quotas in Capacity-Constrained Freight Markets",
+      "identifier": "2611.05364",
+      "url": "https://arxiv.org/abs/2611.05364",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A convolution inequality and the Krzyż conjecture",
+      "identifier": "2611.05363",
+      "url": "https://arxiv.org/abs/2611.05363",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Deconfinement Confined to the Heaviest Neutron Stars: Strange Quark Matter from a Flavor-Dressed Contact Interaction",
+      "identifier": "2611.05362",
+      "url": "https://arxiv.org/abs/2611.05362",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Visibility-Aware Reference Generation for Benchmarking Visual 3D Reconstruction in Vegetation-Rich Environments",
+      "identifier": "2611.05361",
+      "url": "https://arxiv.org/abs/2611.05361",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Almost-MMS allocations with small agent redundancy",
+      "identifier": "2611.05360",
+      "url": "https://arxiv.org/abs/2611.05360",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "GSCV++: Lightweight 3D Gaussian Splatting Sequence Compression via Standard Video Codecs",
+      "identifier": "2611.05359",
+      "url": "https://arxiv.org/abs/2611.05359",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Suppressing Misaligned Behaviors in Language Models, Durably",
+      "identifier": "2611.05358",
+      "url": "https://arxiv.org/abs/2611.05358",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the one-arm probability for the metric graph Gaussian free field in high dimensions",
+      "identifier": "2611.05357",
+      "url": "https://arxiv.org/abs/2611.05357",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Breaking the quantum barriers for Graph Collision",
+      "identifier": "2611.05356",
+      "url": "https://arxiv.org/abs/2611.05356",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Reading Why: Born-Measured Attention with Exact Word Evidence on Light and Qubits",
+      "identifier": "2611.05355",
+      "url": "https://arxiv.org/abs/2611.05355",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Interpretable Quantum Photonic Generative Models",
+      "identifier": "2611.05354",
+      "url": "https://arxiv.org/abs/2611.05354",
+      "date": "2026-11-03",
+      "first_seen": "2026-11-04T05:10:48Z"
+    },
+    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "AHRQ CEDAR",
@@ -6884,231 +7360,6 @@
       "url": "https://europepmc.org/article/NBK/NBK625842",
       "date": "2026-11-03",
       "first_seen": "2026-11-03T22:58:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Pixel-UMI: Learning Environment-Aware Whole-Body Manipulation from Sensorized Human Demonstrations",
-      "identifier": "2611.03647",
-      "url": "https://arxiv.org/abs/2611.03647",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Pixel: A Co-Designed Full-Stack Robot System for Learning General-Purpose Mobile Manipulation",
-      "identifier": "2611.03648",
-      "url": "https://arxiv.org/abs/2611.03648",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "EgoActionBench: Benchmarking Dense Action Captioning for Egocentric Human Videos",
-      "identifier": "2611.03646",
-      "url": "https://arxiv.org/abs/2611.03646",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Episodic Star Formation - II. The Origin of the Fundamental Metallicity Relation",
-      "identifier": "2611.03645",
-      "url": "https://arxiv.org/abs/2611.03645",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Single-visit screening for intracochlear tissue growth validated against multi-visit electrical measurement changes",
-      "identifier": "2611.03644",
-      "url": "https://arxiv.org/abs/2611.03644",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "The Neptunian ridge through the lens of TESS",
-      "identifier": "2611.03643",
-      "url": "https://arxiv.org/abs/2611.03643",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A hyperbolic nonlinear Schrödinger system in multiple spatial dimensions: structure, convergence, and numerical discretization",
-      "identifier": "2611.03642",
-      "url": "https://arxiv.org/abs/2611.03642",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "From Natural Language to Exact Cover: A Neuro-Symbolic Approach to Zebra Puzzles",
-      "identifier": "2611.03641",
-      "url": "https://arxiv.org/abs/2611.03641",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Construction of the 2D non-Abelian Yang-Mills-Higgs measure via stochastic quantisation",
-      "identifier": "2611.03640",
-      "url": "https://arxiv.org/abs/2611.03640",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Quantum channel tomography: optimal bounds in the near-boundary regime",
-      "identifier": "2611.03639",
-      "url": "https://arxiv.org/abs/2611.03639",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Mercury (Hg): a relativistic $N$-body simulation for Horndeski gravity",
-      "identifier": "2611.03637",
-      "url": "https://arxiv.org/abs/2611.03637",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A Triangular Log-Det PDHG for Semidefinite Programming: Complementarity Selection and Global Linear Convergence",
-      "identifier": "2611.03638",
-      "url": "https://arxiv.org/abs/2611.03638",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Get Permanent Results Faster by Counting Stars",
-      "identifier": "2611.03636",
-      "url": "https://arxiv.org/abs/2611.03636",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Ultrafast X-ray-induced dephasing of valence electrons",
-      "identifier": "2611.03635",
-      "url": "https://arxiv.org/abs/2611.03635",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "WebHarbor: Docking Real Websites for Evolving GUI Agent Environments",
-      "identifier": "2611.03634",
-      "url": "https://arxiv.org/abs/2611.03634",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Pretraining Data Scale Reverses the Muon-AdamW Fine-Tuning Gap",
-      "identifier": "2611.03633",
-      "url": "https://arxiv.org/abs/2611.03633",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Tracing source imprints on the gravitational direct wave",
-      "identifier": "2611.03632",
-      "url": "https://arxiv.org/abs/2611.03632",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Supporting Viewpoint Coordination for Compliance by Design with an Artifact Model for Regulatory Requirements Engineering",
-      "identifier": "2611.03631",
-      "url": "https://arxiv.org/abs/2611.03631",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Mutual information to all orders from modular flow: a replica-free approach",
-      "identifier": "2611.03630",
-      "url": "https://arxiv.org/abs/2611.03630",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "PDFP: GPU-Accelerated Feasibility Pump via PDHG",
-      "identifier": "2611.03629",
-      "url": "https://arxiv.org/abs/2611.03629",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Active-subspace learning reveals dominant parameter directions in nuclear observables",
-      "identifier": "2611.03628",
-      "url": "https://arxiv.org/abs/2611.03628",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Not All Reasoning Generalizes: A Case Study on Learning Generalizable Reasoning Strategies in RLVR",
-      "identifier": "2611.03627",
-      "url": "https://arxiv.org/abs/2611.03627",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Isekai3D SDG: A Platform for Diverse Synthetic Gameplay Visual Data",
-      "identifier": "2611.03626",
-      "url": "https://arxiv.org/abs/2611.03626",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "FADE: Factored Ability--Difficulty Filtering for Online RLVR Scheduling",
-      "identifier": "2611.03625",
-      "url": "https://arxiv.org/abs/2611.03625",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Lee-Yang theorems for $q$-deformed oscillators and doubly-scaled SYK",
-      "identifier": "2611.03624",
-      "url": "https://arxiv.org/abs/2611.03624",
-      "date": "2026-11-02",
-      "first_seen": "2026-11-03T13:45:12Z"
     },
     {
       "source": "Europe PMC",
@@ -7354,6 +7605,231 @@
       "first_seen": "2026-11-03T13:45:12Z"
     },
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Pixel-UMI: Learning Environment-Aware Whole-Body Manipulation from Sensorized Human Demonstrations",
+      "identifier": "2611.03647",
+      "url": "https://arxiv.org/abs/2611.03647",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Pixel: A Co-Designed Full-Stack Robot System for Learning General-Purpose Mobile Manipulation",
+      "identifier": "2611.03648",
+      "url": "https://arxiv.org/abs/2611.03648",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "EgoActionBench: Benchmarking Dense Action Captioning for Egocentric Human Videos",
+      "identifier": "2611.03646",
+      "url": "https://arxiv.org/abs/2611.03646",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Episodic Star Formation - II. The Origin of the Fundamental Metallicity Relation",
+      "identifier": "2611.03645",
+      "url": "https://arxiv.org/abs/2611.03645",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Single-visit screening for intracochlear tissue growth validated against multi-visit electrical measurement changes",
+      "identifier": "2611.03644",
+      "url": "https://arxiv.org/abs/2611.03644",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Neptunian ridge through the lens of TESS",
+      "identifier": "2611.03643",
+      "url": "https://arxiv.org/abs/2611.03643",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A hyperbolic nonlinear Schrödinger system in multiple spatial dimensions: structure, convergence, and numerical discretization",
+      "identifier": "2611.03642",
+      "url": "https://arxiv.org/abs/2611.03642",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "From Natural Language to Exact Cover: A Neuro-Symbolic Approach to Zebra Puzzles",
+      "identifier": "2611.03641",
+      "url": "https://arxiv.org/abs/2611.03641",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Construction of the 2D non-Abelian Yang-Mills-Higgs measure via stochastic quantisation",
+      "identifier": "2611.03640",
+      "url": "https://arxiv.org/abs/2611.03640",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Quantum channel tomography: optimal bounds in the near-boundary regime",
+      "identifier": "2611.03639",
+      "url": "https://arxiv.org/abs/2611.03639",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Mercury (Hg): a relativistic $N$-body simulation for Horndeski gravity",
+      "identifier": "2611.03637",
+      "url": "https://arxiv.org/abs/2611.03637",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A Triangular Log-Det PDHG for Semidefinite Programming: Complementarity Selection and Global Linear Convergence",
+      "identifier": "2611.03638",
+      "url": "https://arxiv.org/abs/2611.03638",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Get Permanent Results Faster by Counting Stars",
+      "identifier": "2611.03636",
+      "url": "https://arxiv.org/abs/2611.03636",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Ultrafast X-ray-induced dephasing of valence electrons",
+      "identifier": "2611.03635",
+      "url": "https://arxiv.org/abs/2611.03635",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "WebHarbor: Docking Real Websites for Evolving GUI Agent Environments",
+      "identifier": "2611.03634",
+      "url": "https://arxiv.org/abs/2611.03634",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Pretraining Data Scale Reverses the Muon-AdamW Fine-Tuning Gap",
+      "identifier": "2611.03633",
+      "url": "https://arxiv.org/abs/2611.03633",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Tracing source imprints on the gravitational direct wave",
+      "identifier": "2611.03632",
+      "url": "https://arxiv.org/abs/2611.03632",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Supporting Viewpoint Coordination for Compliance by Design with an Artifact Model for Regulatory Requirements Engineering",
+      "identifier": "2611.03631",
+      "url": "https://arxiv.org/abs/2611.03631",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Mutual information to all orders from modular flow: a replica-free approach",
+      "identifier": "2611.03630",
+      "url": "https://arxiv.org/abs/2611.03630",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "PDFP: GPU-Accelerated Feasibility Pump via PDHG",
+      "identifier": "2611.03629",
+      "url": "https://arxiv.org/abs/2611.03629",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Active-subspace learning reveals dominant parameter directions in nuclear observables",
+      "identifier": "2611.03628",
+      "url": "https://arxiv.org/abs/2611.03628",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Not All Reasoning Generalizes: A Case Study on Learning Generalizable Reasoning Strategies in RLVR",
+      "identifier": "2611.03627",
+      "url": "https://arxiv.org/abs/2611.03627",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Isekai3D SDG: A Platform for Diverse Synthetic Gameplay Visual Data",
+      "identifier": "2611.03626",
+      "url": "https://arxiv.org/abs/2611.03626",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FADE: Factored Ability--Difficulty Filtering for Online RLVR Scheduling",
+      "identifier": "2611.03625",
+      "url": "https://arxiv.org/abs/2611.03625",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Lee-Yang theorems for $q$-deformed oscillators and doubly-scaled SYK",
+      "identifier": "2611.03624",
+      "url": "https://arxiv.org/abs/2611.03624",
+      "date": "2026-11-02",
+      "first_seen": "2026-11-03T13:45:12Z"
+    },
+    {
       "source": "Europe PMC",
       "kind": "paper",
       "title_or_case_name": "Cell death in context: From mechanisms to interventions.",
@@ -7438,232 +7914,6 @@
       "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/02/25-1392_01_order.pdf",
       "date": "2026-11-02",
       "first_seen": "2026-11-03T00:39:19Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "GazeRIB: Systematic Evaluation of Multi-Reader Gaze-Guided Chest X-ray Learning",
-      "identifier": "2610.42152",
-      "url": "https://arxiv.org/abs/2610.42152",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Model-Independent Assessments of Tidal Alignment and Density-Weighting Dependence in Galaxy Intrinsic Alignments",
-      "identifier": "2610.42151",
-      "url": "https://arxiv.org/abs/2610.42151",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Secret-shared teleportation of a two-qudit gate with a deferred recipient",
-      "identifier": "2610.42150",
-      "url": "https://arxiv.org/abs/2610.42150",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
-      "identifier": "2610.42149",
-      "url": "https://arxiv.org/abs/2610.42149",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Flide: Accelerating Decision Inference with Exact State Forking",
-      "identifier": "2610.42148",
-      "url": "https://arxiv.org/abs/2610.42148",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention",
-      "identifier": "2610.42147",
-      "url": "https://arxiv.org/abs/2610.42147",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Hierarchical World Models with Implicit Dynamics",
-      "identifier": "2610.42146",
-      "url": "https://arxiv.org/abs/2610.42146",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "SemEllipsoid: Semantic-aware Shape Abstraction with Ellipsoid",
-      "identifier": "2610.42145",
-      "url": "https://arxiv.org/abs/2610.42145",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Dittany: Contribution-Guided Repair Framework for MAS Applications",
-      "identifier": "2610.42144",
-      "url": "https://arxiv.org/abs/2610.42144",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A first look at strange-quark polarization in top-quark decays with CMS Open Data",
-      "identifier": "2610.42143",
-      "url": "https://arxiv.org/abs/2610.42143",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory",
-      "identifier": "2610.42141",
-      "url": "https://arxiv.org/abs/2610.42141",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Parabolic Reifenberg Parametrizations and Corona Decompositions, with Applications to Singular Integrals",
-      "identifier": "2610.42142",
-      "url": "https://arxiv.org/abs/2610.42142",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Non-sofic Tarski monsters",
-      "identifier": "2610.42140",
-      "url": "https://arxiv.org/abs/2610.42140",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Counting on Dummies: Privacy Amplification with Observable Counts and Truncated Batches",
-      "identifier": "2610.42139",
-      "url": "https://arxiv.org/abs/2610.42139",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Approximate Polynomial Satisfiability and Integral Closure Membership in the Counting Hierarchy",
-      "identifier": "2610.42138",
-      "url": "https://arxiv.org/abs/2610.42138",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "On the Iwasawa invariants of admissible quadratic twists of elliptic curves at ordinary Eisenstein primes",
-      "identifier": "2610.42137",
-      "url": "https://arxiv.org/abs/2610.42137",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "ReLift: Dense 3D Tracking as Lifted Trajectory Repair",
-      "identifier": "2610.42136",
-      "url": "https://arxiv.org/abs/2610.42136",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "A Better Critic Matters for Distribution Matching Distillation",
-      "identifier": "2610.42135",
-      "url": "https://arxiv.org/abs/2610.42135",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Baker--Akhiezer sections from Higgs bundles and Landau levels in hyperbolic band theory",
-      "identifier": "2610.42134",
-      "url": "https://arxiv.org/abs/2610.42134",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Instance-dependent sequential limits as an exact information ledger",
-      "identifier": "2610.42133",
-      "url": "https://arxiv.org/abs/2610.42133",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Nova V1674 Her as a fast magnetic rotator",
-      "identifier": "2610.42132",
-      "url": "https://arxiv.org/abs/2610.42132",
-      "date": "2026-10-30",
-      "doi": "10.3847/1538-4357/aeba8a",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Time-optimal quantum dynamics under fixed-norm generators",
-      "identifier": "2610.42131",
-      "url": "https://arxiv.org/abs/2610.42131",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Value of Adding AI Weather Model Ensembles to a Multi-model Probabilistic Blend",
-      "identifier": "2610.42130",
-      "url": "https://arxiv.org/abs/2610.42130",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Weighted hypergraph states as a resource for quantum metrology",
-      "identifier": "2610.42129",
-      "url": "https://arxiv.org/abs/2610.42129",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "DecisionRank: On-Policy Distillation for Decision-Model Rerankers",
-      "identifier": "2610.42128",
-      "url": "https://arxiv.org/abs/2610.42128",
-      "date": "2026-10-30",
-      "first_seen": "2026-11-02T04:50:11Z"
     },
     {
       "source": "Europe PMC",
@@ -7913,6 +8163,232 @@
       "url": "https://europepmc.org/article/MED/42961013",
       "date": "2026-11-02",
       "doi": "10.1097/dss.0000000000005428",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "GazeRIB: Systematic Evaluation of Multi-Reader Gaze-Guided Chest X-ray Learning",
+      "identifier": "2610.42152",
+      "url": "https://arxiv.org/abs/2610.42152",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Model-Independent Assessments of Tidal Alignment and Density-Weighting Dependence in Galaxy Intrinsic Alignments",
+      "identifier": "2610.42151",
+      "url": "https://arxiv.org/abs/2610.42151",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Secret-shared teleportation of a two-qudit gate with a deferred recipient",
+      "identifier": "2610.42150",
+      "url": "https://arxiv.org/abs/2610.42150",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Latent Reasoning in Continuous Space for Unified Multimodal Models",
+      "identifier": "2610.42149",
+      "url": "https://arxiv.org/abs/2610.42149",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Flide: Accelerating Decision Inference with Exact State Forking",
+      "identifier": "2610.42148",
+      "url": "https://arxiv.org/abs/2610.42148",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Latent Sparse Attention: Towards Subquadratic Ultra-Long Context Attention",
+      "identifier": "2610.42147",
+      "url": "https://arxiv.org/abs/2610.42147",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Hierarchical World Models with Implicit Dynamics",
+      "identifier": "2610.42146",
+      "url": "https://arxiv.org/abs/2610.42146",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "SemEllipsoid: Semantic-aware Shape Abstraction with Ellipsoid",
+      "identifier": "2610.42145",
+      "url": "https://arxiv.org/abs/2610.42145",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Dittany: Contribution-Guided Repair Framework for MAS Applications",
+      "identifier": "2610.42144",
+      "url": "https://arxiv.org/abs/2610.42144",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A first look at strange-quark polarization in top-quark decays with CMS Open Data",
+      "identifier": "2610.42143",
+      "url": "https://arxiv.org/abs/2610.42143",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory",
+      "identifier": "2610.42141",
+      "url": "https://arxiv.org/abs/2610.42141",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Parabolic Reifenberg Parametrizations and Corona Decompositions, with Applications to Singular Integrals",
+      "identifier": "2610.42142",
+      "url": "https://arxiv.org/abs/2610.42142",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Non-sofic Tarski monsters",
+      "identifier": "2610.42140",
+      "url": "https://arxiv.org/abs/2610.42140",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Counting on Dummies: Privacy Amplification with Observable Counts and Truncated Batches",
+      "identifier": "2610.42139",
+      "url": "https://arxiv.org/abs/2610.42139",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Approximate Polynomial Satisfiability and Integral Closure Membership in the Counting Hierarchy",
+      "identifier": "2610.42138",
+      "url": "https://arxiv.org/abs/2610.42138",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the Iwasawa invariants of admissible quadratic twists of elliptic curves at ordinary Eisenstein primes",
+      "identifier": "2610.42137",
+      "url": "https://arxiv.org/abs/2610.42137",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "ReLift: Dense 3D Tracking as Lifted Trajectory Repair",
+      "identifier": "2610.42136",
+      "url": "https://arxiv.org/abs/2610.42136",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A Better Critic Matters for Distribution Matching Distillation",
+      "identifier": "2610.42135",
+      "url": "https://arxiv.org/abs/2610.42135",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Baker--Akhiezer sections from Higgs bundles and Landau levels in hyperbolic band theory",
+      "identifier": "2610.42134",
+      "url": "https://arxiv.org/abs/2610.42134",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Instance-dependent sequential limits as an exact information ledger",
+      "identifier": "2610.42133",
+      "url": "https://arxiv.org/abs/2610.42133",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Nova V1674 Her as a fast magnetic rotator",
+      "identifier": "2610.42132",
+      "url": "https://arxiv.org/abs/2610.42132",
+      "date": "2026-10-30",
+      "doi": "10.3847/1538-4357/aeba8a",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Time-optimal quantum dynamics under fixed-norm generators",
+      "identifier": "2610.42131",
+      "url": "https://arxiv.org/abs/2610.42131",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Value of Adding AI Weather Model Ensembles to a Multi-model Probabilistic Blend",
+      "identifier": "2610.42130",
+      "url": "https://arxiv.org/abs/2610.42130",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Weighted hypergraph states as a resource for quantum metrology",
+      "identifier": "2610.42129",
+      "url": "https://arxiv.org/abs/2610.42129",
+      "date": "2026-10-30",
+      "first_seen": "2026-11-02T04:50:11Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "DecisionRank: On-Policy Distillation for Decision-Model Rerankers",
+      "identifier": "2610.42128",
+      "url": "https://arxiv.org/abs/2610.42128",
+      "date": "2026-10-30",
       "first_seen": "2026-11-02T04:50:11Z"
     },
     {
@@ -9971,6 +10447,176 @@
       "first_seen": "2026-10-28T22:17:42Z"
     },
     {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Fatigue links sociodemographic risk to pain intensity and spread in 2 surgical cohorts.",
+      "identifier": "10.1097/j.pain.0000000000004137",
+      "url": "https://europepmc.org/article/MED/42944554",
+      "date": "2026-10-28",
+      "doi": "10.1097/j.pain.0000000000004137",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Survival Outcomes of Patients With Melanoma Treated With Mohs Micrographic Surgery: A Systematic Review and Meta-Analysis.",
+      "identifier": "10.1097/dss.0000000000005402",
+      "url": "https://europepmc.org/article/MED/42937688",
+      "date": "2026-10-28",
+      "doi": "10.1097/dss.0000000000005402",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Minimally Invasive Treatment of Digital Mucous Cysts With Drainage and Intralesional Cryotherapy.",
+      "identifier": "10.1097/dss.0000000000005424",
+      "url": "https://europepmc.org/article/MED/42937692",
+      "date": "2026-10-28",
+      "doi": "10.1097/dss.0000000000005424",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "How We Do It: Implantable Cranial Devices in Mohs Micrographic Surgery.",
+      "identifier": "10.1097/dss.0000000000005426",
+      "url": "https://europepmc.org/article/MED/42937687",
+      "date": "2026-10-28",
+      "doi": "10.1097/dss.0000000000005426",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "How We Do It: The STANCE Checklist for Surgeon Ergonomics in Mohs Micrographic Surgery.",
+      "identifier": "10.1097/dss.0000000000005430",
+      "url": "https://europepmc.org/article/MED/42937683",
+      "date": "2026-10-28",
+      "doi": "10.1097/dss.0000000000005430",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The impact of servant leadership on collaborative culture in UAE multicultural healthcare organizations.",
+      "identifier": "10.1108/lhs-02-2026-0030",
+      "url": "https://europepmc.org/article/MED/42937543",
+      "date": "2026-10-28",
+      "doi": "10.1108/lhs-02-2026-0030",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Unlike most biomarkers, Lp(a) is far less forgiving on selectivity and metrological shortcomings.",
+      "identifier": "10.1515/cclm-2026-1787",
+      "url": "https://europepmc.org/article/MED/42937532",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1787",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Dietary intake of vitamin B12 (cobalamin) and gastric cancer risk: a pooled analysis within the StoP Project.",
+      "identifier": "10.1097/cej.0000000000001044",
+      "url": "https://europepmc.org/article/MED/42937461",
+      "date": "2026-10-28",
+      "doi": "10.1097/cej.0000000000001044",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A Systematic Review of Elagolix for the Management of Endometriosis-associated Pain.",
+      "identifier": "10.4103/aam.aam_534_26",
+      "url": "https://europepmc.org/article/MED/42937421",
+      "date": "2026-10-28",
+      "doi": "10.4103/aam.aam_534_26",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Survey on lipoprotein(a) testing in Europe. A report by the EFLM Committee on Vascular Risk Biomarkers.",
+      "identifier": "10.1515/cclm-2026-1363",
+      "url": "https://europepmc.org/article/MED/42937314",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1363",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Effects of Cyclic High Ambient Temperature on Tricarboxylic Acid Cycle Intermediates and Orotate Levels in the Liver and Breast Muscle of Broiler Chickens.",
+      "identifier": "10.2141/jpsa.2026024",
+      "url": "https://europepmc.org/article/MED/42936156",
+      "date": "2026-10-28",
+      "doi": "10.2141/jpsa.2026024",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Inter-platform variability of TgAb, TPOAb and TRAb immunoassays: analytical agreement and consequences for antibody positivity.",
+      "identifier": "10.1515/cclm-2026-1197",
+      "url": "https://europepmc.org/article/MED/42935447",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1197",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Why do hemolysis interference studies produce different results? A proposal for standardized experimental design and reporting.",
+      "identifier": "10.1515/cclm-2026-1381",
+      "url": "https://europepmc.org/article/MED/42935293",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1381",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beyond analytical proficiency: information continuity gaps in human papillomavirus testing laboratories within China's national external quality assessment network.",
+      "identifier": "10.1515/cclm-2026-1582",
+      "url": "https://europepmc.org/article/MED/42935277",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1582",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Albumin-coated tubes and blood contamination correction improve the accuracy of thyroglobulin measurement in lymph node FNA washout.",
+      "identifier": "10.1515/cclm-2026-1372",
+      "url": "https://europepmc.org/article/MED/42935276",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-1372",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Deep phenotyping of blood cell data reveals novel clinical biomarkers.",
+      "identifier": "10.1515/cclm-2026-0822",
+      "url": "https://europepmc.org/article/MED/42935273",
+      "date": "2026-10-28",
+      "doi": "10.1515/cclm-2026-0822",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Tumor digital twins uncover therapeutic strategies in triple-negative breast cancer.",
+      "identifier": "10.1016/j.xcrm.2026.103119",
+      "url": "https://europepmc.org/article/MED/42933397",
+      "date": "2026-10-28",
+      "doi": "10.1016/j.xcrm.2026.103119",
+      "first_seen": "2026-10-28T04:28:13Z"
+    },
+    {
       "source": "arXiv",
       "kind": "paper",
       "title_or_case_name": "Honeycomb-Surfels: Compact Hexagonal Primitives for Efficient Scene Rendering and Reconstruction",
@@ -10194,401 +10840,6 @@
       "url": "https://arxiv.org/abs/2610.37644",
       "date": "2026-10-27",
       "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Fatigue links sociodemographic risk to pain intensity and spread in 2 surgical cohorts.",
-      "identifier": "10.1097/j.pain.0000000000004137",
-      "url": "https://europepmc.org/article/MED/42944554",
-      "date": "2026-10-28",
-      "doi": "10.1097/j.pain.0000000000004137",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Survival Outcomes of Patients With Melanoma Treated With Mohs Micrographic Surgery: A Systematic Review and Meta-Analysis.",
-      "identifier": "10.1097/dss.0000000000005402",
-      "url": "https://europepmc.org/article/MED/42937688",
-      "date": "2026-10-28",
-      "doi": "10.1097/dss.0000000000005402",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Minimally Invasive Treatment of Digital Mucous Cysts With Drainage and Intralesional Cryotherapy.",
-      "identifier": "10.1097/dss.0000000000005424",
-      "url": "https://europepmc.org/article/MED/42937692",
-      "date": "2026-10-28",
-      "doi": "10.1097/dss.0000000000005424",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "How We Do It: Implantable Cranial Devices in Mohs Micrographic Surgery.",
-      "identifier": "10.1097/dss.0000000000005426",
-      "url": "https://europepmc.org/article/MED/42937687",
-      "date": "2026-10-28",
-      "doi": "10.1097/dss.0000000000005426",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "How We Do It: The STANCE Checklist for Surgeon Ergonomics in Mohs Micrographic Surgery.",
-      "identifier": "10.1097/dss.0000000000005430",
-      "url": "https://europepmc.org/article/MED/42937683",
-      "date": "2026-10-28",
-      "doi": "10.1097/dss.0000000000005430",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "The impact of servant leadership on collaborative culture in UAE multicultural healthcare organizations.",
-      "identifier": "10.1108/lhs-02-2026-0030",
-      "url": "https://europepmc.org/article/MED/42937543",
-      "date": "2026-10-28",
-      "doi": "10.1108/lhs-02-2026-0030",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Unlike most biomarkers, Lp(a) is far less forgiving on selectivity and metrological shortcomings.",
-      "identifier": "10.1515/cclm-2026-1787",
-      "url": "https://europepmc.org/article/MED/42937532",
-      "date": "2026-10-28",
-      "doi": "10.1515/cclm-2026-1787",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Dietary intake of vitamin B12 (cobalamin) and gastric cancer risk: a pooled analysis within the StoP Project.",
-      "identifier": "10.1097/cej.0000000000001044",
-      "url": "https://europepmc.org/article/MED/42937461",
-      "date": "2026-10-28",
-      "doi": "10.1097/cej.0000000000001044",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "A Systematic Review of Elagolix for the Management of Endometriosis-associated Pain.",
-      "identifier": "10.4103/aam.aam_534_26",
-      "url": "https://europepmc.org/article/MED/42937421",
-      "date": "2026-10-28",
-      "doi": "10.4103/aam.aam_534_26",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Survey on lipoprotein(a) testing in Europe. A report by the EFLM Committee on Vascular Risk Biomarkers.",
-      "identifier": "10.1515/cclm-2026-1363",
-      "url": "https://europepmc.org/article/MED/42937314",
-      "date": "2026-10-28",
-      "doi": "10.1515/cclm-2026-1363",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Effects of Cyclic High Ambient Temperature on Tricarboxylic Acid Cycle Intermediates and Orotate Levels in the Liver and Breast Muscle of Broiler Chickens.",
-      "identifier": "10.2141/jpsa.2026024",
-      "url": "https://europepmc.org/article/MED/42936156",
-      "date": "2026-10-28",
-      "doi": "10.2141/jpsa.2026024",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Inter-platform variability of TgAb, TPOAb and TRAb immunoassays: analytical agreement and consequences for antibody positivity.",
-      "identifier": "10.1515/cclm-2026-1197",
-      "url": "https://europepmc.org/article/MED/42935447",
-      "date": "2026-10-28",
-      "doi": "10.1515/cclm-2026-1197",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Why do hemolysis interference studies produce different results? A proposal for standardized experimental design and reporting.",
-      "identifier": "10.1515/cclm-2026-1381",
-      "url": "https://europepmc.org/article/MED/42935293",
-      "date": "2026-10-28",
-      "doi": "10.1515/cclm-2026-1381",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Beyond analytical proficiency: information continuity gaps in human papillomavirus testing laboratories within China's national external quality assessment network.",
-      "identifier": "10.1515/cclm-2026-1582",
-      "url": "https://europepmc.org/article/MED/42935277",
-      "date": "2026-10-28",
-      "doi": "10.1515/cclm-2026-1582",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Albumin-coated tubes and blood contamination correction improve the accuracy of thyroglobulin measurement in lymph node FNA washout.",
-      "identifier": "10.1515/cclm-2026-1372",
-      "url": "https://europepmc.org/article/MED/42935276",
-      "date": "2026-10-28",
-      "doi": "10.1515/cclm-2026-1372",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Deep phenotyping of blood cell data reveals novel clinical biomarkers.",
-      "identifier": "10.1515/cclm-2026-0822",
-      "url": "https://europepmc.org/article/MED/42935273",
-      "date": "2026-10-28",
-      "doi": "10.1515/cclm-2026-0822",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Tumor digital twins uncover therapeutic strategies in triple-negative breast cancer.",
-      "identifier": "10.1016/j.xcrm.2026.103119",
-      "url": "https://europepmc.org/article/MED/42933397",
-      "date": "2026-10-28",
-      "doi": "10.1016/j.xcrm.2026.103119",
-      "first_seen": "2026-10-28T04:28:13Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Retriever-Free Retrieval: Navigating Documents with Decision Models",
-      "identifier": "2610.35868",
-      "url": "https://arxiv.org/abs/2610.35868",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Quantum dynamics on the sparse Erdős-Rényi graph",
-      "identifier": "2610.35867",
-      "url": "https://arxiv.org/abs/2610.35867",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Center-of-Mass Interpretation of Evolution Strategies",
-      "identifier": "2610.35865",
-      "url": "https://arxiv.org/abs/2610.35865",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Auto-Research Arena: Benchmarking and Advancing Auto-Research in Language Modeling",
-      "identifier": "2610.35866",
-      "url": "https://arxiv.org/abs/2610.35866",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "VibeVideoBench:Evaluating Multimodal Agents on Code-Driven Video Generation",
-      "identifier": "2610.35864",
-      "url": "https://arxiv.org/abs/2610.35864",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Complete entropy contraction from conditional hyperboundedness",
-      "identifier": "2610.35863",
-      "url": "https://arxiv.org/abs/2610.35863",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Learning Force-Reactive Humanoid Loco-Manipulation",
-      "identifier": "2610.35862",
-      "url": "https://arxiv.org/abs/2610.35862",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Stable homotopy theory of higher categories with adjoints",
-      "identifier": "2610.35861",
-      "url": "https://arxiv.org/abs/2610.35861",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Direct measurement of the ${}^{23}\\mathrm{Mg}(p, γ){}^{24}\\mathrm{Al}$ reaction using the DRAGON recoil separator and a hybrid array of $γ$-ray detectors",
-      "identifier": "2610.35860",
-      "url": "https://arxiv.org/abs/2610.35860",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "An $O(n^{0.1537})$-Coloring Algorithm for 3-Colorable Graphs",
-      "identifier": "2610.35859",
-      "url": "https://arxiv.org/abs/2610.35859",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Optimal tradeoffs between variance and sensitivity, via Hellinger-Kantorovich geometry",
-      "identifier": "2610.35858",
-      "url": "https://arxiv.org/abs/2610.35858",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Do vision models know that three is three?",
-      "identifier": "2610.35857",
-      "url": "https://arxiv.org/abs/2610.35857",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "On the stability of learning",
-      "identifier": "2610.35856",
-      "url": "https://arxiv.org/abs/2610.35856",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Collinear and Coplanar Altermagnetism in a Penrose Quasicrystal",
-      "identifier": "2610.35855",
-      "url": "https://arxiv.org/abs/2610.35855",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "FL4N: Feed-forward Latent Model for 4D Novel View Synthesis",
-      "identifier": "2610.35854",
-      "url": "https://arxiv.org/abs/2610.35854",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Adequacy radii for stepped-wedge trials with time-varying effects",
-      "identifier": "2610.35853",
-      "url": "https://arxiv.org/abs/2610.35853",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Differentiable Contact Dynamics for Legged Locomotion: Policy Learning and Contact-Implicit Trajectory Optimization",
-      "identifier": "2610.35852",
-      "url": "https://arxiv.org/abs/2610.35852",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Nonprehensile Robotic Catching Using Virtual Constraints",
-      "identifier": "2610.35851",
-      "url": "https://arxiv.org/abs/2610.35851",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "OSWAM: An Effective World Action Model with One-Step Action Generation",
-      "identifier": "2610.35850",
-      "url": "https://arxiv.org/abs/2610.35850",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Interaction of Strong X-mode Waves with Magnetized Pair Plasmas",
-      "identifier": "2610.35849",
-      "url": "https://arxiv.org/abs/2610.35849",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Exploring the Tractability Frontier of Hylland-Zeckhauser Models",
-      "identifier": "2610.35848",
-      "url": "https://arxiv.org/abs/2610.35848",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Patient-specific rubric-based evaluation of large language models across longitudinal cancer care",
-      "identifier": "2610.35847",
-      "url": "https://arxiv.org/abs/2610.35847",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Preserve to Expand: Source-Aware Adaptation and Model Merging for Multilingual LLM-Based ASR",
-      "identifier": "2610.35846",
-      "url": "https://arxiv.org/abs/2610.35846",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Work Agents: Systems, Capabilities, and Optimization",
-      "identifier": "2610.35845",
-      "url": "https://arxiv.org/abs/2610.35845",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "arXiv",
-      "kind": "paper",
-      "title_or_case_name": "Bodyseismography (BSG): Theoretical Foundation and Numerical Modeling",
-      "identifier": "2610.35844",
-      "url": "https://arxiv.org/abs/2610.35844",
-      "date": "2026-10-26",
-      "first_seen": "2026-10-27T21:53:40Z"
     },
     {
       "source": "Europe PMC",
@@ -11041,6 +11292,231 @@
       "first_seen": "2026-10-27T21:53:40Z"
     },
     {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Retriever-Free Retrieval: Navigating Documents with Decision Models",
+      "identifier": "2610.35868",
+      "url": "https://arxiv.org/abs/2610.35868",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Quantum dynamics on the sparse Erdős-Rényi graph",
+      "identifier": "2610.35867",
+      "url": "https://arxiv.org/abs/2610.35867",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Center-of-Mass Interpretation of Evolution Strategies",
+      "identifier": "2610.35865",
+      "url": "https://arxiv.org/abs/2610.35865",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Auto-Research Arena: Benchmarking and Advancing Auto-Research in Language Modeling",
+      "identifier": "2610.35866",
+      "url": "https://arxiv.org/abs/2610.35866",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "VibeVideoBench:Evaluating Multimodal Agents on Code-Driven Video Generation",
+      "identifier": "2610.35864",
+      "url": "https://arxiv.org/abs/2610.35864",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Complete entropy contraction from conditional hyperboundedness",
+      "identifier": "2610.35863",
+      "url": "https://arxiv.org/abs/2610.35863",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Learning Force-Reactive Humanoid Loco-Manipulation",
+      "identifier": "2610.35862",
+      "url": "https://arxiv.org/abs/2610.35862",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Stable homotopy theory of higher categories with adjoints",
+      "identifier": "2610.35861",
+      "url": "https://arxiv.org/abs/2610.35861",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Direct measurement of the ${}^{23}\\mathrm{Mg}(p, γ){}^{24}\\mathrm{Al}$ reaction using the DRAGON recoil separator and a hybrid array of $γ$-ray detectors",
+      "identifier": "2610.35860",
+      "url": "https://arxiv.org/abs/2610.35860",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "An $O(n^{0.1537})$-Coloring Algorithm for 3-Colorable Graphs",
+      "identifier": "2610.35859",
+      "url": "https://arxiv.org/abs/2610.35859",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Optimal tradeoffs between variance and sensitivity, via Hellinger-Kantorovich geometry",
+      "identifier": "2610.35858",
+      "url": "https://arxiv.org/abs/2610.35858",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Do vision models know that three is three?",
+      "identifier": "2610.35857",
+      "url": "https://arxiv.org/abs/2610.35857",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the stability of learning",
+      "identifier": "2610.35856",
+      "url": "https://arxiv.org/abs/2610.35856",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Collinear and Coplanar Altermagnetism in a Penrose Quasicrystal",
+      "identifier": "2610.35855",
+      "url": "https://arxiv.org/abs/2610.35855",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "FL4N: Feed-forward Latent Model for 4D Novel View Synthesis",
+      "identifier": "2610.35854",
+      "url": "https://arxiv.org/abs/2610.35854",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Adequacy radii for stepped-wedge trials with time-varying effects",
+      "identifier": "2610.35853",
+      "url": "https://arxiv.org/abs/2610.35853",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Differentiable Contact Dynamics for Legged Locomotion: Policy Learning and Contact-Implicit Trajectory Optimization",
+      "identifier": "2610.35852",
+      "url": "https://arxiv.org/abs/2610.35852",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Nonprehensile Robotic Catching Using Virtual Constraints",
+      "identifier": "2610.35851",
+      "url": "https://arxiv.org/abs/2610.35851",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "OSWAM: An Effective World Action Model with One-Step Action Generation",
+      "identifier": "2610.35850",
+      "url": "https://arxiv.org/abs/2610.35850",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Interaction of Strong X-mode Waves with Magnetized Pair Plasmas",
+      "identifier": "2610.35849",
+      "url": "https://arxiv.org/abs/2610.35849",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Exploring the Tractability Frontier of Hylland-Zeckhauser Models",
+      "identifier": "2610.35848",
+      "url": "https://arxiv.org/abs/2610.35848",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Patient-specific rubric-based evaluation of large language models across longitudinal cancer care",
+      "identifier": "2610.35847",
+      "url": "https://arxiv.org/abs/2610.35847",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Preserve to Expand: Source-Aware Adaptation and Model Merging for Multilingual LLM-Based ASR",
+      "identifier": "2610.35846",
+      "url": "https://arxiv.org/abs/2610.35846",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Work Agents: Systems, Capabilities, and Optimization",
+      "identifier": "2610.35845",
+      "url": "https://arxiv.org/abs/2610.35845",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Bodyseismography (BSG): Theoretical Foundation and Numerical Modeling",
+      "identifier": "2610.35844",
+      "url": "https://arxiv.org/abs/2610.35844",
+      "date": "2026-10-26",
+      "first_seen": "2026-10-27T21:53:40Z"
+    },
+    {
       "source": "Supreme Court",
       "kind": "legal",
       "title_or_case_name": "FCC v. Brown",
@@ -11051,7 +11527,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-18T23:57:59Z",
+    "last_poll": "2026-11-19T07:08:12Z",
     "sources": [
       {
         "name": "Ninth Circuit",
