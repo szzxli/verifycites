@@ -380,13 +380,58 @@ function cutReferences(md) {
   return m ? md.slice(0, m.index) : md;
 }
 
-function splitSentences(text) {
+/* A line that opens a reference. Used so a pasted list is never glued
+ * together at a period: "Author, I. (YYYY)" and "[1]" / "[@key]" / "1."
+ * start a new entry even when the previous line has no blank line after it. */
+function vpIsReferenceLineStart(line) {
+  const s = String(line || '').trim();
+  if (!s || s.startsWith('#')) return false;
+  if (/^\[(?:@)?[^\]]+\]\s+\S/.test(s)) return true;
+  if (/^\d{1,3}[.)]\s+\S/.test(s)) return true;
+  if (/^[A-Z][A-Za-z'’\-]+,\s*[A-Z]\./.test(s) && /\((?:19|20)\d{2}[a-z]?\)/.test(s)) return true;
+  return false;
+}
+function vpSplitProseSentences(text) {
   let prot = text;
   ABBREV.forEach((ab, i) => { prot = prot.split(ab).join('\u0000' + i + '\u0000'); });
   return prot.split(SENT_SPLIT_RE).map(p => {
     ABBREV.forEach((ab, i) => { p = p.split('\u0000' + i + '\u0000').join(ab); });
     return p.split(/\s+/).join(' ').trim();
   }).filter(Boolean);
+}
+function splitSentences(text) {
+  const units = [];
+  let prose = [];
+  let ref = null;
+  const flushProse = () => {
+    if (!prose.length) return;
+    units.push(...vpSplitProseSentences(prose.join('\n')));
+    prose = [];
+  };
+  const flushRef = () => {
+    if (!ref) return;
+    const joined = ref.join(' ').replace(/\s+/g, ' ').trim();
+    ref = null;
+    if (joined) units.push(joined);
+  };
+  for (const line of String(text || '').split('\n')) {
+    const t = line.trim();
+    if (vpIsReferenceLineStart(t)) {
+      flushProse();
+      flushRef();
+      ref = [t];
+      continue;
+    }
+    if (ref) {
+      if (!t) flushRef();
+      else ref.push(t);
+      continue;
+    }
+    prose.push(line);
+  }
+  flushProse();
+  flushRef();
+  return units.filter(Boolean);
 }
 
 function markersInSentence(sent) {
@@ -460,14 +505,21 @@ function norm(s) { return s.toLowerCase().replace(/[^a-z0-9]/g, ''); }
 
 function splitEntries(section) {
   const entries = [];
-  for (const part of section.split(/(?=^\[\d{1,3}\])/m)) {
-    const p = part.trim();
-    if (!p) continue;
-    for (const chunk of p.split(/\n\s*\n/)) {
-      const c = chunk.split('\n').map(l => l.trim()).filter(Boolean).join(' ');
-      if (c && !c.startsWith('#')) entries.push(c);
-    }
+  let buf = [];
+  const flush = () => {
+    const c = buf.join(' ').replace(/\s+/g, ' ').trim();
+    buf = [];
+    if (c && !c.startsWith('#')) entries.push(c);
+  };
+  for (const line of String(section || '').split('\n')) {
+    const t = line.trim();
+    if (!t || t.startsWith('#')) { flush(); continue; }
+    /* A new Author, I. (YYYY) line or a numbered marker starts a new
+     * entry. Do not join it onto the previous line. */
+    if (buf.length && vpIsReferenceLineStart(t)) flush();
+    buf.push(t);
   }
+  flush();
   return entries;
 }
 
@@ -1159,7 +1211,12 @@ const VP_REGISTRY_NAME = { pgCheckCrossRef: 'Crossref', pgCheckDataCite: 'DataCi
 async function _verifyDoiLive(doi) {
   const miss = { exists: false, title: null, authors: [], venue: '', year: '', retracted: false, limited: false };
   const failed = [];
-  for (const fn of [pgCheckCrossRef, pgCheckDataCite, pgCheckEuropePMC, pgCheckOpenAlex]) {
+  /* arXiv DOIs (10.48550/arXiv.*) are DataCite records. Asking Crossref
+   * first only produces a 404 in the browser console before DataCite answers. */
+  const chain = /^10\.48550\/arxiv\./i.test(String(doi || ''))
+    ? [pgCheckDataCite, pgCheckCrossRef, pgCheckEuropePMC, pgCheckOpenAlex]
+    : [pgCheckCrossRef, pgCheckDataCite, pgCheckEuropePMC, pgCheckOpenAlex];
+  for (const fn of chain) {
     let hit = null;
     try { hit = await fn(doi); } catch (e) { hit = vpUnavailable('unexpected response'); }
     if (hit && (hit.limited || hit.unavailable)) {
@@ -1872,10 +1929,15 @@ function vpReferenceText(pair, refmap) {
     const ax = t === 'arxiv' ? id : '';
     const hit = vpFindEntryById(map, doi, ax);
     if (hit && hit.raw) return hit.raw;
-    /* The sentence around a bare DOI is the claim, not the reference.
-     * Comparing it would invent a title the reference never stated. */
+    /* A pasted reference line is the reference. A prose sentence that
+     * only mentions a DOI is not: mining a title out of it would invent
+     * one the reference never stated. */
+    if (pair.entryRaw) return pair.entryRaw;
+    if (vpIsReferenceLineStart(pair.claim)) return pair.claim;
     return '';
   }
+  if (pair.entryRaw) return pair.entryRaw;
+  if (vpIsReferenceLineStart(pair.claim)) return pair.claim;
   return '';
 }
 

@@ -153,6 +153,40 @@ function vaswaniResponse(url) {
   ok('markdown existence for the wrong title', md.includes("Found, but details don't match"));
   ok('no accusing words in the new notes', ev.every(e => !/fabricat|\bfake\b|hallucinat/i.test(e.note || '')));
 
+  console.log('— pasted reference list, three lines, no heading —');
+  const PASTE = [
+    'Vaswani, A., Shazeer, N., Parmar, N., et al. (2017). Attention is all you need. Advances in Neural Information Processing Systems. arXiv:1706.03762',
+    'Vaswani, A., Shazeer, N., et al. (2019). Attention is all you need. arXiv:1706.03762',
+    'Smith, J. (2017). Deep learning for weather forecasting in coastal regions. https://doi.org/10.48550/arXiv.1706.03762',
+  ].join('\n');
+  const pasted = await live.groundDraft(PASTE, { keyless: false, apiKey: null }, null);
+  ok('paste yields 3 references', pasted.length === 3, JSON.stringify(pasted.map(e => e.claim)));
+  ok('paste 1 is the 2017 Vaswani line', pasted[0] && pasted[0].claim.startsWith('Vaswani, A., Shazeer, N., Parmar') && !/2019/.test(pasted[0].claim));
+  ok('paste 1 all fields match', pasted[0] && pasted[0].fieldcmp && pasted[0].fieldcmp.line === 'Title ✓ · Authors ✓ · Year ✓', pasted[0] && pasted[0].fieldcmp && pasted[0].fieldcmp.line);
+  ok('paste 1 overall Found', pasted[0] && pasted[0].fieldcmp && pasted[0].fieldcmp.overall === 'Found' && pasted[0].fieldcmp.detailsMismatch === false);
+  ok('paste 2 is the 2019 line', pasted[1] && pasted[1].claim.startsWith('Vaswani, A., Shazeer, N., et al. (2019)') && !/Smith/.test(pasted[1].claim));
+  ok('paste 2 year mismatch line', pasted[1] && pasted[1].fieldcmp && pasted[1].fieldcmp.line === 'Title ✓ · Authors ✓ · Year ✗ 2019 vs 2017', pasted[1] && pasted[1].fieldcmp && pasted[1].fieldcmp.line);
+  ok('paste 2 overall', pasted[1] && pasted[1].fieldcmp && pasted[1].fieldcmp.overall === "Found, but details don't match");
+  ok('paste 3 is the Smith line', pasted[2] && pasted[2].claim.startsWith('Smith, J. (2017)'));
+  ok('paste 3 title mismatch', pasted[2] && pasted[2].fieldcmp && pasted[2].fieldcmp.line === 'Title ✗ · Authors ✗ · Year ✓' && pasted[2].fieldcmp.overall === "Found, but details don't match", pasted[2] && pasted[2].fieldcmp && pasted[2].fieldcmp.line);
+  const pasteHtml = live.renderReport(pasted);
+  ok('paste report is not three matched rows', /Field mismatch 2/.test(pasteHtml) && /Matched 1/.test(pasteHtml), (pasteHtml.match(/Category: Matched \d+ · Field mismatch \d+/) || [])[0]);
+
+  console.log('— draft with a References section, in-text cites —');
+  const DRAFT = [
+    'The transformer was introduced (Vaswani et al., 2017). A wrong year is cited (Vaswani et al., 2019). Weather forecasting is attributed to the same work (Smith, 2017).',
+    '',
+    '## References',
+    '',
+    PASTE,
+  ].join('\n');
+  const linked = await live.groundDraft(DRAFT, { keyless: false, apiKey: null }, null);
+  ok('draft yields 3 in-text citations', linked.length === 3, JSON.stringify(linked.map(e => e.claim)));
+  ok('draft cites stay in the body', linked.every(e => !/arXiv:1706\.03762/.test(e.claim) && !/doi\.org/.test(e.claim)));
+  ok('draft 1 all fields match', linked[0] && linked[0].fieldcmp && linked[0].fieldcmp.line === 'Title ✓ · Authors ✓ · Year ✓' && linked[0].fieldcmp.overall === 'Found', linked[0] && linked[0].fieldcmp && linked[0].fieldcmp.line);
+  ok('draft 2 year mismatch', linked[1] && linked[1].fieldcmp && linked[1].fieldcmp.line === 'Title ✓ · Authors ✓ · Year ✗ 2019 vs 2017' && linked[1].fieldcmp.overall === "Found, but details don't match", linked[1] && linked[1].fieldcmp && linked[1].fieldcmp.line);
+  ok('draft 3 title mismatch', linked[2] && linked[2].fieldcmp && linked[2].fieldcmp.line === 'Title ✗ · Authors ✗ · Year ✓' && linked[2].fieldcmp.overall === "Found, but details don't match", linked[2] && linked[2].fieldcmp && linked[2].fieldcmp.line);
+
   console.log('— exact labels —');
   console.log('  1 real: ' + REAL_LINE + ' | overall Found');
   console.log("  2 wrong year: " + WRONG_YEAR_LINE + " | overall Found, but details don't match");
