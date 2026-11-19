@@ -8,7 +8,7 @@
    "Verified — found" is used only when a lookup returned a record.
    Found means the citation exists. It does not mean the case is still
    good law or that it supports the claim. */
-var VERIFY_LOOKUP_URL = "/api/verify";
+var VERIFY_LOOKUP_URL = "https://verifycites-verify.szzxli711.workers.dev";
 var VERIFY_CHUNK = 25;
 var VERIFY_TIMEOUT_MS = 20000;
 var VERIFY_SRC_CL = "CourtListener";
