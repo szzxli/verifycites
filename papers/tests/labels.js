@@ -78,7 +78,10 @@ const src = fs.readFileSync(path.join(__dirname, '..', 'ground.js'), 'utf8');
       /Your last 10 checks are saved in this browser only — nothing is uploaded\./.test(html));
     const priv = 'Only citation identifiers and reference text are sent to the registries';
     ok('privacy line in section 1 and footer match', html.split(priv).length - 1 === 2);
-    ok('recall stated with rank and date', /22\/33 \(67%\), 5th of the 6 tools/.test(html) && /15\/71 \(21%\), is the lowest of the six/.test(html) && /have not been re-scored/.test(html));
+    ok('recall paragraph states the trade-off and the measurement date',
+      /missed more references than most tools compared but raised the fewest false alarms/.test(html) &&
+      /measured on 2026-10-21/.test(html) &&
+      /have not been re-scored/.test(html));
     ok('nocount loader kept', /nocount/.test(html));
     ok('service worker cache bumped', /veripaper-v3[4-9]/.test(fs.readFileSync(path.join(__dirname, '..', 'sw.js'), 'utf8')));
   }

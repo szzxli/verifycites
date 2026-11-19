@@ -762,7 +762,9 @@ function vpCompareFields(cited, record) {
   const title = vpCompareTitle(c.title, r.title);
   const authors = vpCompareAuthors(c.authors, r.authors);
   const year = vpCompareYear(c.year, r.year);
-  const detailsMismatch = title.status === 'mismatch' || authors.status === 'mismatch';
+  /* A year off by 1 is allowed (preprint vs published). A larger gap is a
+   * mismatch, same as a title or author mismatch. */
+  const detailsMismatch = title.status === 'mismatch' || authors.status === 'mismatch' || year.status === 'mismatch';
   return {
     title, authors, year,
     line: [title.label, authors.label, year.label].join(' · '),
@@ -1959,8 +1961,9 @@ async function groundDraft(text, opts, onStep) {
         if (base === 'ABSTRACT-SUPPORTED') base = 'CITED';
         note = 'listed authors do not match the record — ' + note;
       }
-      /* A found record whose title or authors mismatch the reference is not
-       * a verified citation. Year off by 1 stays allowed. */
+      /* A found record whose title, authors, or year (off by more than 1)
+       * mismatch the reference is not a verified citation. A year off by 1
+       * stays allowed. */
       if (fieldcmp && fieldcmp.detailsMismatch && base === 'ABSTRACT-SUPPORTED') base = 'CITED';
       if (base !== 'ABSTRACT-SUPPORTED') {
         const k = extraTags.indexOf('[KEYLESS-NLI]');

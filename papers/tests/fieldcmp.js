@@ -61,7 +61,7 @@ function vaswaniResponse(url) {
   ok('1 real reference line', real.line === REAL_LINE, real.line);
   ok('1 real overall is not a detail mismatch', real.detailsMismatch === false && real.overall === 'Found', real.overall);
   ok('2 wrong-year line', wrongYear.line === WRONG_YEAR_LINE, wrongYear.line);
-  ok('2 wrong year alone does not flip the overall status', wrongYear.detailsMismatch === false, wrongYear.overall);
+  ok('2 wrong year (more than 1) overall', wrongYear.overall === "Found, but details don't match" && wrongYear.detailsMismatch === true, wrongYear.overall);
   ok('3 wrong-title line (real DOI 10.48550/arXiv.1706.03762)', wrongTitle.line === WRONG_TITLE_LINE, wrongTitle.line);
   ok('3 wrong title overall', wrongTitle.overall === "Found, but details don't match" && wrongTitle.detailsMismatch === true, wrongTitle.overall);
   ok('4 missing authors line', noAuthors.line === NO_AUTHORS_LINE, noAuthors.line);
@@ -71,7 +71,17 @@ function vaswaniResponse(url) {
   const off = sb.vpCompareFields(sb.vpParseReference(
     '[1] Vaswani, A., et al. Attention is all you need. NeurIPS 2016. arXiv:1706.03762'), RECORD);
   ok('off by 1 label', off.year.label === 'Year off by 1 (preprint vs published)', off.year.label);
-  ok('off by 1 is allowed', off.detailsMismatch === false && /Year off by 1 \(preprint vs published\)/.test(off.line));
+  ok('off by 1 stays Found', off.detailsMismatch === false && off.overall === 'Found' && /Year off by 1 \(preprint vs published\)/.test(off.line), off.overall);
+  const offHtml = sb.renderReport([{
+    claim: 'Off by one [1].', base: 'CITED', label: 'CITED',
+    title: 'Attention Is All You Need', authors: ['Ashish Vaswani'], venue: 'arXiv', year: '2017',
+    doi: '10.48550/arXiv.1706.03762', arxiv_id: '1706.03762', note: 'record exists',
+    fieldcmp: off,
+  }]);
+  ok('off by 1 report stays Found and shows the year label',
+    /Existence: Found ·/.test(offHtml) &&
+    !offHtml.includes("Found, but details don't match") &&
+    offHtml.includes('Year off by 1 (preprint vs published)'));
   const close = sb.vpCompareTitle('Attention is all you need', 'Attention is all you need for translation');
   ok('minor title difference is close', close.status === 'close' && close.label === 'Title ~ close (minor differences)', close.label);
   const several = sb.vpCompareFields(sb.vpParseReference(
@@ -116,7 +126,8 @@ function vaswaniResponse(url) {
   ok('pipeline 1 line', by['1'] && by['1'].fieldcmp && by['1'].fieldcmp.line === REAL_LINE, by['1'] && by['1'].fieldcmp && by['1'].fieldcmp.line);
   ok('pipeline 1 stays CITED, not a detail mismatch', by['1'] && by['1'].base === 'CITED' && by['1'].fieldcmp.detailsMismatch === false, by['1'] && by['1'].base);
   ok('pipeline 2 line', by['2'] && by['2'].fieldcmp && by['2'].fieldcmp.line === WRONG_YEAR_LINE, by['2'] && by['2'].fieldcmp && by['2'].fieldcmp.line);
-  ok('pipeline 2 year mismatch keeps CITED', by['2'] && by['2'].base === 'CITED' && by['2'].fieldcmp.detailsMismatch === false, by['2'] && by['2'].label);
+  ok('pipeline 2 overall is a detail mismatch', by['2'] && by['2'].base === 'CITED' && by['2'].fieldcmp.overall === "Found, but details don't match" && by['2'].fieldcmp.detailsMismatch === true, by['2'] && by['2'].fieldcmp && by['2'].fieldcmp.overall);
+  ok('pipeline 2 category is field mismatch', live.vpDisplayCategory(by['2']) === 'fieldMismatch');
   ok('pipeline 3 line', by['3'] && by['3'].fieldcmp && by['3'].fieldcmp.line === WRONG_TITLE_LINE, by['3'] && by['3'].fieldcmp && by['3'].fieldcmp.line);
   ok('pipeline 3 used the real DOI', by['3'] && by['3'].doi === '10.48550/arXiv.1706.03762', by['3'] && by['3'].doi);
   ok('pipeline 3 overall status', by['3'] && by['3'].fieldcmp.overall === "Found, but details don't match", by['3'] && by['3'].fieldcmp && by['3'].fieldcmp.overall);
@@ -126,7 +137,16 @@ function vaswaniResponse(url) {
   ok('pipeline 4 not a detail mismatch', by['4'] && by['4'].fieldcmp.detailsMismatch === false);
   const html = live.renderReport(ev);
   ok('report shows the compact lines', [REAL_LINE, WRONG_YEAR_LINE, WRONG_TITLE_LINE, NO_AUTHORS_LINE].every(s => html.includes(s)));
-  ok('report flags the wrong title', html.includes('vp-overall') && html.includes("Found, but details don't match"));
+  function claimBlock(src, claim) {
+    const i = src.indexOf(claim);
+    if (i < 0) return '';
+    const next = src.indexOf('<div class="claim', i + claim.length);
+    return src.slice(i, next < 0 ? src.length : next);
+  }
+  ok('report flags the wrong year', claimBlock(html, 'Wrong year').includes('vp-overall') && claimBlock(html, 'Wrong year').includes("Found, but details don't match"));
+  ok('report flags the wrong title', claimBlock(html, 'Wrong title').includes("Found, but details don't match"));
+  ok('report does not flag the real reference', !claimBlock(html, 'Real [1]').includes("Found, but details don't match"));
+  ok('report does not flag the author-less reference', !claimBlock(html, 'No authors').includes("Found, but details don't match"));
   ok('report does not call the wrong title verified', !/ABSTRACT-SUPPORTED/.test(html.split('Wrong title')[1].split('No authors')[0] || ''));
   const md = live.vpReportMarkdown(ev, {});
   ok('markdown carries the four lines', [REAL_LINE, WRONG_YEAR_LINE, WRONG_TITLE_LINE, NO_AUTHORS_LINE].every(s => md.includes(s)));
@@ -135,7 +155,7 @@ function vaswaniResponse(url) {
 
   console.log('— exact labels —');
   console.log('  1 real: ' + REAL_LINE + ' | overall Found');
-  console.log('  2 wrong year: ' + WRONG_YEAR_LINE + ' | overall Found');
+  console.log("  2 wrong year: " + WRONG_YEAR_LINE + " | overall Found, but details don't match");
   console.log('  3 wrong title: ' + WRONG_TITLE_LINE + " | overall Found, but details don't match");
   console.log('  4 missing authors: ' + NO_AUTHORS_LINE + ' | overall Found');
   done();
