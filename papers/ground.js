@@ -380,13 +380,58 @@ function cutReferences(md) {
   return m ? md.slice(0, m.index) : md;
 }
 
-function splitSentences(text) {
+/* A line that opens a reference. Used so a pasted list is never glued
+ * together at a period: "Author, I. (YYYY)" and "[1]" / "[@key]" / "1."
+ * start a new entry even when the previous line has no blank line after it. */
+function vpIsReferenceLineStart(line) {
+  const s = String(line || '').trim();
+  if (!s || s.startsWith('#')) return false;
+  if (/^\[(?:@)?[^\]]+\]\s+\S/.test(s)) return true;
+  if (/^\d{1,3}[.)]\s+\S/.test(s)) return true;
+  if (/^[A-Z][A-Za-z'’\-]+,\s*[A-Z]\./.test(s) && /\((?:19|20)\d{2}[a-z]?\)/.test(s)) return true;
+  return false;
+}
+function vpSplitProseSentences(text) {
   let prot = text;
   ABBREV.forEach((ab, i) => { prot = prot.split(ab).join('\u0000' + i + '\u0000'); });
   return prot.split(SENT_SPLIT_RE).map(p => {
     ABBREV.forEach((ab, i) => { p = p.split('\u0000' + i + '\u0000').join(ab); });
     return p.split(/\s+/).join(' ').trim();
   }).filter(Boolean);
+}
+function splitSentences(text) {
+  const units = [];
+  let prose = [];
+  let ref = null;
+  const flushProse = () => {
+    if (!prose.length) return;
+    units.push(...vpSplitProseSentences(prose.join('\n')));
+    prose = [];
+  };
+  const flushRef = () => {
+    if (!ref) return;
+    const joined = ref.join(' ').replace(/\s+/g, ' ').trim();
+    ref = null;
+    if (joined) units.push(joined);
+  };
+  for (const line of String(text || '').split('\n')) {
+    const t = line.trim();
+    if (vpIsReferenceLineStart(t)) {
+      flushProse();
+      flushRef();
+      ref = [t];
+      continue;
+    }
+    if (ref) {
+      if (!t) flushRef();
+      else ref.push(t);
+      continue;
+    }
+    prose.push(line);
+  }
+  flushProse();
+  flushRef();
+  return units.filter(Boolean);
 }
 
 function markersInSentence(sent) {
@@ -460,14 +505,21 @@ function norm(s) { return s.toLowerCase().replace(/[^a-z0-9]/g, ''); }
 
 function splitEntries(section) {
   const entries = [];
-  for (const part of section.split(/(?=^\[\d{1,3}\])/m)) {
-    const p = part.trim();
-    if (!p) continue;
-    for (const chunk of p.split(/\n\s*\n/)) {
-      const c = chunk.split('\n').map(l => l.trim()).filter(Boolean).join(' ');
-      if (c && !c.startsWith('#')) entries.push(c);
-    }
+  let buf = [];
+  const flush = () => {
+    const c = buf.join(' ').replace(/\s+/g, ' ').trim();
+    buf = [];
+    if (c && !c.startsWith('#')) entries.push(c);
+  };
+  for (const line of String(section || '').split('\n')) {
+    const t = line.trim();
+    if (!t || t.startsWith('#')) { flush(); continue; }
+    /* A new Author, I. (YYYY) line or a numbered marker starts a new
+     * entry. Do not join it onto the previous line. */
+    if (buf.length && vpIsReferenceLineStart(t)) flush();
+    buf.push(t);
   }
+  flush();
   return entries;
 }
 
@@ -576,6 +628,219 @@ function guessEntryTitle(entryRaw) {
     if (score > bestScore) { best = sg; bestScore = score; }
   }
   return best.replace(/\s+/g, ' ').trim();
+}
+
+/* Field comparison. A title, author, or year is reported only after this
+ * code compares the reference text with the registry record. A missing
+ * side is "Not compared" with a reason — never a match. */
+function vpStripAccents(s) {
+  return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+function vpNormField(s) {
+  return vpStripAccents(s).toLowerCase().replace(/[^a-z0-9]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+function vpTitleTokens(s) {
+  return vpNormField(s).split(' ').filter(Boolean);
+}
+function vpTokenJaccard(a, b) {
+  const A = new Set(vpTitleTokens(a)), B = new Set(vpTitleTokens(b));
+  if (!A.size || !B.size) return 0;
+  let inter = 0;
+  for (const t of A) if (B.has(t)) inter++;
+  return inter / (A.size + B.size - inter);
+}
+function vpJaro(a, b) {
+  if (a === b) return 1;
+  const al = a.length, bl = b.length;
+  if (!al || !bl) return 0;
+  const matchDist = Math.max(0, Math.floor(Math.max(al, bl) / 2) - 1);
+  const aM = new Array(al).fill(false), bM = new Array(bl).fill(false);
+  let matches = 0;
+  for (let i = 0; i < al; i++) {
+    const start = Math.max(0, i - matchDist), end = Math.min(i + matchDist + 1, bl);
+    for (let j = start; j < end; j++) {
+      if (bM[j] || a[i] !== b[j]) continue;
+      aM[i] = bM[j] = true;
+      matches++;
+      break;
+    }
+  }
+  if (!matches) return 0;
+  let k = 0, trans = 0;
+  for (let i = 0; i < al; i++) {
+    if (!aM[i]) continue;
+    while (!bM[k]) k++;
+    if (a[i] !== b[k]) trans++;
+    k++;
+  }
+  return (matches / al + matches / bl + (matches - trans) / matches) / 3;
+}
+function vpJaroWinkler(a, b) {
+  const j = vpJaro(a, b);
+  let p = 0;
+  const n = Math.min(4, a.length, b.length);
+  while (p < n && a[p] === b[p]) p++;
+  return j + p * 0.1 * (1 - j);
+}
+function vpNotCompared(field, reason) {
+  return { status: 'not-compared', reason: 'Not compared — ' + reason, label: field + ' Not compared — ' + reason };
+}
+function vpBareTitle(t) {
+  return String(t || '').replace(/^\s*(retracted|withdrawn)(\s+article)?\s*:\s*/i, '').replace(/^\(no title\)$/i, '').trim();
+}
+function vpCompareTitle(cited, record) {
+  const c = vpBareTitle(cited), r = vpBareTitle(record);
+  if (vpTitleTokens(c).length < 2) return vpNotCompared('Title', 'the reference has no title');
+  if (vpTitleTokens(r).length < 2) return vpNotCompared('Title', 'the record has no title');
+  const cn = vpNormField(c), rn = vpNormField(r);
+  if (cn === rn) return { status: 'match', label: 'Title ✓' };
+  const jac = vpTokenJaccard(c, r);
+  const jw = vpJaroWinkler(cn, rn);
+  if (jac >= 0.9 || (jw >= 0.97 && jac >= 0.75)) return { status: 'match', label: 'Title ✓' };
+  if (jac >= 0.5 || jw >= 0.88) return { status: 'close', label: 'Title ~ close (minor differences)' };
+  return { status: 'mismatch', label: 'Title ✗' };
+}
+const VP_SURNAME_PARTICLES = { van: 1, von: 1, der: 1, de: 1, del: 1, della: 1, di: 1, da: 1, le: 1, la: 1, du: 1, dos: 1, ter: 1, den: 1 };
+function vpNormSurname(name) {
+  let s = vpStripAccents(String(name || '')).replace(/\bet\s+al\.?/ig, '').trim();
+  s = s.replace(/^[\s,;]+|[\s,;.]+$/g, '');
+  if (!s) return '';
+  if (s.includes(',')) s = s.split(',')[0];
+  else {
+    const parts = s.split(/\s+/).filter(p => p && !/^[A-Za-z]\.?$/.test(p));
+    if (!parts.length) return '';
+    const i = parts.length - 1;
+    const last = parts[i].replace(/[^A-Za-z'\-]/g, '');
+    s = (i > 0 && VP_SURNAME_PARTICLES[parts[i - 1].toLowerCase()]) ? parts[i - 1] + ' ' + last : last;
+  }
+  return vpStripAccents(s).toLowerCase().replace(/[^a-z\s'\-]/g, '').replace(/\s+/g, ' ').trim();
+}
+function vpAuthorList(authors) {
+  if (Array.isArray(authors)) return authors.map(a => String(a || '').trim()).filter(Boolean);
+  const s = String(authors || '').trim();
+  if (!s) return [];
+  if (s.includes(';')) return s.split(/\s*;\s*/).filter(Boolean);
+  if (/\s+and\s+/i.test(s)) return s.split(/\s+and\s+/i).filter(Boolean);
+  return [s];
+}
+function vpParseCitedAuthors(authorText) {
+  const text = String(authorText || '').replace(/\s+/g, ' ').trim();
+  if (!text) return [];
+  const re = /((?:(?:van|von|der|de|del|della|di|da|le|la|du|dos|ter|den)\s+)?[A-Z][A-Za-z'’\-]+)\s*,\s*[A-Z](?:\.[-A-Z.]*)?/g;
+  const hits = [];
+  let m;
+  while ((m = re.exec(text))) hits.push(m[1]);
+  if (hits.length) return hits;
+  const et = /^([A-Z][A-Za-z'’\-]+)\s+et\s+al\b/i.exec(text);
+  if (et) return [et[1]];
+  return [];
+}
+function vpCompareAuthors(citedNames, recordAuthors) {
+  const cited = (citedNames || []).map(vpNormSurname).filter(s => s.length > 1);
+  const rec = vpAuthorList(recordAuthors).map(vpNormSurname).filter(s => s.length > 1);
+  if (!cited.length) return vpNotCompared('Authors', 'the reference names no authors');
+  if (!rec.length) return vpNotCompared('Authors', 'the record names no authors');
+  const recSet = new Set(rec);
+  const firstMatch = cited[0] === rec[0];
+  const overlap = cited.filter(s => recSet.has(s));
+  if (cited.length === 1) {
+    if (firstMatch) return { status: 'match', label: 'Authors ✓ (first author)' };
+    if (recSet.has(cited[0])) return { status: 'partial', label: 'Authors partial (not first author)' };
+    return { status: 'mismatch', label: 'Authors ✗' };
+  }
+  if (firstMatch && overlap.length === cited.length) return { status: 'match', label: 'Authors ✓' };
+  if (overlap.length) {
+    return { status: 'partial', label: firstMatch
+      ? 'Authors partial (first author; ' + overlap.length + ' of ' + cited.length + ')'
+      : 'Authors partial (' + overlap.length + ' of ' + cited.length + ')' };
+  }
+  return { status: 'mismatch', label: 'Authors ✗' };
+}
+function vpYearNum(y) {
+  if (typeof y === 'number' && y >= 1500 && y <= 2100) return y;
+  const m = String(y == null ? '' : y).match(/\b((?:19|20)\d{2})\b/);
+  return m ? parseInt(m[1], 10) : null;
+}
+function vpCitedYear(text) {
+  const stripped = String(text || '')
+    .replace(/\b10\.\d{4,9}\/\S+/g, ' ')
+    .replace(/\barXiv:\s*\S+/ig, ' ')
+    .replace(/\b\d{4}\.\d{4,5}(?:v\d+)?\b/g, ' ');
+  return vpYearNum(stripped);
+}
+function vpCompareYear(citedYear, recordYear) {
+  const c = vpYearNum(citedYear), r = vpYearNum(recordYear);
+  if (c == null) return vpNotCompared('Year', 'the reference has no year');
+  if (r == null) return vpNotCompared('Year', 'the record has no year');
+  if (c === r) return { status: 'exact', label: 'Year ✓' };
+  if (Math.abs(c - r) === 1) return { status: 'off-by-1', label: 'Year off by 1 (preprint vs published)' };
+  return { status: 'mismatch', label: 'Year ✗ ' + c + ' vs ' + r };
+}
+function vpParseReference(raw) {
+  const text = String(raw || '').replace(/^\[(@?[^\]]+)\]\s*/, '').replace(/\s+/g, ' ').trim();
+  if (!text) return { title: '', authors: [], year: null, raw: '', empty: true };
+  const titleGuess = text ? guessEntryTitle(text) : '';
+  const title = titleGuess && vpTitleTokens(titleGuess).length >= 2 ? titleGuess : '';
+  let authorText = text;
+  if (title) {
+    const idx = text.toLowerCase().indexOf(title.toLowerCase());
+    if (idx >= 0) authorText = text.slice(0, idx);
+  }
+  return { title, authors: vpParseCitedAuthors(authorText), year: vpCitedYear(text), raw: text, empty: false };
+}
+function vpCompareFields(cited, record) {
+  const c = cited || { title: '', authors: [], year: null };
+  const r = record || { title: '', authors: [], year: null };
+  /* A claim sentence that merely contains a DOI is not a reference.
+   * Do not mine a title out of it: that would report a mismatch the
+   * reference never stated. */
+  if (c.empty) {
+    const title = vpNotCompared('Title', 'the citation has no reference text');
+    const authors = vpNotCompared('Authors', 'the citation has no reference text');
+    const year = vpNotCompared('Year', 'the citation has no reference text');
+    return {
+      title, authors, year,
+      line: [title.label, authors.label, year.label].join(' · '),
+      detailsMismatch: false,
+      overall: 'Found',
+      cited: { title: '', authors: [], year: '' },
+      record: {
+        title: String(r.title || ''),
+        authors: vpAuthorList(r.authors),
+        year: vpYearNum(r.year) == null ? '' : String(vpYearNum(r.year)),
+      },
+    };
+  }
+  const title = vpCompareTitle(c.title, r.title);
+  const authors = vpCompareAuthors(c.authors, r.authors);
+  const year = vpCompareYear(c.year, r.year);
+  /* A year off by 1 is allowed (preprint vs published). A larger gap is a
+   * mismatch, same as a title or author mismatch. */
+  const detailsMismatch = title.status === 'mismatch' || authors.status === 'mismatch' || year.status === 'mismatch';
+  return {
+    title, authors, year,
+    line: [title.label, authors.label, year.label].join(' · '),
+    detailsMismatch,
+    overall: detailsMismatch ? "Found, but details don't match" : 'Found',
+    cited: {
+      title: c.title || '',
+      authors: (c.authors || []).slice(),
+      year: c.year == null || c.year === '' ? '' : String(c.year),
+    },
+    record: {
+      title: String(r.title || ''),
+      authors: vpAuthorList(r.authors),
+      year: vpYearNum(r.year) == null ? '' : String(vpYearNum(r.year)),
+    },
+  };
+}
+function vpCmpStatusWord(part) {
+  if (!part || part.status === 'not-compared') return (part && part.reason) || 'Not compared';
+  if (part.status === 'match' || part.status === 'exact') return 'Matches';
+  if (part.status === 'close') return 'Close (minor differences)';
+  if (part.status === 'partial') return 'Partial';
+  if (part.status === 'off-by-1') return 'off by 1 (preprint vs published)';
+  return 'Differs';
 }
 
 async function crossrefLookup(entryRaw, entryYear) {
@@ -745,7 +1010,7 @@ async function resolveMarker(type, id, refmap) {
   const names = ks => (ks || []).map(k => BIB_SOURCE_NAME[k] || k).join(', ');
   if (bl.doi || bl.arxiv_id || bl.record) {
     return { doi: bl.doi, arxiv_id: bl.arxiv_id, record: bl.record, via: bl.via,
-      entryRaw: entry.raw, note: (BIB_SOURCE_NAME[bl.via] || bl.via) + ' bibliographic match (title-in-entry + year)' };
+      entryRaw: entry.raw, note: (BIB_SOURCE_NAME[bl.via] || bl.via) + ' bibliographic hit (record title appears in the reference; year within 1 when both have one)' };
   }
   const skipped = [
     (bl.limitedSources && bl.limitedSources.length) ? `rate-limited: ${names(bl.limitedSources)}` : '',
@@ -780,10 +1045,10 @@ function crossrefRetractionUpdates(m) {
     .filter(t => RETRACTION_UPDATE_TYPES.includes(t));
 }
 
-/* Chimeric-hallucination detection: the title matches a real paper but the
- * authors named in the entry match none of the paper's real authors.
- * Only judges when the entry actually names authors (et al. / "Surname, I."
- * pattern); author-less entries are not flaggable. */
+/* Author-list check: surnames named in the entry match none of the record's
+ * authors. Only judges when the entry actually names authors (et al. /
+ * "Surname, I." pattern); author-less entries are not flaggable. Title
+ * agreement is a separate comparison (vpCompareTitle), not this check. */
 function detectChimeric(entryRaw, authors) {
   const arr = Array.isArray(authors) ? authors : String(authors || '').split(/,\s*/).filter(Boolean);
   const fams = arr.map(a => {
@@ -946,7 +1211,12 @@ const VP_REGISTRY_NAME = { pgCheckCrossRef: 'Crossref', pgCheckDataCite: 'DataCi
 async function _verifyDoiLive(doi) {
   const miss = { exists: false, title: null, authors: [], venue: '', year: '', retracted: false, limited: false };
   const failed = [];
-  for (const fn of [pgCheckCrossRef, pgCheckDataCite, pgCheckEuropePMC, pgCheckOpenAlex]) {
+  /* arXiv DOIs (10.48550/arXiv.*) are DataCite records. Asking Crossref
+   * first only produces a 404 in the browser console before DataCite answers. */
+  const chain = /^10\.48550\/arxiv\./i.test(String(doi || ''))
+    ? [pgCheckDataCite, pgCheckCrossRef, pgCheckEuropePMC, pgCheckOpenAlex]
+    : [pgCheckCrossRef, pgCheckDataCite, pgCheckEuropePMC, pgCheckOpenAlex];
+  for (const fn of chain) {
     let hit = null;
     try { hit = await fn(doi); } catch (e) { hit = vpUnavailable('unexpected response'); }
     if (hit && (hit.limited || hit.unavailable)) {
@@ -1050,8 +1320,8 @@ async function resolveCitation(pair, refmap, cache) {
       let titleRecord = null;
       if (!v.exists && !v.limited && !fromLookup && rm.entryRaw) {
         const bl = await bibliographicLookup(rm.entryRaw, rm.entryYear);
-        if (bl && bl.record) titleRecord = { title: bl.record.title || '', year: bl.record.year || '', doi: bl.doi || '', arxiv_id: bl.arxiv_id || '' };
-        else if (bl && (bl.doi || bl.arxiv_id)) titleRecord = { title: '', year: '', doi: bl.doi || '', arxiv_id: bl.arxiv_id || '' };
+        if (bl && bl.record) titleRecord = { title: bl.record.title || '', year: bl.record.year || '', authors: bl.record.authors || [], doi: bl.doi || '', arxiv_id: bl.arxiv_id || '' };
+        else if (bl && (bl.doi || bl.arxiv_id)) titleRecord = { title: '', year: '', authors: [], doi: bl.doi || '', arxiv_id: bl.arxiv_id || '' };
       }
       out = wrap(v, doi, isArxivDoi ? arxivId : null, note,
         { chimeric: detectChimeric(rm.entryRaw, v.authors), fromLookup, titleRecord });
@@ -1606,6 +1876,71 @@ async function keylessSupport(claim, ab, res, opts, onStep) {
 const GROUND_CONCURRENCY = 4;
 /* ---------------- pipeline ---------------- */
 
+function vpSameWorkId(a, b) {
+  const norm = s => String(s || '').toLowerCase()
+    .replace(/^https?:\/\/(dx\.)?doi\.org\//, '')
+    .replace(/^doi:/, '')
+    .replace(/^arxiv:/, '')
+    .replace(/^10\.48550\/arxiv\./, '')
+    .replace(/v\d+$/, '')
+    .trim();
+  const na = norm(a), nb = norm(b);
+  return !!na && na === nb;
+}
+function vpFindEntryById(refmap, doi, arxiv) {
+  let hit = null;
+  const consider = e => {
+    if (hit || !e) return;
+    if (doi && e.doi && vpSameWorkId(e.doi, doi)) hit = e;
+    else if (arxiv && e.arxiv_id && vpSameWorkId(e.arxiv_id, arxiv)) hit = e;
+    else if (doi && e.arxiv_id && vpSameWorkId(e.arxiv_id, doi)) hit = e;
+    else if (arxiv && e.doi && vpSameWorkId(e.doi, arxiv)) hit = e;
+  };
+  for (const mapName of ['numeric', 'citekey']) {
+    const map = (refmap && refmap[mapName]) || {};
+    for (const k of Object.keys(map)) consider(map[k]);
+  }
+  const ay = (refmap && refmap.authoryear) || {};
+  for (const k of Object.keys(ay)) for (const e of ay[k] || []) consider(e);
+  return hit;
+}
+/* The reference text to compare with a record: the bibliography entry when
+ * the marker resolves to one, otherwise the citation sentence for a bare
+ * DOI or arXiv id. Never invents a title, author, or year. */
+function vpReferenceText(pair, refmap) {
+  const t = pair.cite_type, id = String(pair.cite_id || '');
+  const map = refmap || { numeric: {}, citekey: {}, authoryear: {} };
+  if (t === 'numeric' && map.numeric && map.numeric[id]) return map.numeric[id].raw || '';
+  if (t === 'citekey' && map.citekey && map.citekey[id]) return map.citekey[id].raw || '';
+  if (t === 'author-year') {
+    const key = parseIntextAuthoryear(id);
+    if (key && map.authoryear) {
+      let cands = map.authoryear[key] || [];
+      if (!cands.length) {
+        const p2 = key.split('|').slice(0, 2).join('|') + '|';
+        cands = Object.keys(map.authoryear).filter(k => k.startsWith(p2)).flatMap(k => map.authoryear[k]);
+      }
+      if (cands.length === 1) return cands[0].raw || '';
+    }
+    return '';
+  }
+  if (t === 'doi' || t === 'arxiv' || (t === 'url' && id.includes('doi.org'))) {
+    const doi = t === 'doi' ? id : (t === 'url' ? (id.split('doi.org/')[1] || '') : '');
+    const ax = t === 'arxiv' ? id : '';
+    const hit = vpFindEntryById(map, doi, ax);
+    if (hit && hit.raw) return hit.raw;
+    /* A pasted reference line is the reference. A prose sentence that
+     * only mentions a DOI is not: mining a title out of it would invent
+     * one the reference never stated. */
+    if (pair.entryRaw) return pair.entryRaw;
+    if (vpIsReferenceLineStart(pair.claim)) return pair.claim;
+    return '';
+  }
+  if (pair.entryRaw) return pair.entryRaw;
+  if (vpIsReferenceLineStart(pair.claim)) return pair.claim;
+  return '';
+}
+
 async function groundDraft(text, opts, onStep) {
   opts = opts || {};
   const pairs = extractPairs(text);
@@ -1624,6 +1959,15 @@ async function groundDraft(text, opts, onStep) {
       return;
     }
     const res = await resolveCitation(p, refmap, cache);
+    const parsedRef = vpParseReference(vpReferenceText(p, refmap));
+    let fieldcmp = null;
+    if (res.exists) {
+      fieldcmp = vpCompareFields(parsedRef, { title: res.title, authors: res.authors, year: res.year });
+    } else if (res.titleRecord) {
+      fieldcmp = vpCompareFields(parsedRef, {
+        title: res.titleRecord.title, authors: res.titleRecord.authors || [], year: res.titleRecord.year,
+      });
+    }
     let base = 'UNVERIFIED', note = res.note;
     const extraTags = [];
     if (res.exists) {
@@ -1677,8 +2021,12 @@ async function groundDraft(text, opts, onStep) {
       if (res.chimeric) {
         // the reference entry itself is wrong: fix it before claiming support
         if (base === 'ABSTRACT-SUPPORTED') base = 'CITED';
-        note = 'CHIMERIC citation: the title matches a real paper but the listed authors do not — ' + note;
+        note = 'listed authors do not match the record — ' + note;
       }
+      /* A found record whose title, authors, or year (off by more than 1)
+       * mismatch the reference is not a verified citation. A year off by 1
+       * stays allowed. */
+      if (fieldcmp && fieldcmp.detailsMismatch && base === 'ABSTRACT-SUPPORTED') base = 'CITED';
       if (base !== 'ABSTRACT-SUPPORTED') {
         const k = extraTags.indexOf('[KEYLESS-NLI]');
         if (k >= 0) extraTags.splice(k, 1);  // the tag marks a keyless SUPPORTED verdict only
@@ -1703,9 +2051,11 @@ async function groundDraft(text, opts, onStep) {
       if (tr) {
         base = 'ID_NOT_FOUND_TITLE_FOUND';
         const recId = tr.doi ? 'DOI ' + tr.doi : tr.arxiv_id ? 'arXiv ID ' + tr.arxiv_id : '';
-        note = `${what} was looked up in its registry and no record was found, but the reference's title and year match a record` +
+        const cmpNote = fieldcmp && fieldcmp.line ? ' Field comparison: ' + fieldcmp.line + '.' : '';
+        note = `${what} was looked up in its registry and no record was found. A search returned a record` +
           (tr.title ? ` ("${tr.title}"${tr.year ? ', ' + tr.year : ''})` : '') + (recId ? ` with ${recId}` : '') +
-          ' — the identifier is probably mistyped. Next: compare the identifier with that record and correct it.';
+          '.' + cmpNote +
+          ' The identifier is probably mistyped. Next: compare the identifier with that record and correct it.';
       } else {
         base = 'ID_NOT_FOUND';
         note = `${what} was looked up in its registry and no record was found. Next: copy the identifier again from the publisher or arXiv page; if you cannot find the work, do not cite it until you can.`;
@@ -1726,6 +2076,10 @@ async function groundDraft(text, opts, onStep) {
       label: base + (tags.length ? ' ' + tags.join(' ') : ''),
       doi: res.doi || '', arxiv_id: res.arxiv_id || '', title: res.title || '', note,
       authors: res.authors || [], venue: res.venue || '', year: res.year || '', claimed_id: res.claimed || '',
+      fieldcmp: fieldcmp || null,
+      cited_title: fieldcmp ? fieldcmp.cited.title : '',
+      cited_authors: fieldcmp ? fieldcmp.cited.authors : [],
+      cited_year: fieldcmp ? fieldcmp.cited.year : '',
     };
     done++;
     if (onStep) onStep(`Checking claim ${done}/${pairs.length}…`);
@@ -1831,6 +2185,7 @@ function vpDisplayCategory(e) {
   if (e.base === 'INVALID_DOI') return 'fieldMismatch';
   if (has(/CHIMERIC/)) return 'fieldMismatch';
   if (e.base === 'UNVERIFIED') return 'cannotDetermine';
+  if (e.fieldcmp && e.fieldcmp.detailsMismatch) return 'fieldMismatch';
   if (e.base === 'ABSTRACT-SUPPORTED' || e.base === 'CITED') return 'matched';
   return 'cannotDetermine';
 }
@@ -1861,15 +2216,14 @@ function vpCitedIdentifier(claim) {
   if (ax) return 'arXiv:' + ax[1];
   return '';
 }
-function vpFieldDiff(e) {
+function vpBuildFieldRows(e) {
   const isChimeric = /\[CHIMERIC/.test(e.label || '');
   const citedId = vpCitedIdentifier(e.claim);
   const recordId = e.doi || (e.arxiv_id ? 'arXiv:' + String(e.arxiv_id).replace(/^arXiv:/i, '') : '');
-  /* Phase 3 identifier-status consistency: when the record has no
-     identifier, the status is "Missing in record", like the other four
-     rows — EXCEPT two cases where record absence is not established:
-     RATE_LIMITED (the check failed, so nothing about the record is
-     known) and INVALID_DOI (no registry lookup was made at all). Those
+  /* Identifier-status consistency: when the record has no identifier,
+     the status is "Missing in record", like the other rows — EXCEPT two
+     cases where record absence is not established: RATE_LIMITED (the
+     check failed) and INVALID_DOI (no registry lookup was made). Those
      keep "Not compared" wording instead of claiming a missing record. */
   let idStatus;
   if (!recordId) {
@@ -1879,25 +2233,44 @@ function vpFieldDiff(e) {
   } else if (!citedId) idStatus = 'Not compared';
   else if (vpNormId(citedId) === vpNormId(recordId)) idStatus = 'Matches';
   else idStatus = 'Differs';
-  const rows = [
-    { field: 'Title', cited: 'Not recorded separately in this check', record: e.title || 'Missing',
-      status: e.title ? 'Not compared' : 'Missing in record' },
-    { field: 'Authors', cited: isChimeric ? 'Differs from the record (flagged by the check)' : 'Not recorded separately in this check',
+  const fc = e.fieldcmp;
+  let title, authors, year;
+  if (fc) {
+    const recAuthors = Array.isArray(fc.record.authors) ? fc.record.authors.filter(Boolean).join(', ') : String(fc.record.authors || '');
+    title = { field: 'Title', cited: fc.cited.title || 'Missing', record: fc.record.title || e.title || 'Missing', status: vpCmpStatusWord(fc.title) };
+    authors = { field: 'Authors', cited: (fc.cited.authors || []).filter(Boolean).join(', ') || 'Missing',
+      record: recAuthors || ((e.authors && e.authors.length) ? e.authors.join(', ') : 'Missing'),
+      status: vpCmpStatusWord(fc.authors) };
+    year = { field: 'Year', cited: fc.cited.year || 'Missing', record: fc.record.year || e.year || 'Missing', status: vpCmpStatusWord(fc.year) };
+  } else {
+    title = { field: 'Title', cited: 'Not recorded separately in this check', record: e.title || 'Missing',
+      status: e.title ? 'Not compared' : 'Missing in record' };
+    authors = { field: 'Authors', cited: isChimeric ? 'Differs from the record (flagged by the check)' : 'Not recorded separately in this check',
       record: (e.authors && e.authors.length) ? e.authors.join(', ') : 'Missing',
-      status: isChimeric ? 'Differs' : ((e.authors && e.authors.length) ? 'Not compared' : 'Missing in record') },
+      status: isChimeric ? 'Differs' : ((e.authors && e.authors.length) ? 'Not compared' : 'Missing in record') };
+    year = { field: 'Year', cited: 'Not recorded separately in this check', record: e.year || 'Missing',
+      status: e.year ? 'Not compared' : 'Missing in record' };
+  }
+  const rows = [
+    title, authors,
     { field: 'Venue', cited: 'Not recorded separately in this check', record: e.venue || 'Missing',
       status: e.venue ? 'Not compared' : 'Missing in record' },
-    { field: 'Year', cited: 'Not recorded separately in this check', record: e.year || 'Missing',
-      status: e.year ? 'Not compared' : 'Missing in record' },
-    { field: 'Identifier', cited: citedId || 'Not shown in the claim text', record: recordId || 'Missing',
-      status: idStatus },
+    year,
+    { field: 'Identifier', cited: citedId || 'Not shown in the claim text', record: recordId || 'Missing', status: idStatus },
   ];
-  const body = rows.map(r =>
+  return { rows, compared: !!fc };
+}
+function vpFieldDiff(e) {
+  const built = vpBuildFieldRows(e);
+  const body = built.rows.map(r =>
     `${r.field}: cited ${gesc(r.cited)} · record ${gesc(r.record)} — ` +
     (r.status === 'Differs' ? '<b>Differs</b>' : gesc(r.status))).join('<br>');
+  const foot = built.compared
+    ? 'Title, authors, and year are compared only when both the reference and the record have a value. "Not compared" means that field was missing on one side, so it was not checked. Venue and pages are not compared.'
+    : 'Cited title, authors, venue and year are not stored separately by this check, so they cannot be compared field by field here; only the identifier and flagged author mismatches are compared. "Missing" means the record returned no value for that field.';
   return `<div style="margin-top:6px">Field comparison (cited vs. record):</div>` +
     `<div style="color:var(--ink-soft);font-size:13px">${body}</div>` +
-    `<div style="color:var(--ink-soft);font-size:12.5px">Cited title, authors, venue and year are not stored separately by this check, so they cannot be compared field by field here; only the identifier and flagged author mismatches are compared. "Missing" means the record returned no value for that field.</div>`;
+    `<div style="color:var(--ink-soft);font-size:12.5px">${foot}</div>`;
 }
 
 /* Markdown version of the rendered report, for Download report (.md)
@@ -1912,32 +2285,19 @@ function vpMdLine(s) {
 }
 
 function vpFieldDiffText(e) {
-  const isChimeric = /\[CHIMERIC/.test(e.label || '');
-  const citedId = vpCitedIdentifier(e.claim);
-  const recordId = e.doi || (e.arxiv_id ? 'arXiv:' + String(e.arxiv_id).replace(/^arXiv:/i, '') : '');
-  let idStatus;
-  if (!recordId) {
-    if (e.base === 'RATE_LIMITED') idStatus = 'Not compared — check failed';
-    else if (e.base === 'INVALID_DOI') idStatus = 'Not compared';
-    else idStatus = 'Missing in record';
-  } else if (!citedId) idStatus = 'Not compared';
-  else if (vpNormId(citedId) === vpNormId(recordId)) idStatus = 'Matches';
-  else idStatus = 'Differs';
-  const rows = [
-    { field: 'Title', cited: 'Not recorded separately in this check', record: e.title || 'Missing',
-      status: e.title ? 'Not compared' : 'Missing in record' },
-    { field: 'Authors', cited: isChimeric ? 'Differs from the record (flagged by the check)' : 'Not recorded separately in this check',
-      record: (e.authors && e.authors.length) ? e.authors.join(', ') : 'Missing',
-      status: isChimeric ? 'Differs' : ((e.authors && e.authors.length) ? 'Not compared' : 'Missing in record') },
-    { field: 'Venue', cited: 'Not recorded separately in this check', record: e.venue || 'Missing',
-      status: e.venue ? 'Not compared' : 'Missing in record' },
-    { field: 'Year', cited: 'Not recorded separately in this check', record: e.year || 'Missing',
-      status: e.year ? 'Not compared' : 'Missing in record' },
-    { field: 'Identifier', cited: citedId || 'Not shown in the claim text', record: recordId || 'Missing',
-      status: idStatus },
-  ];
-  return rows.map(r =>
+  return vpBuildFieldRows(e).rows.map(r =>
     `${r.field}: cited ${vpMdLine(r.cited)} · record ${vpMdLine(r.record)} — ${r.status}`).join('; ');
+}
+function vpExistenceText(e) {
+  if (e.fieldcmp && e.fieldcmp.detailsMismatch && (e.base === 'CITED' || e.base === 'ABSTRACT-SUPPORTED'))
+    return "Found, but details don't match";
+  if (e.base === 'ID_NOT_FOUND') return 'Identifier not found in its registry';
+  if (e.base === 'ID_NOT_FOUND_TITLE_FOUND') return 'Identifier not found in its registry; a search returned a record';
+  if (e.base === 'NOT_A_SCHOLARLY_RECORD') return 'No scholarly record (web page, software or standard)';
+  if (e.base === 'INVALID_DOI') return 'Not checked — invalid identifier';
+  if (e.base === 'UNVERIFIED') return 'Not confirmed';
+  if (e.base === 'RATE_LIMITED') return 'Not checked';
+  return 'Found';
 }
 
 function vpReportMarkdown(evidence, ropts) {
@@ -1997,13 +2357,7 @@ function vpReportMarkdown(evidence, ropts) {
     const isChimeric = /\[CHIMERIC/.test(e.label || '');
     const isRetracted = /\[RETRACTED\]/.test(e.label || '');
     const isStale = /\[STALE:/.test(e.label || '');
-    const existence = e.base === 'ID_NOT_FOUND' ? 'Identifier not found in its registry'
-      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Identifier not found in its registry; a record with this title was found'
-      : e.base === 'NOT_A_SCHOLARLY_RECORD' ? 'No scholarly record (web page, software or standard)'
-      : e.base === 'INVALID_DOI' ? 'Not checked — invalid identifier'
-      : e.base === 'UNVERIFIED' ? 'Not confirmed'
-      : e.base === 'RATE_LIMITED' ? 'Not checked'
-      : 'Found';
+    const existence = vpExistenceText(e);
     const support = e.base === 'ABSTRACT-SUPPORTED' ? 'Abstract-level support (full text not checked)'
       : e.base === 'CITED' ? 'Support not determined' : '—';
     const anomaly = e.base === 'ID_NOT_FOUND'
@@ -2013,7 +2367,7 @@ function vpReportMarkdown(evidence, ropts) {
       ? 'Read the original before relying on it; for key claims, check the full text.'
       : cat === 'matched' ? 'Support is not determined — check the full text; author decides.'
       : cat === 'fieldMismatch' ? 'Compare the fields above with the record, correct the entry, then re-check.'
-      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Compare the identifier with the record that matches the title, correct it, then re-check.'
+      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Compare the identifier with the record the search returned, correct it, then re-check.'
       : e.base === 'NOT_A_SCHOLARLY_RECORD' ? 'Open the source yourself and check that it says what you cite.'
       : cat === 'notFound' ? 'Copy the identifier again from the publisher or arXiv page and re-check; if you cannot find the work, do not cite it until you can.'
       : cat === 'retrievalFailed' ? 'Try again later.'
@@ -2040,7 +2394,8 @@ function vpReportMarkdown(evidence, ropts) {
     lines.push('- [ ] **' + vpMdLine(e.label || e.base) + '** — ' + vpMdLine(e.claim) +
       ' — Category: ' + VP_CATEGORY_LABEL[cat] + ' — Existence: ' + existence + ' — Support: ' + support +
       (e.title ? ' — Record title: ' + vpMdLine(e.title) : '') +
-      ' — Matching evidence: ' + (parts.length ? parts.join(' · ') : '—') +
+      ' — Registry record: ' + (parts.length ? parts.join(' · ') : '—') +
+      (e.fieldcmp && e.fieldcmp.line ? ' — Fields: ' + vpMdLine(e.fieldcmp.line) : '') +
       ' — Field comparison (cited vs. record): ' + vpFieldDiffText(e) + firstSeen +
       ' — Anomaly reason: ' + vpMdLine(anomaly) +
       ' — Check scope: registry lookup; support judgments are abstract-level only — the full text was not checked. Item check time: not recorded.' +
@@ -2052,12 +2407,12 @@ function vpReportMarkdown(evidence, ropts) {
     'CITED = source found; whether it supports the claim was not checked (or only partly) — next: check the full text yourself; ' +
     'UNVERIFIED = no record found or marker not resolvable (absence of evidence, not a finding about the citation) — next: add a DOI or arXiv ID, or search the registries by hand; ' +
     'ID_NOT_FOUND = the identifier was looked up in its registry and no record was found — next: copy the identifier again from the publisher or arXiv page; ' +
-    "ID_NOT_FOUND_TITLE_FOUND = the identifier was not found, but the reference's title and year match a record — next: compare the identifier with that record and correct it; " +
+    "ID_NOT_FOUND_TITLE_FOUND = the identifier was not found in its registry; a search returned a record, and the field line shows what was compared — next: compare the identifier with that record and correct it; " +
     'NOT_A_SCHOLARLY_RECORD = no scholarly record, and the reference looks like a web page, software, model card or standard; not counted as a problem — next: open the source and check it; ' +
     'RATE_LIMITED = sources were rate-limited or could not be reached while checking — not checked, not a finding about the citation — next: try again later; ' +
     'INVALID_DOI = DOI format invalid (not a well-formed DOI; likely mistyped) — next: copy the DOI again or remove it; ' +
     '[STALE:YYYY] = data older than the freshness window; ' +
-    '[CHIMERIC:author-mismatch] = title matches a real paper but the listed authors do not; ' +
+    '[CHIMERIC:author-mismatch] = the listed authors do not match the record; ' +
     '[RETRACTED] = the paper has been retracted — do not cite it as support; ' +
     '[SPECIFIC-NOT-IN-ABSTRACT] = the claim leans on hard specifics (numbers, quoted phrases) absent from the abstract — check the full text; ' +
     '[POSSIBLE-MISATTRIBUTION] = a missing specific appears in a paper this work cites — the finding may originate there; ' +
@@ -2123,13 +2478,7 @@ function renderReport(evidence, ropts) {
     const isChimeric = /\[CHIMERIC/.test(e.label || '');
     const isRetracted = /\[RETRACTED\]/.test(e.label || '');
     const isStale = /\[STALE:/.test(e.label || '');
-    const existence = e.base === 'ID_NOT_FOUND' ? 'Identifier not found in its registry'
-      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Identifier not found in its registry; a record with this title was found'
-      : e.base === 'NOT_A_SCHOLARLY_RECORD' ? 'No scholarly record (web page, software or standard)'
-      : e.base === 'INVALID_DOI' ? 'Not checked — invalid identifier'
-      : e.base === 'UNVERIFIED' ? 'Not confirmed'
-      : e.base === 'RATE_LIMITED' ? 'Not checked'
-      : 'Found';
+    const existence = vpExistenceText(e);
     const support = e.base === 'ABSTRACT-SUPPORTED' ? 'Abstract-level support (full text not checked)'
       : e.base === 'CITED' ? 'Support not determined' : '—';
     /* ID_NOT_FOUND rows state the registry fact only — the identifier was
@@ -2153,7 +2502,7 @@ function renderReport(evidence, ropts) {
       ? 'Read the original before relying on it; for key claims, check the full text.'
       : cat === 'matched' ? 'Support is not determined — check the full text; author decides.'
       : cat === 'fieldMismatch' ? 'Compare the fields above with the record, correct the entry, then re-check.'
-      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Compare the identifier with the record that matches the title, correct it, then re-check.'
+      : e.base === 'ID_NOT_FOUND_TITLE_FOUND' ? 'Compare the identifier with the record the search returned, correct it, then re-check.'
       : e.base === 'NOT_A_SCHOLARLY_RECORD' ? 'Open the source yourself and check that it says what you cite.'
       : cat === 'notFound' ? 'Copy the identifier again from the publisher or arXiv page and re-check; if you cannot find the work, do not cite it until you can.'
       : cat === 'retrievalFailed' ? 'Try again later.'
@@ -2166,9 +2515,11 @@ function renderReport(evidence, ropts) {
       (tags ? ' ' + tags : '') +
       `<div style="margin-top:6px">Category: <b>${VP_CATEGORY_LABEL[cat]}</b>` +
       ` · Existence: ${gesc(existence)} · Support: ${gesc(support)}</div>` +
+      (e.fieldcmp && e.fieldcmp.detailsMismatch ? `<div class="vp-overall">Found, but details don't match</div>` : '') +
+      (e.fieldcmp && e.fieldcmp.line ? `<div class="vp-fieldline">${gesc(e.fieldcmp.line)}</div>` : '') +
       (isRetracted ? `<div style="margin-top:4px"><b>Retracted warning:</b> this paper has been retracted — do not cite it as support.</div>` : '') +
       (isStale ? `<div style="margin-top:4px">Freshness reminder: the data for this record may be out of date — re-confirm against the original source.</div>` : '') +
-      `<div style="margin-top:6px">Matching evidence: ${(e.title || evParts.length || doiLink || arxivLink) ? '' : '—'}</div>` +
+      `<div style="margin-top:6px">Registry record: ${(e.title || evParts.length || doiLink || arxivLink) ? '' : '—'}</div>` +
       (e.title ? `<div style="margin:8px 0 4px"><b>${gesc(e.title)}</b></div>` : '') +
       (evParts.length ? `<div style="color:var(--ink-soft);font-size:13px">${evParts.join(' · ')}</div>` : '') +
       (doiLink ? `<div style="color:var(--ink-soft);font-size:13px">${doiLink}</div>` : '') +
@@ -2190,12 +2541,12 @@ function renderReport(evidence, ropts) {
     `CITED = source found; whether it supports the claim was not checked (or only partly) — next: check the full text yourself; ` +
     `UNVERIFIED = no record found or marker not resolvable (absence of evidence, not a finding about the citation) — next: add a DOI or arXiv ID, or search the registries by hand; ` +
     `ID_NOT_FOUND = the identifier was looked up in its registry and no record was found — next: copy the identifier again from the publisher or arXiv page; ` +
-    `ID_NOT_FOUND_TITLE_FOUND = the identifier was not found, but the reference's title and year match a record — next: compare the identifier with that record and correct it; ` +
+    `ID_NOT_FOUND_TITLE_FOUND = the identifier was not found in its registry; a search returned a record, and the field line shows what was compared — next: compare the identifier with that record and correct it; ` +
     `NOT_A_SCHOLARLY_RECORD = no scholarly record, and the reference looks like a web page, software, model card or standard; not counted as a problem — next: open the source and check it; ` +
     `RATE_LIMITED = sources were rate-limited or could not be reached while checking — not checked, not a finding about the citation — next: try again later; ` +
     `INVALID_DOI = DOI format invalid (not a well-formed DOI; likely mistyped) — next: copy the DOI again or remove it; ` +
     `[STALE:YYYY] = data older than the freshness window; ` +
-    `[CHIMERIC:author-mismatch] = title matches a real paper but the listed authors do not; ` +
+    `[CHIMERIC:author-mismatch] = the listed authors do not match the record; ` +
     `[RETRACTED] = the paper has been retracted — do not cite it as support; ` +
     `[SPECIFIC-NOT-IN-ABSTRACT] = the claim leans on hard specifics (numbers, quoted phrases) absent from the abstract — check the full text; ` +
     `[POSSIBLE-MISATTRIBUTION] = a missing specific appears in a paper this work cites — the finding may originate there; ` +

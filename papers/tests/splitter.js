@@ -71,6 +71,24 @@ const r5 = parseReferences(D5);
 ok('D5 [1] -> BERT arxiv', r5.numeric['1'] && r5.numeric['1'].arxiv_id === '1810.04805');
 ok('D5 [2] -> no id (fake)', r5.numeric['2'] && !r5.numeric['2'].doi && !r5.numeric['2'].arxiv_id);
 
+console.log('— pasted reference list stays one entry per line —');
+const BARE = [
+  'Vaswani, A., Shazeer, N., Parmar, N., et al. (2017). Attention is all you need. Advances in Neural Information Processing Systems. arXiv:1706.03762',
+  'Vaswani, A., Shazeer, N., et al. (2019). Attention is all you need. arXiv:1706.03762',
+  'Smith, J. (2017). Deep learning for weather forecasting in coastal regions. https://doi.org/10.48550/arXiv.1706.03762',
+].join('\n');
+const barePairs = extractPairs(BARE);
+ok('bare list yields 3 references', barePairs.length === 3, JSON.stringify(barePairs.map(p => p.claim)));
+ok('bare list does not merge line 1 into line 2', barePairs[0] && barePairs[0].claim.startsWith('Vaswani, A., Shazeer, N., Parmar') && !/2019/.test(barePairs[0].claim));
+ok('bare list keeps the 2019 line intact', barePairs[1] && barePairs[1].claim.startsWith('Vaswani, A., Shazeer, N., et al. (2019)') && !/Smith/.test(barePairs[1].claim));
+ok('bare list keeps the Smith line intact', barePairs[2] && barePairs[2].claim.startsWith('Smith, J. (2017)'));
+const bareRefs = parseReferences('## References\n\n' + BARE);
+ok('references section does not merge the three lines',
+  bareRefs.authoryear['vaswani|2017|'] && bareRefs.authoryear['vaswani|2017|'].length === 1 &&
+  bareRefs.authoryear['vaswani|2019|'] && bareRefs.authoryear['vaswani|2019|'].length === 1 &&
+  bareRefs.authoryear['smith|2017|'] && bareRefs.authoryear['smith|2017|'].length === 1,
+  JSON.stringify(Object.keys(bareRefs.authoryear)));
+
 console.log('— regression: classic layout —');
 const pc = extractPairs(CLASSIC);
 ok('classic still yields 1 pair', pc.length === 1 && pc[0].cite_id === '1', JSON.stringify(pc.map(p => p.claim)));

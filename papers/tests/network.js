@@ -97,8 +97,8 @@ const crossrefRecord = (title) => resp(200, { message: { title: [title], author:
     ok('two findings', ev.length === 2, String(ev.length));
     ok('offline: no ID_NOT_FOUND', ev.every(e => e.base !== 'ID_NOT_FOUND'), JSON.stringify(ev.map(e => e.base)));
     ok('offline: RATE_LIMITED (not checked)', ev.every(e => e.base === 'RATE_LIMITED'));
-    ok('offline: note says could not reach / not checked / NOT proven fake',
-      ev.every(e => /could not reach the registries/.test(e.note) && /not checked/.test(e.note) && /NOT proven fake/.test(e.note)), ev.map(e => e.note).join(' || '));
+    ok('offline: note says could not reach / not checked / not shown to be missing',
+      ev.every(e => /could not reach the registries/.test(e.note) && /not checked/.test(e.note) && /not shown to be missing/.test(e.note)), ev.map(e => e.note).join(' || '));
     ok('offline: note does not blame a rate limit', ev.every(e => !/HTTP 429/.test(e.note)));
   }
   {
@@ -173,7 +173,7 @@ const crossrefRecord = (title) => resp(200, { message: { title: [title], author:
     }
     const off = await runChecker('10.1109/CVPR.2016.90', offline);
     ok('offline DOI: not ID_NOT_FOUND', !/ID_NOT_FOUND/.test(off), off);
-    ok('offline DOI: says not checked', /not checked/i.test(off) && /NOT proven fake/.test(off), off);
+    ok('offline DOI: says not checked', /not checked/i.test(off) && /not shown to be missing/.test(off), off);
     const offA = await runChecker('1706.03762', offline);
     ok('offline arXiv ID: not ID_NOT_FOUND, not checked', !/ID_NOT_FOUND/.test(offA) && /not checked/i.test(offA), offA);
     const e5 = await runChecker('10.1109/CVPR.2016.90', async (u) => u.includes('crossref') ? resp(503, {}) : resp(404, {}));
