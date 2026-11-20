@@ -1,10 +1,16 @@
 {
   "status": "ok",
-  "updated_utc": "2026-11-19T21:42:32Z",
-  "last_success_utc": "2026-11-19T21:42:32Z",
+  "updated_utc": "2026-11-20T21:25:06Z",
+  "last_success_utc": "2026-11-20T21:25:06Z",
   "query": "(\"fabricated citation\" OR \"fabricated citations\" OR \"fabricated case\" OR \"fabricated cases\" OR \"fictitious citation\" OR \"fictitious citations\" OR \"fictitious case\" OR \"fictitious cases\" OR \"hallucinated citation\" OR \"hallucinated citations\" OR \"hallucinated case\" OR \"hallucinated cases\" OR \"nonexistent citation\" OR \"nonexistent citations\" OR \"nonexistent case\" OR \"non-existent citation\" OR \"non-existent case\" OR \"AI-generated citation\" OR \"AI-generated citations\" OR \"artificial intelligence hallucination\" OR \"artificial intelligence hallucinations\") AND (\"artificial intelligence\" OR \"AI-generated\" OR ChatGPT OR \"generative AI\" OR \"generative artificial intelligence\" OR \"large language model\" OR GPT)",
   "error": null,
   "items": [
+    {
+      "date": "2026-11-20",
+      "court": "Court of Appeals of Kansas",
+      "case_name": "Lingle v. Subaru of Wichita",
+      "url": "https://www.courtlistener.com/opinion/11067771/lingle-v-subaru-of-wichita/"
+    },
     {
       "date": "2026-11-18",
       "court": "District Court of Appeal of Florida",
@@ -118,12 +124,6 @@
       "court": "District Court of Appeal of Florida",
       "case_name": "Capital Standard, LLC, Tchentsov v. US Bank National Association, Bear Stearns Asset Backed Securities I Trust 2005-AC9",
       "url": "https://www.courtlistener.com/opinion/10954406/capital-standard-llc-tchentsov-v-us-bank-national-association-bear/"
-    },
-    {
-      "date": "2026-08-19",
-      "court": "District Court, District of Columbia",
-      "case_name": "Hennepin County, Minnesota v. U.S. Department of Health and Human Services",
-      "url": "https://www.courtlistener.com/opinion/10953562/hennepin-county-minnesota-v-us-department-of-health-and-human-services/"
     }
   ]
 }
