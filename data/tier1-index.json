@@ -12684,7 +12684,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-21T14:28:01Z",
+    "last_poll": "2026-11-21T22:51:09Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -12706,9 +12706,9 @@
       },
       {
         "name": "Europe PMC",
-        "status": "ok",
-        "items": 25,
-        "last_error": null
+        "status": "error",
+        "items": 0,
+        "last_error": "fetch failed after 3 attempts: HTTP Error 503: Service Temporarily Unavailable"
       }
     ]
   }
