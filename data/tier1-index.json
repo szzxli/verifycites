@@ -3,6 +3,185 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Effect of an Amino Acid-Balanced Low-Protein Diet throughout the Rearing Period on Broiler Performance under Semi-Practical Conditions.",
+      "identifier": "10.2141/jpsa.2026030",
+      "url": "https://europepmc.org/article/MED/43055073",
+      "date": "2026-11-21",
+      "doi": "10.2141/jpsa.2026030",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Identification of SAMD4B as a Centrosome-Associated Regulator of the Sonic Hedgehog Signaling Pathway",
+      "identifier": "10.64898/2026.11.19.767524",
+      "url": "https://europepmc.org/article/PPR/PPR1373689",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.19.767524",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "2-hydroxyglutarate-dependent inhibition of TET2 is a molecular link between metabolic reprogramming and smooth muscle cell differentiation",
+      "identifier": "10.64898/2026.11.18.767744",
+      "url": "https://europepmc.org/article/PPR/PPR1373688",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.18.767744",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "An Infected Cryopreserved Precision-Cut Lung Slice Model for Drug Susceptibility Testing in Pneumocystis murina Pneumonia",
+      "identifier": "10.64898/2026.11.19.767844",
+      "url": "https://europepmc.org/article/PPR/PPR1373687",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.19.767844",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "CELL-X: A Single-Cell Transcriptomics Framework for Cell-Type and Disease-State Prioritization of Type 2 Diabetes Risk Genes",
+      "identifier": "10.64898/2026.11.18.767745",
+      "url": "https://europepmc.org/article/PPR/PPR1373686",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.18.767745",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "LORELEI sequence variation modulates lineage-dependent pollen tube reception in Brassicaceae",
+      "identifier": "10.64898/2026.11.18.767685",
+      "url": "https://europepmc.org/article/PPR/PPR1373685",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.18.767685",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "SNP2Cluster-Py: A pathogen-agnostic, context-aware framework for Core SNP and transmission-cluster analysis",
+      "identifier": "10.64898/2026.11.19.767809",
+      "url": "https://europepmc.org/article/PPR/PPR1373684",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.19.767809",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Daily-Academic: A Semantic Literature Discovery and Journal Tracking Platform for Biomedical Research",
+      "identifier": "10.64898/2026.11.19.767813",
+      "url": "https://europepmc.org/article/PPR/PPR1373683",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.19.767813",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Learning RNA secondary structure from chemical probing with MXfold2",
+      "identifier": "10.64898/2026.11.18.767577",
+      "url": "https://europepmc.org/article/PPR/PPR1373682",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.18.767577",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "ChIP-seq analysis of SMAD3 target genes in a sea anemone reveals symbiosis-dependent regulation through TGF-β signaling",
+      "identifier": "10.64898/2026.11.18.767637",
+      "url": "https://europepmc.org/article/PPR/PPR1373681",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.18.767637",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Spatial organization of a SPINK1-associated tumor-stromal ecosystem links metabolic remodeling to immune restriction in bladder cancer",
+      "identifier": "10.64898/2026.11.18.767479",
+      "url": "https://europepmc.org/article/PPR/PPR1373680",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.18.767479",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The tumor suppressor role of the KRAS proto-oncogene in metastatic pancreatic cancer.",
+      "identifier": "10.64898/2026.11.18.767567",
+      "url": "https://europepmc.org/article/PPR/PPR1373678",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.18.767567",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "The genetic architecture of lipoprotein(a): simplicity, complexity, and mutability",
+      "identifier": "10.64898/2026.11.16.767202",
+      "url": "https://europepmc.org/article/PPR/PPR1373677",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.16.767202",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "NeuroSim: a clinically informed multi-disorder EEG simulator with personalized pattern injection and AI-driven neurological modeling",
+      "identifier": "10.64898/2026.11.19.767788",
+      "url": "https://europepmc.org/article/PPR/PPR1373676",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.19.767788",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Spatial co-enrichment of immature myeloid and T-cell populations predicts survival in NPM1-mutant AML",
+      "identifier": "10.64898/2026.11.17.767133",
+      "url": "https://europepmc.org/article/PPR/PPR1373675",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.17.767133",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Large-scale Nanopore sequencing resolves species diversity and distribution of European Ulva",
+      "identifier": "10.64898/2026.11.17.767378",
+      "url": "https://europepmc.org/article/PPR/PPR1373674",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.17.767378",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Comparative transcriptomics reveals shared and context-dependent adaptations of bovine cells across culture systems for cultivated meat",
+      "identifier": "10.64898/2026.11.18.767523",
+      "url": "https://europepmc.org/article/PPR/PPR1373673",
+      "date": "2026-11-20",
+      "doi": "10.64898/2026.11.18.767523",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Ninth Circuit",
+      "kind": "legal",
+      "title_or_case_name": "A. M. A. S. V. MULLIN, ET AL.",
+      "identifier": "26-6950",
+      "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/11/20/26-6950.pdf",
+      "date": "2026-11-20",
+      "first_seen": "2026-11-21T05:56:47Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Nephrotic syndrome secondary to cytomegalovirus infection in an extremely preterm neonate: a case report Síndrome nefrótica secundária à infecção por citomegalovírus em recém-nascido pré-termo extremo: relato de caso",
       "identifier": "europepmc:PMC13772706",
       "url": "https://europepmc.org/article/PMC/PMC13772706",
@@ -12280,7 +12459,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-20T19:41:05Z",
+    "last_poll": "2026-11-21T05:56:47Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -12296,9 +12475,9 @@
       },
       {
         "name": "arXiv",
-        "status": "ok",
-        "items": 25,
-        "last_error": null
+        "status": "error",
+        "items": 0,
+        "last_error": "fetch failed after 3 attempts: HTTP Error 429: Unknown Error"
       },
       {
         "name": "Europe PMC",
