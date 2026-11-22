@@ -12909,7 +12909,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-22T05:30:29Z",
+    "last_poll": "2026-11-22T14:12:16Z",
     "sources": [
       {
         "name": "Ninth Circuit",
@@ -12925,9 +12925,9 @@
       },
       {
         "name": "arXiv",
-        "status": "error",
-        "items": 0,
-        "last_error": "fetch failed after 3 attempts: HTTP Error 429: Unknown Error"
+        "status": "ok",
+        "items": 25,
+        "last_error": null
       },
       {
         "name": "Europe PMC",
