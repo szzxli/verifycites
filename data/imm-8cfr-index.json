@@ -74,7 +74,7 @@
       "part": "1003",
       "section": "1003.1",
       "title": "Organization, jurisdiction, and powers of the Board of Immigration Appeals.",
-      "received_on": "2026-03-10T18:00:23-0400",
+      "received_on": "2026-11-18T17:00:04-0500",
       "first_seen": "2026-10-27T22:54:35Z"
     },
     {
@@ -123,7 +123,7 @@
       "part": "1003",
       "section": "1003.106",
       "title": "Right to be heard and disposition.",
-      "received_on": "2023-03-29T21:30:09-0400",
+      "received_on": "2026-11-18T17:00:04-0500",
       "first_seen": "2026-10-27T22:54:35Z"
     },
     {
@@ -753,7 +753,7 @@
       "part": "1103",
       "section": "1103.7",
       "title": "Fees.",
-      "received_on": "2026-10-02T18:50:22-0400",
+      "received_on": "2026-11-18T17:00:04-0500",
       "first_seen": "2026-10-27T22:54:35Z"
     },
     {
@@ -3112,7 +3112,7 @@
       "part": "214",
       "section": "214.1",
       "title": "Requirements for admission, extension, and maintenance of status.",
-      "received_on": "2026-09-16T17:00:05-0400",
+      "received_on": "2026-11-18T17:00:04-0500",
       "first_seen": "2026-10-27T22:54:35Z"
     },
     {
@@ -3147,7 +3147,7 @@
       "part": "214",
       "section": "214.2",
       "title": "Special requirements for admission, extension, and maintenance of status.",
-      "received_on": "2026-10-01T18:00:05-0400",
+      "received_on": "2026-11-18T17:00:04-0500",
       "first_seen": "2026-10-27T22:54:35Z"
     },
     {
@@ -4582,7 +4582,7 @@
       "part": "245a",
       "section": "245a.5",
       "title": "Temporary disqualification of certain newly legalized aliens from receiving benefits from programs of financial assistance furnished under federal law.",
-      "received_on": "2024-06-10T18:40:50-0400",
+      "received_on": "2026-11-18T17:00:04-0500",
       "first_seen": "2026-10-27T22:54:35Z"
     },
     {
@@ -4995,7 +4995,7 @@
       "part": "274a",
       "section": "274a.12",
       "title": "Classes of aliens authorized to accept employment.",
-      "received_on": "2026-09-16T17:00:05-0400",
+      "received_on": "2026-11-18T17:00:04-0500",
       "first_seen": "2026-10-27T22:54:35Z"
     },
     {
@@ -6435,12 +6435,12 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-15T20:15:03Z",
+    "last_poll": "2026-11-22T20:57:50Z",
     "source": "eCFR API (versioner)",
     "status": "ok",
     "last_error": null,
-    "up_to_date_as_of": "2026-11-12",
-    "title_latest_amended_on": "2026-10-14",
+    "up_to_date_as_of": "2026-11-19",
+    "title_latest_amended_on": "2026-11-17",
     "sections": 919
   }
 }
