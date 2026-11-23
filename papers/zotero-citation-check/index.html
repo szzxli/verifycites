@@ -145,15 +145,16 @@ footer .colophon a{color:var(--navy)}
   <ul class="tight">
     <li>whether the citation can be found as an <strong>existing record</strong> in public registries (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP; Semantic Scholar as a last resort);</li>
     <li>whether a <strong>DOI or other identifier</strong> in the entry resolves and matches that record;</li>
+    <li>whether the <strong>title, author surnames, and year</strong> in your entry match the record it found. A mismatch shows as “Found, but details don't match”. A field missing on either side shows as “Not compared”;</li>
     <li>whether the paper is <strong>retracted</strong>.</li>
   </ul>
-  <p>A BibTeX file has no claims, so when you upload or paste a <code>.bib</code> the checker reports existence and identifier results only. Your draft or library file stays in your browser. Only citation identifiers and reference text are sent to the registries.</p>
+  <p>A BibTeX file has no claims, so when you upload or paste a <code>.bib</code> the checker reports record, identifier, and field results only. Your draft or library file stays in your browser. Only citation identifiers and reference text are sent to the registries.</p>
 </section>
 
 <section id="limits" class="prose">
   <div class="sec-head"><span class="sec-no">§3</span><h2>What this does not check</h2></div>
   <ul class="tight">
-    <li>It does <strong>not compare title, author, or year fields</strong> field by field. That comparison is not available yet. An author mismatch is flagged only when the check detects one.</li>
+    <li>It does <strong>not compare venue, volume, issue, or pages</strong>. Authors are compared by surname only.</li>
     <li>It does <strong>not check whether a source supports a claim</strong>. Finding a record, or a DOI that resolves, does not mean the source supports something you wrote. If you paste a full draft instead of a <code>.bib</code>, an optional screen can compare a claim with the cited paper's abstract only. It does not read the full text and is not a substitute for reading the source.</li>
   </ul>
   <p>“Not found” is not proof that a work does not exist. A real paper can be missing from the free indexes. Use the results to decide which references to open and check by hand.</p>
