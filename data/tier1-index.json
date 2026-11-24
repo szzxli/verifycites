@@ -3,6 +3,271 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Age-related complications associated with endovascular treatment of intracranial aneurysms: An ambispective cohort study.",
+      "identifier": "10.7461/jcen.2026.e2026.06.009",
+      "url": "https://europepmc.org/article/MED/43069638",
+      "date": "2026-11-24",
+      "doi": "10.7461/jcen.2026.e2026.06.009",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beneath the glass ceiling: an examination of gender disparities in Canadian medical education leadership.",
+      "identifier": "10.1108/lhs-09-2026-0193",
+      "url": "https://europepmc.org/article/MED/43068362",
+      "date": "2026-11-24",
+      "doi": "10.1108/lhs-09-2026-0193",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Mobile low-dose computed tomography lung cancer screening within an integrated thoracic oncology network: a real-world implementation and provider-cost evaluation.",
+      "identifier": "10.1097/cej.0000000000001050",
+      "url": "https://europepmc.org/article/MED/43068350",
+      "date": "2026-11-24",
+      "doi": "10.1097/cej.0000000000001050",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Intraoperative Blood Pressure Targeting in Noncardiac Surgery: A Bayesian Random-effects Meta-analysis of Randomized Trials.",
+      "identifier": "10.1097/aln.0000000000006395",
+      "url": "https://europepmc.org/article/MED/42803396",
+      "date": "2026-11-24",
+      "doi": "10.1097/aln.0000000000006395",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Quantum-geometry-tuned Mott transition and emergent heavy fermions in a topological flat band",
+      "identifier": "2611.31242",
+      "url": "https://arxiv.org/abs/2611.31242",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A Boundary Comparison Method for Gaussian Fluctuations in Planar Euclidean Optimization",
+      "identifier": "2611.31241",
+      "url": "https://arxiv.org/abs/2611.31241",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Pruning Autonomous Driving VLAs: What to Preserve for Reasoning and Action",
+      "identifier": "2611.31240",
+      "url": "https://arxiv.org/abs/2611.31240",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Lyris: Layout-Guided Long Video Generation with Persistent 3D Memory",
+      "identifier": "2611.31239",
+      "url": "https://arxiv.org/abs/2611.31239",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Modern Self-Supervised Vision Transformers Are Pareidolic",
+      "identifier": "2611.31238",
+      "url": "https://arxiv.org/abs/2611.31238",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Let Vision-Language Models Generate Images through Their Representations",
+      "identifier": "2611.31237",
+      "url": "https://arxiv.org/abs/2611.31237",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Two messages suffice for quantum interactive proof systems",
+      "identifier": "2611.31236",
+      "url": "https://arxiv.org/abs/2611.31236",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "The Simons Observatory: Analysis of methods for polarization calibration of multiple instruments",
+      "identifier": "2611.31235",
+      "url": "https://arxiv.org/abs/2611.31235",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A Fractional Chern Semimetal: Exact Wavefunction and Conformal Criticality",
+      "identifier": "2611.31234",
+      "url": "https://arxiv.org/abs/2611.31234",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "TowerBridge: Bridging the Dual-Encoder Modality Gap via Weight-Space Programming",
+      "identifier": "2611.31233",
+      "url": "https://arxiv.org/abs/2611.31233",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Nonabelianization map for the $W_{3,c=2}$ conformal blocks. Part I",
+      "identifier": "2611.31232",
+      "url": "https://arxiv.org/abs/2611.31232",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Central limit theorem for energies of determinantal point processes on complex manifolds I",
+      "identifier": "2611.31229",
+      "url": "https://arxiv.org/abs/2611.31229",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Euclid Data Release 1 (DR1). Learning machine learning: Investigating the complementarity and biases of strong gravitational lens finding networks on Euclid data",
+      "identifier": "2611.31231",
+      "url": "https://arxiv.org/abs/2611.31231",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Simple design of adaptive protocols for quantum metrology with limited data",
+      "identifier": "2611.31230",
+      "url": "https://arxiv.org/abs/2611.31230",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Language Models Steer on Injected Uncertainty Tokens, but Fail to Self-Monitor In Situ",
+      "identifier": "2611.31228",
+      "url": "https://arxiv.org/abs/2611.31228",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "How Far Can Linear Go? BiPert, a Unified Framework for Single-Cell Perturbation Modelling",
+      "identifier": "2611.31227",
+      "url": "https://arxiv.org/abs/2611.31227",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Analytical solution of general interface problems for reaction-advection-diffusion equations",
+      "identifier": "2611.31226",
+      "url": "https://arxiv.org/abs/2611.31226",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Self-Supervised Dataset Distillation via Mutual Information Maximization",
+      "identifier": "2611.31225",
+      "url": "https://arxiv.org/abs/2611.31225",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Small-world networks yield tunable quantum codes at short circuit depth",
+      "identifier": "2611.31224",
+      "url": "https://arxiv.org/abs/2611.31224",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Agentic AI for Intent Management and Control in Autonomous Communication Networks",
+      "identifier": "2611.31223",
+      "url": "https://arxiv.org/abs/2611.31223",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "CTLink: A Text-Prompted Segmentation Model for Linking Radiology Report Findings to 3D Chest CT Scans",
+      "identifier": "2611.31222",
+      "url": "https://arxiv.org/abs/2611.31222",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "A proof of the chemical recurrence conjecture in two dimensions",
+      "identifier": "2611.31221",
+      "url": "https://arxiv.org/abs/2611.31221",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "On the linearization of the supercritical Lane-Emden equation in $\\mathbb{R}^N$",
+      "identifier": "2611.31220",
+      "url": "https://arxiv.org/abs/2611.31220",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Upper bound $2^{n}-1$ for chromatic number of orbit polytope of a small cover is attained for every $n\\geq4$",
+      "identifier": "2611.31219",
+      "url": "https://arxiv.org/abs/2611.31219",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "arXiv",
+      "kind": "paper",
+      "title_or_case_name": "Diophantine sets over global function fields",
+      "identifier": "2611.31218",
+      "url": "https://arxiv.org/abs/2611.31218",
+      "date": "2026-11-23",
+      "first_seen": "2026-11-24T08:48:06Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Clinical Management of a Punctal Keratinizing Cyst: A Case Report and Literature Review",
       "identifier": "europepmc:PMC13788961",
       "url": "https://europepmc.org/article/PMC/PMC13788961",
@@ -13836,7 +14101,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-23T23:29:49Z",
+    "last_poll": "2026-11-24T08:48:06Z",
     "sources": [
       {
         "name": "Ninth Circuit",
