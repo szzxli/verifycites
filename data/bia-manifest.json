@@ -1,8 +1,8 @@
 {
   "status": "complete",
   "mode": "poll",
-  "updated_utc": "2026-11-25T00:06:21Z",
-  "last_success_utc": "2026-11-25T00:06:21Z",
+  "updated_utc": "2026-11-25T23:46:58Z",
+  "last_success_utc": "2026-11-25T23:46:58Z",
   "volumes": {
     "30": {
       "found_on_page": 37,
@@ -13,7 +13,7 @@
         "citation without a following PDF link: Matter of K- (7 I&N Dec. 594)"
       ],
       "expected_count": null,
-      "new_downloaded": 1,
+      "new_downloaded": 0,
       "failed": 0,
       "missing_ids": [],
       "extraction_short": 0
