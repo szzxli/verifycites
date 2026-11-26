@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Check a BibTeX (.bib) File for References That Don't Exist | VeriPaper</title>
+<meta name="description" content="LaTeX compiles a .bib entry whether or not the work exists. How to look up every entry's record, DOI, title, authors and year before you submit, for free.">
+<link rel="canonical" href="https://verifycites.com/papers/bibtex-reference-check/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VerifyCites">
+<meta property="og:title" content="How to Check a BibTeX (.bib) File for References That Don't Exist | VeriPaper">
+<meta property="og:description" content="LaTeX compiles a .bib entry whether or not the work exists. How to look up every entry's record, DOI, title, authors and year before you submit, for free.">
+<meta property="og:url" content="https://verifycites.com/papers/bibtex-reference-check/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Check a BibTeX (.bib) File for References That Don't Exist | VeriPaper">
+<meta name="twitter:description" content="LaTeX compiles a .bib entry whether or not the work exists. How to look up every entry's record, DOI, title, authors and year before you submit, for free.">
+<meta name="theme-color" content="#16324f">
+<link rel="icon" type="image/svg+xml" href="../../verifycites-mark.svg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "How to Check a BibTeX (.bib) File for References That Don't Exist | VeriPaper",
+  "headline": "How to check a BibTeX file for references that don't exist",
+  "description": "LaTeX compiles a .bib entry whether or not the work exists. How to look up every entry's record, DOI, title, authors and year before you submit, for free.",
+  "url": "https://verifycites.com/papers/bibtex-reference-check/",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "VerifyCites",
+    "url": "https://verifycites.com/"
+  },
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "David Lee"
+  }
+}
+</script>
+<style>
+:root{
+  --paper:#fbf9f3; --card:#fffdf8; --ink:#211d16; --ink-soft:#5c554a;
+  --navy:#16324f; --navy-soft:#2a4a6b; --crimson:#8c2f1b; --bronze:#8a6d1d;
+  --green:#2e6b46; --amber:#96690f; --grey:#6b7280;
+  --line:#ddd2ba; --line-soft:#e9e1cc;
+  --serif:Georgia,"Iowan Old Style","Times New Roman","Noto Serif",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+.skip-link{position:absolute;left:-999px;top:0;background:#fff;color:var(--navy);padding:8px 12px;z-index:100;font-family:var(--sans)}
+.skip-link:focus{left:8px;top:8px}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);
+  line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.masthead{border-bottom:4px double var(--navy);padding:26px 0 18px;text-align:center}
+.masthead .journal{font-size:12px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--navy);font-weight:700;font-family:var(--sans)}
+.masthead .journal span{color:var(--bronze)}
+.masthead .tagline{font-style:italic;color:var(--ink-soft);font-size:14px;margin-top:6px}
+.masthead .meta{font-family:var(--sans);font-size:11.5px;color:var(--ink-soft);
+  letter-spacing:.08em;margin-top:8px}
+.masthead .meta a{color:var(--navy)}
+.titleblock{padding:52px 0 10px;text-align:center}
+.titleblock h1{font-size:clamp(30px,5.4vw,44px);line-height:1.28;color:var(--navy);
+  font-weight:700;margin-bottom:14px}
+.titleblock .byline{font-size:16px;color:var(--ink-soft);font-style:italic}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center;justify-content:center}
+.btn{display:inline-block;padding:11px 26px;font-family:var(--sans);font-weight:600;
+  font-size:14px;cursor:pointer;border:1px solid var(--navy);text-decoration:none}
+.btn.primary{background:var(--navy);color:#fff}
+.btn.primary:hover{background:var(--navy-soft)}
+.hint{font-family:var(--sans);font-size:12.5px;color:var(--ink-soft);margin-top:10px;line-height:1.6}
+section{padding:44px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--navy);
+  padding-bottom:8px;margin-bottom:6px}
+.sec-no{font-family:var(--sans);font-size:13px;font-weight:700;color:var(--bronze);
+  letter-spacing:.1em}
+.sec-head h2{font-size:24px;color:var(--navy);font-weight:700}
+.sec-lede{font-style:italic;color:var(--ink-soft);font-size:15px;margin:10px 0 22px}
+.prose p{font-size:16px;margin:0 0 14px;color:var(--ink)}
+.prose a{color:var(--navy)}
+ol.tight,ul.tight{margin:8px 0 16px 22px;font-size:16px}
+ol.tight li,ul.tight li{margin-bottom:10px}
+ol.tight li::marker,ul.tight li::marker{color:var(--bronze);font-weight:700}
+.toolcard{background:var(--card);border:1px solid var(--line);padding:24px;margin:0 0 16px}
+footer{border-top:4px double var(--navy);margin-top:56px;padding:26px 0 40px;text-align:center}
+footer .colophon{font-family:var(--sans);font-size:12px;color:var(--ink-soft);letter-spacing:.06em}
+footer .colophon a{color:var(--navy)}
+@media(max-width:640px){.wrap{padding:0 18px}.titleblock{padding:36px 0 6px}}
+.back-to-top{position:fixed;right:14px;bottom:14px;z-index:20;padding:7px 11px;background:#fff;border:1px solid var(--line);font-family:var(--sans);font-size:13px;text-decoration:none;box-shadow:0 1px 4px rgba(0,0,0,.12);color:var(--navy)}
+</style>
+<link rel="stylesheet" href="../../site-nav.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="vc-nav" id="top">
+  <div class="vc-nav-inner">
+    <a class="vc-nav-brand" href="/">VerifyCites</a>
+    <nav class="vc-nav-links" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/papers/?ref=seo-bibtex" aria-current="page">Papers</a>
+    </nav>
+  </div>
+</header>
+
+<header class="masthead"><div class="wrap">
+  <div class="journal">Verify<span>Cites</span></div>
+  <div class="tagline">A free, open-source citation checker for research drafts</div>
+  <div class="meta">VeriPaper &nbsp;·&nbsp; MIT License &nbsp;·&nbsp; <a href="https://github.com/szzxli/veripaper">github.com/szzxli/veripaper</a></div>
+</div></header>
+
+<main id="main">
+<div class="wrap">
+<div class="titleblock">
+  <h1>How to check a BibTeX file for references that don't exist</h1>
+  <p class="byline">A .bib file can compile cleanly and still hold entries nobody can find. Here is how to check every entry before you submit.</p>
+  <div class="btnrow" style="margin:26px 0 4px">
+    <a class="btn primary" href="/papers/?ref=seo-bibtex">Check a .bib file</a>
+  </div>
+</div>
+
+<section id="why" class="prose">
+  <div class="sec-head"><span class="sec-no">§1</span><h2>Why a clean compile isn't enough</h2></div>
+  <p class="sec-lede">LaTeX and BibTeX check that an entry is well-formed. They never check that the work behind it exists.</p>
+  <p>A <code>.bib</code> file grows over years. Entries get copied from old projects, from a co-author's file, from a search result, or typed in by hand late at night. BibTeX will happily format an entry whose title was never published, whose DOI opens a different paper, or whose authors and year belong to something else. Nothing warns you until a reviewer or examiner tries to look it up.</p>
+  <p>The fix is simple: before you submit, look up every entry you actually cite and confirm it points to a real record with the same title, authors and year.</p>
+</section>
+
+<section id="steps" class="prose">
+  <div class="sec-head"><span class="sec-no">§2</span><h2>Check your .bib file in a few minutes</h2></div>
+  <p class="sec-lede">The free <a href="/papers/?ref=seo-bibtex">/papers checker</a> reads a .bib file directly. No account, nothing to install.</p>
+  <div class="toolcard">
+    <ol class="tight">
+      <li><strong>Get the file you actually cite from.</strong> In Overleaf, open the <code>.bib</code> file and copy its contents, or download the project and take the <code>.bib</code> from it. If you use a reference manager, export the collection for this paper as BibTeX. Checking only the entries in this paper is faster than checking your whole library.</li>
+      <li><strong>Open the <a href="/papers/?ref=seo-bibtex">/papers checker</a></strong> and click <em>Upload .docx / .pdf / .bib</em>, or paste the file's contents into the text box. Pasted text that starts with an entry such as <code>@article{</code> is read as BibTeX.</li>
+      <li><strong>Click <em>Check citations</em>.</strong> Each entry is looked up by its DOI or arXiv ID when it has one, and by its title and authors when it doesn't.</li>
+      <li><strong>Work through anything that isn't plainly found.</strong> Each result is shown by citation key (for example <code>@smith2021</code>) with a label and a next step, so you know which entry to open in your editor.</li>
+    </ol>
+    <p class="hint" style="margin:0">The checker reads <code>@string</code> macros and skips <code>@comment</code> and <code>@preamble</code>. If two entries share a citation key, the second one is skipped and listed as a duplicate key, which is worth fixing anyway.</p>
+  </div>
+</section>
+
+<section id="results" class="prose">
+  <div class="sec-head"><span class="sec-no">§3</span><h2>What the results mean</h2></div>
+  <p>For each entry, the checker looks for an <strong>existing record</strong> in public registries (Crossref, DataCite/arXiv, OpenAlex, Europe PMC, DBLP; Semantic Scholar as a last resort), checks that the <strong>DOI or arXiv ID</strong> matches that record, compares the <strong>title, author surnames and year</strong>, and flags <strong>retracted</strong> papers. The labels you are most likely to see:</p>
+  <ul class="tight">
+    <li><strong>Found.</strong> A matching record exists. Nothing to do for existence.</li>
+    <li><strong>Found, but details don't match.</strong> A record was found, but the title or authors differ, or the year is off by more than one. Usually the entry mixes up two papers or has a typo. Compare it with the record and fix the entry.</li>
+    <li><strong>ID_NOT_FOUND / ID_NOT_FOUND_TITLE_FOUND.</strong> The DOI or arXiv ID in the entry has no record. If a title search found a record, the identifier is probably mistyped. Copy it again from the publisher or arXiv page.</li>
+    <li><strong>INVALID_DOI.</strong> The <code>doi</code> field isn't a well-formed DOI, so it was not looked up. Fix it or remove it.</li>
+    <li><strong>UNVERIFIED.</strong> No confident match. Add a DOI or arXiv ID if the work has one, or search for it by hand. Don't keep it as-is.</li>
+    <li><strong>NOT_A_SCHOLARLY_RECORD.</strong> The entry looks like a web page, software or a standard, which usually has no registry record. Open it yourself.</li>
+    <li><strong>RATE_LIMITED.</strong> A registry couldn't be reached. This says nothing about the entry. Try again later.</li>
+  </ul>
+  <p>A year off by one stays <em>Found</em>; it is usually the preprint versus the published version. A field missing from your entry or from the record is shown as <em>Not compared</em>, with the reason.</p>
+  <div class="btnrow" style="justify-content:flex-start;margin-top:18px">
+    <a class="btn primary" href="/papers/?ref=seo-bibtex">Check your .bib file</a>
+  </div>
+</section>
+
+<section id="limits" class="prose">
+  <div class="sec-head"><span class="sec-no">§4</span><h2>What a .bib check does not tell you</h2></div>
+  <ul class="tight">
+    <li>A <code>.bib</code> file has no claims, so the checker reports record, identifier and field results only. It does <strong>not check whether a source supports what you wrote</strong>. To do that, read the source. (If you paste a full draft instead, an optional screen can compare a claim with the cited paper's abstract only.)</li>
+    <li>It does <strong>not compare venue, volume, issue or pages</strong>, and authors are compared by surname only.</li>
+    <li>It is <strong>not a formatting checker</strong>. It won't fix capitalization, missing braces in titles, or your bibliography style.</li>
+  </ul>
+  <p>“Not found” is not proof that a work does not exist. A real paper can be missing from the free indexes, especially older books, theses and local reports. Use the results to decide which entries to open and check by hand.</p>
+</section>
+
+<section id="faq" class="prose">
+  <div class="sec-head"><span class="sec-no">§5</span><h2>FAQ</h2></div>
+  <p><strong>Is my .bib file uploaded anywhere?</strong><br>No. The file is read in your browser. Only citation identifiers and reference text are sent to the public registries for the lookups.</p>
+  <p><strong>Does it work with a .bib exported from Zotero, Mendeley, JabRef or Overleaf?</strong><br>Yes. It reads standard BibTeX entries, whatever tool wrote them. There is a separate guide for <a href="/papers/zotero-citation-check/">exporting from Zotero</a>.</p>
+  <p><strong>Can I check a .bib file automatically on every commit?</strong><br>Yes. If your paper lives in a Git repository, the open-source VeriPaper project has a <a href="https://github.com/szzxli/veripaper#check-bib-files-in-ci-github-action--cli" rel="noopener">command-line tool and GitHub Action</a> for checking .bib files.</p>
+  <p><strong>My university already runs Turnitin. Isn't that enough?</strong><br>Turnitin compares text; it doesn't look up whether your sources exist. See <a href="/papers/turnitin-reference-check/">Does Turnitin check whether your references exist?</a></p>
+  <p><strong>Does it cost anything?</strong><br>No. The checker is free and open source.</p>
+  <div class="btnrow" style="justify-content:flex-start;margin-top:24px">
+    <a class="btn primary" href="/papers/?ref=seo-bibtex">Open the citation checker</a>
+  </div>
+</section>
+</div>
+</main>
+
+
+<a href="#top" class="back-to-top" aria-label="Back to top">↑ Top</a>
+<footer><div class="wrap">
+  <div class="colophon">VERIFYCITES · VERIPAPER · MIT LICENSE · <a href="https://github.com/szzxli/veripaper">GITHUB</a> · <a href="/about/">ABOUT</a> · <a href="mailto:info@verifycites.com">info@verifycites.com</a> · <a href="#top">BACK TO TOP</a></div>
+  <p class="colophon" style="margin-top:8px;text-transform:none;letter-spacing:0">Privacy: we use <a href="https://www.goatcounter.com" rel="noopener">GoatCounter</a>, a privacy-friendly, cookie-free page-view counter. Your files are never sent to it.</p>
+  <p class="colophon" style="margin-top:8px;text-transform:none;letter-spacing:0">Free, open-source tools by David Lee, with their limits stated up front. Contact: <a href="mailto:info@verifycites.com">info@verifycites.com</a></p>
+</div></footer>
+
+<script src="../../site-nav.js"></script>
+<script>/* GoatCounter loader: test visits are never counted. ?nocount=1 turns counting off in this browser (localStorage skipgc=t, GoatCounter's own flag; ?nocount=0 turns it back on); URLs with v=, cb=, cachebust, _= or nocount are skipped too. */
+(function(w,d,l){var q=l.search,skip=/[?&](v|cb|_|nocount)=|[?&]cachebust/i.test(q);try{var s=w.localStorage;if(/[?&]nocount=1(&|$)/.test(q))s.setItem('skipgc','t');if(/[?&]nocount=0(&|$)/.test(q))s.removeItem('skipgc');if(s.getItem('skipgc')==='t')skip=true}catch(e){}w.gcSkip=skip;if(skip)return;var g=d.createElement('script');g.async=true;g.src='https://gc.zgo.at/count.js';g.setAttribute('data-goatcounter','https://szzxli.goatcounter.com/count');(d.head||d.documentElement).appendChild(g)})(window,document,location);</script>
+</body>
+</html>
