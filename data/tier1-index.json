@@ -3,6 +3,231 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Late Transition Metal Ultra-High-Entropy-Alloy Nanoparticles",
+      "identifier": "europepmc:PMC13798776",
+      "url": "https://europepmc.org/article/PMC/PMC13798776",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Development of a simple method for chromosome transfer in Fusarium oxysporum",
+      "identifier": "europepmc:PMC13796032",
+      "url": "https://europepmc.org/article/PMC/PMC13796032",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Baseline neutrophil-to-lymphocyte ratio is an independent prognostic factor for patients with pancreatic cancer liver metastasis",
+      "identifier": "europepmc:PMC13798288",
+      "url": "https://europepmc.org/article/PMC/PMC13798288",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Methylphenidate-related cardiac and cardiovascular safety: a bibliometric and network analysis",
+      "identifier": "europepmc:PMC13801757",
+      "url": "https://europepmc.org/article/PMC/PMC13801757",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Association between acetabular morphology parameters and hip osteoarthritis: a multivariable and diagnostic performance analysis",
+      "identifier": "europepmc:PMC13801760",
+      "url": "https://europepmc.org/article/PMC/PMC13801760",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Microbiota awareness and glycaemic status in primary care patients: a cross-sectional observational study",
+      "identifier": "europepmc:PMC13801801",
+      "url": "https://europepmc.org/article/PMC/PMC13801801",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Posture and musculoskeletal symptom burden, but not daily step count, are independently associated with physical quality of life in office workers: a cross-sectional study",
+      "identifier": "europepmc:PMC13801742",
+      "url": "https://europepmc.org/article/PMC/PMC13801742",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Epicardial adipose tissue thickness and aortic elasticity in seronegative and seropositive rheumatoid arthritis: a comparative evaluation of subclinical cardiometabolic burden",
+      "identifier": "europepmc:PMC13801740",
+      "url": "https://europepmc.org/article/PMC/PMC13801740",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Effects of topical and systemic pirfenidone on postlaminectomy epidural fibrosis in a rat model",
+      "identifier": "europepmc:PMC13801741",
+      "url": "https://europepmc.org/article/PMC/PMC13801741",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Lactulose hydrogen breath test findings in children and adolescents with duodenogastric reflux and suspected small intestinal bacterial overgrowth: a pilot study",
+      "identifier": "europepmc:PMC13801745",
+      "url": "https://europepmc.org/article/PMC/PMC13801745",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Enhanced Performance of Protonic Ceramic Electrolysis Cells through a Machine-Learning-Designed Anode and an Optimized Half-Cell Preparation Process",
+      "identifier": "europepmc:PMC13798793",
+      "url": "https://europepmc.org/article/PMC/PMC13798793",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Solid-Supported Ni(II) Catalysts for Nonalternating Carbonylative Polymerization of Ethylene",
+      "identifier": "europepmc:PMC13798791",
+      "url": "https://europepmc.org/article/PMC/PMC13798791",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Enhancing singlet oxygen yield in π-extended BODIPY dyes through strategic meso-thienyl substitution: a computational and experimental study",
+      "identifier": "europepmc:PMC13799318",
+      "url": "https://europepmc.org/article/PMC/PMC13799318",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Precision Prediction of Nuclear Magnetic Resonance Shielding Constants and Chemical Shifts with XYG3-Type Doubly Hybrid Density Functionals",
+      "identifier": "europepmc:PMC13798787",
+      "url": "https://europepmc.org/article/PMC/PMC13798787",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Neither harmonic benchmarks nor a default SSCHA cross-check certifies a foundation machine-learning interatomic potential for finite-temperature dynamic stability",
+      "identifier": "europepmc:PMC13804029",
+      "url": "https://europepmc.org/article/PMC/PMC13804029",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Autonomous Single-Molecule Chemical Identification with an AI-Enabled STM-TERS Platform",
+      "identifier": "europepmc:PMC13798781",
+      "url": "https://europepmc.org/article/PMC/PMC13798781",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Green synthesis and metal-dependent bioactivity of resveratrol hemisuccinate Zn(ii) and Cu(ii) complexes",
+      "identifier": "europepmc:PMC13805595",
+      "url": "https://europepmc.org/article/PMC/PMC13805595",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Data generation for machine-learned force fields",
+      "identifier": "europepmc:PMC13802296",
+      "url": "https://europepmc.org/article/PMC/PMC13802296",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Programmable Photocatalytic Generation of Distonic Phosphonium Radical Cations for Deoxygenative Annulation with α,β-Unsaturated Aldehydes",
+      "identifier": "europepmc:PMC13798788",
+      "url": "https://europepmc.org/article/PMC/PMC13798788",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Controlled synthesis of yolk–shell structured silica nanoparticles under microwave irradiation",
+      "identifier": "europepmc:PMC13798019",
+      "url": "https://europepmc.org/article/PMC/PMC13798019",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Fabrication of albumin nanoparticles for controlled lenalidomide delivery: enhanced stability and anticancer potential in multiple myeloma",
+      "identifier": "europepmc:PMC13798020",
+      "url": "https://europepmc.org/article/PMC/PMC13798020",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Correction: Integrated sonication-assisted deep eutectic solvent for extraction of antibacterial compounds from cacao shells",
+      "identifier": "europepmc:PMC13798161",
+      "url": "https://europepmc.org/article/PMC/PMC13798161",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Distinct Aβ40 and Aβ42 co-assembly pathways with lipids: experiment-driven MD study",
+      "identifier": "europepmc:PMC13797808",
+      "url": "https://europepmc.org/article/PMC/PMC13797808",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Automated classical van't Hoff analysis of large-scale chromatographic retention data",
+      "identifier": "europepmc:PMC13802011",
+      "url": "https://europepmc.org/article/PMC/PMC13802011",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reprogramming IL‑2 Receptor-Binding Selectivity: A Computational Strategy for Engineering Receptor-Binding Profiles",
+      "identifier": "europepmc:PMC13798785",
+      "url": "https://europepmc.org/article/PMC/PMC13798785",
+      "date": "2026-11-26",
+      "first_seen": "2026-11-26T21:01:16Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "Valorization of Post-Supercritical Fluid Extraction Residues of &lt;i&gt;Olea europaea&lt;/i&gt; L. Leaves: Recovery of Bioactive Compounds.",
       "identifier": "10.4274/tjps.galenos.2026.97861",
       "url": "https://europepmc.org/article/MED/43083503",
@@ -14675,78 +14900,6 @@
       "first_seen": "2026-10-27T21:53:40Z"
     },
     {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Energy offsets between the Er3+ 4f-states and the GaAs energy levels important for photon ratchet intermediate-band solar cells",
-      "identifier": "europepmc:PMC13700468",
-      "url": "https://europepmc.org/article/PMC/PMC13700468",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Tuning heterojunction pathways via transition metal oxides on fibrous silica iron for enhanced photoelectrochemical water splitting",
-      "identifier": "europepmc:PMC13698912",
-      "url": "https://europepmc.org/article/PMC/PMC13698912",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Fatores associados às transições no status da violência por parceiro íntimo em pessoas idosas: estudo longitudinal EpiFloripa Idoso Factors associated with transitions in the status of intimate partner violence in older adults: the EpiFloripa Idoso longitudinal study Factores asociados a las transiciones en el estatus de la violencia de pareja en adultos mayores: estudio longitudinal EpiFloripa Idoso",
-      "identifier": "europepmc:PMC13706637",
-      "url": "https://europepmc.org/article/PMC/PMC13706637",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Association between breastfeeding indicators and early childhood development: results from the Brazilian National Survey on Child Nutrition Associação entre indicadores de aleitamento materno e desenvolvimento infantil: resultados do Estudo Nacional de Alimentação e Nutrição Infantil Asociación entre los indicadores de lactancia materna y el desarrollo en la primera infancia: resultados del Estudio Nacional de Alimentación y Nutrición Infantil",
-      "identifier": "europepmc:PMC13706636",
-      "url": "https://europepmc.org/article/PMC/PMC13706636",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Recorrido y barreras en el acceso a diagnóstico y tratamiento de la enfermedad de Chagas en Argentina: un mapa desde la experiencia de las personas The journey and barriers to accessing diagnosis and treatment for Chagas disease in Argentina: a patient journey map based on people’s experiences Percurso e barreiras no acesso ao diagnóstico e ao tratamento da doença de Chagas na Argentina: um panorama a partir de experiências pessoais",
-      "identifier": "europepmc:PMC13706635",
-      "url": "https://europepmc.org/article/PMC/PMC13706635",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Topical Calcium Thioglycolate for Severe Plantar Hyperkeratosis in Atopic Dermatitis: A Case Report",
-      "identifier": "europepmc:PMC13703114",
-      "url": "https://europepmc.org/article/PMC/PMC13703114",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Convergent Validity and Exploratory Discrimination of Two-Dimensional Facial Photographic Measures for Clinician-Rated Facial Asymmetry in Young Mongolian Adults",
-      "identifier": "europepmc:PMC13700725",
-      "url": "https://europepmc.org/article/PMC/PMC13700725",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Improving the Quality of Operation Notes Without a Proforma: An Audit",
-      "identifier": "europepmc:PMC13702370",
-      "url": "https://europepmc.org/article/PMC/PMC13702370",
-      "date": "2026-10-27",
-      "first_seen": "2026-10-27T21:53:40Z"
-    },
-    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "BERKELEY HOMELESS UNION, ET AL. V. CITY OF BERKELEY, ET AL.",
@@ -15207,7 +15360,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-26T07:12:03Z",
+    "last_poll": "2026-11-26T21:01:16Z",
     "sources": [
       {
         "name": "Ninth Circuit",
