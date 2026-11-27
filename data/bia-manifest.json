@@ -1,8 +1,8 @@
 {
   "status": "complete",
   "mode": "poll",
-  "updated_utc": "2026-11-25T23:46:58Z",
-  "last_success_utc": "2026-11-25T23:46:58Z",
+  "updated_utc": "2026-11-27T00:00:10Z",
+  "last_success_utc": "2026-11-27T00:00:10Z",
   "volumes": {
     "30": {
       "found_on_page": 37,
