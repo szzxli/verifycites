@@ -3,6 +3,146 @@
     {
       "source": "Europe PMC",
       "kind": "paper",
+      "title_or_case_name": "Psychometric Validation of a Deep Learning-based Foreground Speech Detection Algorithm for Everyday Conversation Detection",
+      "identifier": "10.31234/osf.io/xca5j_v4",
+      "url": "https://europepmc.org/article/PPR/PPR1379980",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/xca5j_v4",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Psychometric Validation of a Deep Learning-based Foreground Speech Detection Algorithm for Everyday Conversation Detection",
+      "identifier": "10.31234/osf.io/xca5j",
+      "url": "https://europepmc.org/article/PPR/PPR1379979",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/xca5j",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Is there an autistic voice? A longitudinal study of conversational acoustics, development and individual skills in autistic and non-autistic children",
+      "identifier": "10.31234/osf.io/qukgy_v2",
+      "url": "https://europepmc.org/article/PPR/PPR1379978",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/qukgy_v2",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Is there an autistic voice? A longitudinal study of conversational acoustics, development and individual skills in autistic and non-autistic children",
+      "identifier": "10.31234/osf.io/qukgy",
+      "url": "https://europepmc.org/article/PPR/PPR1379977",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/qukgy",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Extreme Response Style Generalizes Across Likert-Type and Visual Analogue Scales",
+      "identifier": "10.31234/osf.io/zevb7_v2",
+      "url": "https://europepmc.org/article/PPR/PPR1379976",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/zevb7_v2",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Extreme Response Style Generalizes Across Likert-Type and Visual Analogue Scales",
+      "identifier": "10.31234/osf.io/zevb7",
+      "url": "https://europepmc.org/article/PPR/PPR1379975",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/zevb7",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beyond Motivation to Survival: The Core Psychological Needs Framework as an Allostatic Stress-Regulatory System",
+      "identifier": "10.31234/osf.io/a37hg_v2",
+      "url": "https://europepmc.org/article/PPR/PPR1379974",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/a37hg_v2",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Beyond Motivation to Survival: The Core Psychological Needs Framework as an Allostatic Stress-Regulatory System",
+      "identifier": "10.31234/osf.io/a37hg",
+      "url": "https://europepmc.org/article/PPR/PPR1379973",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/a37hg",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reports of Childhood Maltreatment Depend on Current Affect: A 16-Year Population-Based Follow-Up of the Childhood Trauma Questionnaire",
+      "identifier": "10.31234/osf.io/83hpg_v1",
+      "url": "https://europepmc.org/article/PPR/PPR1379972",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/83hpg_v1",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Reports of Childhood Maltreatment Depend on Current Affect: A 16-Year Population-Based Follow-Up of the Childhood Trauma Questionnaire",
+      "identifier": "10.31234/osf.io/83hpg",
+      "url": "https://europepmc.org/article/PPR/PPR1379971",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/83hpg",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A 20-minute time-on-task manipulation increases cognitive demand but does not impact x-ray screening performance.",
+      "identifier": "10.31234/osf.io/czurg_v1",
+      "url": "https://europepmc.org/article/PPR/PPR1379970",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/czurg_v1",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "A 20-minute time-on-task manipulation increases cognitive demand but does not impact x-ray screening performance.",
+      "identifier": "10.31234/osf.io/czurg",
+      "url": "https://europepmc.org/article/PPR/PPR1379969",
+      "date": "2026-11-28",
+      "doi": "10.31234/osf.io/czurg",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Prevalence of Multidrug-Resistant Escherichia coli from Poultry Farms in Nairobi and Kiambu Counties, Kenya",
+      "identifier": "10.21203/rs.3.rs-11469031/v1",
+      "url": "https://europepmc.org/article/PPR/PPR1379622",
+      "date": "2026-11-28",
+      "doi": "10.21203/rs.3.rs-11469031/v1",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
+      "title_or_case_name": "Donor/recipient sex mismatch and survival after thoracic transplant: You cannot manage what you do not measure.",
+      "identifier": "10.1016/j.healun.2026.10.027",
+      "url": "https://europepmc.org/article/MED/43049713",
+      "date": "2026-11-28",
+      "doi": "10.1016/j.healun.2026.10.027",
+      "first_seen": "2026-11-28T06:41:30Z"
+    },
+    {
+      "source": "Europe PMC",
+      "kind": "paper",
       "title_or_case_name": "GeneReviews",
       "identifier": "europepmc:NBK5191",
       "url": "https://europepmc.org/article/NBK/NBK5191",
@@ -14449,16 +14589,6 @@
       "first_seen": "2026-10-30T04:44:46Z"
     },
     {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "PRS Journal Club: Beyond the Operation: Redefining Success in Pediatric Craniofacial Surgery.",
-      "identifier": "10.1097/prs.0000000000013354",
-      "url": "https://europepmc.org/article/MED/42950262",
-      "date": "2026-10-30",
-      "doi": "10.1097/prs.0000000000013354",
-      "first_seen": "2026-10-30T04:44:46Z"
-    },
-    {
       "source": "Ninth Circuit",
       "kind": "legal",
       "title_or_case_name": "RED EAGLE LAW, LC V. RUBIO",
@@ -14466,136 +14596,6 @@
       "url": "https://cdn.ca9.uscourts.gov/datastore/opinions/2026/10/29/26-6943.pdf",
       "date": "2026-10-29",
       "first_seen": "2026-10-30T04:44:46Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Low incidence, high stakes: BCMA CAR-T and parkinsonism.",
-      "identifier": "10.3324/haematol.2026.302169",
-      "url": "https://europepmc.org/article/MED/42952468",
-      "date": "2026-10-29",
-      "doi": "10.3324/haematol.2026.302169",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "BCL6 in B-cell lymphomas: old target, new tricks?",
-      "identifier": "10.3324/haematol.2026.301591",
-      "url": "https://europepmc.org/article/MED/42952467",
-      "date": "2026-10-29",
-      "doi": "10.3324/haematol.2026.301591",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "\"Building the connection route to help\": a qualitative study of opioid use disorder recovery processes for black women age 18-30.",
-      "identifier": "10.1080/15332640.2026.2749554",
-      "url": "https://europepmc.org/article/MED/42952465",
-      "date": "2026-10-29",
-      "doi": "10.1080/15332640.2026.2749554",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Comment on: \"The First Wave: National Adoption and Economic Shifts of Posterior Cervical Decompression and Fusion in Hospital-Owned Ambulatory Surgery Centers\".",
-      "identifier": "10.1177/21925682261490888",
-      "url": "https://europepmc.org/article/MED/42952463",
-      "date": "2026-10-29",
-      "doi": "10.1177/21925682261490888",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Environmental assessment of hemophilia therapies. Comment on: \"Carbon footprint of direct oral anticoagulants in atrial fibrillation and venous thromboembolism\".",
-      "identifier": "10.3324/haematol.2026.302171",
-      "url": "https://europepmc.org/article/MED/42952462",
-      "date": "2026-10-29",
-      "doi": "10.3324/haematol.2026.302171",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Post-Synthetic Thioesterification of Carboxyl-Functionalized HCP for Enhanced CO<sub>2</sub> Capture and Selectivity.",
-      "identifier": "10.1002/marc.70463",
-      "url": "https://europepmc.org/article/MED/42952461",
-      "date": "2026-10-29",
-      "doi": "10.1002/marc.70463",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Platelet transfusion biology: from hemostatic support to inflammatory and immune signaling.",
-      "identifier": "10.3324/haematol.2026.301566",
-      "url": "https://europepmc.org/article/MED/42952460",
-      "date": "2026-10-29",
-      "doi": "10.3324/haematol.2026.301566",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Beyond Contrast Enhancement: Rethinking HCC Surveillance.",
-      "identifier": "10.3350/cmh.2026.1114",
-      "url": "https://europepmc.org/article/MED/42952459",
-      "date": "2026-10-29",
-      "doi": "10.3350/cmh.2026.1114",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Clinical risk features and genetic findings in essential thrombocythemia and polycythemia vera of childhood and adolescence: prospective insights from the German MPN Childhood Registry.",
-      "identifier": "10.3324/haematol.2026.301474",
-      "url": "https://europepmc.org/article/MED/42952458",
-      "date": "2026-10-29",
-      "doi": "10.3324/haematol.2026.301474",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Acute Endocrine Alterations After Traumatic Brain Injury and 6-Month Functional Outcome.",
-      "identifier": "10.1002/acn3.70570",
-      "url": "https://europepmc.org/article/MED/42952457",
-      "date": "2026-10-29",
-      "doi": "10.1002/acn3.70570",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Immunogenomic characterization of classic Hodgkin lymphoma variant of Richter transformation reveals shared biology with <i>de novo</i> classic Hodgkin lymphoma.",
-      "identifier": "10.3324/haematol.2026.301780",
-      "url": "https://europepmc.org/article/MED/42952456",
-      "date": "2026-10-29",
-      "doi": "10.3324/haematol.2026.301780",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Real-world analysis of thromboprophylaxis use during autologous hematopoietic stem cell transplantation for multiple myeloma.",
-      "identifier": "10.3324/haematol.2026.301181",
-      "url": "https://europepmc.org/article/MED/42952455",
-      "date": "2026-10-29",
-      "doi": "10.3324/haematol.2026.301181",
-      "first_seen": "2026-10-29T22:30:22Z"
-    },
-    {
-      "source": "Europe PMC",
-      "kind": "paper",
-      "title_or_case_name": "Can we better evaluate responses in higher-risk myelodysplastic syndromes?",
-      "identifier": "10.3324/haematol.2026.302157",
-      "url": "https://europepmc.org/article/MED/42952454",
-      "date": "2026-10-29",
-      "doi": "10.3324/haematol.2026.302157",
-      "first_seen": "2026-10-29T22:30:22Z"
     },
     {
       "source": "Ninth Circuit",
@@ -15328,7 +15328,7 @@
     }
   ],
   "meta": {
-    "last_poll": "2026-11-27T20:46:31Z",
+    "last_poll": "2026-11-28T06:41:30Z",
     "sources": [
       {
         "name": "Ninth Circuit",
